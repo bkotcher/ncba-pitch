@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oceanic Wealth — NCBA Engagement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0b0d;
+  --bg-elevated: #111316;
+  --bg-card: #14171c;
+  --bg-hover: #1a1e24;
+  --border: #1f242c;
+  --border-strong: #2a3038;
+  --text: #e8ebf0;
+  --text-secondary: #8b94a3;
+  --text-tertiary: #5a6270;
+  --text-quaternary: #3d434d;
+  --gold: #c9a961;
+  --gold-dim: #8a7642;
+  --gold-deep: #4a3e22;
+  --signal: #5eb3d6;
+  --signal-dim: #3d7a91;
+  --warning: #d4a347;
+  --critical: #c97062;
+  --positive: #6ba37a;
+  --purple: #b08fc9;
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Geist', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; height: 100vh;
+}
+
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.025; z-index: 1000; mix-blend-mode: overlay;
+}
+body::after {
+  content: ''; position: fixed; top: -300px; left: -300px;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.04) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr 360px;
+  grid-template-rows: 56px 1fr 32px;
+  grid-template-areas:
+    "header header header"
+    "sidebar main facts"
+    "footer footer footer";
+  height: 100vh; position: relative; z-index: 1;
+}
+
+/* ============= HEADER ============= */
+.header {
+  grid-area: header; background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 24px; gap: 32px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--gold-dim); border-radius: 50%;
+  color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 14px;
+}
+.brand-name { font-family: var(--serif); font-size: 18px; font-weight: 400; letter-spacing: 0.02em; }
+.brand-name em { font-style: italic; color: var(--gold); font-weight: 300; }
+.header-divider { width: 1px; height: 24px; background: var(--border); }
+.client-context { display: flex; align-items: center; gap: 12px; flex: 1; }
+.client-label { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.12em; }
+.client-name { font-family: var(--serif); font-size: 15px; font-weight: 400; }
+.client-aum { font-family: var(--mono); font-size: 12px; color: var(--text-secondary); }
+.header-status { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+.status-item { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 8px var(--signal); animation: pulse 2s ease-in-out infinite; }
+.pulse.gold { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
+
+/* ============= SIDEBAR ============= */
+.sidebar {
+  grid-area: sidebar; background: var(--bg-elevated);
+  border-right: 1px solid var(--border); overflow-y: auto; padding: 20px 0;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+.sidebar-section { margin-bottom: 22px; }
+.sidebar-section-toggle { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; margin-bottom: 10px; cursor: pointer; user-select: none; }
+.sidebar-section-toggle .sidebar-label { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; display: flex; align-items: center; gap: 8px; }
+.sidebar-section-toggle .sidebar-emoji { font-style: normal; font-size: 11px; color: var(--gold); }
+.sidebar-section-toggle .caret { font-family: var(--mono); font-size: 9px; color: var(--text-quaternary); transition: transform 0.2s ease; }
+.sidebar-section.collapsed .caret { transform: rotate(-90deg); }
+.sidebar-section.collapsed .sidebar-children { display: none; }
+.sidebar-item { padding: 9px 24px 9px 22px; display: flex; align-items: center; gap: 12px; cursor: pointer; color: var(--text-secondary); font-size: 13px; transition: all 0.15s ease; border-left: 2px solid transparent; user-select: none; }
+.sidebar-item:hover { background: var(--bg-hover); color: var(--text); }
+.sidebar-item.active { background: var(--bg-hover); color: var(--text); border-left-color: var(--gold); }
+.sidebar-num { font-family: var(--mono); font-size: 10px; color: var(--text-quaternary); letter-spacing: 0.06em; }
+.sidebar-item.active .sidebar-num { color: var(--gold); }
+.sidebar-item-label { flex: 1; }
+.sidebar-badge { margin-left: auto; font-family: var(--mono); font-size: 9px; color: var(--gold-dim); }
+
+.system-panel { margin: 16px 20px; padding: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; }
+.system-panel-title { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+.metric-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 11px; }
+.metric-row:last-child { border-bottom: none; }
+.metric-label { color: var(--text-tertiary); }
+.metric-value { color: var(--text); font-variant-numeric: tabular-nums; }
+.metric-value.gold { color: var(--gold); }
+
+/* ============= MAIN ============= */
+.main { grid-area: main; overflow-y: auto; background: var(--bg); }
+.main::-webkit-scrollbar { width: 6px; }
+.main::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+.main-inner { padding: 28px 36px 80px; max-width: 1180px; }
+
+.view { display: none; animation: fadeIn 0.35s ease; }
+.view.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.page-eyebrow { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 8px; }
+.page-title { font-family: var(--serif); font-size: 32px; font-weight: 300; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 6px; }
+.page-title em { font-style: italic; color: var(--gold); font-weight: 300; }
+.page-subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; max-width: 720px; }
+
+/* ============ SPEAKER NOTE ============ */
+.open-this {
+  background: var(--bg-elevated);
+  border: 1px dashed var(--gold-dim);
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  border-radius: 0 3px 3px 0;
+  position: relative;
+}
+.open-this::before {
+  content: '◐';
+  position: absolute; top: 12px; right: 14px;
+  color: var(--gold-dim); font-size: 14px; line-height: 1;
+}
+.open-this .label {
+  font-family: var(--mono); font-size: 9px; color: var(--gold);
+  letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px;
+}
+.open-this p {
+  font-family: var(--serif); font-size: 14px; font-style: italic;
+  color: var(--text); line-height: 1.6; margin: 0;
+  max-width: 880px; font-weight: 300;
+}
+.open-this p strong { color: var(--gold); font-style: normal; font-weight: 500; }
+.open-this p em { color: var(--text-secondary); }
+.open-this p + p { margin-top: 8px; }
+
+/* Summary band */
+.summary-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 28px; border-radius: 4px; overflow: hidden; }
+.summary-band.three { grid-template-columns: repeat(3, 1fr); }
+.summary-band.five { grid-template-columns: repeat(5, 1fr); }
+.summary-cell { background: var(--bg-card); padding: 16px 20px; }
+.summary-cell-label { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
+.summary-cell-value { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.summary-cell-value.gold { color: var(--gold); }
+.summary-cell-value.critical { color: var(--critical); }
+.summary-cell-value.positive { color: var(--positive); }
+.summary-cell-delta { font-family: var(--mono); font-size: 11px; margin-top: 4px; color: var(--text-tertiary); }
+.summary-cell-delta.positive { color: var(--positive); }
+.summary-cell-delta.negative { color: var(--critical); }
+
+.section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-top: 36px; }
+.section-header:first-of-type { margin-top: 0; }
+.section-title { font-family: var(--serif); font-size: 18px; font-weight: 400; }
+.section-meta { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* Tables */
+.tbl { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; margin-bottom: 24px; }
+.tbl thead th { text-align: left; padding: 10px 14px; background: var(--bg-card); color: var(--text-tertiary); font-family: var(--mono); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; border-bottom: 1px solid var(--border); }
+.tbl thead th.num { text-align: right; }
+.tbl tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+.tbl tbody td.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--text); font-feature-settings: "tnum"; }
+.tbl tbody td.gold { color: var(--gold); }
+.tbl tbody td.muted { color: var(--text-secondary); font-family: var(--sans); font-size: 12.5px; }
+.tbl tbody tr.total td { border-top: 2px solid var(--gold-dim); border-bottom: 2px solid var(--gold-dim); font-weight: 600; padding-top: 14px; padding-bottom: 14px; }
+.tbl tbody tr.total td.num { color: var(--gold); font-size: 14px; }
+
+/* Narrative card */
+.narrative-card { background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elevated) 100%); border: 1px solid var(--border); border-radius: 6px; padding: 24px 28px; margin-bottom: 24px; position: relative; overflow: hidden; }
+.narrative-card::before { content: ''; position: absolute; top: 0; left: 0; height: 1px; width: 60px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+.narrative-eyebrow { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 10px; }
+.narrative-title { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.3; margin-bottom: 14px; }
+.narrative-body { font-family: var(--serif); font-size: 15px; line-height: 1.7; color: var(--text-secondary); font-weight: 300; max-width: 760px; }
+.narrative-body em { font-style: italic; color: var(--text); }
+.narrative-body strong { color: var(--gold); font-weight: 500; }
+
+/* Findings */
+.finding { display: grid; grid-template-columns: 50px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.finding:first-of-type { border-top: 1px solid var(--border); }
+.finding .idx { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.14em; padding-top: 3px; }
+.finding .body h4 { font-family: var(--serif); font-size: 17px; font-weight: 400; margin-bottom: 6px; line-height: 1.4; }
+.finding .body p { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+
+/* CEO quote */
+.ceo-quote { margin: 16px 0 28px; padding: 28px 32px; background: var(--bg-card); border-left: 3px solid var(--gold); border-radius: 0 3px 3px 0; }
+.ceo-quote .text { font-family: var(--serif); font-size: 26px; font-weight: 300; line-height: 1.4; color: var(--text); font-style: italic; letter-spacing: -0.005em; }
+.ceo-quote .text::before { content: "\201C"; color: var(--gold); margin-right: 2px; }
+.ceo-quote .text::after { content: "\201D"; color: var(--gold); margin-left: 2px; }
+.ceo-quote .attrib { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.18em; margin-top: 18px; }
+
+/* Two-up */
+.two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.interp-card { padding: 22px 24px; background: var(--bg-card); border: 1px solid var(--border); border-top: 2px solid var(--gold); }
+.interp-card .label { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; }
+.interp-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 12px; line-height: 1.35; }
+.interp-card p { font-family: var(--sans); font-size: 13px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 10px; }
+.interp-card .answer { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.interp-card .answer .tag { font-family: var(--mono); font-size: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 5px; display: block; }
+.interp-card .answer p { margin: 0; color: var(--text); font-size: 13px; }
+.interp-card.primary { border-top-color: var(--gold); background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elevated) 100%); position: relative; }
+.interp-card.primary::after { content: 'PRIMARY'; position: absolute; top: 14px; right: 18px; font-family: var(--mono); font-size: 8px; color: var(--gold); letter-spacing: 0.22em; }
+.interp-card.secondary .label { color: var(--text-secondary); }
+.interp-card.secondary { border-top-color: var(--gold-dim); }
+
+/* Moat cards */
+.moats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.moat-card { padding: 22px 24px; background: var(--bg-card); border: 1px solid var(--border); position: relative; }
+.moat-card::before { content: ''; position: absolute; top: 0; left: 0; height: 2px; width: 60px; background: var(--gold); }
+.moat-card.primary { border-color: var(--gold-dim); }
+.moat-card.primary::before { width: 100%; }
+.moat-card .num { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 12px; }
+.moat-card h4 { font-family: var(--serif); font-size: 19px; font-weight: 400; margin-bottom: 10px; line-height: 1.3; }
+.moat-card p { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
+.moat-card ul { list-style: none; padding: 0; margin: 0; }
+.moat-card ul li { padding: 6px 0; font-family: var(--mono); font-size: 11px; color: var(--text-secondary); border-top: 1px solid var(--border); }
+.moat-card ul li::before { content: '— '; color: var(--gold-dim); margin-right: 4px; }
+
+/* Term sheet */
+.term-sheet { background: var(--bg-card); border: 1px solid var(--border); margin-bottom: 28px; }
+.term-sheet-head { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.term-sheet-head h4 { font-family: var(--serif); font-size: 16px; font-weight: 400; }
+.term-sheet-head .id { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.14em; }
+.term-sheet dl { margin: 0; }
+.term-sheet dl > div { display: grid; grid-template-columns: 200px 1fr; padding: 12px 24px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.term-sheet dl > div:last-child { border-bottom: none; }
+.term-sheet dt { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; padding-top: 3px; }
+.term-sheet dd { color: var(--text); font-family: var(--sans); }
+.term-sheet dd strong { color: var(--gold); font-weight: 500; }
+
+/* Models grid */
+.models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+.model-card { background: var(--bg-card); border: 1px solid var(--border); padding: 20px 22px; border-top: 2px solid var(--border-strong); }
+.model-card.canonical { border-top-color: var(--gold); }
+.model-card .label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); padding: 3px 8px; border: 1px solid var(--border-strong); display: inline-block; margin-bottom: 12px; }
+.model-card.canonical .label { color: var(--gold); border-color: var(--gold-dim); }
+.model-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 4px; }
+.model-card .tilt { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.06em; margin-bottom: 16px; }
+.model-card .sleeve { display: grid; grid-template-columns: 42px 1fr; gap: 10px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 12px; }
+.model-card .sleeve .pct { font-family: var(--mono); color: var(--gold); font-weight: 500; }
+.model-card .sleeve .name { font-family: var(--sans); font-size: 12px; }
+.model-card .sleeve .name .vehicle { display: block; font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); margin-top: 2px; }
+.model-card .note { margin-top: 14px; padding: 10px 12px; background: var(--bg-elevated); border-left: 2px solid var(--gold-dim); font-family: var(--mono); font-size: 10px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Pricing tiers */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 24px; }
+.tier { background: var(--bg-card); padding: 24px; }
+.tier .label { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; }
+.tier h4 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 8px; }
+.tier .price { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold); margin: 8px 0 14px; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.tier .price .small { font-size: 14px; color: var(--text-secondary); }
+.tier ul { list-style: none; padding: 0; margin: 0; }
+.tier ul li { padding: 6px 0; font-family: var(--mono); font-size: 11px; color: var(--text-secondary); border-top: 1px solid var(--border); }
+.tier ul li:first-child { border-top: none; padding-top: 2px; }
+.tier ul li::before { content: '— '; color: var(--gold-dim); margin-right: 2px; }
+
+/* Workstream cards */
+.workstreams-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.workstream-card { background: var(--bg-card); border: 1px solid var(--border); padding: 20px 22px; }
+.workstream-card .num { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 8px; }
+.workstream-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 400; margin-bottom: 14px; }
+.workstream-card .row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 12px; line-height: 1.55; }
+.workstream-card .row .label { font-family: var(--mono); font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; padding-top: 3px; }
+.workstream-card .row .val { color: var(--text-secondary); }
+
+/* Ledger lines */
+.ledger-line { display: grid; grid-template-columns: 50px 1fr 220px; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.ledger-line .idx { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.14em; }
+.ledger-line .body h4 { font-family: var(--serif); font-size: 16px; font-weight: 400; margin-bottom: 4px; }
+.ledger-line .body p { font-family: var(--sans); font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+.ledger-line .amount { font-family: var(--mono); font-size: 18px; font-weight: 500; color: var(--gold); text-align: right; font-variant-numeric: tabular-nums; }
+.ledger-line .amount .sub { display: block; font-size: 10px; color: var(--text-tertiary); margin-top: 3px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.ledger-subtotals { margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); padding: 4px 24px; }
+.ledger-subtotals .row { display: grid; grid-template-columns: 1fr 200px; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 12px; }
+.ledger-subtotals .row:last-child { border-bottom: none; }
+.ledger-subtotals .row .label { color: var(--text-secondary); }
+.ledger-subtotals .row .label .small { color: var(--text-tertiary); margin-left: 8px; font-size: 10px; }
+.ledger-subtotals .row .num { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
+
+.cinematic-total { margin: 32px 0; padding: 40px 32px; background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%); border: 1px solid var(--gold-dim); position: relative; overflow: hidden; }
+.cinematic-total::before { content: ''; position: absolute; top: 0; left: 0; height: 2px; width: 100%; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+.cinematic-total .label { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 18px; }
+.cinematic-total .number { font-family: var(--serif); font-size: 96px; font-weight: 300; color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+.cinematic-total .number .currency { font-size: 40px; vertical-align: 32px; color: var(--gold-dim); margin-right: 6px; }
+.cinematic-total .number .unit { font-size: 56px; vertical-align: 8px; }
+.cinematic-total .desc { margin-top: 18px; font-family: var(--serif); font-size: 16px; color: var(--text-secondary); font-style: italic; max-width: 700px; line-height: 1.5; font-weight: 300; }
+
+.caveat-card { background: var(--bg-card); border: 1px solid var(--critical); border-left-width: 3px; padding: 22px 24px; margin-top: 24px; }
+.caveat-card .label { font-family: var(--mono); font-size: 10px; color: var(--critical); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; }
+.caveat-card p { font-family: var(--serif); font-size: 14px; line-height: 1.7; color: var(--text); margin: 0; max-width: 800px; font-weight: 300; }
+.caveat-card p em { color: var(--gold); font-style: normal; font-weight: 500; }
+
+/* Layer cards */
+.layers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+.layer-card { background: var(--bg-card); border: 1px solid var(--border); padding: 18px 20px; }
+.layer-card .num { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 8px; }
+.layer-card h4 { font-family: var(--serif); font-size: 15px; font-weight: 400; margin-bottom: 8px; line-height: 1.35; }
+.layer-card p { font-family: var(--sans); font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+.layer-card.featured { grid-column: span 2; border-color: var(--gold-dim); background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elevated) 100%); }
+.layer-card.featured .badge { display: inline-block; font-family: var(--mono); font-size: 9px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--gold-dim); margin-bottom: 10px; }
+.layer-card.featured h4 { font-size: 18px; }
+.layer-card.featured p { font-size: 13px; }
+
+/* Wallet visualization (NEW for view 01) */
+.wallet-viz {
+  background: var(--bg-card); border: 1px solid var(--border);
+  padding: 24px 28px; margin-bottom: 28px;
+}
+.wallet-viz .head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.wallet-viz .head h4 { font-family: var(--serif); font-size: 16px; font-weight: 400; }
+.wallet-viz .head .id { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.14em; }
+.wallet-bars { display: grid; gap: 10px; }
+.wallet-bar { display: grid; grid-template-columns: 200px 1fr 120px; gap: 16px; align-items: center; font-family: var(--mono); font-size: 12px; }
+.wallet-bar .label { color: var(--text); font-family: var(--sans); font-size: 13px; }
+.wallet-bar .track { background: var(--bg-elevated); height: 22px; border-radius: 2px; overflow: hidden; position: relative; }
+.wallet-bar .fill { height: 100%; background: var(--text-tertiary); border-radius: 2px; transition: width 0.6s ease; }
+.wallet-bar.us .fill { background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%); }
+.wallet-bar.leak .fill { background: var(--critical); opacity: 0.7; }
+.wallet-bar .amt { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
+.wallet-bar.us .amt { color: var(--gold); }
+.wallet-bar.leak .amt { color: var(--critical); }
+.wallet-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--border); }
+.wallet-summary .stat { font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); }
+.wallet-summary .stat .big { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--gold); display: block; margin-top: 6px; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.wallet-summary .stat.recovery .big { color: var(--positive); }
+
+/* Hero bars */
+.bars-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 28px 0; }
+.bar-block { background: var(--bg-card); border: 1px solid var(--border); padding: 24px; }
+.bar-block .label { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+.bar-block .number { font-family: var(--serif); font-weight: 300; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px; }
+.bar-block.primary .number { font-size: 64px; color: var(--gold); }
+.bar-block.secondary .number { font-size: 64px; color: var(--text); }
+.bar-block .number .ec { font-size: 28px; color: var(--text-tertiary); margin-right: 6px; vertical-align: 18px; }
+.bar-block .number .m { font-size: 32px; color: var(--text-tertiary); }
+.bar-block .note { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.06em; margin-bottom: 16px; }
+.bar-block .bar { height: 8px; background: var(--gold); border-radius: 1px; }
+.bar-block.primary .bar { width: 100%; background: var(--gold); }
+.bar-block.secondary .bar { width: 86%; background: var(--text-tertiary); }
+
+/* ECSRC banner */
+.ecsrc-banner { margin: 28px 0; padding: 36px 32px; background: linear-gradient(135deg, #1a1419 0%, #2a1518 100%); border: 1px solid var(--gold-dim); border-left: 4px solid var(--gold); position: relative; overflow: hidden; }
+.ecsrc-banner .eyebrow { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
+.ecsrc-banner h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; line-height: 1.2; color: var(--text); max-width: 760px; letter-spacing: -0.01em; margin-bottom: 24px; }
+.ecsrc-banner h2 em { color: var(--gold); font-style: italic; }
+.ecsrc-banner .compete-tbl { width: 100%; font-family: var(--mono); font-size: 12px; }
+.ecsrc-banner .compete-tbl th { text-align: left; padding: 10px 0; font-size: 9px; color: var(--text-tertiary); letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid var(--border-strong); }
+.ecsrc-banner .compete-tbl th + th { text-align: right; }
+.ecsrc-banner .compete-tbl td { padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+.ecsrc-banner .compete-tbl td + td { text-align: right; }
+.ecsrc-banner .compete-tbl tr.us td { color: var(--gold); font-weight: 500; border-top: 1px solid var(--gold-dim); }
+
+/* Field comparison */
+.field-tbl-wrap { margin-bottom: 24px; overflow-x: auto; }
+.field-tbl { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+.field-tbl thead th { text-align: center; padding: 14px 12px; background: var(--bg-card); color: var(--text-tertiary); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; border-bottom: 1px solid var(--border-strong); }
+.field-tbl thead th:first-child { text-align: left; color: var(--text-secondary); }
+.field-tbl thead th.us { background: linear-gradient(180deg, var(--gold-dim) 0%, #6a5530 100%); color: var(--bg); }
+.field-tbl tbody td { padding: 14px 12px; border-bottom: 1px solid var(--border); text-align: center; color: var(--text-tertiary); font-size: 11px; }
+.field-tbl tbody td:first-child { text-align: left; color: var(--text); font-family: var(--sans); font-size: 13px; }
+.field-tbl tbody td.us { background: rgba(201, 169, 97, 0.06); color: var(--gold); font-weight: 500; }
+
+/* Timeline */
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 24px; }
+.timeline-phase { background: var(--bg-card); padding: 22px 22px; }
+.timeline-phase .marker { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.timeline-phase .marker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.timeline-phase .marker .label { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+.timeline-phase h4 { font-family: var(--serif); font-size: 17px; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+.timeline-phase .window { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.06em; margin-bottom: 14px; }
+.timeline-phase ul { list-style: none; padding: 0; margin: 0; }
+.timeline-phase ul li { padding: 6px 0; font-family: var(--sans); font-size: 12px; color: var(--text-secondary); line-height: 1.5; border-top: 1px solid var(--border); }
+.timeline-phase ul li:first-child { border-top: none; padding-top: 2px; }
+
+/* Ask */
+.ask-quote { margin: 24px 0; padding: 32px 36px; background: linear-gradient(135deg, #1a1419 0%, var(--bg-card) 100%); border: 1px solid var(--gold-dim); }
+.ask-quote .text { font-family: var(--serif); font-size: 22px; font-weight: 300; line-height: 1.5; color: var(--text); letter-spacing: -0.005em; max-width: 880px; }
+.ask-quote .text::before { content: "\201C"; color: var(--gold); margin-right: 2px; }
+.ask-quote .text::after { content: "\201D"; color: var(--gold); margin-left: 2px; }
+.ask-cta { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; margin-top: 24px; }
+.ask-cta-card { background: var(--bg-card); border: 1px solid var(--border); padding: 24px 28px; }
+.ask-cta-card .label { font-family: var(--mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 14px; }
+.ask-cta-card .terms { font-family: var(--serif); font-size: 24px; font-weight: 300; line-height: 1.4; color: var(--text); }
+.ask-cta-card .terms em { color: var(--gold); font-style: normal; }
+.ask-cta-card dl { margin: 0; }
+.ask-cta-card dl > div { display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 12px; }
+.ask-cta-card dl > div:last-child { border-bottom: none; }
+.ask-cta-card dt { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; padding-top: 3px; }
+.ask-cta-card dd { color: var(--text); font-family: var(--sans); font-size: 13px; }
+.ask-cta-card dd a { color: var(--gold); text-decoration: none; }
+.ask-cta-card dd a:hover { text-decoration: underline; }
+
+/* SMA/fund table */
+.sma-tbl-wrap { background: var(--bg-card); border: 1px solid var(--border); padding: 20px 24px; margin-bottom: 24px; }
+.sma-tbl-wrap h4 { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.sma-tbl-wrap table { width: 100%; border-collapse: collapse; }
+.sma-tbl-wrap table td { padding: 12px 0; border-bottom: 1px solid var(--border); font-family: var(--sans); font-size: 13px; color: var(--text); }
+.sma-tbl-wrap table tr:last-child td { border-bottom: none; }
+.sma-tbl-wrap table td.yes { text-align: right; color: var(--gold); font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: 0.14em; }
+.sma-tbl-wrap table td.no { text-align: right; color: var(--critical); font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: 0.06em; }
+.sma-tbl-wrap table td.tbd { text-align: right; color: var(--warning); font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: 0.06em; }
+
+/* Flow diagram (Legal Structure view) */
+.flow-diagram {
+  background: var(--bg-card); border: 1px solid var(--border);
+  padding: 32px 28px; margin-bottom: 24px;
+}
+.flow-row {
+  display: grid; grid-template-columns: 1fr 60px 1fr 60px 1fr;
+  gap: 8px; align-items: center; margin-bottom: 24px;
+}
+.flow-node {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  padding: 16px 18px; border-radius: 4px; text-align: center;
+}
+.flow-node.us { border-color: var(--gold-dim); background: linear-gradient(180deg, var(--bg-card) 0%, #1a1614 100%); }
+.flow-node .icon {
+  font-family: var(--serif); font-size: 18px; color: var(--gold);
+  margin-bottom: 8px; font-style: italic;
+}
+.flow-node .label {
+  font-family: var(--mono); font-size: 9px; color: var(--text-tertiary);
+  letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px;
+}
+.flow-node .name {
+  font-family: var(--sans); font-size: 13px; color: var(--text);
+}
+.flow-node .sub {
+  font-family: var(--mono); font-size: 10px; color: var(--text-tertiary);
+  margin-top: 4px;
+}
+.flow-arrow {
+  font-family: var(--mono); color: var(--gold-dim);
+  text-align: center; font-size: 16px;
+}
+.flow-arrow .lbl {
+  font-size: 8px; letter-spacing: 0.16em;
+  color: var(--text-tertiary); display: block; margin-bottom: 4px;
+}
+
+.legal-checklist {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.legal-item {
+  display: grid; grid-template-columns: 28px 1fr 110px;
+  gap: 16px; padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.legal-item:last-child { border-bottom: none; }
+.legal-item .check {
+  font-family: var(--serif); font-size: 16px;
+  font-weight: 500; text-align: center;
+}
+.legal-item .check.ok { color: var(--gold); }
+.legal-item .check.tbd { color: var(--warning); }
+.legal-item .check.no { color: var(--critical); }
+.legal-item .body { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--text); }
+.legal-item .body .sub { color: var(--text-tertiary); font-size: 11px; margin-top: 3px; font-family: var(--mono); }
+.legal-item .status { text-align: right; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+.legal-item .status.ok { color: var(--gold); }
+.legal-item .status.tbd { color: var(--warning); }
+.legal-item .status.no { color: var(--critical); }
+
+/* Bank snapshot — multi-card grid */
+.snapshot-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 24px;
+}
+.snapshot-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  padding: 22px 24px;
+}
+.snapshot-card .label {
+  font-family: var(--mono); font-size: 10px; color: var(--gold);
+  letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px;
+}
+.snapshot-card .stat-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 12px;
+}
+.snapshot-card .stat-row:first-of-type { border-top: none; }
+.snapshot-card .stat-row .k { color: var(--text-secondary); }
+.snapshot-card .stat-row .v { color: var(--text); font-variant-numeric: tabular-nums; }
+.snapshot-card .stat-row .v.gold { color: var(--gold); }
+.snapshot-card .stat-row .v.critical { color: var(--critical); }
+
+.absences-mini {
+  background: var(--bg-card); border: 1px solid var(--critical);
+  border-left-width: 3px; padding: 18px 22px; margin-bottom: 24px;
+}
+.absences-mini h4 {
+  font-family: var(--mono); font-size: 10px; color: var(--critical);
+  letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px;
+}
+.absences-mini .absence {
+  display: grid; grid-template-columns: 24px 1fr;
+  gap: 10px; padding: 8px 0;
+  border-top: 1px solid var(--border);
+  font-family: var(--sans); font-size: 13px; line-height: 1.5;
+  color: var(--text);
+}
+.absences-mini .absence:first-of-type { border-top: none; padding-top: 2px; }
+.absences-mini .absence .n { font-family: var(--mono); font-size: 9px; color: var(--critical); letter-spacing: 0.14em; padding-top: 3px; }
+
+.section-close { padding: 18px 0; border-top: 1px solid var(--border); margin-top: 18px; font-family: var(--serif); font-size: 16px; color: var(--text-secondary); font-style: italic; max-width: 700px; line-height: 1.55; }
+
+/* ============= FACTS PANEL ============= */
+.facts { grid-area: facts; background: var(--bg-elevated); border-left: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+.facts-header { padding: 16px 20px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.facts-title { font-family: var(--serif); font-size: 15px; font-weight: 400; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+.facts-subtitle { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.12em; }
+.facts-stream { flex: 1; overflow-y: auto; padding: 0; }
+.facts-stream::-webkit-scrollbar { width: 4px; }
+.facts-stream::-webkit-scrollbar-thumb { background: var(--border-strong); }
+.facts-group { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.facts-group-label { font-family: var(--mono); font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
+.facts-group .stat { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; font-family: var(--mono); font-size: 11px; border-top: 1px solid var(--border); }
+.facts-group .stat:first-of-type { border-top: none; padding-top: 0; }
+.facts-group .stat .k { color: var(--text-tertiary); }
+.facts-group .stat .v { color: var(--text); font-variant-numeric: tabular-nums; }
+.facts-group .stat .v.gold { color: var(--gold); }
+.facts-group .stat .v.critical { color: var(--critical); }
+.facts-group .stat .v.positive { color: var(--positive); }
+.facts-absence { padding: 12px 0; border-top: 1px solid var(--border); display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); line-height: 1.5; }
+.facts-absence:first-of-type { border-top: none; padding-top: 0; }
+.facts-absence .idx { font-family: var(--mono); font-size: 9px; color: var(--critical); letter-spacing: 0.1em; }
+.facts-tag { padding: 14px 20px; background: var(--bg-card); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+
+/* Footer */
+footer.foot { grid-area: footer; background: var(--bg-elevated); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; }
+footer.foot .right { color: var(--text-secondary); }
+footer.foot .right .gold { color: var(--gold); }
+
+@media (max-width: 1280px) {
+  .app { grid-template-columns: 260px 1fr 300px; }
+  .moats-grid, .two-up, .workstreams-grid, .snapshot-grid { grid-template-columns: 1fr; }
+  .models-grid, .layers-grid, .timeline, .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .layer-card.featured { grid-column: span 2; }
+  .summary-band { grid-template-columns: repeat(2, 1fr); }
+  .summary-band.five { grid-template-columns: repeat(2, 1fr); }
+  .wallet-bar { grid-template-columns: 1fr; }
+  .wallet-bar .label { font-size: 11px; }
+}
+@media (max-width: 980px) {
+  .app { grid-template-columns: 220px 1fr; grid-template-areas: "header header" "sidebar main" "footer footer"; }
+  .facts { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-mark">○</div>
+      <div class="brand-name">Oceanic <em>Wealth</em></div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="client-context">
+      <span class="client-label">Engagement</span>
+      <span class="client-name">National Commercial Bank of Anguilla</span>
+      <span class="client-aum">· EC$1,394M · FY25</span>
+    </div>
+    <div class="header-status">
+      <div class="status-item"><span class="pulse gold"></span> ECSRC supervised</div>
+      <div class="status-item"><span class="pulse"></span> Live infrastructure</div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-section" data-section="opp">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label"><span class="sidebar-emoji">◧</span>The Opportunity</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item active" data-view="wallet">
+          <span class="sidebar-num">01</span><span class="sidebar-item-label">The Wallet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="clients">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◇</span>For Their Clients</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item" data-view="premier">
+          <span class="sidebar-num">02</span><span class="sidebar-item-label">Premier Wealth</span>
+          <span class="sidebar-badge">primary</span>
+        </div>
+        <div class="sidebar-item" data-view="models">
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">Models &amp; Track Record</span>
+        </div>
+        <div class="sidebar-item" data-view="journey">
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">Sample Client Journey</span>
+        </div>
+        <div class="sidebar-item" data-view="legal">
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Legal Structure</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="bank">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label"><span class="sidebar-emoji">◆</span>For The Bank</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item" data-view="consultancy">
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Consultancy Capabilities</span>
+        </div>
+        <div class="sidebar-item" data-view="ledger">
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">The Ledger</span>
+          <span class="sidebar-badge">$1.62M</span>
+        </div>
+        <div class="sidebar-item" data-view="maico">
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">MAICO Mandate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="engagement">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label"><span class="sidebar-emoji" style="color:var(--signal);">◉</span>The Engagement</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item" data-view="governance">
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">Joint Risk &amp; Governance</span>
+        </div>
+        <div class="sidebar-item" data-view="intel">
+          <span class="sidebar-num">10</span><span class="sidebar-item-label">Caribbean Wealth Intel</span>
+        </div>
+        <div class="sidebar-item" data-view="implementation">
+          <span class="sidebar-num">11</span><span class="sidebar-item-label">60-Day Implementation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="close">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">▶</span>The Close</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item" data-view="field">
+          <span class="sidebar-num">12</span><span class="sidebar-item-label">The Field</span>
+        </div>
+        <div class="sidebar-item" data-view="infra">
+          <span class="sidebar-num">13</span><span class="sidebar-item-label">Live Infrastructure</span>
+        </div>
+        <div class="sidebar-item" data-view="ask">
+          <span class="sidebar-num">14</span><span class="sidebar-item-label">The Ask</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="system-panel">
+      <div class="system-panel-title">Engagement Status</div>
+      <div class="metric-row"><span class="metric-label">Phase</span><span class="metric-value gold">0 · Pitch</span></div>
+      <div class="metric-row"><span class="metric-label">NDA</span><span class="metric-value">Ready</span></div>
+      <div class="metric-row"><span class="metric-label">Tier-A</span><span class="metric-value">US$25k</span></div>
+      <div class="metric-row"><span class="metric-label">Launch</span><span class="metric-value">60 days</span></div>
+    </div>
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-inner">
+
+
+    <!-- ====================================================================
+         01 · THE MISSING PRODUCT — primary lead view
+         ==================================================================== -->
+    <div class="view active" data-view="wallet">
+      <div class="page-eyebrow">01 · The Opportunity</div>
+      <h1 class="page-title">Your depositors have wealth. <em>Not at NCBA.</em></h1>
+      <p class="page-subtitle">The single largest commercial gap in NCBA's franchise: HNW depositors served only deposits, loans, and cards. Their investment wealth sits at offshore wealth managers, foreign brokers, and overseas private banks. Below: a concrete segmentation of who those clients actually are.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Start here. Say it directly: <strong>"Your top depositors are wealthy. You bank their cash. You don't manage their investments — because you don't offer the product. So every quarter, money leaves your franchise and lands at Butterfield, RBC Wealth, or a Schwab account they opened on their own."</strong></p>
+        <p>Then pause. Let the CEO answer. The answer will be either "yes, we know" or "actually we don't see that" — both are conversations you can run with. <em>Do not lead with their own balance sheet. Lead with their clients' wealth that's somewhere else.</em></p>
+      </div>
+
+      <div class="wallet-viz">
+        <div class="head">
+          <h4>A typical NCBA HNW depositor &mdash; where does the wealth actually sit?</h4>
+          <div class="id">Indicative · validated in Tier-A diagnostic</div>
+        </div>
+        <div class="wallet-bars">
+          <div class="wallet-bar us">
+            <div class="label">NCBA &mdash; operating &amp; CD</div>
+            <div class="track"><div class="fill" style="width:12%;"></div></div>
+            <div class="amt">~ 12%</div>
+          </div>
+          <div class="wallet-bar leak">
+            <div class="label">Offshore wealth (Butterfield, RBC Wealth, HSBC Intl)</div>
+            <div class="track"><div class="fill" style="width:48%;"></div></div>
+            <div class="amt">~ 48%</div>
+          </div>
+          <div class="wallet-bar leak">
+            <div class="label">Foreign brokerage (Schwab, IB, Fidelity, self-directed)</div>
+            <div class="track"><div class="fill" style="width:22%;"></div></div>
+            <div class="amt">~ 22%</div>
+          </div>
+          <div class="wallet-bar">
+            <div class="label">Real estate &amp; private holdings</div>
+            <div class="track"><div class="fill" style="width:18%;"></div></div>
+            <div class="amt">~ 18%</div>
+          </div>
+        </div>
+        <div class="wallet-summary">
+          <div class="stat">
+            HNW depositor wealth sitting OUTSIDE NCBA (estimated)
+            <span class="big">~ US$ 200M+</span>
+          </div>
+          <div class="stat recovery">
+            Wealth recoverable through Premier Wealth &mdash; partnership minimum at Month 36
+            <span class="big">US$ 75M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Who they actually are &mdash; five HNW segments</div>
+        <div class="section-meta">Concrete segmentation · validated under NDA in diagnostic</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th class="num">Est. count</th>
+            <th class="num">Avg liquid wealth</th>
+            <th>Where money currently sits</th>
+            <th>Why they'd switch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gold">Real estate &amp; hospitality owners</td>
+            <td class="num">~120–180</td>
+            <td class="num">US$ 2–8M</td>
+            <td class="muted">Butterfield Bermuda · personal Schwab · property holding</td>
+            <td class="muted">Want Caribbean supervision · loyal to NCBA banking · property-cyclical income wants stability</td>
+          </tr>
+          <tr>
+            <td class="gold">Professional services (law, medicine, accounting)</td>
+            <td class="num">~80–120</td>
+            <td class="num">US$ 750k–3M</td>
+            <td class="muted">Self-directed brokerage · offshore retirement accounts</td>
+            <td class="muted">Want time back · no expertise to manage · trust their bank's recommendation</td>
+          </tr>
+          <tr>
+            <td class="gold">Expat retirees (UK, Canada, US)</td>
+            <td class="num">~100–150</td>
+            <td class="num">US$ 1–5M</td>
+            <td class="muted">Home-country pensions · ISA / 401k · Bermuda private bank</td>
+            <td class="muted">Want USD denomination · single relationship · estate planning anchored locally</td>
+          </tr>
+          <tr>
+            <td class="gold">Regional / cross-island business owners</td>
+            <td class="num">~60–100</td>
+            <td class="num">US$ 1.5–10M+</td>
+            <td class="muted">Multiple offshore accounts · TT / Cayman / US brokerage</td>
+            <td class="muted">Consolidation · simpler tax · NCBA covers their operating banking already</td>
+          </tr>
+          <tr>
+            <td class="gold">Banking / finance executives (incl. NCBA staff)</td>
+            <td class="num">~30–50</td>
+            <td class="num">US$ 500k–2M</td>
+            <td class="muted">Personal brokerage · institutional product preferred</td>
+            <td class="muted">Want a sophisticated product without conflict of interest · model-portfolio framework</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="narrative-card">
+        <div class="narrative-eyebrow">Why this matters more than the bank's own book</div>
+        <div class="narrative-title">You bank them. You should manage their investments too.</div>
+        <div class="narrative-body">
+          The bank's own EC$531M investment book is a real opportunity — but the <strong>larger commercial prize</strong> is the wealth your depositors are <em>already accumulating</em>, which today sits at competitors. Every offshore wealth account opened by an NCBA depositor is a multi-decade fee annuity walking out of your branch.
+          <br><br>
+          A co-branded SMA closes that gap. The client never has to leave the NCBA relationship. The investment statement is co-branded NCBA × Oceanic. The distribution fee comes back to NCBA. <strong>You bank them, you advise them, you keep them.</strong>
+        </div>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">HNW Depositors (est.)</div>
+          <div class="summary-cell-value">400–600</div>
+          <div class="summary-cell-delta">Liquid wealth &gt; US$ 500k</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Avg. liquid wealth</div>
+          <div class="summary-cell-value">US$ 1.5M</div>
+          <div class="summary-cell-delta">Range US$ 500k – 10M+</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Estimated total wallet</div>
+          <div class="summary-cell-value gold">US$ 600M–900M</div>
+          <div class="summary-cell-delta">Only ~12% at NCBA</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">M36 partnership commitment</div>
+          <div class="summary-cell-value positive">US$ 75M AUM</div>
+          <div class="summary-cell-delta">NCBA earns US$ 300k/yr at 40 bps</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         04 · SAMPLE CLIENT JOURNEY
+         ==================================================================== -->
+    <div class="view" data-view="journey">
+      <div class="page-eyebrow">04 · For Their Clients</div>
+      <h1 class="page-title">Maria, 58 &mdash; <em>five-year journey.</em></h1>
+      <p class="page-subtitle">A realistic walkthrough of what happens to an actual NCBA HNW depositor — from the first conversation with her private banker to her portfolio value at year five. With assumptions stated. With the offshore-competitor counterfactual shown side by side.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Make it human. Say: <strong>"This is Maria. Anguilla real estate developer. She's banked with you for fifteen years. She has US$2.5 million in liquid wealth — most of it currently sits in a Butterfield Bermuda wealth account because that's the only Caribbean-supervised option she trusts. We walked her journey through Premier Wealth, week by week, year by year, with conservative assumptions. Here's what it looks like."</strong></p>
+        <p><em>The counterfactual at the bottom — same Maria, same money, at her current offshore manager — is where the conversation lands. She's leaving fee value on the table today, and you're earning zero of what she pays.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Client persona</div>
+          <div class="summary-cell-value" style="font-size: 18px;">Maria, 58</div>
+          <div class="summary-cell-delta">Anguilla real estate · 15-yr NCBA client</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Liquid wealth</div>
+          <div class="summary-cell-value gold">US$ 2.5M</div>
+          <div class="summary-cell-delta">Currently at Butterfield Bermuda</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Premier allocation</div>
+          <div class="summary-cell-value">Balanced 60/40</div>
+          <div class="summary-cell-delta">Standard HNW profile</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">NCBA revenue · Y5</div>
+          <div class="summary-cell-value positive">US$ 14,200</div>
+          <div class="summary-cell-delta">Just from Maria · recurring</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The journey &mdash; eight stages</div>
+        <div class="section-meta">Day 0 → Year 5 · with assumptions disclosed</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width: 100px;">When</th>
+            <th>What happens</th>
+            <th class="num">Portfolio value</th>
+            <th class="num">NCBA YTD revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gold">Day 0</td>
+            <td>Maria's NCBA private banker initiates a Premier Wealth conversation at her quarterly portfolio review. Single-page brochure handed over. No commitment.<span class="sub">Branch meeting · NCBA banker present · NCBA-branded materials</span></td>
+            <td class="num">&mdash;</td>
+            <td class="num">&mdash;</td>
+          </tr>
+          <tr>
+            <td class="gold">Day 5</td>
+            <td>Suitability questionnaire completed. Risk score: 6 of 10. Recommended allocation: Balanced 60/40. Maria signs IMA, KYC update, distribution disclosure.<span class="sub">Documents: IMA · KYC · Suitability · Distribution Disclosure · Power of Attorney</span></td>
+            <td class="num">&mdash;</td>
+            <td class="num">&mdash;</td>
+          </tr>
+          <tr>
+            <td class="gold">Day 10</td>
+            <td>US$ 2,500,000 wired from Butterfield to IBKR Pro institutional account opened in Maria's name under Oceanic's broker-dealer umbrella. Account active.<span class="sub">Custody: Interactive Brokers · SIPC + excess to US$30M · client-name title</span></td>
+            <td class="num">2,500,000</td>
+            <td class="num">&mdash;</td>
+          </tr>
+          <tr>
+            <td class="gold">Day 14</td>
+            <td>Balanced 60/40 model deployed across 7 sleeves over 4 trading days. VOO, IEF, VEA, IJR, LQD, SHV, VWO. All US-listed. Full transparency at line level.<span class="sub">Execution: IBKR best-execution routing · sub-penny commissions</span></td>
+            <td class="num">2,498,420</td>
+            <td class="num">&mdash;</td>
+          </tr>
+          <tr>
+            <td class="gold">Month 1</td>
+            <td>First co-branded monthly statement issued. NCBA × Oceanic letterhead. Holdings detail at line level. Maria can call her NCBA banker with questions.<span class="sub">Statement: monthly · Portal: daily · Attribution: quarterly</span></td>
+            <td class="num">2,500,890</td>
+            <td class="num positive">+ 833</td>
+          </tr>
+          <tr>
+            <td class="gold">Quarter 1</td>
+            <td>Quarterly attribution call with NCBA banker. +1.84% net return. Maria expresses interest in adding her son's US$500k to a Conservative model.<span class="sub">QTD: +1.84% · annualised: +7.4% · benchmark beat: +0.21%</span></td>
+            <td class="num">2,546,100</td>
+            <td class="num positive">+ 2,500</td>
+          </tr>
+          <tr>
+            <td class="gold">Year 1</td>
+            <td>Annual review at NCBA branch. Portfolio +7.2% (net of 100 bps fee). Maria has consolidated wealth: closed Butterfield account, moved another US$800k into the Oceanic relationship.<span class="sub">Y1 net return: +7.2% · benchmark: +6.8% · alpha: +0.4%</span></td>
+            <td class="num gold">2,680,000</td>
+            <td class="num positive">+ 10,720</td>
+          </tr>
+          <tr>
+            <td class="gold">Year 3</td>
+            <td>Maria refers her business partner (US$1.8M). Total NCBA-introduced AUM from this single banking relationship: ~US$5.0M. Compounded at 6.5% net annualised.<span class="sub">Cumulative referrals from Maria: 2 clients · US$2.3M added</span></td>
+            <td class="num gold">3,020,000</td>
+            <td class="num positive">+ 12,080 / yr</td>
+          </tr>
+          <tr class="total">
+            <td>Year 5</td>
+            <td>Maria's portfolio at compounded 6.5% net. NCBA has earned recurring 40 bps × her balance each year, plus 40 bps on referred AUM, plus deposit relationship retained.<span class="sub">Premier AUM from Maria's network: US$5.5M+</span></td>
+            <td class="num">3,425,000</td>
+            <td class="num">14,200 / yr</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-header">
+        <div class="section-title">Same Maria &mdash; same money &mdash; offshore counterfactual</div>
+        <div class="section-meta">Butterfield Bermuda · current relationship</div>
+      </div>
+
+      <div class="two-up">
+        <div class="interp-card secondary">
+          <div class="label">Current state &mdash; Butterfield Bermuda</div>
+          <h4>What Maria has today.</h4>
+          <ul style="font-family: var(--sans); font-size: 13px; color: var(--text-secondary); line-height: 1.7; padding-left: 18px; margin-top: 8px;">
+            <li>Fees: estimated 140–180 bps all-in (embedded in NAV)</li>
+            <li>Statement: paper, quarterly, holdings disclosed at fund level only</li>
+            <li>Supervision: Bermuda Monetary Authority (different jurisdiction)</li>
+            <li>Relationship: Bermuda private banker she meets twice yearly</li>
+            <li>NCBA fee revenue: <strong style="color: var(--critical);">US$ 0</strong></li>
+            <li>NCBA deposit risk: <strong style="color: var(--critical);">High</strong> &mdash; banking relationship at risk if competing wealth product offered</li>
+          </ul>
+        </div>
+        <div class="interp-card primary">
+          <div class="label">Premier Wealth alternative</div>
+          <h4>What Maria gets under the partnership.</h4>
+          <ul style="font-family: var(--sans); font-size: 13px; color: var(--text-secondary); line-height: 1.7; padding-left: 18px; margin-top: 8px;">
+            <li>Fees: 100 bps all-in, transparent · 60 Oceanic + 40 NCBA</li>
+            <li>Statement: co-branded NCBA × Oceanic, monthly, line-level holdings</li>
+            <li>Supervision: ECSRC (same regulator as NCBA)</li>
+            <li>Relationship: NCBA private banker at Anguilla branch</li>
+            <li>NCBA fee revenue: <strong style="color: var(--positive);">~US$ 14,200/yr recurring</strong> at compounded balance</li>
+            <li>NCBA deposit risk: <strong style="color: var(--positive);">Low</strong> &mdash; Premier reinforces NCBA as the wealth anchor</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">On the assumptions in this view</div>
+        <p>Maria is illustrative, not real. The 6.5% net annualised return assumption is conservative versus the Balanced 60/40 model's 3-year backtest (view 03). The Butterfield fee range (140–180 bps) reflects publicly-available institutional benchmarks for Bermuda private banking. Real numbers will vary; the structure does not. <em>Multiply Maria by 40 to 60 similar clients and the partnership becomes US$25–30M of AUM at Month 12 with no extraordinary effort.</em></p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         08 · MAICO MANDATE
+         ==================================================================== -->
+    <div class="view" data-view="maico">
+      <div class="page-eyebrow">08 · For The Bank</div>
+      <h1 class="page-title">MAICO &mdash; <em>the second balance sheet inside the group.</em></h1>
+      <p class="page-subtitle">NCBA owns 55% of MAICO, the regional P&amp;C insurance subsidiary. An insurance balance sheet runs on different rules than a commercial bank: duration-matching against expected claim liabilities, IFRS 17 disclosure, and liability-driven investing. This is a separate mandate from Premier and from the Consultancy. It deserves its own conversation.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Acknowledge MAICO is a separate decision. Say: <strong>"MAICO is its own board, its own audit, its own regulator. We are not assuming you can deliver MAICO from this meeting. We are flagging that the analytical work we'd do on NCBA's investment book translates directly to MAICO's balance sheet at a meaningfully different fee — and that we'd want to bring that conversation to MAICO's board as a Phase 3 expansion once the parent partnership is live."</strong></p>
+        <p><em>Then walk the asset-liability matching logic. The CFO will appreciate that you understand insurance balance sheets are not just smaller versions of bank balance sheets.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">NCBA stake in MAICO</div>
+          <div class="summary-cell-value gold">55%</div>
+          <div class="summary-cell-delta">Consolidated subsidiary</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Sector</div>
+          <div class="summary-cell-value" style="font-size: 18px;">P&amp;C Insurance</div>
+          <div class="summary-cell-delta">Eastern Caribbean Reinsurance associate</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Estimated investment book</div>
+          <div class="summary-cell-value">~US$ 25–40M</div>
+          <div class="summary-cell-delta">Indicative · validated under NDA</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Mandate timing</div>
+          <div class="summary-cell-value">Phase 3</div>
+          <div class="summary-cell-delta">After Premier proves itself</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Why insurance balance sheets are different</div>
+        <div class="section-meta">Liability-driven · IFRS 17 · duration-matched</div>
+      </div>
+
+      <div class="moats-grid">
+        <div class="moat-card">
+          <div class="num">CHARACTERISTIC 01</div>
+          <h4>Liability-driven investing.</h4>
+          <p>Unlike a bank's investment book — which exists to generate yield on excess deposits — an insurance book exists to <em>pay claims when they come due</em>. The investment mandate must match expected claim payout durations and currencies, not chase return.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">CHARACTERISTIC 02</div>
+          <h4>Duration matching.</h4>
+          <p>Short-tail P&amp;C lines (motor, property) typically need 1–3 year duration. Long-tail lines (liability, casualty) need 5–10 year duration. The asset mix has to track the actuarial reserve duration line by line.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">CHARACTERISTIC 03</div>
+          <h4>IFRS 17 disclosure.</h4>
+          <p>Effective from 2023, IFRS 17 requires explicit disclosure of how the investment book supports the contractual service margin. Asset selection must be defensible against this framework — not just chosen for yield.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">CHARACTERISTIC 04</div>
+          <h4>Solvency capital efficiency.</h4>
+          <p>Regulatory capital requirements depend on asset class. Concentrated equity exposures attract higher capital charges than diversified IG fixed income. The mandate must optimise return-on-solvency-capital, not just nominal return.</p>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Proposed MAICO mandate structure</div>
+        <div class="section-meta">Indicative · subject to MAICO board approval</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Sleeve</th>
+            <th class="num">Target weight</th>
+            <th>Vehicle / approach</th>
+            <th>Why this sleeve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="gold">Short-tail liabilities match</td><td class="num">35%</td><td class="muted">UST 1–3y · IG corporate short</td><td class="muted">Matches motor &amp; property claim durations</td></tr>
+          <tr><td class="gold">Long-tail liabilities match</td><td class="num">25%</td><td class="muted">UST 7–10y · IG corporate intermediate</td><td class="muted">Matches liability &amp; casualty reserves</td></tr>
+          <tr><td class="gold">Cash &amp; liquidity buffer</td><td class="num">15%</td><td class="muted">SHV · BIL · money-market</td><td class="muted">Catastrophe claim liquidity</td></tr>
+          <tr><td class="gold">Surplus capital equity</td><td class="num">15%</td><td class="muted">VOO · individual large-cap names</td><td class="muted">Long-horizon return on surplus</td></tr>
+          <tr><td class="gold">Caribbean strategic</td><td class="num">10%</td><td class="muted">ECCB-eligible regional debt</td><td class="muted">Mandate alignment with parent NCBA</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-header">
+        <div class="section-title">Mandate economics &mdash; separately negotiated</div>
+        <div class="section-meta">Fee structure differs from Premier (client product) and Consultancy (own book)</div>
+      </div>
+
+      <div class="ledger-line">
+        <div class="idx">01</div>
+        <div class="body">
+          <h4>Sub-advisory fee on MAICO investment book</h4>
+          <p>Indicative range: 35–45 bps on managed AUM, structured as an institutional mandate (not a wealth product). Lower than Premier (which is a HNW-client-facing fee) because MAICO is institutional self-management.</p>
+        </div>
+        <div class="amount">35–45 bps<span class="sub">Per year</span></div>
+      </div>
+      <div class="ledger-line">
+        <div class="idx">02</div>
+        <div class="body">
+          <h4>Joint quarterly investment committee with MAICO board</h4>
+          <p>Included in mandate fee. Oceanic CIO attends as non-voting advisor. Aligned with NCBA's consolidated audit committee calendar.</p>
+        </div>
+        <div class="amount">Included<span class="sub">No separate charge</span></div>
+      </div>
+      <div class="ledger-line">
+        <div class="idx">03</div>
+        <div class="body">
+          <h4>IFRS 17 / Solvency capital reporting support</h4>
+          <p>Quarterly reporting deliverable to MAICO actuarial team and consolidated audit. Aligned with NCBA Group's annual reporting calendar.</p>
+        </div>
+        <div class="amount">Included<span class="sub">No separate charge</span></div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">Honest disclosure &mdash; this is not a Phase 0 deliverable</div>
+        <p>The MAICO mandate is the most strategically valuable expansion of the partnership but it is also the one that <em>requires the most separate work</em>: MAICO has its own board, its own auditor (likely the same firm), its own regulator (Anguilla FSC for insurance), and its own actuarial function. <em>We are not asking NCBA to commit to MAICO from this meeting.</em> We are flagging that the analytical infrastructure we deploy for the parent bank translates directly to the subsidiary at differentiated economics — and that we'd expect to begin the MAICO conversation at Month 12 of the partnership, once Premier is at first-milestone AUM.</p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         04 · PREMIER WEALTH
+         ==================================================================== -->
+    <div class="view" data-view="premier">
+      <div class="page-eyebrow">02 · For Their Clients</div>
+      <h1 class="page-title">NCBA Premier Wealth.</h1>
+      <p class="page-subtitle">The white-label wealth product NCBA sells to its HNW depositors in 60 days. Managed by Oceanic under ECSRC license, distributed exclusively by NCBA in Anguilla, custodied at Interactive Brokers. Each client owns their actual securities — not units in a fund.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is the centerpiece. Say: <strong>"This is the product your bankers sell. NCBA Premier Wealth. One hundred basis points to the client, all-in. Sixty to us as the licensed manager, forty to NCBA as the exclusive Anguilla distributor — recurring revenue on every dollar of AUM. Sixty days from signed term sheet to first client funded."</strong></p>
+        <p>The CEO will fixate on three things: <em>the fee split, the minimum, and the path to NCBA-owned in year three.</em> Be ready to take any of those threads. View 06 answers the legal structure directly.</p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">All-in fee to client</div>
+          <div class="summary-cell-value gold">100 bps</div>
+          <div class="summary-cell-delta">60 Oceanic + 40 NCBA</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Minimum per client</div>
+          <div class="summary-cell-value">US$ 250k</div>
+          <div class="summary-cell-delta">Range to US$ 10M+</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Launch window</div>
+          <div class="summary-cell-value">60 days</div>
+          <div class="summary-cell-delta">Term sheet → first client funded</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">NCBA recurring revenue</div>
+          <div class="summary-cell-value positive">40 bps × AUM</div>
+          <div class="summary-cell-delta">Every dollar distributed</div>
+        </div>
+      </div>
+
+      <div class="term-sheet">
+        <div class="term-sheet-head">
+          <h4>NCBA Premier Wealth &nbsp;·&nbsp; Sub-Advised by Oceanic Wealth</h4>
+          <div class="id">Indicative term sheet</div>
+        </div>
+        <dl>
+          <div><dt>Structure</dt><dd>White-label sub-advisory · Oceanic ECSRC-licensed manager · NCBA exclusive Anguilla distributor</dd></div>
+          <div><dt>Account ownership</dt><dd>Client owns securities directly. Not units in a pooled fund.</dd></div>
+          <div><dt>Minimum</dt><dd>US$ 250,000 per client</dd></div>
+          <div><dt>Custodian</dt><dd>Interactive Brokers LLC &mdash; SIPC plus excess insurance to US$30M per account</dd></div>
+          <div><dt>Regulator</dt><dd>Eastern Caribbean Securities Regulatory Commission</dd></div>
+          <div><dt>Currency</dt><dd>USD base. XCD funding accepted via FX desk.</dd></div>
+          <div><dt>Strategies</dt><dd>Three risk-graded models — Conservative, Balanced, Growth. All defined-risk. All US-listed.</dd></div>
+          <div><dt>Liquidity</dt><dd>T+3 redemption · partial redemptions any business day · no lock-up</dd></div>
+          <div><dt>Reporting</dt><dd>Daily portal access · monthly co-branded factsheet · quarterly attribution report</dd></div>
+          <div><dt>Fees to client</dt><dd><strong>100 bps management fee &mdash; 60 bps Oceanic + 40 bps NCBA</strong></dd></div>
+          <div><dt>Exclusivity</dt><dd>NCBA exclusive distributor in Anguilla · 5-year initial term · renewable</dd></div>
+          <div><dt>Year-3 optionality</dt><dd>Buyout mechanism · path to NCBA-owned subsidiary if strategic direction changes</dd></div>
+          <div><dt>Fee comparison</dt><dd>Offshore Caribbean private banks typically charge 125–200 bps · Premier remains the cheapest Caribbean wealth option</dd></div>
+        </dl>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">NCBA revenue ladder &mdash; 40 bps on managed AUM</div>
+        <div class="section-meta">Recurring fee revenue at each minimum milestone</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th class="num">AUM</th>
+            <th class="num">NCBA annual revenue</th>
+            <th>NCBA spread vs. equivalent deposits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Month 12 · partnership minimum</td><td class="num">US$ 25M</td><td class="num gold">US$ 100,000</td><td class="muted">Materially exceeds deposit NIM on equivalent balance</td></tr>
+          <tr><td>Month 24 · interim target</td><td class="num">US$ 50M</td><td class="num gold">US$ 200,000</td><td class="muted">Recurring · no incremental capital cost</td></tr>
+          <tr><td>Month 36 · partnership minimum</td><td class="num">US$ 75M</td><td class="num gold">US$ 300,000</td><td class="muted">Equivalent to net interest on EC$ 60M+ in standard deposits</td></tr>
+          <tr><td>Year 5 · upside scenario</td><td class="num">US$ 125M</td><td class="num gold">US$ 500,000</td><td class="muted">Wealth recovery from offshore competitors</td></tr>
+        </tbody>
+      </table>
+
+      <div class="narrative-card">
+        <div class="narrative-eyebrow">Why this beats their current options</div>
+        <div class="narrative-title">For your client, it's cheaper, transparent, locally-supervised, and ends the offshore relationship.</div>
+        <div class="narrative-body">
+          Today, an NCBA HNW client wanting managed wealth opens an account in Bermuda, Cayman, or the US. They pay <strong>125–200 bps all-in</strong>. They get a quarterly statement, opaque holdings, and no Caribbean supervision. Premier Wealth delivers the same investment outcome at <strong>100 bps</strong>, with daily transparency, individual security ownership, ECSRC oversight, and a co-branded NCBA statement — they keep their banking relationship with NCBA, and you keep them. <em>For NCBA, the 40 bps distribution fee is recurring revenue on AUM that is currently sitting at competitors.</em>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         05 · THE THREE MODELS
+         ==================================================================== -->
+    <div class="view" data-view="models">
+      <div class="page-eyebrow">03 · For Their Clients</div>
+      <h1 class="page-title">Three risk-graded models, side by side.</h1>
+      <p class="page-subtitle">Each Premier client is risk-scored and placed in one of three models. The Balanced 60/40 is the canonical reference; Conservative and Growth are derived. All US-listed instruments. All defined-risk. All transparent at the line-item level.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Don't read the percentages out loud. Instead say: <strong>"Three models, indexed to client risk score. The Balanced one is what most NCBA HNW clients will end up in — 60% equity, 40% high-grade fixed income. The Growth is for younger, longer-horizon clients. The Conservative is for retirees or capital-preservation mandates. Each one is built from liquid, US-listed instruments — no obscure funds, no lockups, no surprises."</strong></p>
+        <p><em>If the CIO asks about benchmarks: Balanced benchmarks to 60% MSCI ACWI / 40% Bloomberg Agg. We'll send the full benchmark methodology under NDA.</em></p>
+      </div>
+
+      <div class="models-grid">
+        <div class="model-card">
+          <div class="label">Derived</div>
+          <h4>Conservative · 40/60</h4>
+          <div class="tilt">Equity-light · duration-heavier · capital preservation</div>
+          <div class="sleeve"><span class="pct">22%</span><span class="name">US large-cap core<span class="vehicle">VOO + S&amp;P 500 names</span></span></div>
+          <div class="sleeve"><span class="pct">6%</span><span class="name">US mid/small-cap<span class="vehicle">IJR, IJH</span></span></div>
+          <div class="sleeve"><span class="pct">7%</span><span class="name">Developed intl<span class="vehicle">VEA, VGK</span></span></div>
+          <div class="sleeve"><span class="pct">5%</span><span class="name">EM<span class="vehicle">VWO</span></span></div>
+          <div class="sleeve"><span class="pct">35%</span><span class="name">UST intermediate<span class="vehicle">IEF + UST 5y/10y</span></span></div>
+          <div class="sleeve"><span class="pct">17%</span><span class="name">UST short<span class="vehicle">SHV, BIL</span></span></div>
+          <div class="sleeve"><span class="pct">8%</span><span class="name">IG corporate<span class="vehicle">LQD</span></span></div>
+          <div class="note">Sleeve names &amp; vehicles from playbook. Weights extrapolated from Balanced template.</div>
+        </div>
+
+        <div class="model-card canonical">
+          <div class="label">Canonical</div>
+          <h4>Balanced · 60/40</h4>
+          <div class="tilt">Reference model · canonical for most Premier clients</div>
+          <div class="sleeve"><span class="pct">35%</span><span class="name">US large-cap core<span class="vehicle">VOO + S&amp;P 500 names</span></span></div>
+          <div class="sleeve"><span class="pct">10%</span><span class="name">US mid/small-cap<span class="vehicle">IJR, IJH</span></span></div>
+          <div class="sleeve"><span class="pct">10%</span><span class="name">Developed intl<span class="vehicle">VEA, VGK</span></span></div>
+          <div class="sleeve"><span class="pct">5%</span><span class="name">EM<span class="vehicle">VWO</span></span></div>
+          <div class="sleeve"><span class="pct">25%</span><span class="name">UST intermediate<span class="vehicle">IEF + UST 5y/10y</span></span></div>
+          <div class="sleeve"><span class="pct">10%</span><span class="name">UST short<span class="vehicle">SHV, BIL</span></span></div>
+          <div class="sleeve"><span class="pct">5%</span><span class="name">IG corporate<span class="vehicle">LQD</span></span></div>
+        </div>
+
+        <div class="model-card">
+          <div class="label">Derived</div>
+          <h4>Growth · 80/20</h4>
+          <div class="tilt">Equity-tilted · longer horizon · capital appreciation</div>
+          <div class="sleeve"><span class="pct">45%</span><span class="name">US large-cap core<span class="vehicle">VOO + S&amp;P 500 names</span></span></div>
+          <div class="sleeve"><span class="pct">13%</span><span class="name">US mid/small-cap<span class="vehicle">IJR, IJH</span></span></div>
+          <div class="sleeve"><span class="pct">15%</span><span class="name">Developed intl<span class="vehicle">VEA, VGK</span></span></div>
+          <div class="sleeve"><span class="pct">7%</span><span class="name">EM<span class="vehicle">VWO</span></span></div>
+          <div class="sleeve"><span class="pct">13%</span><span class="name">UST intermediate<span class="vehicle">IEF + UST 5y/10y</span></span></div>
+          <div class="sleeve"><span class="pct">5%</span><span class="name">UST short<span class="vehicle">SHV, BIL</span></span></div>
+          <div class="sleeve"><span class="pct">2%</span><span class="name">IG corporate<span class="vehicle">LQD</span></span></div>
+          <div class="note">Sleeve names &amp; vehicles from playbook. Weights extrapolated from Balanced template.</div>
+        </div>
+      </div>
+
+      <div class="narrative-card">
+        <div class="narrative-eyebrow">A note on customization</div>
+        <div class="narrative-title">Models are templates. Each client account can carry custom exclusions.</div>
+        <div class="narrative-body">
+          Premier is built as a model-portfolio framework, but every account is a separately managed account — meaning each client can specify <strong>individual stock exclusions</strong> (e.g. no tobacco, no fossil fuels), <strong>sector caps</strong>, or <strong>ESG tilts</strong>. These are applied at the account level without changing the underlying model. This is something a pooled mutual fund cannot do. <em>It is one of the most-asked-for features by Caribbean HNW clients today.</em>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         06 · THE LEGAL STRUCTURE — sub-advisory partnership
+         ==================================================================== -->
+    <div class="view" data-view="legal">
+      <div class="page-eyebrow">05 · For Their Clients</div>
+      <h1 class="page-title">The Legal Structure.</h1>
+      <p class="page-subtitle">White-label sub-advisory under Oceanic's ECSRC license · NCBA as exclusive Anguilla distributor. The structural mechanics, the partnership terms, and what's permitted under the existing regulatory framework.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Frame the structure plainly. Say: <strong>"You distribute, we manage. You hold the client relationship, we hold the license. The management fee splits sixty-forty in our favor — but the forty percent that stays with NCBA is recurring revenue on AUM you don't have today. Exclusive distributor for Anguilla, five-year initial term, optional path to NCBA-owned subsidiary from year three. This is a strategic partnership, not a referral arrangement."</strong></p>
+        <p><em>Your compliance officer will read the legal checklist line by line — that's why it's there. The deposit-to-AUM question is what your CFO will raise — the callout at the bottom answers it directly.</em></p>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">How the structure works &mdash; six steps</div>
+        <div class="section-meta">From NCBA banker introduction to co-branded reporting</div>
+      </div>
+
+      <div class="flow-diagram">
+        <div class="flow-row">
+          <div class="flow-node">
+            <div class="icon">○</div>
+            <div class="label">Step 1</div>
+            <div class="name">NCBA private banker identifies Premier client</div>
+            <div class="sub">Existing NCBA relationship · trusted introduction</div>
+          </div>
+          <div class="flow-arrow"><span class="lbl">intro</span>→</div>
+          <div class="flow-node">
+            <div class="icon">○</div>
+            <div class="label">Step 2</div>
+            <div class="name">Client opens NCBA Premier Wealth account</div>
+            <div class="sub">Co-branded onboarding · NCBA private banker present</div>
+          </div>
+          <div class="flow-arrow"><span class="lbl">fund</span>→</div>
+          <div class="flow-node us">
+            <div class="icon">○</div>
+            <div class="label">Step 3</div>
+            <div class="name">Funds custodied at IBKR under Oceanic's broker-dealer license</div>
+            <div class="sub">Oceanic ECSRC-licensed · IBKR Pro institutional · client name on account</div>
+          </div>
+        </div>
+        <div class="flow-row" style="margin-bottom: 0;">
+          <div class="flow-node us">
+            <div class="icon">○</div>
+            <div class="label">Step 4</div>
+            <div class="name">Oceanic manages per chosen model</div>
+            <div class="sub">Conservative · Balanced · Growth · discretionary IMA</div>
+          </div>
+          <div class="flow-arrow"><span class="lbl">distribute</span>→</div>
+          <div class="flow-node us">
+            <div class="icon">○</div>
+            <div class="label">Step 5</div>
+            <div class="name">Fee economics shared: 60% Oceanic / 40% NCBA</div>
+            <div class="sub">100 bps management fee on AUM · split per partnership agreement</div>
+          </div>
+          <div class="flow-arrow"><span class="lbl">report</span>→</div>
+          <div class="flow-node">
+            <div class="icon">○</div>
+            <div class="label">Step 6</div>
+            <div class="name">Co-branded reporting</div>
+            <div class="sub">NCBA × Oceanic monthly statement · quarterly portfolio review · annual treasury report</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Partnership terms</div>
+        <div class="section-meta">Key commercial terms of the distribution agreement</div>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Structure</div>
+          <div class="summary-cell-value" style="font-size: 18px;">Sub-Advisory + Distribution</div>
+          <div class="summary-cell-delta">Oceanic ECSRC-licensed · NCBA distributes under co-brand</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Fee Split</div>
+          <div class="summary-cell-value gold">60 / 40</div>
+          <div class="summary-cell-delta">Oceanic / NCBA on 100 bps management fee</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Exclusivity</div>
+          <div class="summary-cell-value">Anguilla · 5 yrs</div>
+          <div class="summary-cell-delta">NCBA exclusive distributor in Anguilla · renewable</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Minimums</div>
+          <div class="summary-cell-value">US$ 25M by M12</div>
+          <div class="summary-cell-delta">US$ 75M by M36 · scaling NCBA economics</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Legal checklist &mdash; permissibility under existing licenses</div>
+        <div class="section-meta">Item-by-item status &mdash; ECSRC + Anguilla FSC</div>
+      </div>
+
+      <div class="legal-checklist">
+        <div class="legal-item">
+          <div class="check ok">✓</div>
+          <div class="body">
+            Oceanic operates individual securities accounts (single-client brokerage)
+            <div class="sub">Core function of our ECSRC broker-dealer authorization</div>
+          </div>
+          <div class="status ok">Permitted</div>
+        </div>
+        <div class="legal-item">
+          <div class="check ok">✓</div>
+          <div class="body">
+            Custody of client assets at Interactive Brokers under our institutional relationship
+            <div class="sub">Each Premier account opened in client's name under Oceanic's IBKR Pro institutional umbrella</div>
+          </div>
+          <div class="status ok">Permitted</div>
+        </div>
+        <div class="legal-item">
+          <div class="check ok">✓</div>
+          <div class="body">
+            NCBA acts as exclusive distributor under contractual partnership
+            <div class="sub">Anguilla FSC rules permit licensed banks to distribute third-party investment products under disclosed agency</div>
+          </div>
+          <div class="status ok">Permitted</div>
+        </div>
+        <div class="legal-item">
+          <div class="check ok">✓</div>
+          <div class="body">
+            Co-branded client materials and statements
+            <div class="sub">Subject to ECSRC marketing disclosure rules &mdash; Oceanic remains the licensed party</div>
+          </div>
+          <div class="status ok">Permitted</div>
+        </div>
+        <div class="legal-item">
+          <div class="check ok">✓</div>
+          <div class="body">
+            Fee-sharing between licensed broker-dealer and bank distributor
+            <div class="sub">Disclosed in client IMA · auditable by both ECSRC and Anguilla FSC</div>
+          </div>
+          <div class="status ok">Permitted</div>
+        </div>
+        <div class="legal-item">
+          <div class="check tbd">◇</div>
+          <div class="body">
+            Path to NCBA-owned subsidiary if strategic direction changes
+            <div class="sub">Buyout mechanism in partnership agreement · clean transition of client book</div>
+          </div>
+          <div class="status tbd">Optional · Year 3+</div>
+        </div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">On deposit-to-AUM migration</div>
+        <p>A dollar invested in equities cannot simultaneously remain on NCBA's deposit ledger. This is accounting reality, not a structural choice. Every Caribbean bank with a wealth offering &mdash; First Citizens, Bank of Saint Lucia, RBC Caribbean, Scotia Caribbean &mdash; accepts this trade because the alternative is worse: <em>the client takes the entire deposit to a competitor that already offers managed investments.</em> Under this partnership, NCBA earns 40% of a 100 bps management fee on migrated AUM &mdash; economics that materially exceed the spread on the original deposit, with no incremental capital cost and no regulatory burden.</p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         07 · CONSULTANCY — capabilities, not pricing
+         ==================================================================== -->
+    <div class="view" data-view="consultancy">
+      <div class="page-eyebrow">06 · For The Bank</div>
+      <h1 class="page-title">Capabilities &mdash; for your <em>own</em> EC$531M book.</h1>
+      <p class="page-subtitle">What our analytical engine actually does. Six institutional capabilities, seven methodology frameworks, board-grade deliverables — all of it operable inside the Eastern Caribbean perimeter under existing ECSRC supervision. Pricing and scoping are covered in views 13–14, in the context of phasing.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Lead with capability, not price. Say: <strong>"Beyond the client-facing product, we run a separate analytical engagement on the bank's own investment book. Six institutional capabilities — concentration analysis, fee transparency, counterparty review, FX decomposition, IFRS 9 review, equity governance. Each one closes a specific gap your current audit doesn't address. The methodology stack underneath is what your external auditor would expect to find documented."</strong></p>
+        <p><em>If the CFO asks about cost: defer it. "Let's walk through what we'd do first — pricing is in the Timeline view, framed against the phasing." Capability earns the right to discuss price.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Analytical capabilities</div>
+          <div class="summary-cell-value gold">6</div>
+          <div class="summary-cell-delta">Board-grade workstreams</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Methodology frameworks</div>
+          <div class="summary-cell-value">7</div>
+          <div class="summary-cell-delta">Factor · ECL · VaR · scenario · credit · ALM · governance</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Book sized for analysis</div>
+          <div class="summary-cell-value">EC$ 531M</div>
+          <div class="summary-cell-delta">Plus EC$ 195M equity capital</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Audit gaps closed</div>
+          <div class="summary-cell-value">4 of 4</div>
+          <div class="summary-cell-delta">From view 03</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The six analytical capabilities</div>
+        <div class="section-meta">Each maps to a structural absence in the FY25 audit</div>
+      </div>
+
+      <div class="workstreams-grid">
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 01 · CONCENTRATION</div>
+          <h4>Corporate bond concentration analysis.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Herfindahl-Hirschman issuer concentration. Single-name caps relative to Tier 1 capital. Issuer correlation matrix on log-return data.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">Basel III large-exposure framework · EBA single-name guidance · regional CRO benchmarks.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">Concentration heatmap, top-25 issuer table, board-grade single-name limit policy.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">70.1% in one asset class with no issuer-level disclosure.</div></div>
+        </div>
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 02 · FEE TRANSPARENCY</div>
+          <h4>Mutual fund &amp; embedded-fee audit.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Decomposition of each FVTPL fund's total expense ratio: management fee, sub-advisor, custody, administration, distribution, audit. Cross-comparison to passive equivalents.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">IOSCO fee-disclosure standards · IFRS 7 expense decomposition.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">Fee-transparency report. Annual leakage estimate (cash). Cheaper-and-cleaner alternatives with comparable risk profile.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">No TER disclosed on EC$ 37.9M FVTPL line. +37% YoY growth.</div></div>
+        </div>
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 03 · COUNTERPARTY</div>
+          <h4>Repo counterparty &amp; collateral review.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Counterparty credit decomposition (rating, CDS where available, fundamental review). Haircut adequacy. Collateral eligibility for central-bank repo.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">ISDA / ICMA repo standards · ECCB collateral eligibility · single-counterparty Basel limits.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">Counterparty matrix with credit assessments, exposure-versus-capital scoring, recommended limits.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">Counterparties not named. Concentration invisible to the reader.</div></div>
+        </div>
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 04 · FX &amp; PEG</div>
+          <h4>FX exposure &amp; peg-stress framework.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Currency-by-currency exposure decomposition net of hedges. Historical peg-stress scenarios. Parametric FX VaR overlay.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">ECCB peg-defence regime · IFRS 9 FX risk overlay · ALM gap framework.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">FX exposure heatmap. Peg-stress scenario set (4 severities). Recommended hedge policy &amp; trigger framework.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">71/24/5 mix without hedge disclosure or peg-stress scenarios.</div></div>
+        </div>
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 05 · IFRS 9 ECL</div>
+          <h4>Expected credit loss methodology review.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Stage 1/2/3 distribution by exposure. PD / LGD / EAD by sector. Macro overlay sensitivity. Backtest of historical migrations.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">IFRS 9 (full) · BCBS guidance on ECL accounting · regional peer benchmarks.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">ECL framework memo. Peer comparison. Recommendations for refinement of overlays. Sign-off support for external audit.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">No VaR, no scenario tests, no duration disclosure on investment-book ECL.</div></div>
+        </div>
+
+        <div class="workstream-card">
+          <div class="num">CAPABILITY 06 · EQUITY GOVERNANCE</div>
+          <h4>Quoted &amp; unquoted equity governance.</h4>
+          <div class="row"><div class="label">Method</div><div class="val">Investment thesis articulation per holding. Strategic-versus-financial classification. Performance attribution vs benchmark for quoted; valuation framework for unquoted.</div></div>
+          <div class="row"><div class="label">Standard</div><div class="val">IFRS 13 fair-value hierarchy · IFRS 9 strategic-investment classification · governance-by-classification framework.</div></div>
+          <div class="row"><div class="label">Deliverable</div><div class="val">Hold / trim / exit recommendations with documented rationale. Strategic vs financial split with separate governance regimes.</div></div>
+          <div class="row"><div class="label">Audit gap</div><div class="val">Holdings not detailed. No documented thesis. Strategic and financial commingled.</div></div>
+        </div>
+
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Methodology stack &mdash; what powers the work</div>
+        <div class="section-meta">Quantitative engine + supervisory framework expertise</div>
+      </div>
+
+      <div class="layers-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="layer-card">
+          <div class="num">METHOD 01 · FACTOR MODEL</div>
+          <h4>60-day OLS factor regression.</h4>
+          <p>Per-name beta to SPY plus sector-residualised beta on log returns. Drives scenario engine, risk attribution, and reverse-stress framework. Live in production on Oceanic's own book today.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 02 · ECL</div>
+          <h4>IFRS 9 Stage 1/2/3 framework.</h4>
+          <p>Forward-looking ECL with macro overlay sensitivity. PD/LGD/EAD decomposition. Backtest of stage migrations. Aligned to BCBS supervisory expectations.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 03 · VaR &amp; STRESS</div>
+          <h4>Triple-method VaR.</h4>
+          <p>Parametric, historical, and Monte Carlo VaR on any exposure. Reverse-stress framework: input target loss, output the SPY shock that produces it. Scenarios derived from factor model, not hand-coded.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 04 · CREDIT</div>
+          <h4>Issuer credit framework.</h4>
+          <p>S&amp;P / Moody's / Fitch overlay with internal review on sub-IG and unrated. Recovery-rate assumptions by seniority. Single-name concentration scored against capital.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 05 · ALM</div>
+          <h4>Asset-liability gap analysis.</h4>
+          <p>Repricing and maturity-gap framework for the deposit-funded investment book. Key-rate duration sensitivities. Liquidity coverage on the EC$ 51M repo line and EC$ 38M mutual-fund line.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 06 · GOVERNANCE</div>
+          <h4>IFRS 13 fair-value hierarchy.</h4>
+          <p>Level-1/2/3 classification for the equity book. Valuation methodology for Level-3 holdings. Strategic-vs-financial governance split with separate review cadences.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">METHOD 07 · SUPERVISORY</div>
+          <h4>ECSRC &amp; ECCB framework fluency.</h4>
+          <p>Direct working knowledge of OECS securities supervision, ECCB peg-defence regime, and regional peer-bank disclosures. We operate inside the same supervisory perimeter your audit is reviewed in.</p>
+        </div>
+        <div class="layer-card">
+          <div class="num">DATA · INFRASTRUCTURE</div>
+          <h4>IBKR institutional data feed.</h4>
+          <p>Pricing, FX, corporate actions, settlement data, and benchmark series direct from custodian. No third-party data vendor. No mark-to-model on liquid securities.</p>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">What NCBA receives &mdash; deliverable register</div>
+        <div class="section-meta">Every output formatted to board standard</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>Format</th>
+            <th>Primary audience</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="gold">Concentration heatmap</td><td>Visual + tabular</td><td class="muted">Board · Investment Committee</td></tr>
+          <tr><td class="gold">Top-25 issuer concentration table</td><td>Tabular · ratings &amp; size</td><td class="muted">CRO · Risk Committee</td></tr>
+          <tr><td class="gold">Counterparty credit matrix</td><td>Tabular · scored</td><td class="muted">CRO · Risk Committee</td></tr>
+          <tr><td class="gold">Fee-transparency report</td><td>Narrative + decomposition</td><td class="muted">Board · CFO · external auditor</td></tr>
+          <tr><td class="gold">Stress-test scenario set</td><td>Quantified P&amp;L &amp; capital impact</td><td class="muted">IC · Board · CRO</td></tr>
+          <tr><td class="gold">FX peg-stress report</td><td>Scenario set + hedge policy</td><td class="muted">ALCO · Treasury · IC</td></tr>
+          <tr><td class="gold">IFRS 9 ECL methodology memo</td><td>Framework + peer comparison</td><td class="muted">External auditor · Audit Committee</td></tr>
+          <tr><td class="gold">Equity governance recommendations</td><td>Hold / trim / exit per name</td><td class="muted">CIO · IC</td></tr>
+          <tr><td class="gold">Board presentation deck</td><td>20–30 slide formal deck</td><td class="muted">Board</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-header">
+        <div class="section-title">Illustrative &mdash; concentration output sample</div>
+        <div class="section-meta">Mock · live output behind NDA in Phase 1</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Sample issuer</th>
+            <th class="num">Exposure</th>
+            <th class="num">% of bonds</th>
+            <th>Rating</th>
+            <th>Sector</th>
+            <th class="num">vs. policy limit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="gold">Issuer A</td><td class="num">EC$ 28.4M</td><td class="num">7.6%</td><td>A−</td><td class="muted">Sovereign</td><td class="num">+ 1.6% over</td></tr>
+          <tr><td class="gold">Issuer B</td><td class="num">EC$ 24.8M</td><td class="num">6.7%</td><td>BBB+</td><td class="muted">Financial</td><td class="num">+ 0.7% over</td></tr>
+          <tr><td class="gold">Issuer C</td><td class="num">EC$ 19.2M</td><td class="num">5.2%</td><td>A</td><td class="muted">Utility</td><td class="num">within</td></tr>
+          <tr><td class="gold">Issuer D</td><td class="num">EC$ 17.1M</td><td class="num">4.6%</td><td>BBB</td><td class="muted">Financial</td><td class="num">within</td></tr>
+          <tr><td class="gold">Issuer E</td><td class="num">EC$ 14.6M</td><td class="num">3.9%</td><td>BBB−</td><td class="muted">Industrial</td><td class="num">within</td></tr>
+          <tr><td class="muted">…</td><td class="num">…</td><td class="num">…</td><td>…</td><td class="muted">…</td><td class="num">…</td></tr>
+        </tbody>
+      </table>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">A line on what we won't claim</div>
+        <p>We do not claim to be a credit-rating agency. We do not claim to substitute for your external auditor. Our deliverables are <em>analytical support</em> that gives your board, IC, CRO, and external auditor a higher-resolution picture of the investment book than the current audit provides — and a documented methodology to defend each line. Where our analysis differs from your external auditor, our work informs the conversation; it does not replace it.</p>
+      </div>
+
+      <div class="section-close">
+        Engagement structure and phasing are detailed in view 13. Pricing is covered there in context — capability first, price after.
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         08 · LEDGER
+         ==================================================================== -->
+    <div class="view" data-view="ledger">
+      <div class="page-eyebrow">07 · For The Bank</div>
+      <h1 class="page-title">Every dollar &mdash; across thirteen lines.</h1>
+      <p class="page-subtitle">Where money is currently leaving NCBA's P&amp;L, and where it would otherwise leave it. Direct compression first; build-out and avoidance after. Honest caveat at the bottom — we keep the distinction between cash savings and avoided cost visible.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Lead with the total, then earn it. Say: <strong>"This is the financial impact of the engagement on NCBA, sized in dollars. One-point-six-two million in year one. The first US$256k is direct cash compression on fees you're currently paying. The next US$1.23M is build-out you don't have to do. The last sixty grand is the opportunity cost of waiting."</strong></p>
+        <p><em>Then immediately pivot to the honest caveat at the bottom of the view. Acknowledging that the build-out line is "avoided" not "saved" is a trust-builder, not a weakness.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Direct fee compression</div>
+          <div class="summary-cell-value">US$ 256k</div>
+          <div class="summary-cell-delta">Lines 1–5 · cash</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Build-out &amp; CapEx avoidance</div>
+          <div class="summary-cell-value">US$ 1,230k</div>
+          <div class="summary-cell-delta">Lines 6–8, 11 · avoided</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Operational / capital / tax</div>
+          <div class="summary-cell-value">US$ 70k</div>
+          <div class="summary-cell-delta">Lines 9, 10, 12</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Time-to-market opportunity</div>
+          <div class="summary-cell-value">US$ 62k</div>
+          <div class="summary-cell-delta">Line 13 · year-one</div>
+        </div>
+      </div>
+
+      <div class="ledger-line"><div class="idx">01</div><div class="body"><h4>Mutual-fund expense-ratio compression</h4><p>EC$37.9M FVTPL line at an estimated ~90 bps embedded TER → Oceanic SMA at 50 bps. The 40 bp delta lands in NCBA's P&amp;L.</p></div><div class="amount">US$ 56k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">02</div><div class="body"><h4>External investment advisor / consultant retainer</h4><p>Estimated EC$200–250k buried in Professional &amp; Legal — line jumped 67% YoY. Function absorbed by Oceanic at no incremental cost.</p></div><div class="amount">US$ 85k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">03</div><div class="body"><h4>Sub-advisor &amp; custody fees on quoted equity</h4><p>EC$27.8M quoted equity at ~40 bps sub-advisor plus ~10 bps custody. Direct holding at IBKR eliminates the sub-advisor.</p></div><div class="amount">US$ 28k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">04</div><div class="body"><h4>FX execution cost reduction</h4><p>Correspondent FX runs 25–50 bps. IBKR institutional FX is 2–3 bps. On ~US$30M of annual FX flow, savings on the 25 bp delta.</p></div><div class="amount">US$ 75k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">05</div><div class="body"><h4>Equity execution cost compression</h4><p>Full-service broker commissions of 1–5 cents/share versus IBKR sub-penny. On ~US$25M of annual equity turnover.</p></div><div class="amount">US$ 12k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">06</div><div class="body"><h4>Avoided build-out of in-house wealth division</h4><p>A CIO plus three portfolio managers plus one risk plus one compliance plus one ops — six FTEs at ~EC$1.5M total comp plus benefits. Add systems and audit overhead — easily EC$2.0M/yr running cost.</p></div><div class="amount">US$ 740k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">07</div><div class="body"><h4>Avoided CapEx on systems</h4><p>Bloomberg terminals (4 × US$24k), risk system (Axioma or similar, US$150k), portfolio accounting (Eagle/Sage, US$80k), compliance platform (US$40k).</p></div><div class="amount">US$ 365k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">08</div><div class="body"><h4>Avoided regulatory build-out cost</h4><p>ECSRC fund registration — external counsel, prospectus, fund administrator, ongoing filings. One-time ~US$120k plus ~US$80k/yr ongoing. Oceanic absorbs both.</p></div><div class="amount">US$ 80k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">09</div><div class="body"><h4>Reduced audit complexity on the investment book</h4><p>Consultancy-reviewed investment book and independently documented ECL — external audit spends fewer hours testing valuations.</p></div><div class="amount">US$ 15k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">10</div><div class="body"><h4>Reduced operational-risk capital under Basel</h4><p>Well-documented, externally-managed investment process can reduce op-risk capital allocation. Indicative effect on RWA — minor but real.</p></div><div class="amount">US$ 25k<span class="sub">capital relief</span></div></div>
+      <div class="ledger-line"><div class="idx">11</div><div class="body"><h4>Avoided sell-side research subscriptions</h4><p>If NCBA's investment team subscribes to research (or would need to), three seats at ~US$15k each.</p></div><div class="amount">US$ 45k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">12</div><div class="body"><h4>Tax-loss harvesting on direct holdings</h4><p>A mutual-fund wrapper does not permit lot-level tax management. Direct SMA holdings do. Estimated 15–25 bp/yr equivalent on the equity sleeve.</p></div><div class="amount">US$ 30k<span class="sub">per year</span></div></div>
+      <div class="ledger-line"><div class="idx">13</div><div class="body"><h4>Time-to-market opportunity</h4><p>Building wealth in-house: 18–24 months. Through Oceanic: 60 days. Year-one distribution revenue on US$25M Premier AUM lost otherwise.</p></div><div class="amount">US$ 62k<span class="sub">year-one</span></div></div>
+
+      <div class="ledger-subtotals">
+        <div class="row"><div class="label">Direct fee compression<span class="small">lines 1–5</span></div><div class="num">US$ 256,000</div></div>
+        <div class="row"><div class="label">Build-out &amp; CapEx avoidance<span class="small">lines 6–8, 11</span></div><div class="num">US$ 1,230,000</div></div>
+        <div class="row"><div class="label">Operational / capital / tax efficiency<span class="small">lines 9, 10, 12</span></div><div class="num">US$ 70,000</div></div>
+        <div class="row"><div class="label">Time-to-market opportunity<span class="small">line 13</span></div><div class="num">US$ 62,000</div></div>
+      </div>
+
+      <div class="cinematic-total">
+        <div class="label">Year-one economic value, summed</div>
+        <div class="number"><span class="currency">US$</span>1.62<span class="unit">M</span></div>
+        <div class="desc">Delivered through a single vendor relationship, at no balance-sheet risk to the bank — and at 11% of NCBA's FY25 net income of EC$40.6M.</div>
+      </div>
+
+      <div class="caveat-card">
+        <div class="label">Honest caveat &mdash; kept verbatim from the playbook</div>
+        <p>Lines 6 through 8 are <em>avoided cost</em>, not cash savings. NCBA may not currently plan to build these functions in-house — if so, this is not money the bank saves, it is money the bank never has to spend. We have included these lines because they are the right way to size the strategic value of the partnership: the cost of <em>not</em> partnering with us is to either build the function internally at this run-rate, or to leave the CEO's stated priority unaddressed. We will not hide this distinction. It is part of how we mean to operate.</p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         09 · JOINT RISK & GOVERNANCE
+         ==================================================================== -->
+    <div class="view" data-view="governance">
+      <div class="page-eyebrow">09 · The Engagement</div>
+      <h1 class="page-title">Joint risk &amp; governance.</h1>
+      <p class="page-subtitle">How the partnership is actually governed once it's live. Monthly performance reviews, quarterly Investment Committee, semi-annual Board update, explicit breach protocols, Chinese wall framework between Premier and the bank's own book, and the termination provisions on both sides.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Compliance and risk officers in the room will fixate on this view. Say: <strong>"Here's how we actually govern this together once it's signed. Monthly numbers reviewed jointly. Quarterly IC with both your team and ours in the room. Documented breach protocols. A Chinese wall between this work and the consultancy on your own book. Termination on thirty days' notice from either side — no lock-in."</strong></p>
+        <p><em>Anything substantive your CRO would ask, this view should already answer. If it doesn't, that's a conversation we want.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Operating cadence</div>
+          <div class="summary-cell-value gold">Monthly</div>
+          <div class="summary-cell-delta">Performance + risk · joint review</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Joint Investment Committee</div>
+          <div class="summary-cell-value">Quarterly</div>
+          <div class="summary-cell-delta">3 NCBA + 2 Oceanic + 1 independent</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Board update</div>
+          <div class="summary-cell-value">Semi-annual</div>
+          <div class="summary-cell-delta">NCBA board · Oceanic CEO attends</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Termination notice</div>
+          <div class="summary-cell-value positive">30 days</div>
+          <div class="summary-cell-delta">Either side · no lock-in</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The operating cadence &mdash; what happens, and when</div>
+        <div class="section-meta">Cadence designed around NCBA's board calendar</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Cadence</th>
+            <th>Meeting</th>
+            <th>Participants</th>
+            <th>Deliverable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="gold">Monthly</td><td>Performance &amp; risk review</td><td class="muted">Oceanic CIO · NCBA Wealth Lead · NCBA CRO observer</td><td class="muted">Monthly factsheet · breach log · client onboarding report</td></tr>
+          <tr><td class="gold">Quarterly</td><td>Joint Investment Committee</td><td class="muted">3 NCBA officers · 2 Oceanic principals · 1 independent</td><td class="muted">Attribution report · mandate review · forward outlook</td></tr>
+          <tr><td class="gold">Quarterly</td><td>Client servicing review</td><td class="muted">NCBA private bankers · Oceanic client team</td><td class="muted">Client retention metrics · NPS · referral pipeline</td></tr>
+          <tr><td class="gold">Semi-annual</td><td>NCBA Board briefing</td><td class="muted">NCBA full Board · Oceanic CEO + CIO</td><td class="muted">Strategic review · AUM trajectory · partnership health</td></tr>
+          <tr><td class="gold">Annual</td><td>Partnership renewal review</td><td class="muted">NCBA CEO · Oceanic CEO · independent counsel</td><td class="muted">Renewal decision · economics review · scope expansion</td></tr>
+          <tr><td class="gold">Ad hoc</td><td>Breach escalation</td><td class="muted">Within 24h of trigger · CRO/CIO direct line</td><td class="muted">Incident report · remediation plan · post-mortem</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-header">
+        <div class="section-title">Breach protocols &mdash; explicit triggers and actions</div>
+        <div class="section-meta">Every threshold documented · auditable trail</div>
+      </div>
+
+      <div class="legal-checklist">
+        <div class="legal-item">
+          <div class="check tbd" style="color: var(--critical);">!</div>
+          <div class="body">
+            Drawdown trigger &mdash; portfolio &minus;5% from peak
+            <div class="sub">Notify NCBA Wealth Lead within 4 business hours · written rationale · no automatic action</div>
+          </div>
+          <div class="status tbd" style="color: var(--warning);">Watch</div>
+        </div>
+        <div class="legal-item">
+          <div class="check tbd" style="color: var(--critical);">!</div>
+          <div class="body">
+            Drawdown trigger &mdash; portfolio &minus;10% from peak
+            <div class="sub">Joint IC convened within 5 business days · de-risking plan presented · client communication drafted</div>
+          </div>
+          <div class="status tbd" style="color: var(--warning);">Action required</div>
+        </div>
+        <div class="legal-item">
+          <div class="check no" style="color: var(--critical);">×</div>
+          <div class="body">
+            Drawdown trigger &mdash; portfolio &minus;15% from peak
+            <div class="sub">Automatic de-risk to Conservative model · NCBA CEO + Oceanic CEO sign-off required to resume normal allocation</div>
+          </div>
+          <div class="status no">Hard stop</div>
+        </div>
+        <div class="legal-item">
+          <div class="check tbd" style="color: var(--critical);">!</div>
+          <div class="body">
+            Single-position concentration breach (&gt; 8% of any account)
+            <div class="sub">Auto-rebalance trigger · same-day execution · breach logged in monthly report</div>
+          </div>
+          <div class="status tbd" style="color: var(--warning);">Auto-correct</div>
+        </div>
+        <div class="legal-item">
+          <div class="check tbd" style="color: var(--critical);">!</div>
+          <div class="body">
+            Mandate deviation (model drift &gt; 5% from target weights)
+            <div class="sub">Rebalance within 10 business days · monthly factsheet notes drift cause and resolution</div>
+          </div>
+          <div class="status tbd" style="color: var(--warning);">Auto-correct</div>
+        </div>
+        <div class="legal-item">
+          <div class="check no" style="color: var(--critical);">×</div>
+          <div class="body">
+            Operational incident (settlement fail, custody issue, KYC breach)
+            <div class="sub">Within 24h: incident report to NCBA CRO · root-cause analysis within 5 days · regulatory notification if required</div>
+          </div>
+          <div class="status no">Escalate</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Chinese wall &mdash; Premier vs the bank's own book</div>
+        <div class="section-meta">Conflict-of-interest architecture</div>
+      </div>
+
+      <div class="moats-grid">
+        <div class="moat-card">
+          <div class="num">WALL 01 · TEAMS</div>
+          <h4>Separate Oceanic teams.</h4>
+          <p>The Oceanic team managing Premier client SMAs is segregated from the team performing consultancy on NCBA's own EC$531M book. Different mandates. Different reporting lines. Different remuneration structures. No cross-pollination of model views.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">WALL 02 · INFORMATION</div>
+          <h4>Information barriers.</h4>
+          <p>Non-public information from the consultancy engagement on NCBA's own book — issuer-level concentration data, ECL methodology details, hedge positions — is not accessible to the Premier sub-advisory team. Documented in compliance manual.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">WALL 03 · TRADING</div>
+          <h4>Independent execution.</h4>
+          <p>Premier client trades and any hypothetical NCBA-own-book trades are executed independently. No batch crossing. No directed broker arrangements. No soft dollars. Standard institutional best execution.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">WALL 04 · REPORTING</div>
+          <h4>Disclosed in writing.</h4>
+          <p>The relationship structure — including the Chinese wall — is disclosed in every client IMA, the NCBA distribution agreement, and the quarterly compliance report. Both ECSRC and Anguilla FSC have inspection rights.</p>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Termination provisions &mdash; both sides</div>
+        <div class="section-meta">Clean exit terms · no lock-in</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Trigger</th>
+            <th>Notice</th>
+            <th>Client treatment</th>
+            <th>Economics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="gold">NCBA terminates for any reason</td><td class="num">30 days</td><td class="muted">Clients keep IBKR accounts in own name · choice to remain with Oceanic or transfer</td><td class="muted">Distribution fees stop · no claw-back</td></tr>
+          <tr><td class="gold">Oceanic terminates for any reason</td><td class="num">60 days</td><td class="muted">Mandatory client communication · transition support to NCBA-named alternative</td><td class="muted">Final settlement at termination NAV</td></tr>
+          <tr><td class="gold">Material breach (either side)</td><td class="num">Immediate</td><td class="muted">Documented breach · client communication · regulatory notification</td><td class="muted">Termination fees per breach severity</td></tr>
+          <tr><td class="gold">NCBA buyout election (Year 3+)</td><td class="num">90 days</td><td class="muted">Clean transfer to NCBA-owned subsidiary · client consent required</td><td class="muted">Buyout consideration per partnership agreement</td></tr>
+          <tr><td class="gold">Force majeure</td><td class="num">As specified</td><td class="muted">Standard regulatory framework applies</td><td class="muted">Pro-rata settlement</td></tr>
+        </tbody>
+      </table>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">The governance covenant</div>
+        <p>The governance framework above is what makes this a <em>strategic partnership</em> rather than a vendor arrangement. NCBA owns the relationship with the client. NCBA's board sees the partnership health every six months. NCBA's CRO has direct escalation rights to Oceanic's CIO without going through commercial channels. <strong>Either side can walk away on thirty days' notice with no economic penalty to the client.</strong> That is by design. We are confident the partnership earns its renewal at every milestone.</p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         10 · CARIBBEAN WEALTH INTELLIGENCE
+         ==================================================================== -->
+    <div class="view" data-view="intel">
+      <div class="page-eyebrow">10 · The Engagement</div>
+      <h1 class="page-title">Caribbean wealth intelligence.</h1>
+      <p class="page-subtitle">What's actually happening at NCBA's regional peers and competitors in wealth management — fee structures, AUM where public, product gaps. We did the homework so you don't have to. This is the competitive context for the Premier Wealth launch.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is where you demonstrate you've done your homework on the region. Say: <strong>"We mapped every regional wealth competitor — First Citizens in Trinidad, Republic with its Schroders partnership, BOSL, CIBC's offshore route, RBC's Canada-routed product. Here's what they charge, where they're winning, and where they're failing. Most importantly: here's what none of them can do that you can do with us."</strong></p>
+        <p><em>If the CEO knows one of these competitors well, this is where the conversation gets specific. Be ready to discuss any of them in detail — we have intel on each.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">Regional peers tracked</div>
+          <div class="summary-cell-value gold">7</div>
+          <div class="summary-cell-delta">OECS + wider Caribbean</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Regional wealth fee range</div>
+          <div class="summary-cell-value">100–200 bps</div>
+          <div class="summary-cell-delta">All-in to client</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Premier positioning</div>
+          <div class="summary-cell-value positive">100 bps</div>
+          <div class="summary-cell-delta">Lower end of regional norm</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">ECSRC-supervised wealth</div>
+          <div class="summary-cell-value gold">1 firm</div>
+          <div class="summary-cell-delta">Oceanic · structural moat</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The regional competitive map</div>
+        <div class="section-meta">Wealth offerings &amp; fee benchmarks · OECS + Caribbean</div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Counterparty</th>
+            <th>Wealth offering</th>
+            <th>Fee range</th>
+            <th>Regulator</th>
+            <th>Key gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gold">First Citizens (TT)</td>
+            <td class="muted">FC Investment Services · in-house managed funds + advisory</td>
+            <td class="muted">110–150 bps</td>
+            <td class="muted">TT Securities Commission</td>
+            <td class="muted">TT-domiciled only · no OECS distribution</td>
+          </tr>
+          <tr>
+            <td class="gold">Republic Bank Group</td>
+            <td class="muted">Republic Wealth Mgmt · partnership with Schroders</td>
+            <td class="muted">125–175 bps</td>
+            <td class="muted">TT SEC + Cayman CIMA</td>
+            <td class="muted">Schroders is the manager · NCBA not eligible to white-label</td>
+          </tr>
+          <tr>
+            <td class="gold">Bank of Saint Lucia</td>
+            <td class="muted">Caribbean Money Market Funds (BOSL Asset Mgmt)</td>
+            <td class="muted">85–110 bps</td>
+            <td class="muted">ECSRC (St Lucia)</td>
+            <td class="muted">Money-market focus only · no equity / multi-asset</td>
+          </tr>
+          <tr>
+            <td class="gold">CIBC FirstCaribbean</td>
+            <td class="muted">CIBC Caribbean wealth · routed through Cayman</td>
+            <td class="muted">140–180 bps</td>
+            <td class="muted">Cayman CIMA</td>
+            <td class="muted">Offshore-domiciled · not under OECS supervision</td>
+          </tr>
+          <tr>
+            <td class="gold">RBC Caribbean</td>
+            <td class="muted">RBC Dominion Securities · Canada-routed</td>
+            <td class="muted">130–170 bps</td>
+            <td class="muted">OSFI Canada / IIROC</td>
+            <td class="muted">Canadian framework · different jurisdiction</td>
+          </tr>
+          <tr>
+            <td class="gold">Scotia Caribbean</td>
+            <td class="muted">Scotia Wealth Management · regional routing to TT</td>
+            <td class="muted">130–160 bps</td>
+            <td class="muted">TT SEC + Canada (OSFI)</td>
+            <td class="muted">Not OECS-supervised · TT/Canadian framework</td>
+          </tr>
+          <tr>
+            <td class="gold">Butterfield (Bermuda)</td>
+            <td class="muted">Butterfield Private Banking &amp; Trust</td>
+            <td class="muted">140–200 bps</td>
+            <td class="muted">Bermuda Monetary Authority</td>
+            <td class="muted">Where NCBA's HNW depositors currently sit · different jurisdiction</td>
+          </tr>
+          <tr class="total">
+            <td>NCBA Premier (proposed)</td>
+            <td class="muted gold">Oceanic sub-advisory · NCBA distribution</td>
+            <td class="muted gold">100 bps</td>
+            <td class="muted gold">ECSRC + Anguilla FSC</td>
+            <td class="muted gold">First fully-OECS-supervised co-branded wealth product</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-header">
+        <div class="section-title">Three intel points worth talking through in detail</div>
+        <div class="section-meta">What we've learned about specific regional competitors</div>
+      </div>
+
+      <div class="moats-grid">
+        <div class="moat-card">
+          <div class="num">INTEL 01 · REPUBLIC × SCHRODERS</div>
+          <h4>Republic's partnership template, and why it can't be copied.</h4>
+          <p>Republic's wealth product is sub-advised by Schroders out of London/Singapore. It's the closest analog to the Premier structure regionally. But Republic gives up <strong>~75% of the management fee to Schroders</strong> because Schroders is the brand and the manager — Republic is just the distributor.</p>
+          <ul>
+            <li>Republic distributor share: estimated 25–30 bps on ~150 bps gross</li>
+            <li>Premier proposal: NCBA distributor share is <strong>40 bps on 100 bps gross — 40%</strong></li>
+            <li>NCBA earns proportionally more, on a cheaper client product</li>
+          </ul>
+        </div>
+        <div class="moat-card">
+          <div class="num">INTEL 02 · CIBC OFFSHORE PROBLEM</div>
+          <h4>The Cayman routing problem CIBC can't solve.</h4>
+          <p>CIBC FirstCaribbean's wealth product is domiciled in Cayman because they couldn't get regional approval to operate it from Bridgetown. This means CIBC's Anguilla branches refer wealth clients <em>out of country</em> — and OECS-supervised regulators don't have inspection rights over their accounts.</p>
+          <ul>
+            <li>NCBA depositor referred to CIBC wealth → account in Cayman</li>
+            <li>NCBA depositor referred to Oceanic → account in Anguilla under ECSRC</li>
+            <li>Compliance posture materially differs</li>
+          </ul>
+        </div>
+        <div class="moat-card">
+          <div class="num">INTEL 03 · BOSL CEILING</div>
+          <h4>Bank of Saint Lucia's wealth product hit a ceiling.</h4>
+          <p>BOSL Asset Management launched Caribbean Money Market Funds in the early 2000s under ECSRC supervision. It scaled to several hundred million USD and stalled — because it remained <strong>money-market only</strong>. HNW clients wanting equity / multi-asset exposure left for offshore competitors.</p>
+          <ul>
+            <li>BOSL's gap: no multi-asset capability under ECSRC license</li>
+            <li>Premier proposition fills exactly this gap — multi-asset, ECSRC-supervised</li>
+            <li>The model is proven; the product gap is not yet filled</li>
+          </ul>
+        </div>
+        <div class="moat-card primary">
+          <div class="num">INTEL 04 · THE WHITE SPACE</div>
+          <h4>Where the OECS regional wealth gap actually is.</h4>
+          <p>No firm in the region currently offers: <strong>OECS-supervised, multi-asset, co-branded with a local bank, with HNW client minimums of US$250k.</strong> Every competitor fails at least one of those criteria. Premier is built around all four.</p>
+          <ul>
+            <li>OECS-supervised — Premier yes, CIBC/RBC/Butterfield no</li>
+            <li>Multi-asset — Premier yes, BOSL no</li>
+            <li>Co-branded with local bank — Premier yes, all others no</li>
+            <li>US$250k minimum — Premier yes, Republic+Schroders is US$500k</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">On the source of this intelligence</div>
+        <p>Fee benchmarks above are drawn from public regulatory filings, comparable institutional product disclosures, and direct conversations with regional industry contacts. Where ranges are wide it reflects the spread between published rack rates and negotiated institutional pricing. We will validate the specific competitive intelligence against NCBA's own observations in Phase 0. <em>If any of these data points contradicts what NCBA already knows, that is itself information — and we want to hear it.</em></p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         11 · FIELD
+         ==================================================================== -->
+    <div class="view" data-view="field">
+      <div class="page-eyebrow">12 · The Close</div>
+      <h1 class="page-title">The field, honestly.</h1>
+      <p class="page-subtitle">The four firms NCBA is weighing. The six lines on which the engagement is actually decided.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Don't pretend you're bigger than you are. Say: <strong>"Goldman is the better firm. CIBC and RBC are larger. We are saying something simpler and harder to argue with: no other firm can put NCBA's clients inside the Eastern Caribbean regulatory perimeter, co-brand a product on a 60-day clock, or sit across from the CIO without booking a flight. Fit, not scale, decides this engagement."</strong></p>
+        <p><em>The table is the argument. Let it stand.</em></p>
+      </div>
+
+      <div class="field-tbl-wrap">
+        <table class="field-tbl">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Goldman Sachs PWM</th>
+              <th>CIBC FirstCaribbean</th>
+              <th>RBC Caribbean</th>
+              <th class="us">Oceanic Wealth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Same regulator as NCBA (ECSRC)</td><td>No · SEC/FINRA</td><td>No · Barbados/Cayman</td><td>No · OSFI Canada</td><td class="us">YES · ECSRC</td></tr>
+            <tr><td>Same jurisdiction as NCBA (Anguilla / OECS)</td><td>No · New York</td><td>No · Bridgetown / George Town</td><td>No · Toronto</td><td class="us">YES · Anguilla</td></tr>
+            <tr><td>Will accept US$5M starting mandates</td><td>No · US$10M+</td><td>Limited · existing fund only</td><td>Limited · existing fund only</td><td class="us">YES</td></tr>
+            <tr><td>Will co-brand the product with NCBA</td><td>No</td><td>No · CIBC-branded</td><td>No · RBC-branded</td><td class="us">YES</td></tr>
+            <tr><td>60-day product launch</td><td>No · 6–9 months</td><td>Referral to existing fund</td><td>Referral to existing fund</td><td class="us">YES</td></tr>
+            <tr><td>Face-to-face board meetings in Anguilla</td><td>No</td><td>Quarterly travel</td><td>Quarterly travel</td><td class="us">YES &mdash; weekly if needed</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="narrative-card">
+        <div class="narrative-eyebrow">The honest framing</div>
+        <div class="narrative-title">Goldman is the better firm. We are the better fit.</div>
+        <div class="narrative-body">
+          We will not waste meeting time pretending we are bigger or older than we are. We are saying something simpler and harder to argue with: <em>no other firm can put NCBA's clients inside the Eastern Caribbean regulatory perimeter, co-brand a product on a 60-day clock, or sit across from the CIO without booking a flight.</em> Fit, not scale, decides this engagement.
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         12 · LIVE INFRASTRUCTURE
+         ==================================================================== -->
+    <div class="view" data-view="infra">
+      <div class="page-eyebrow">13 · The Close</div>
+      <h1 class="page-title">A live operating platform &mdash; not a deck.</h1>
+      <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is where you prove you're not a slide deck pretending to be a firm. Say: <strong>"What you're looking at on this screen is the same chrome that runs our institutional book. The dashboard we'd give NCBA is this — co-branded — read-only — three views for three audiences. Live numbers. Same SHA-256 audit trail."</strong></p>
+        <p>If they want to see it actually running, the localhost dashboard is one click away. <em>Have it open in another tab before the meeting.</em></p>
+      </div>
+
+      <div class="moats-grid">
+        <div class="moat-card">
+          <div class="num">VIEW A</div>
+          <h4>Premier Wealth aggregate</h4>
+          <p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px;">Audience &mdash; NCBA wealth-distribution team</p>
+          <p>Aggregate AUM across all NCBA-introduced clients. Monthly inflow / outflow. Model performance vs. benchmark. Top holdings. Attribution.</p>
+        </div>
+        <div class="moat-card">
+          <div class="num">VIEW B</div>
+          <h4>Risk consultancy book</h4>
+          <p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px;">Audience &mdash; NCBA Investment Committee</p>
+          <p>Live concentration metrics on the EC$531M book. Fee-leakage tracker. Stress scenarios on actual positions. ECL movement.</p>
+        </div>
+      </div>
+
+      <div class="moat-card" style="margin-bottom: 24px;">
+        <div class="num">VIEW C</div>
+        <h4>Co-supervision audit trail</h4>
+        <p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px;">Audience &mdash; NCBA Compliance</p>
+        <p>SHA-256 hash chain of every state change. ECSRC filings register. NCBA mandate guardrail trip log. The only co-supervision audit trail in the OECS.</p>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Illustrative &mdash; Premier Wealth aggregate</div>
+        <div class="section-meta">Mock · live numbers behind NDA in Meeting 1</div>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell">
+          <div class="summary-cell-label">AUM</div>
+          <div class="summary-cell-value gold">US$ 8.74M</div>
+          <div class="summary-cell-delta positive">+ $1.20M QTD</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Active accounts</div>
+          <div class="summary-cell-value">17</div>
+          <div class="summary-cell-delta">+ 4 QTD</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">QTD return · Balanced</div>
+          <div class="summary-cell-value positive">+ 2.34%</div>
+          <div class="summary-cell-delta">vs 60/40 ACWI/Agg: + 0.41%</div>
+        </div>
+        <div class="summary-cell">
+          <div class="summary-cell-label">Rolling 3m Sharpe</div>
+          <div class="summary-cell-value">1.42</div>
+          <div class="summary-cell-delta">Ulcer 0.91 · MaxDD −1.84%</div>
+        </div>
+      </div>
+
+      <table class="tbl">
+        <thead><tr><th>Top positions</th><th class="num">Weight</th><th class="num">QTD contrib</th><th class="num">β SPY</th><th class="num">Idio σ</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">VOO &mdash; Vanguard S&amp;P 500 ETF</td><td class="num">22.4%</td><td class="num">+ 0.84%</td><td class="num">1.00</td><td class="num">0.12</td></tr>
+          <tr><td class="gold">IEF &mdash; Intermediate UST</td><td class="num">15.2%</td><td class="num">+ 0.31%</td><td class="num">−0.18</td><td class="num">0.21</td></tr>
+          <tr><td class="gold">SHV &mdash; Short UST</td><td class="num">10.1%</td><td class="num">+ 0.18%</td><td class="num">0.00</td><td class="num">0.04</td></tr>
+          <tr><td class="gold">VEA &mdash; Developed International</td><td class="num">8.8%</td><td class="num">+ 0.22%</td><td class="num">0.88</td><td class="num">0.34</td></tr>
+          <tr><td class="gold">UST 10y · individual</td><td class="num">7.4%</td><td class="num">+ 0.14%</td><td class="num">−0.22</td><td class="num">0.18</td></tr>
+          <tr><td class="gold">LQD &mdash; IG Corporate</td><td class="num">4.6%</td><td class="num">+ 0.11%</td><td class="num">0.32</td><td class="num">0.27</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ====================================================================
+         13 · TIMELINE
+         ==================================================================== -->
+    <div class="view" data-view="implementation">
+      <div class="page-eyebrow">11 · The Engagement</div>
+      <h1 class="page-title">From pitch to first AUM &mdash; four phases.</h1>
+      <p class="page-subtitle">Each phase is approvable at one decision level. Each reduces NCBA's commitment risk before the next is asked for.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Walk them along the timeline, but emphasize Phase 0 and 1. Say: <strong>"Phase 0 is the next two weeks — NDA, four artifacts, three meetings, no fee. Phase 1 is the paid diagnostic at twenty-five thousand. Phase 2 is the first ten clients onboarded into Premier. Each phase is small enough that the next decision is obvious once the prior one is delivered."</strong></p>
+        <p><em>Don't dwell on Phase 3. They'll get there when Phase 2 has proved itself.</em></p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-phase">
+          <div class="marker"><span class="dot"></span><span class="label">Phase 0 · No fee</span></div>
+          <h4>Pitch &amp; mutual exploration</h4>
+          <div class="window">Weeks 1–2</div>
+          <ul>
+            <li>Four artifacts delivered: this dashboard, the live infra demo, a 12-page deck, the diagnostic term sheet</li>
+            <li>Meeting 1 — CEO &amp; CIO</li>
+            <li>Meeting 2 — Investment Committee</li>
+            <li>NDA executed before any data exchange</li>
+            <li>ECSRC counsel opinion drafted on Premier legal structure</li>
+          </ul>
+        </div>
+        <div class="timeline-phase">
+          <div class="marker"><span class="dot"></span><span class="label">Phase 1 · US$25–75k</span></div>
+          <h4>Paid diagnostic</h4>
+          <div class="window">Months 1–2</div>
+          <ul>
+            <li>NCBA shares schedule of investments under NDA</li>
+            <li>Tier-A, Tier-B, or Tier-C report delivered</li>
+            <li>Investment Committee presentation</li>
+            <li>CIO-level approval — board notification only</li>
+          </ul>
+        </div>
+        <div class="timeline-phase">
+          <div class="marker"><span class="dot"></span><span class="label">Phase 2 · AUM-based</span></div>
+          <h4>Premier Wealth launch</h4>
+          <div class="window">Months 3–12</div>
+          <ul>
+            <li>Distribution agreement signed · 5-year exclusivity for Anguilla</li>
+            <li>NCBA branch banker training · co-branded materials printed</li>
+            <li>HNW depositors onboarded into Premier Wealth accounts</li>
+            <li>Partnership minimum at M12: <strong>US$ 25M AUM</strong> &mdash; NCBA earns US$ 100k/yr at 40 bps</li>
+            <li>First Caribbean Risk Lens published</li>
+          </ul>
+        </div>
+        <div class="timeline-phase">
+          <div class="marker"><span class="dot"></span><span class="label">Phase 3 · Scale</span></div>
+          <h4>Scale &amp; optionality</h4>
+          <div class="window">Months 13–36</div>
+          <ul>
+            <li>Scale Premier Wealth to <strong>US$ 75M AUM</strong> by M36 (partnership minimum)</li>
+            <li>NCBA recurring revenue grows to US$ 300k/yr at 40 bps</li>
+            <li>Year-3 buyout window opens: optional path to NCBA-owned subsidiary</li>
+            <li>MAICO mandate evaluation in parallel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="narrative-card">
+        <div class="narrative-eyebrow">How the relationship grows</div>
+        <div class="narrative-title">Each phase commits NCBA to less than the value of what's already been delivered.</div>
+        <div class="narrative-body">
+          We do not ask NCBA to bet on Phase 3 in order to start Phase 1. The diagnostic is sized so that it is paid for by the fee savings it identifies within 90 days. The Premier launch is sized so that the first AUM cohort breaks even on the distribution agreement within two quarters. The fund registration in Phase 3 happens only after AUM justifies the operational shift. <em>Nothing about this engagement requires NCBA to take risk on Oceanic.</em>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         14 · ASK
+         ==================================================================== -->
+    <div class="view" data-view="ask">
+      <div class="page-eyebrow">14 · The Close</div>
+      <h1 class="page-title">One next step.</h1>
+      <p class="page-subtitle">No demo button. No form. No "schedule a call." One decision, at one price, under one document.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>Close confidently. Say: <strong>"You've said wealth management is a strategic priority. We are the only regulated path to executing on that priority in the Eastern Caribbean. We launch a co-branded wealth product your clients can buy in 60 days, we save you over a million dollars of build-out in year one, and we become the investment-governance partner your board has been missing. Twenty-five thousand dollars for the diagnostic gets the relationship started."</strong></p>
+        <p>Then stop talking. The next words should be theirs.</p>
+      </div>
+
+      <div class="ask-quote">
+        <div class="text">You've said wealth management is a strategic priority. We are the only regulated path to executing on that priority in the Eastern Caribbean. We deliver a co-branded wealth product your clients can buy in 60 days, save you north of a million dollars in build-out and embedded fees in year one, and become the investment-governance partner your board has been missing. Twenty-five thousand dollars for the diagnostic gets the relationship started.</div>
+      </div>
+
+      <div class="ask-cta">
+        <div class="ask-cta-card">
+          <div class="label">Next step</div>
+          <div class="terms"><em>Tier-A diagnostic.</em> US$25,000. 30 days. Three workstreams. Signed under NDA.</div>
+        </div>
+        <div class="ask-cta-card">
+          <div class="label">Contact</div>
+          <dl>
+            <div><dt>Direct</dt><dd>Boris Kotcher · CEO, Oceanic Wealth</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:boris@oceanicwealth.com">boris@oceanicwealth.com</a></dd></div>
+            <div><dt>Office</dt><dd>The Valley · Anguilla</dd></div>
+            <div><dt>Regulator</dt><dd>Eastern Caribbean Securities Regulatory Commission</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  </main>
+
+
+  <!-- FACTS PANEL -->
+  <aside class="facts">
+    <div class="facts-header">
+      <div class="facts-title"><span class="pulse gold"></span> NCBA · FY25</div>
+      <div class="facts-subtitle">Vital signs · audited statements</div>
+    </div>
+    <div class="facts-stream">
+      <div class="facts-group">
+        <div class="facts-group-label">The opportunity sized</div>
+        <div class="stat"><span class="k">HNW depositor wallet (est.)</span><span class="v gold">US$ 600–900M</span></div>
+        <div class="stat"><span class="k">Currently at NCBA</span><span class="v">~ 12%</span></div>
+        <div class="stat"><span class="k">M12 partnership minimum</span><span class="v">US$ 25M</span></div>
+        <div class="stat"><span class="k">M36 partnership minimum</span><span class="v positive">US$ 75M</span></div>
+        <div class="stat"><span class="k">NCBA revenue at M36</span><span class="v gold">US$ 300k / yr</span></div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">Balance sheet</div>
+        <div class="stat"><span class="k">Total assets</span><span class="v">EC$ 1.394B</span></div>
+        <div class="stat"><span class="k">Investment book</span><span class="v gold">EC$ 531M</span></div>
+        <div class="stat"><span class="k">Loans &amp; advances</span><span class="v">EC$ 457M</span></div>
+        <div class="stat"><span class="k">Customer deposits</span><span class="v">EC$ 1.175B</span></div>
+        <div class="stat"><span class="k">Total equity</span><span class="v">EC$ 195M</span></div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">Profitability</div>
+        <div class="stat"><span class="k">Net income FY25</span><span class="v">EC$ 40.6M</span></div>
+        <div class="stat"><span class="k">ROE</span><span class="v gold">20.8%</span></div>
+        <div class="stat"><span class="k">ROA</span><span class="v">2.91%</span></div>
+        <div class="stat"><span class="k">NIM</span><span class="v">3.34%</span></div>
+        <div class="stat"><span class="k">Cost of funds</span><span class="v positive">0.54%</span></div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">Investment book composition</div>
+        <div class="stat"><span class="k">Corporate bonds</span><span class="v">EC$ 372M · 70.1%</span></div>
+        <div class="stat"><span class="k">Repos</span><span class="v">EC$ 51M · 9.5%</span></div>
+        <div class="stat"><span class="k">Mutual funds (FVTPL)</span><span class="v critical">EC$ 38M · +37% YoY</span></div>
+        <div class="stat"><span class="k">Quoted equity</span><span class="v">EC$ 28M · 5.2%</span></div>
+        <div class="stat"><span class="k">Currency mix</span><span class="v">71 / 24 / 5</span></div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">Audit absences</div>
+        <div class="facts-absence"><span class="idx">01</span><span>No wealth-management line across 89 pages</span></div>
+        <div class="facts-absence"><span class="idx">02</span><span>No external investment manager disclosed</span></div>
+        <div class="facts-absence"><span class="idx">03</span><span>No mutual fund TER on EC$37.9M FVTPL line</span></div>
+        <div class="facts-absence"><span class="idx">04</span><span>No risk framework on the investment book</span></div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">CEO public statement</div>
+        <div style="font-family:var(--serif); font-size:13px; font-style:italic; color:var(--text); line-height:1.5; font-weight:300;">"Wealth management is a strategic priority for the bank going forward."</div>
+        <div style="font-family:var(--mono); font-size:9px; color:var(--text-tertiary); letter-spacing:0.14em; text-transform:uppercase; margin-top:10px;">— NCBA · Chief Executive</div>
+      </div>
+      <div class="facts-group">
+        <div class="facts-group-label">Group structure</div>
+        <div class="stat"><span class="k">MAICO (P&amp;C insurance)</span><span class="v gold">55% owned</span></div>
+        <div class="stat"><span class="k">Domicile</span><span class="v">Anguilla · OECS</span></div>
+      </div>
+    </div>
+    <div class="facts-tag"><span class="pulse gold"></span>Source &mdash; FY25 audit · 31 Oct 2025</div>
+  </aside>
+
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="left">Oceanic Wealth · ECSRC licensed · Anguilla · OECS</div>
+    <div class="right">v4 · 27 May 2026 · <span class="gold">Confidential — pre-pitch</span></div>
+  </footer>
+
+</div>
+
+
+<script>
+  (function () {
+    const items = document.querySelectorAll('.sidebar-item');
+    const views = document.querySelectorAll('.view');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const view = item.getAttribute('data-view');
+        items.forEach(i => i.classList.remove('active'));
+        views.forEach(v => v.classList.remove('active'));
+        item.classList.add('active');
+        const target = document.querySelector('.view[data-view="' + view + '"]');
+        if (target) {
+          target.classList.add('active');
+          document.querySelector('.main').scrollTop = 0;
+        }
+      });
+    });
+    document.querySelectorAll('.sidebar-section').forEach(section => {
+      const toggle = section.querySelector('.sidebar-section-toggle');
+      toggle.addEventListener('click', () => section.classList.toggle('collapsed'));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      const allItems = Array.from(document.querySelectorAll('.sidebar-item'));
+      const activeIdx = allItems.findIndex(i => i.classList.contains('active'));
+      if (e.key === 'ArrowRight' || e.key === 'j') {
+        const next = allItems[(activeIdx + 1) % allItems.length];
+        if (next) next.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'k') {
+        const prev = allItems[(activeIdx - 1 + allItems.length) % allItems.length];
+        if (prev) prev.click();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
