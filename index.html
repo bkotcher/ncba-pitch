@@ -841,6 +841,60 @@ footer.foot .right .gold { color: var(--gold); }
   .sim-lists, .adv-wrap, .ncmap-layout, .wsi-layout, .gauge-layout { grid-template-columns:1fr; }
 }
 
+
+/* ============================================================
+   THE OPPORTUNITY (Pass 1)
+   ============================================================ */
+.opp-thesis { font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--text-secondary); font-style: italic; max-width: 800px; margin: 0 0 28px; }
+.opp-thesis em { color: var(--gold); font-style: normal; }
+
+/* wealth leakage diagram */
+.leak-wrap { background: radial-gradient(circle at 22% 50%, #15181d, var(--bg) 75%); border: 1px solid var(--border); border-radius: 8px; padding: 26px 24px 18px; margin-bottom: 28px; position: relative; }
+.leak-cap { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--critical); margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.leak-cap .dot { width:7px;height:7px;border-radius:50%;background:var(--critical);box-shadow:0 0 8px var(--critical);animation:pulse 1.5s infinite; }
+.leak-svg { display:block; width:100%; height:auto; }
+.leak-flow { fill:none; stroke: var(--critical); stroke-width:2; stroke-dasharray: 5 9; opacity:.7; animation: leakFlow 1s linear infinite; }
+@keyframes leakFlow { to { stroke-dashoffset: -14; } }
+.leak-bank rect { fill: var(--bg-card); stroke: var(--gold-dim); stroke-width:2; }
+.leak-off rect { fill: #1c1418; stroke: var(--critical); stroke-width:1.5; }
+.leak-off.pz rect { animation: leakPulse 2.2s ease-in-out infinite; }
+@keyframes leakPulse { 0%,100%{stroke-opacity:.5;} 50%{stroke-opacity:1;} }
+.leak-svg text.bk { font-family:var(--serif); fill:var(--text); }
+.leak-svg text.bs { font-family:var(--mono); fill:var(--text-tertiary); }
+.leak-svg text.os { font-family:var(--sans); fill:var(--text-secondary); }
+
+/* segmentation bars */
+.seg-bars { display:grid; gap:11px; margin: 6px 0 28px; }
+.seg-row { display:grid; grid-template-columns: 230px 1fr 72px; gap:16px; align-items:center; }
+.seg-row .sl { font-family:var(--sans); font-size:13px; color:var(--text); }
+.seg-row .sl small { display:block; font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin-top:2px; }
+.seg-track { height:30px; background:var(--bg-elevated); border-radius:4px; overflow:hidden; }
+.seg-fill { height:100%; width:0; border-radius:4px; transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+.seg-fill.bank { background: linear-gradient(90deg, var(--gold-dim), var(--gold)); }
+.seg-fill.leak { background: linear-gradient(90deg, #6e3a32, var(--critical)); }
+.seg-fill.neu  { background: linear-gradient(90deg, #3a4048, var(--text-tertiary)); }
+.seg-row .sv { font-family:var(--mono); font-size:14px; text-align:right; font-variant-numeric:tabular-nums; color:var(--text); }
+
+/* arc of opportunity */
+.arc-opp { display:grid; grid-template-columns: 1.1fr 1fr; gap:28px; align-items:center; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:30px; margin-bottom:24px; }
+.arc-num { font-family:var(--serif); font-size:60px; font-weight:300; color:var(--gold); line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+.arc-sub { font-family:var(--mono); font-size:11px; color:var(--text-tertiary); letter-spacing:.06em; margin-top:8px; }
+.arc-capture { }
+.arc-cap-track { height:40px; background:var(--bg-elevated); border-radius:5px; overflow:hidden; position:relative; }
+.arc-cap-fill { height:100%; width:0; background: linear-gradient(90deg, var(--positive), #3a6e44); border-radius:5px; transition: width 1.4s cubic-bezier(.2,.8,.2,1); display:flex; align-items:center; justify-content:flex-end; padding-right:12px; }
+.arc-cap-fill span { font-family:var(--mono); font-size:12px; color:#0a0b0d; font-weight:600; white-space:nowrap; opacity:0; transition:opacity .4s ease .9s; }
+.arc-cap-fill.in span { opacity:1; }
+.arc-cap-lbl { font-family:var(--mono); font-size:10px; color:var(--text-tertiary); letter-spacing:.06em; margin-top:10px; }
+.arc-big { font-family:var(--serif); font-size:30px; color:var(--positive); margin-top:6px; font-variant-numeric:tabular-nums; }
+
+/* closing frame */
+.opp-close-frame { background: linear-gradient(135deg, #1a1419, var(--bg-card)); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:30px 36px; }
+.opp-close-frame .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.opp-close-frame .big { font-family:var(--serif); font-size:26px; line-height:1.4; color:var(--text); font-weight:300; max-width:840px; }
+.opp-close-frame .big em { color:var(--gold); font-style:italic; }
+
+@media (max-width:1100px){ .arc-opp{ grid-template-columns:1fr; } .seg-row{ grid-template-columns:1fr; } .seg-row .sv{ text-align:left; } }
+
 </style>
 </head>
 
@@ -871,12 +925,12 @@ footer.foot .right .gold { color: var(--gold); }
 
     <div class="sidebar-section" data-section="moment">
       <div class="sidebar-section-toggle">
-        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◆</span>The Recommendation</div>
+        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◆</span>The Opportunity</div>
         <div class="caret">▾</div>
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item active" data-view="wallet">
-          <span class="sidebar-num">01</span><span class="sidebar-item-label">The Recommendation</span>
+          <span class="sidebar-num">01</span><span class="sidebar-item-label">The Opportunity</span>
           <span class="sidebar-badge">start here</span>
         </div>
       </div>
@@ -958,76 +1012,105 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         01 · THE RECOMMENDATION — answer-first consulting open
+         01 · THE OPPORTUNITY — the wedge
          ==================================================================== -->
     <div class="view active" data-view="wallet">
-      <div class="page-eyebrow">01 · The Recommendation</div>
-      <h1 class="page-title">NCBA's wealth engine. <em>Not its competitor.</em></h1>
-      <p class="page-subtitle">Our recommendation, stated up front: NCBA should run wealth management as a sub-advised franchise &mdash; Oceanic as the platform, products, and investment-management engine underneath the NCBA brand, across two client tiers. NCBA keeps the client, the license, the balance sheet, and the brand. We carry the build cost, the platform, and the regulatory burden. This is the fastest, lowest-risk way for NCBA to own a wealth business it does not have to build.</p>
+      <div class="page-eyebrow">01 · The Opportunity</div>
+      <h1 class="page-title">The wealth is already there. <em>It just isn't here.</em></h1>
+      <p class="opp-thesis">A bank like this one holds its clients' cash, mortgages, and cards &mdash; but not their investments. So the investment wealth sits offshore: at Butterfield, at RBC Wealth, at foreign brokers. <em>Every quarter, the franchise funds its own competitors.</em></p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Lead with the answer. Say: <strong>"Our recommendation is simple. You don't build a wealth division and you don't refer your clients out to someone who'll eventually compete with you. You run wealth as a sub-advised franchise: your brand, your client, your balance sheet on the front; our platform and investment management on the back. You own the relationship and the upside. We carry the build. Here's why now, here's what it's worth, and here's the structure."</strong></p>
-        <p><em>Everything after this tab supports this one recommendation. Don't bury the answer &mdash; the CEO's time is the scarcest thing in the room.</em></p>
+        <p>Open with the leak. Say: <strong>"Your best clients are wealthy. You hold their deposits, their mortgage, their card. But their actual investment portfolio &mdash; the part that compounds for thirty years &mdash; sits at an offshore manager, because you don't offer a platform. Watch this."</strong> &mdash; then point at the diagram draining.</p>
+        <p><em>This tab makes no claims and no promises. It just shows the problem, so the rest of the deck can be the answer.</em></p>
       </div>
 
-      <div class="cinematic-total">
-        <div class="label">The recommendation</div>
-        <div class="desc" style="font-size: 26px; font-style: normal; color: var(--text); margin-top: 0; max-width: 920px; line-height: 1.4;">
-          Make Oceanic NCBA's <em class="accent" style="color: var(--gold); font-style: normal;">wealth sub-advisor</em> &mdash; the engine underneath the NCBA brand &mdash; and capture the highest-return adjacency NCBA is not yet serving, before the market window closes.
-        </div>
-      </div>
-
-      <div class="section-header">
-        <div class="section-title">Three reasons</div>
-        <div class="section-meta">Why this, why Oceanic, why now</div>
-      </div>
-
-      <div class="moats-grid">
-        <div class="moat-card primary">
-          <div class="num">REASON 01 · THE ADJACENCY</div>
-          <h4>Wealth is the return NCBA isn't capturing.</h4>
-          <p>NCBA runs a 20.8% ROE bank with EC$1.4B in assets and an investment book larger than its loan book &mdash; but earns nothing on its clients' <em>investment</em> wealth, which sits offshore. Wealth management is the single highest-return adjacency available, and it requires no balance-sheet risk: it is fee income on assets NCBA already has the relationships to capture.</p>
-        </div>
-        <div class="moat-card primary">
-          <div class="num">REASON 02 · BUILD VS. PARTNER</div>
-          <h4>The platform takes years to build. We have it.</h4>
-          <p>NCBA is filing for a broker-dealer license &mdash; the right move. But a license is not a wealth business. The platform, the products, the risk engine, the regulated rails: that is 18&ndash;24 months and millions to build alone. Sub-advisory gives NCBA the full stack on day one, while NCBA keeps the client and the economics.</p>
-        </div>
-        <div class="moat-card primary">
-          <div class="num">REASON 03 · THE WINDOW</div>
-          <h4>Three forces are open right now.</h4>
-          <ul>
-            <li><strong>Consolidation:</strong> the largest regional wealth players are mid-integration and distracted &mdash; clients are in motion and dislike transitions.</li>
-            <li><strong>Regulatory timing:</strong> NCBA's BD application is in flight &mdash; the structure can be built into it now, not retrofitted later.</li>
-            <li><strong>New inflows:</strong> Anguilla's residency-by-investment program is delivering HNW arrivals today, with no investment home.</li>
-          </ul>
-        </div>
+      <div class="leak-wrap">
+        <div class="leak-cap"><span class="dot"></span>Wealth leaving the franchise &mdash; continuously</div>
+        <svg class="leak-svg" viewBox="0 0 680 280" preserveAspectRatio="xMidYMid meet">
+          <!-- flow paths (animated dashes draining outward) -->
+          <path class="leak-flow" d="M205 140 Q380 86 500 74"/>
+          <path class="leak-flow" d="M205 140 Q380 140 500 146"/>
+          <path class="leak-flow" d="M205 140 Q380 196 500 216"/>
+          <!-- moving particles -->
+          <circle r="3.5" fill="#c97062"><animateMotion dur="2.6s" repeatCount="indefinite" path="M205 140 Q380 86 500 74"/></circle>
+          <circle r="3.5" fill="#c97062"><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M205 140 Q380 86 500 74"/></circle>
+          <circle r="3.5" fill="#c97062"><animateMotion dur="2.9s" repeatCount="indefinite" path="M205 140 Q380 140 500 146"/></circle>
+          <circle r="3.5" fill="#c97062"><animateMotion dur="2.9s" begin="1.45s" repeatCount="indefinite" path="M205 140 Q380 140 500 146"/></circle>
+          <circle r="3.5" fill="#c97062"><animateMotion dur="3.1s" repeatCount="indefinite" path="M205 140 Q380 196 500 216"/></circle>
+          <circle r="3.5" fill="#c97062"><animateMotion dur="3.1s" begin="1.55s" repeatCount="indefinite" path="M205 140 Q380 196 500 216"/></circle>
+          <!-- bank node -->
+          <g class="leak-bank">
+            <rect x="40" y="104" width="165" height="72" rx="6"/>
+            <text class="bk" x="122" y="134" text-anchor="middle" font-size="15">The Bank</text>
+            <text class="bs" x="122" y="154" text-anchor="middle" font-size="9" letter-spacing="0.1em">DEPOSITS · LOANS · CARDS</text>
+          </g>
+          <!-- offshore nodes -->
+          <g class="leak-off pz"><rect x="500" y="50" width="160" height="48" rx="5"/><text class="os" x="580" y="72" text-anchor="middle" font-size="11">Offshore Wealth Mgrs</text><text class="bs" x="580" y="88" text-anchor="middle" font-size="8">Butterfield · RBC Wealth</text></g>
+          <g class="leak-off pz"><rect x="500" y="122" width="160" height="48" rx="5"/><text class="os" x="580" y="144" text-anchor="middle" font-size="11">Foreign Brokerage</text><text class="bs" x="580" y="160" text-anchor="middle" font-size="8">Schwab · IB · Fidelity</text></g>
+          <g class="leak-off pz"><rect x="500" y="194" width="160" height="48" rx="5"/><text class="os" x="580" y="216" text-anchor="middle" font-size="11">Overseas Private Banks</text><text class="bs" x="580" y="232" text-anchor="middle" font-size="8">Switzerland · Bermuda</text></g>
+        </svg>
       </div>
 
       <div class="section-header">
-        <div class="section-title">What it's worth to NCBA</div>
-        <div class="section-meta">Recurring fee income · retained relationships · reportable franchise growth</div>
+        <div class="section-title">Where a Caribbean bank's HNW wealth actually sits</div>
+        <div class="section-meta">Illustrative · share of a typical HNW client's liquid wealth</div>
+      </div>
+      <div class="seg-bars" id="opp-seg">
+        <div class="seg-row"><div class="sl">At the bank<small>operating &amp; deposit accounts</small></div><div class="seg-track"><div class="seg-fill bank" data-w="12"></div></div><div class="sv">~12%</div></div>
+        <div class="seg-row"><div class="sl">Offshore wealth managers<small>Butterfield, RBC Wealth, HSBC Intl</small></div><div class="seg-track"><div class="seg-fill leak" data-w="46"></div></div><div class="sv">~46%</div></div>
+        <div class="seg-row"><div class="sl">Foreign brokerage<small>self-directed US/UK accounts</small></div><div class="seg-track"><div class="seg-fill leak" data-w="24"></div></div><div class="sv">~24%</div></div>
+        <div class="seg-row"><div class="sl">Real estate &amp; private<small>illiquid holdings</small></div><div class="seg-track"><div class="seg-fill neu" data-w="18"></div></div><div class="sv">~18%</div></div>
       </div>
 
-      <table class="tbl">
-        <thead>
-          <tr><th>Value stream</th><th class="num">Year 1</th><th class="num">Year 3</th><th class="num">Year 5</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Sub-advisory fee income to NCBA</td><td class="num">US$ 100k</td><td class="num">US$ 400k</td><td class="num gold">US$ 1.0M</td></tr>
-          <tr><td class="gold">Client retention value (banking relationships kept)</td><td class="num">~US$ 60k</td><td class="num">~US$ 400k</td><td class="num">~US$ 960k</td></tr>
-          <tr><td class="gold">Reportable AUA on the franchise</td><td class="num">US$ 25M</td><td class="num">US$ 100M</td><td class="num">US$ 250M</td></tr>
-          <tr class="total"><td>Recurring annual economic value (Y5)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">~US$ 2.0M · 13% of FY25 NI</td></tr>
-        </tbody>
-      </table>
-      <p class="note" style="margin-top: 10px;">All figures indicative &middot; to be validated in the diagnostic phase. Sized against NCBA FY25 net income of EC$40.6M (~US$15.0M).</p>
+      <div class="section-header">
+        <div class="section-title">The arc of opportunity</div>
+        <div class="section-meta">Illustrative · conceptual addressable wealth</div>
+      </div>
+      <div class="arc-opp">
+        <div>
+          <div class="arc-num" id="arc-num">US$ 0</div>
+          <div class="arc-sub">estimated HNW liquid wealth in a franchise of this scale &mdash; only ~12% on the bank's books today</div>
+        </div>
+        <div class="arc-capture">
+          <div class="arc-cap-track"><div class="arc-cap-fill" id="arc-cap"><span>capture even 15%</span></div></div>
+          <div class="arc-big" id="arc-big">US$ 0</div>
+          <div class="arc-cap-lbl">in new assets under administration &mdash; recurring fee revenue on wealth that's leaving anyway</div>
+        </div>
+      </div>
 
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">What we're asking &mdash; and what's on the next six tabs</div>
-        <p>The ask is a 60-day diagnostic, beginning at the June 8 whiteboard (tab 07). The supporting tabs: <strong>02</strong> the sub-advisory structure in detail · <strong>03</strong> a live read of NCBA's own EC$531M book with what we'd change today · <strong>04&ndash;06</strong> how we actually manage money and risk and the platform that delivers it · <strong>07</strong> the path forward. <em>This tab is the recommendation; the rest is the evidence.</em></p>
+      <div class="opp-close-frame">
+        <div class="lbl">The wedge, in one line</div>
+        <div class="big">The bank that offers the platform <em>keeps the client.</em> The bank that doesn't <em>funds its competitors.</em></div>
       </div>
     </div>
+
+
+    <script>
+    (function(){
+      var v = document.querySelector('.view[data-view="wallet"]'); if(!v) return;
+      function animateNum(el, target, prefix, suffix, dur){
+        var start=performance.now();
+        function step(t){ var p=Math.min((t-start)/(dur||1400),1), e=1-Math.pow(1-p,3);
+          var val=Math.round(target*e); el.textContent=prefix+val.toLocaleString()+suffix; if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      }
+      var done=false;
+      function run(){
+        if(done) return; done=true;
+        v.querySelectorAll('.seg-fill').forEach(function(f,i){ setTimeout(function(){ f.style.width=f.dataset.w+'%'; }, 120*i+100); });
+        // arc number: ~US$750M midpoint of 600-900M range
+        var a=document.getElementById('arc-num'); if(a) animateNum(a, 750, 'US$ ', 'M', 1500);
+        var cap=document.getElementById('arc-cap'); if(cap) setTimeout(function(){ cap.style.width='62%'; cap.classList.add('in'); }, 300);
+        var big=document.getElementById('arc-big'); if(big) setTimeout(function(){ animateNum(big, 112, 'US$ ', 'M+', 1400); }, 600);
+      }
+      // run on first reveal (it's the default tab, so fires on load)
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) run(); }); }, {threshold:0.12});
+      io.observe(v);
+      // also re-run if returned to (reset + replay)
+      v.addEventListener('click', function(){}, false);
+    })();
+    </script>
 
 
     <!-- ====================================================================
