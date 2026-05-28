@@ -657,6 +657,16 @@ footer.foot .right .gold { color: var(--gold); }
 .struct-step h5 { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 .struct-step p { font-family: var(--mono); font-size: 9.5px; color: var(--text-tertiary); margin: 0; line-height: 1.4; }
 
+/* accordion (HNW differentiators) */
+.accordion { display: grid; gap: 8px; margin-bottom: 24px; }
+.acc-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: border-color 0.15s ease; }
+.acc-item.active { border-color: var(--gold-dim); }
+.acc-head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; font-family: var(--serif); font-size: 16px; color: var(--text); user-select: none; }
+.acc-head .acc-ic { color: var(--gold); font-style: italic; }
+.acc-head .acc-tog { margin-left: auto; font-family: var(--mono); font-size: 18px; color: var(--gold); }
+.acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: var(--text-secondary); }
+.acc-item.active .acc-body { max-height: 260px; padding: 0 20px 18px; }
+
 @media (max-width: 1100px) {
   .pf-layout { grid-template-columns: 1fr; }
   .pf-donut-card { position: static; }
@@ -730,7 +740,7 @@ footer.foot .right .gold { color: var(--gold); }
           <span class="sidebar-badge">live</span>
         </div>
         <div class="sidebar-item" data-view="models">
-          <span class="sidebar-num">04</span><span class="sidebar-item-label">How We Manage Money</span>
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">How We Invest</span>
           <span class="sidebar-badge">interactive</span>
         </div>
         <div class="sidebar-item" data-view="structuring">
@@ -851,30 +861,91 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         04 · HOW WE MANAGE MONEY — three mandates, interactive
+         04 · HOW WE INVEST — three sub-tabs: models / HNW / institutional
          ==================================================================== -->
     <div class="view" data-view="models">
-      <div class="page-eyebrow">04 · How We Manage Money</div>
-      <h1 class="page-title">How we manage money. <em>Three mandates, one engine.</em></h1>
-      <p class="page-subtitle">We run money three distinct ways. Click through each &mdash; the allocation charts are interactive, the holdings are real, the dollar figures are illustrative against a representative book. Hover any chart segment to isolate it.</p>
+      <div class="page-eyebrow">04 · How We Invest</div>
+      <h1 class="page-title">How we invest. <em>Three clients, one discipline.</em></h1>
+      <p class="page-subtitle">Three distinct ways we put money to work &mdash; mass-affluent clients into model portfolios, high-net-worth clients into bespoke mandates, and NCBA's own balance sheet into an actively risk-managed institutional book. Click through. Everything is interactive: hover the charts, click the models, expand the differentiators.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Click the three sub-tabs as you talk. Say: <strong>"We manage money three ways. For a high-net-worth client, a bespoke portfolio &mdash; individual securities, tax-aware, multi-currency. For NCBA's own balance sheet, an institutional diversification of the book you already hold. And for the mass-affluent tier, three clean model portfolios. Same risk engine underneath all three. Let me show you the actual allocations."</strong></p>
-        <p><em>Hover the donut segments. Click the legend rows. This is a live tool, not a printed page &mdash; that's the point.</em></p>
+        <p>Click all three sub-tabs as you talk. Say: <strong>"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get a bespoke mandate &mdash; and I'll show you exactly why they'd leave their offshore bank for it. And your own balance sheet gets managed like a hedge-fund risk desk, not a buy-and-hold bond book. Same risk engine underneath all three."</strong></p>
+        <p><em>The risk/return chart, the model donuts, the HNW comparison, the institutional risk engine &mdash; all live. Hover and click.</em></p>
       </div>
 
       <div class="subtabs">
-        <button class="subtab active" data-sub="hnw"><span class="st-num">A</span>HNW Individuals</button>
-        <button class="subtab" data-sub="ncba"><span class="st-num">B</span>NCBA's Own Book</button>
-        <button class="subtab" data-sub="massaff"><span class="st-num">C</span>Mass-Affluent Models</button>
+        <button class="subtab active" data-sub="models"><span class="st-num">A</span>Model Portfolios</button>
+        <button class="subtab" data-sub="hnw"><span class="st-num">B</span>HNW Clients</button>
+        <button class="subtab" data-sub="inst"><span class="st-num">C</span>Institutional</button>
       </div>
 
-      <!-- ===== SUB-VIEW A: HNW ===== -->
-      <div class="subview active" data-sub="hnw">
+      <!-- ===== SUB-VIEW A: MODEL PORTFOLIOS (mass-affluent) ===== -->
+      <div class="subview active" data-sub="models">
         <div class="section-header" style="margin-top:0;">
-          <div class="section-title">Bespoke mandate &mdash; a representative US$2.5M client</div>
-          <div class="section-meta">Individual securities · tax-aware · multi-currency</div>
+          <div class="section-title">From discovery to portfolio &mdash; four models</div>
+          <div class="section-meta">KYC &rarr; risk discovery &rarr; model assignment · for NCBA branch &amp; mass-affluent clients</div>
+        </div>
+
+        <div class="struct-flow" style="grid-template-columns: repeat(4,1fr);">
+          <div class="struct-step"><div class="n">01</div><div class="ic">&#9636;</div><h5>KYC</h5><p>Identity, source of wealth, suitability — at the NCBA branch</p></div>
+          <div class="struct-step"><div class="n">02</div><div class="ic">&#9673;</div><h5>Discovery</h5><p>Goals, horizon, drawdown tolerance, liquidity needs</p></div>
+          <div class="struct-step"><div class="n">03</div><div class="ic">&#9670;</div><h5>Risk score</h5><p>1&ndash;10 capacity score maps to one of four models</p></div>
+          <div class="struct-step"><div class="n">04</div><div class="ic">&#9650;</div><h5>Funded</h5><p>Portfolio deployed at IBKR in 5 business days</p></div>
+        </div>
+
+        <div class="pf-layout" style="grid-template-columns: 1fr 360px;">
+          <div>
+            <div class="model-chips">
+              <button class="model-chip active" data-model="cons">Conservative<span class="mc-sub">75/20/5</span></button>
+              <button class="model-chip" data-model="income">Income<span class="mc-sub">60/35/5</span></button>
+              <button class="model-chip" data-model="bal">Balanced<span class="mc-sub">45/50/5</span></button>
+              <button class="model-chip" data-model="grow">Growth<span class="mc-sub">20/75/5</span></button>
+            </div>
+            <table class="tbl" id="model-holdings" style="margin-bottom:16px;"></table>
+            <table class="tbl" id="model-metrics"></table>
+          </div>
+          <div class="pf-donut-card">
+            <div class="pf-donut" id="donut-model"></div>
+            <div class="pf-legend" id="legend-model"></div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">The four models on a risk/return map</div>
+          <div class="section-meta">Each client lands where their discovery score places them · indicative</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:20px;">
+          <div id="rr-scatter"></div>
+        </div>
+      </div>
+
+      <!-- ===== SUB-VIEW B: HNW CLIENTS ===== -->
+      <div class="subview" data-sub="hnw">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">Why would a HNW client leave their offshore bank for us?</div>
+          <div class="section-meta">The honest, line-by-line comparison</div>
+        </div>
+
+        <div class="field-tbl-wrap">
+          <table class="field-tbl">
+            <thead><tr><th>&nbsp;</th><th>Offshore private bank (today)</th><th class="us">Oceanic × NCBA</th></tr></thead>
+            <tbody>
+              <tr><td>What they own</td><td class="no">Units in a fund — opaque</td><td class="us">Individual securities in their own name</td></tr>
+              <tr><td>Transparency</td><td class="no">Quarterly statement, fund-level</td><td class="us">Daily, line-by-line, on the portal</td></tr>
+              <tr><td>All-in fee</td><td class="no">140–200 bps</td><td class="us">100 bps — transparent</td></tr>
+              <tr><td>Tax management</td><td class="no">None — pooled fund</td><td class="us">Lot-level tax-loss harvesting</td></tr>
+              <tr><td>Supervision</td><td class="no">Bermuda / Cayman — offshore</td><td class="us">ECSRC — in-region, same as their bank</td></tr>
+              <tr><td>Relationship</td><td class="no">Banker seen twice a year</td><td class="us">On-island, same time zone, direct CIO access</td></tr>
+              <tr><td>Lending</td><td class="no">Separate facility, separate bank</td><td class="us">Securities-backed lending against the book</td></tr>
+              <tr><td>Structuring</td><td class="no">Referred out, uncoordinated</td><td class="us">Trust + tax coordinated (tab 05)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">A representative US$2.5M bespoke mandate</div>
+          <div class="section-meta">Hover the chart · these are real, liquid, US-listed holdings</div>
         </div>
         <div class="pf-layout">
           <div class="pf-donut-card">
@@ -882,82 +953,79 @@ footer.foot .right .gold { color: var(--gold); }
             <div class="pf-legend" id="legend-hnw"></div>
           </div>
           <div>
-            <table class="tbl" style="margin-bottom:18px;">
-              <thead><tr><th>Holding</th><th class="num">Weight</th><th class="num">US$</th><th>Role</th></tr></thead>
+            <table class="tbl">
+              <thead><tr><th>Holding</th><th class="num">Weight</th><th class="num">US$</th></tr></thead>
               <tbody>
-                <tr><td class="gold">AAPL · MSFT · NVDA · GOOGL (direct)</td><td class="num">18%</td><td class="num">450,000</td><td class="muted">Individual mega-cap — tax-lot control</td></tr>
-                <tr><td class="gold">VOO — S&amp;P 500 core</td><td class="num">10%</td><td class="num">250,000</td><td class="muted">Liquid beta anchor</td></tr>
-                <tr><td class="gold">IJH · IJR — US mid/small</td><td class="num">7%</td><td class="num">175,000</td><td class="muted">Domestic diversifier</td></tr>
-                <tr><td class="gold">VEA · VGK — developed intl</td><td class="num">10%</td><td class="num">250,000</td><td class="muted">Non-US developed</td></tr>
-                <tr><td class="gold">VWO — emerging markets</td><td class="num">5%</td><td class="num">125,000</td><td class="muted">Long-horizon growth</td></tr>
-                <tr><td class="gold">US Treasuries 5y/10y (direct ladder)</td><td class="num">22%</td><td class="num">550,000</td><td class="muted">Duration + safety, held to maturity</td></tr>
-                <tr><td class="gold">IEF — intermediate UST</td><td class="num">8%</td><td class="num">200,000</td><td class="muted">Liquid duration</td></tr>
-                <tr><td class="gold">LQD — IG corporate</td><td class="num">12%</td><td class="num">300,000</td><td class="muted">Spread carry</td></tr>
-                <tr><td class="gold">SHV — cash / liquidity</td><td class="num">8%</td><td class="num">200,000</td><td class="muted">T+0 liquidity buffer</td></tr>
-                <tr class="total"><td>Total</td><td class="num">100%</td><td class="num">2,500,000</td><td></td></tr>
+                <tr><td class="gold">AAPL · MSFT · NVDA · GOOGL (direct)</td><td class="num">18%</td><td class="num">450,000</td></tr>
+                <tr><td class="gold">VOO — S&amp;P 500 core</td><td class="num">10%</td><td class="num">250,000</td></tr>
+                <tr><td class="gold">IJH · IJR — US mid/small</td><td class="num">7%</td><td class="num">175,000</td></tr>
+                <tr><td class="gold">VEA · VGK — developed intl</td><td class="num">10%</td><td class="num">250,000</td></tr>
+                <tr><td class="gold">VWO — emerging markets</td><td class="num">5%</td><td class="num">125,000</td></tr>
+                <tr><td class="gold">US Treasuries 5y/10y (direct ladder)</td><td class="num">22%</td><td class="num">550,000</td></tr>
+                <tr><td class="gold">IEF — intermediate UST</td><td class="num">8%</td><td class="num">200,000</td></tr>
+                <tr><td class="gold">LQD — IG corporate</td><td class="num">12%</td><td class="num">300,000</td></tr>
+                <tr><td class="gold">SHV — cash / liquidity</td><td class="num">8%</td><td class="num">200,000</td></tr>
+                <tr class="total"><td>Total</td><td class="num">100%</td><td class="num">2,500,000</td></tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="approach">
-          <div class="ac"><div class="icon">&#9673;</div><h5>Individual securities</h5><p>Direct stock &amp; bond ownership, not fund units &mdash; full transparency and tax-lot control.</p></div>
-          <div class="ac"><div class="icon">&#9670;</div><h5>Tax-loss harvesting</h5><p>Lot-level loss harvesting and gain deferral — impossible inside a pooled fund.</p></div>
-          <div class="ac"><div class="icon">&#9672;</div><h5>Custom exclusions</h5><p>Per-client ESG screens, sector caps, single-name vetoes applied at the account level.</p></div>
-          <div class="ac"><div class="icon">&#9671;</div><h5>Multi-currency &amp; lending</h5><p>USD/EUR/GBP sleeves and securities-backed lending against the portfolio.</p></div>
+
+        <div class="section-header">
+          <div class="section-title">The five differentiators &mdash; click to expand</div>
+          <div class="section-meta">What a HNW client cannot get from a fund or an offshore wrapper</div>
+        </div>
+        <div class="accordion" id="hnw-acc">
+          <div class="acc-item active" data-a="0"><div class="acc-head"><span class="acc-ic">&#9673;</span>Individual securities, owned directly<span class="acc-tog">&minus;</span></div><div class="acc-body">The client owns AAPL, the actual Treasury, the actual ETF &mdash; in their own name at IBKR, SIPC-insured to US$30M. Not units in a fund whose holdings they can't see. If Oceanic disappeared tomorrow, the client keeps every position.</div></div>
+          <div class="acc-item" data-a="1"><div class="acc-head"><span class="acc-ic">&#9670;</span>Lot-level tax-loss harvesting<span class="acc-tog">+</span></div><div class="acc-body">Because positions are held as individual lots, we harvest losses to offset gains and defer tax &mdash; worth an estimated 15&ndash;40 bps/yr of after-tax return. A pooled fund cannot do this for an individual.</div></div>
+          <div class="acc-item" data-a="2"><div class="acc-head"><span class="acc-ic">&#9636;</span>Securities-backed lending<span class="acc-tog">+</span></div><div class="acc-body">The client can borrow against the portfolio at institutional rates without selling &mdash; liquidity for a property purchase or business without triggering a taxable event or breaking the compounding.</div></div>
+          <div class="acc-item" data-a="3"><div class="acc-head"><span class="acc-ic">&#9671;</span>Multi-currency &amp; global reach<span class="acc-tog">+</span></div><div class="acc-body">USD / EUR / GBP sleeves across 150 global markets via IBKR &mdash; the global reach of a large private bank, delivered by a firm in the client's own time zone and regulatory perimeter.</div></div>
+          <div class="acc-item" data-a="4"><div class="acc-head"><span class="acc-ic">&#9672;</span>Direct access &amp; local supervision<span class="acc-tog">+</span></div><div class="acc-body">The client talks to the people managing the money, on-island, under ECSRC &mdash; the same regulator as their bank. Not a call centre routed to Bermuda. This is the trust that wins the relationship.</div></div>
         </div>
       </div>
 
-      <!-- ===== SUB-VIEW B: NCBA OWN BOOK ===== -->
-      <div class="subview" data-sub="ncba">
+      <!-- ===== SUB-VIEW C: INSTITUTIONAL ===== -->
+      <div class="subview" data-sub="inst">
         <div class="section-header" style="margin-top:0;">
-          <div class="section-title">NCBA's own book &mdash; diversifying the EC$531M</div>
-          <div class="section-meta">From a 70% single-asset-class concentration to a diversified, risk-budgeted book</div>
+          <div class="section-title">NCBA's own book &mdash; managed like a risk desk, not a bond drawer</div>
+          <div class="section-meta">Diversify the EC$531M · then run it actively with the risk engine</div>
         </div>
+
         <div class="pf-dual">
-          <div class="pf-donut-card">
-            <h5 class="bad">Today &mdash; as audited</h5>
-            <div class="pf-donut" id="donut-ncba-now"></div>
-            <div class="pf-legend" id="legend-ncba-now"></div>
-          </div>
+          <div class="pf-donut-card"><h5 class="bad">Today — as audited</h5><div class="pf-donut" id="donut-ncba-now"></div><div class="pf-legend" id="legend-ncba-now"></div></div>
           <div class="vs">&rarr;</div>
-          <div class="pf-donut-card">
-            <h5 class="good">Proposed &mdash; diversified</h5>
-            <div class="pf-donut" id="donut-ncba-new"></div>
-            <div class="pf-legend" id="legend-ncba-new"></div>
-          </div>
+          <div class="pf-donut-card"><h5 class="good">Proposed — diversified</h5><div class="pf-donut" id="donut-ncba-new"></div><div class="pf-legend" id="legend-ncba-new"></div></div>
         </div>
-        <div class="approach">
-          <div class="ac"><div class="icon">&#9660;</div><h5>Cut concentration</h5><p>Corporate bonds 70% &rarr; 28%, diversified by issuer, sector, and geography.</p></div>
-          <div class="ac"><div class="icon">&#9650;</div><h5>Add Treasury ballast</h5><p>25% US Treasury ladder for liquidity, safety, and rate-shock insulation.</p></div>
-          <div class="ac"><div class="icon">&#8644;</div><h5>FX hedge</h5><p>Forward-hedge the non-USD exposure that the audit leaves open.</p></div>
-          <div class="ac"><div class="icon">&#43;</div><h5>+15&ndash;35 bps</h5><p>Indicative risk-adjusted yield uplift on the book — to be validated in diagnostic.</p></div>
-        </div>
-        <div class="caveat-card" style="border-color: var(--gold-dim);">
-          <div class="label" style="color: var(--gold);">Why NCBA would do this</div>
-          <p>NCBA's investment book is 70% in one asset class with no issuer-level disclosure (tab 03). Diversification is not return-chasing &mdash; it is <em>risk reduction at equal-or-better yield</em>. The proposed book keeps NCBA's strategic Caribbean holdings, adds Treasury liquidity, hedges the FX tail, and is built to a stated risk budget agreed with NCBA's ALCO. Indicative &middot; to be validated.</p>
-        </div>
-      </div>
 
-      <!-- ===== SUB-VIEW C: MASS-AFFLUENT MODELS ===== -->
-      <div class="subview" data-sub="massaff">
-        <div class="section-header" style="margin-top:0;">
-          <div class="section-title">Mass-affluent &mdash; three model portfolios</div>
-          <div class="section-meta">Click a model to see its allocation · all US-listed, all transparent</div>
+        <div class="section-header">
+          <div class="section-title">The twist &mdash; what separates us from a bank treasury desk</div>
+          <div class="section-meta">Most banks hold a static book reviewed quarterly. We run it daily, like a hedge-fund risk desk.</div>
         </div>
-        <div class="model-chips">
-          <button class="model-chip active" data-model="cons">Conservative<span class="mc-sub">70/25/5 · 5&ndash;7%</span></button>
-          <button class="model-chip" data-model="bal">Balanced<span class="mc-sub">50/45/5 · 7&ndash;9%</span></button>
-          <button class="model-chip" data-model="grow">Growth<span class="mc-sub">25/70/5 · 9&ndash;12%</span></button>
+
+        <div class="field-tbl-wrap">
+          <table class="field-tbl">
+            <thead><tr><th>Risk capability</th><th>Typical bank treasury</th><th class="us">Oceanic institutional mandate</th></tr></thead>
+            <tbody>
+              <tr><td>Position monitoring</td><td class="no">Monthly / quarterly</td><td class="us">Live, daily NAV &amp; exposure</td></tr>
+              <tr><td>Factor risk model</td><td class="no">None</td><td class="us">60-day OLS · beta + sector-residual per name</td></tr>
+              <tr><td>Stress testing</td><td class="no">Annual, canned scenarios</td><td class="us">12 scenarios + adversarial daily worst-case</td></tr>
+              <tr><td>Concentration limits</td><td class="no">Informal</td><td class="us">Hard caps, enforced at trade</td></tr>
+              <tr><td>VaR</td><td class="no">Rarely computed</td><td class="us">Triple-method, refreshed at close</td></tr>
+              <tr><td>Reporting</td><td class="no">Board pack, lagging</td><td class="us">Live dashboard + audit hash chain</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="pf-layout">
-          <div class="pf-donut-card">
-            <div class="pf-donut" id="donut-model"></div>
-            <div class="pf-legend" id="legend-model"></div>
-          </div>
-          <div>
-            <table class="tbl" id="model-holdings" style="margin-bottom:18px;"></table>
-            <table class="tbl" id="model-metrics"></table>
-          </div>
+
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>Adversarial stress</h5><p>An engine that constructs the worst plausible market for the book every night &mdash; before the market does.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>Factor decomposition</h5><p>Every holding decomposed into equity beta, duration, spread, FX &mdash; the source of risk is always visible.</p></div>
+          <div class="ac"><div class="icon">&#8644;</div><h5>FX tail hedge</h5><p>Forward-hedge the non-USD exposure the audit leaves open &mdash; tab 03 sized the gap.</p></div>
+          <div class="ac"><div class="icon">&#43;</div><h5>+15&ndash;35 bps</h5><p>Indicative risk-adjusted yield uplift &mdash; diversification at equal-or-better risk.</p></div>
+        </div>
+
+        <div class="caveat-card" style="border-color: var(--gold-dim);">
+          <div class="label" style="color: var(--gold);">Why this beats what they have</div>
+          <p>NCBA's EC$531M book is 70% in one asset class, with no VaR, no scenario framework, and no daily monitoring (tab 03). We don't just diversify it &mdash; we run it with the same risk infrastructure a global asset manager uses, inside the Eastern Caribbean perimeter. <em>This is the institutional capability Butterfield will spend two years trying to build. NCBA gets it on day one. Indicative &middot; to be validated with NCBA ALCO.</em></p>
         </div>
       </div>
     </div>
@@ -965,7 +1033,6 @@ footer.foot .right .gold { color: var(--gold); }
 
     <script>
     (function() {
-      // ---- donut + legend renderer ----
       var PAL = ['#c9a961','#8a7642','#5eb3d6','#b08fc9','#6ba37a','#3d7a91','#d4a347','#5a6270','#9c6f4a'];
       function render(donutId, legendId, segs, big, lbl) {
         var c = document.getElementById(donutId); if (!c) return;
@@ -981,95 +1048,80 @@ footer.foot .right .gold { color: var(--gold); }
         s += '</svg><div class="pf-donut-center"><div class="big">'+big+'</div><div class="lbl">'+lbl+'</div></div>';
         c.innerHTML = s;
         var leg = document.getElementById(legendId);
-        if (leg) {
-          leg.innerHTML = segs.map(function(seg,i){
-            return '<div class="pf-legend-row" data-i="'+i+'"><span class="dot" style="background:'+seg.c+'"></span><span class="nm">'+seg.n+'</span><span class="pc">'+seg.v+'%</span></div>';
-          }).join('');
-        }
-        // hover isolation
-        function hot(i, on) {
-          var donut = c.querySelector('.pf-donut') || c;
-          c.classList.toggle('dim', on);
-          c.querySelectorAll('.donut-seg').forEach(function(el){ el.classList.toggle('hot', on && +el.dataset.i===i); });
-          if (leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){ el.style.background = (on && +el.dataset.i===i)?'var(--bg-hover)':''; });
-        }
-        c.querySelectorAll('.donut-seg').forEach(function(el){
-          el.addEventListener('mouseenter', function(){ hot(+el.dataset.i, true); });
-          el.addEventListener('mouseleave', function(){ hot(+el.dataset.i, false); });
-        });
-        if (leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){
-          el.addEventListener('mouseenter', function(){ hot(+el.dataset.i, true); });
-          el.addEventListener('mouseleave', function(){ hot(+el.dataset.i, false); });
-        });
+        if (leg) leg.innerHTML = segs.map(function(seg,i){ return '<div class="pf-legend-row" data-i="'+i+'"><span class="dot" style="background:'+seg.c+'"></span><span class="nm">'+seg.n+'</span><span class="pc">'+seg.v+'%</span></div>'; }).join('');
+        function hot(i,on){ c.classList.toggle('dim',on); c.querySelectorAll('.donut-seg').forEach(function(el){ el.classList.toggle('hot', on && +el.dataset.i===i); }); if(leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){ el.style.background=(on && +el.dataset.i===i)?'var(--bg-hover)':''; }); }
+        c.querySelectorAll('.donut-seg').forEach(function(el){ el.addEventListener('mouseenter',function(){hot(+el.dataset.i,true);}); el.addEventListener('mouseleave',function(){hot(+el.dataset.i,false);}); });
+        if(leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){ el.addEventListener('mouseenter',function(){hot(+el.dataset.i,true);}); el.addEventListener('mouseleave',function(){hot(+el.dataset.i,false);}); });
       }
 
-      // ---- data ----
-      var HNW = [
-        {n:'US mega-cap (direct)',c:PAL[0],v:18},{n:'VOO core',c:PAL[1],v:10},
-        {n:'US mid/small',c:PAL[8],v:7},{n:'Developed intl',c:PAL[2],v:10},
-        {n:'Emerging mkts',c:PAL[3],v:5},{n:'UST 5y/10y direct',c:PAL[4],v:22},
-        {n:'IEF intermediate',c:PAL[5],v:8},{n:'IG corporate',c:PAL[6],v:12},{n:'Cash',c:PAL[7],v:8}
-      ];
-      var NCBA_NOW = [
-        {n:'Corporate bonds',c:PAL[6],v:70},{n:'Repos',c:PAL[5],v:9.5},
-        {n:'Mutual funds',c:PAL[3],v:7.1},{n:'Quoted equity',c:PAL[0],v:5.2},
-        {n:'Unquoted equity',c:PAL[1],v:4.3},{n:'T-bills',c:PAL[4],v:3},{n:'Other',c:PAL[7],v:0.9}
-      ];
-      var NCBA_NEW = [
-        {n:'US Treasuries (ladder)',c:PAL[4],v:25},{n:'IG corporate (diversified)',c:PAL[6],v:28},
-        {n:'Credit / IG ETFs',c:PAL[5],v:8},{n:'Equity (liquid, diversified)',c:PAL[0],v:14},
-        {n:'Intl / EM bonds',c:PAL[2],v:5},{n:'Repos & T-bills',c:PAL[1],v:7},
-        {n:'Cash',c:PAL[7],v:8},{n:'Caribbean strategic',c:PAL[3],v:5}
-      ];
+      function scatter(id, pts) {
+        var c = document.getElementById(id); if (!c) return;
+        var W=620, H=300, pl=54, pb=42, pt=16, pr=20, xmax=20, ymax=14;
+        function X(v){ return pl + (v/xmax)*(W-pl-pr); }
+        function Y(v){ return H-pb - (v/ymax)*(H-pb-pt); }
+        var s = '<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="max-width:'+W+'px;display:block;margin:0 auto;">';
+        // grid + axes
+        for (var gx=0; gx<=xmax; gx+=5){ s+='<line x1="'+X(gx)+'" y1="'+pt+'" x2="'+X(gx)+'" y2="'+(H-pb)+'" stroke="var(--border)" stroke-width="1"/>'; s+='<text x="'+X(gx)+'" y="'+(H-pb+18)+'" fill="var(--text-tertiary)" font-size="10" font-family="monospace" text-anchor="middle">'+gx+'%</text>'; }
+        for (var gy=0; gy<=ymax; gy+=2){ s+='<line x1="'+pl+'" y1="'+Y(gy)+'" x2="'+(W-pr)+'" y2="'+Y(gy)+'" stroke="var(--border)" stroke-width="1"/>'; s+='<text x="'+(pl-8)+'" y="'+(Y(gy)+3)+'" fill="var(--text-tertiary)" font-size="10" font-family="monospace" text-anchor="end">'+gy+'%</text>'; }
+        s+='<text x="'+((W-pl)/2+pl)+'" y="'+(H-6)+'" fill="var(--text-secondary)" font-size="10" font-family="monospace" text-anchor="middle" letter-spacing="0.1em">VOLATILITY &rarr;</text>';
+        s+='<text x="16" y="'+(pt+4)+'" fill="var(--text-secondary)" font-size="10" font-family="monospace" letter-spacing="0.1em">RETURN</text>';
+        // connecting frontier line
+        var path = pts.map(function(p,i){ return (i?'L':'M')+X(p.x)+' '+Y(p.y); }).join(' ');
+        s+='<path d="'+path+'" fill="none" stroke="var(--gold-dim)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>';
+        // points
+        pts.forEach(function(p){
+          s+='<circle cx="'+X(p.x)+'" cy="'+Y(p.y)+'" r="8" fill="'+p.c+'" stroke="var(--bg)" stroke-width="2"/>';
+          s+='<text x="'+X(p.x)+'" y="'+(Y(p.y)-16)+'" fill="var(--text)" font-size="11" font-family="var(--sans)" text-anchor="middle" font-weight="600">'+p.label+'</text>';
+        });
+        s+='</svg>';
+        c.innerHTML = s;
+      }
+
+      var HNW = [{n:'US mega-cap (direct)',c:PAL[0],v:18},{n:'VOO core',c:PAL[1],v:10},{n:'US mid/small',c:PAL[8],v:7},{n:'Developed intl',c:PAL[2],v:10},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST 5y/10y direct',c:PAL[4],v:22},{n:'IEF intermediate',c:PAL[5],v:8},{n:'IG corporate',c:PAL[6],v:12},{n:'Cash',c:PAL[7],v:8}];
+      var NCBA_NOW = [{n:'Corporate bonds',c:PAL[6],v:70},{n:'Repos',c:PAL[5],v:9.5},{n:'Mutual funds',c:PAL[3],v:7.1},{n:'Quoted equity',c:PAL[0],v:5.2},{n:'Unquoted equity',c:PAL[1],v:4.3},{n:'T-bills',c:PAL[4],v:3},{n:'Other',c:PAL[7],v:0.9}];
+      var NCBA_NEW = [{n:'US Treasuries (ladder)',c:PAL[4],v:25},{n:'IG corporate (diversified)',c:PAL[6],v:28},{n:'Credit / IG ETFs',c:PAL[5],v:8},{n:'Equity (liquid, diversified)',c:PAL[0],v:14},{n:'Intl / EM bonds',c:PAL[2],v:5},{n:'Repos & T-bills',c:PAL[1],v:7},{n:'Cash',c:PAL[7],v:8},{n:'Caribbean strategic',c:PAL[3],v:5}];
+
       var MODELS = {
-        cons: { big:'70/25/5', lbl:'FI / EQ / Cash',
-          segs:[{n:'US large-cap',c:PAL[0],v:15},{n:'Developed intl',c:PAL[2],v:5},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:40},{n:'UST short',c:PAL[5],v:15},{n:'IG corporate',c:PAL[6],v:15},{n:'Cash',c:PAL[7],v:5}],
-          metrics:[['Target return','5–7% net'],['Volatility','6–8%'],['Max drawdown (3y)','−8% to −12%'],['Sharpe (sim)','0.31'],['Suitable for','Preservation · near/in retirement']] },
-        bal: { big:'50/45/5', lbl:'FI / EQ / Cash',
-          segs:[{n:'US large-cap',c:PAL[0],v:25},{n:'US mid/small',c:PAL[1],v:5},{n:'Developed intl',c:PAL[2],v:10},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:30},{n:'UST short',c:PAL[5],v:10},{n:'IG corporate',c:PAL[6],v:10},{n:'Cash',c:PAL[7],v:5}],
-          metrics:[['Target return','7–9% net'],['Volatility','10–12%'],['Max drawdown (3y)','−15% to −20%'],['Sharpe (sim)','0.35'],['Suitable for','Mid-career · 10–15yr horizon']] },
-        grow: { big:'25/70/5', lbl:'FI / EQ / Cash',
-          segs:[{n:'US large-cap',c:PAL[0],v:40},{n:'US mid/small',c:PAL[1],v:10},{n:'Developed intl',c:PAL[2],v:15},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:15},{n:'UST short',c:PAL[5],v:5},{n:'IG corporate',c:PAL[6],v:5},{n:'Cash',c:PAL[7],v:5}],
-          metrics:[['Target return','9–12% net'],['Volatility','14–17%'],['Max drawdown (3y)','−25% to −32%'],['Sharpe (sim)','0.33'],['Suitable for','Next-gen · 20yr+ horizon']] }
+        cons:   { big:'75/20/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:12},{n:'Developed intl',c:PAL[2],v:4},{n:'Emerging mkts',c:PAL[3],v:4},{n:'UST intermediate',c:PAL[4],v:42},{n:'UST short',c:PAL[5],v:16},{n:'IG corporate',c:PAL[6],v:17},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','4–6% net'],['Volatility','5–7%'],['Max drawdown','−6% to −10%'],['Sharpe (sim)','0.30'],['Client','Preservation · retired']] },
+        income: { big:'60/35/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:20},{n:'US mid/small',c:PAL[1],v:3},{n:'Developed intl',c:PAL[2],v:8},{n:'Emerging mkts',c:PAL[3],v:4},{n:'UST intermediate',c:PAL[4],v:30},{n:'UST short',c:PAL[5],v:12},{n:'IG corporate',c:PAL[6],v:18},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','5–7% net'],['Volatility','7–9%'],['Max drawdown','−10% to −14%'],['Sharpe (sim)','0.33'],['Client','Income-focused · pre-retiree']] },
+        bal:    { big:'45/50/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:28},{n:'US mid/small',c:PAL[1],v:6},{n:'Developed intl',c:PAL[2],v:11},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:25},{n:'UST short',c:PAL[5],v:8},{n:'IG corporate',c:PAL[6],v:12},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','7–9% net'],['Volatility','10–12%'],['Max drawdown','−15% to −20%'],['Sharpe (sim)','0.35'],['Client','Mid-career · 10–15yr']] },
+        grow:   { big:'20/75/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:42},{n:'US mid/small',c:PAL[1],v:11},{n:'Developed intl',c:PAL[2],v:16},{n:'Emerging mkts',c:PAL[3],v:6},{n:'UST intermediate',c:PAL[4],v:12},{n:'UST short',c:PAL[5],v:3},{n:'IG corporate',c:PAL[6],v:5},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','9–12% net'],['Volatility','14–17%'],['Max drawdown','−25% to −32%'],['Sharpe (sim)','0.33'],['Client','Next-gen · 20yr+']] }
       };
-
-      function drawModel(key) {
-        var m = MODELS[key];
-        render('donut-model','legend-model', m.segs, m.big, m.lbl);
-        var h = document.getElementById('model-holdings');
-        if (h) h.innerHTML = '<thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th></tr></thead><tbody>' +
-          m.segs.map(function(s){ return '<tr><td class="gold">'+s.n+'</td><td class="num">'+s.v+'%</td><td class="muted">'+vehicleFor(s.n)+'</td></tr>'; }).join('') + '</tbody>';
-        var mt = document.getElementById('model-metrics');
-        if (mt) mt.innerHTML = '<thead><tr><th>Risk &amp; return</th><th>Indicative</th></tr></thead><tbody>' +
-          m.metrics.map(function(r){ return '<tr><td class="gold">'+r[0]+'</td><td class="muted">'+r[1]+'</td></tr>'; }).join('') + '</tbody>';
-      }
-      function vehicleFor(n){
-        var map={'US large-cap':'VOO + S&P names','US mid/small':'IJR, IJH','Developed intl':'VEA, VGK','Emerging mkts':'VWO','UST intermediate':'IEF + UST 5y/10y','UST short':'SHV, BIL','IG corporate':'LQD','Cash':'SHV / institutional'};
-        return map[n]||'';
+      function vehicleFor(n){ var m={'US large-cap':'VOO + S&P names','US mid/small':'IJR, IJH','Developed intl':'VEA, VGK','Emerging mkts':'VWO','UST intermediate':'IEF + UST 5y/10y','UST short':'SHV, BIL','IG corporate':'LQD','Cash':'SHV / institutional'}; return m[n]||''; }
+      function drawModel(k){
+        var m=MODELS[k]; render('donut-model','legend-model',m.segs,m.big,m.lbl);
+        var h=document.getElementById('model-holdings');
+        if(h) h.innerHTML='<thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th></tr></thead><tbody>'+m.segs.map(function(s){return '<tr><td class="gold">'+s.n+'</td><td class="num">'+s.v+'%</td><td class="muted">'+vehicleFor(s.n)+'</td></tr>';}).join('')+'</tbody>';
+        var mt=document.getElementById('model-metrics');
+        if(mt) mt.innerHTML='<thead><tr><th>Risk &amp; return</th><th>Indicative</th></tr></thead><tbody>'+m.metrics.map(function(r){return '<tr><td class="gold">'+r[0]+'</td><td class="muted">'+r[1]+'</td></tr>';}).join('')+'</tbody>';
       }
 
-      // ---- initial render ----
-      render('donut-hnw','legend-hnw', HNW, 'US$2.5M', 'Bespoke');
-      render('donut-ncba-now','legend-ncba-now', NCBA_NOW, '70%', 'in bonds');
-      render('donut-ncba-new','legend-ncba-new', NCBA_NEW, 'Diversified', '8 sleeves');
+      // initial renders
+      render('donut-hnw','legend-hnw',HNW,'US$2.5M','Bespoke');
+      render('donut-ncba-now','legend-ncba-now',NCBA_NOW,'70%','in bonds');
+      render('donut-ncba-new','legend-ncba-new',NCBA_NEW,'8 sleeves','diversified');
       drawModel('cons');
+      scatter('rr-scatter',[
+        {label:'Conservative',x:6,y:5,c:PAL[4]},
+        {label:'Income',x:8,y:6,c:PAL[5]},
+        {label:'Balanced',x:11,y:8,c:PAL[0]},
+        {label:'Growth',x:15.5,y:10.5,c:PAL[3]}
+      ]);
 
-      // ---- sub-tab switching ----
-      var view = document.querySelector('.view[data-view="models"]');
-      if (view) {
-        view.querySelectorAll('.subtab').forEach(function(btn){
-          btn.addEventListener('click', function(){
-            var k = btn.dataset.sub;
-            view.querySelectorAll('.subtab').forEach(function(b){ b.classList.toggle('active', b===btn); });
-            view.querySelectorAll('.subview').forEach(function(v){ v.classList.toggle('active', v.dataset.sub===k); });
-          });
-        });
-        view.querySelectorAll('.model-chip').forEach(function(chip){
-          chip.addEventListener('click', function(){
-            view.querySelectorAll('.model-chip').forEach(function(c){ c.classList.toggle('active', c===chip); });
-            drawModel(chip.dataset.model);
-          });
-        });
+      var view=document.querySelector('.view[data-view="models"]');
+      if(view){
+        view.querySelectorAll('.subtab').forEach(function(b){ b.addEventListener('click',function(){ var k=b.dataset.sub; view.querySelectorAll('.subtab').forEach(function(x){x.classList.toggle('active',x===b);}); view.querySelectorAll('.subview').forEach(function(v){v.classList.toggle('active',v.dataset.sub===k);}); }); });
+        view.querySelectorAll('.model-chip').forEach(function(ch){ ch.addEventListener('click',function(){ view.querySelectorAll('.model-chip').forEach(function(x){x.classList.toggle('active',x===ch);}); drawModel(ch.dataset.model); }); });
+        var acc=document.getElementById('hnw-acc');
+        if(acc) acc.querySelectorAll('.acc-item').forEach(function(it){ it.querySelector('.acc-head').addEventListener('click',function(){ var open=it.classList.contains('active'); acc.querySelectorAll('.acc-item').forEach(function(x){x.classList.remove('active'); x.querySelector('.acc-tog').textContent='+';}); if(!open){ it.classList.add('active'); it.querySelector('.acc-tog').textContent='−'; } }); });
       }
     })();
     </script>
