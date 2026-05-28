@@ -675,6 +675,165 @@ footer.foot .right .gold { color: var(--gold); }
   .approach, .juris-grid { grid-template-columns: 1fr 1fr; }
   .struct-flow { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   SCENARIO SIMULATOR + INTELLIGENCE EDGE — wow components
+   ============================================================ */
+
+/* --- scenario trigger cards --- */
+.scen-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 22px; }
+.scen-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 16px 13px; cursor: pointer; transition: transform .18s ease, border-color .18s ease, background .25s ease; position: relative; overflow: hidden; }
+.scen-card::after { content:''; position:absolute; inset:0; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.10), transparent 70%); opacity:0; transition:opacity .25s; }
+.scen-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+.scen-card:hover::after { opacity:1; }
+.scen-card.active { border-color: var(--critical); background: linear-gradient(180deg, var(--bg-card) 0%, #2a1417 100%); }
+.scen-card .sc-ic { font-size: 22px; line-height:1; display:block; margin-bottom:10px; }
+.scen-card .sc-cat { font-family: var(--mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-tertiary); }
+.scen-card h5 { font-family: var(--serif); font-size: 13.5px; font-weight: 400; margin: 5px 0 9px; line-height: 1.18; min-height: 32px; }
+.scen-card .sc-prob { font-family: var(--mono); font-size: 10px; color: var(--gold); }
+.scen-card.active .sc-prob { color: var(--critical); }
+
+/* --- sim stage --- */
+.sim-stage { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 26px 30px; margin-bottom: 20px; }
+.sim-top { display: grid; grid-template-columns: 1fr 220px; gap: 28px; align-items: center; margin-bottom: 22px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.sim-headline .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 6px; }
+.sim-headline .num { font-family: var(--serif); font-size: 68px; font-weight: 300; line-height: 1; color: var(--critical); font-variant-numeric: tabular-nums; letter-spacing:-.02em; }
+.sim-headline .sub { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); margin-top: 10px; }
+.sim-recovery { text-align: center; border-left:1px solid var(--border); }
+.sim-recovery .rt { font-family: var(--serif); font-size: 36px; color: var(--gold); line-height:1; }
+.sim-recovery .rl { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-tertiary); margin-top:6px; }
+
+/* --- cascade diverging bars --- */
+.cascade { display: grid; gap: 9px; }
+.casc-row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center; }
+.casc-row .cl { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); text-align: right; }
+.casc-track { position: relative; height: 24px; background: var(--bg-elevated); border-radius: 3px; }
+.casc-track::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background: var(--border-strong); }
+.casc-fill { position: absolute; top: 3px; bottom: 3px; border-radius: 2px; width: 0; left: 50%; transition: width .9s cubic-bezier(.2,.8,.2,1), left .9s cubic-bezier(.2,.8,.2,1); }
+.casc-fill.neg { background: linear-gradient(90deg, #8a3a30, var(--critical)); }
+.casc-fill.pos { background: linear-gradient(90deg, var(--positive), #3a6e44); }
+.casc-val { position:absolute; top:50%; transform:translateY(-50%); font-family:var(--mono); font-size:10px; color:var(--text); white-space:nowrap; }
+
+/* --- severity slider --- */
+.sev-wrap { background: var(--bg-elevated); border:1px solid var(--border); border-radius:6px; padding: 18px 24px; margin-bottom: 20px; }
+.sev-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 10px; }
+.sev-label { font-family: var(--mono); font-size: 11px; letter-spacing:.16em; text-transform:uppercase; color: var(--gold); }
+.sev-val { font-family: var(--serif); font-size: 22px; color: var(--text); font-variant-numeric:tabular-nums; }
+.sev-slider { width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:3px; outline:none; cursor:pointer; background: linear-gradient(90deg, #3a6e44 0%, var(--gold) 50%, var(--critical) 100%); }
+.sev-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--text); border:3px solid var(--bg); cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,.5); }
+.sev-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--text); border:3px solid var(--bg); cursor:pointer; }
+.sev-axis { display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; color:var(--text-tertiary); letter-spacing:.1em; margin-top:8px; text-transform:uppercase; }
+
+/* --- affected + hedges --- */
+.sim-lists { display:grid; grid-template-columns:1fr 1fr; gap: 22px; margin-top: 8px; }
+.sim-list h6 { font-family: var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color: var(--text-tertiary); margin-bottom:10px; }
+.sim-li { display:flex; justify-content:space-between; gap:10px; padding: 9px 13px; background: var(--bg-elevated); border-left:2px solid var(--critical); margin-bottom:7px; border-radius:0 3px 3px 0; font-family:var(--mono); font-size:11px; opacity:0; transform: translateX(-10px); transition: opacity .45s ease, transform .45s ease; }
+.sim-li.in { opacity:1; transform:none; }
+.sim-li.hedge { border-left-color: var(--positive); }
+.sim-li .v { color: var(--text-tertiary); }
+
+/* --- monte carlo --- */
+.mc-wrap { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding: 22px 24px; }
+.mc-wrap svg { display:block; width:100%; }
+.mc-path { fill:none; stroke: var(--gold); stroke-width:1; opacity:.09; }
+.mc-band { fill: var(--gold); opacity:.05; stroke:none; }
+.mc-median { fill:none; stroke: var(--gold); stroke-width:2.5; }
+.mc-legend { display:flex; gap:20px; font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin-top:10px; }
+.mc-legend span b { color: var(--gold); }
+
+/* ============= ADVERSARIAL ENGINE ============= */
+.adv-wrap { display:grid; grid-template-columns: 1fr 300px; gap: 20px; }
+.adv-feed { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; height: 360px; overflow:hidden; position:relative; }
+.adv-feed-head { display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--border); }
+.adv-feed-head .dot { width:7px; height:7px; border-radius:50%; background:var(--critical); box-shadow:0 0 8px var(--critical); animation:pulse 1.4s infinite; }
+.adv-feed-head .t { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-secondary); }
+.adv-feed-head .live { margin-left:auto; font-family:var(--mono); font-size:9px; color:var(--critical); letter-spacing:.16em; }
+.adv-list { padding: 6px 14px; overflow:hidden; }
+.adv-item { display:grid; grid-template-columns: 1fr auto; gap:10px; padding:11px 4px; border-bottom:1px solid var(--border); animation: advIn .5s ease; align-items:center; }
+@keyframes advIn { from{opacity:0; transform:translateY(-12px);} to{opacity:1;transform:none;} }
+.adv-item .av { font-family:var(--sans); font-size:12px; color:var(--text); }
+.adv-item .av .src { font-family:var(--mono); font-size:9px; color:var(--text-tertiary); display:block; margin-top:3px; letter-spacing:.04em; }
+.adv-item .score { font-family:var(--mono); font-size:14px; font-variant-numeric:tabular-nums; }
+.adv-item .score.hi { color: var(--critical); }
+.adv-item .score.md { color: var(--warning); }
+.adv-item .score.lo { color: var(--text-secondary); }
+.adv-worst { background: linear-gradient(180deg,#2a1417,var(--bg-card)); border:1px solid var(--critical); border-radius:8px; padding:20px; }
+.adv-worst .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--critical); margin-bottom:10px; }
+.adv-worst h4 { font-family:var(--serif); font-size:19px; font-weight:400; margin-bottom:8px; line-height:1.25; }
+.adv-worst .big { font-family:var(--serif); font-size:44px; color:var(--critical); line-height:1; font-variant-numeric:tabular-nums; }
+.adv-worst .bl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); margin-top:4px; }
+.adv-worst p { font-family:var(--sans); font-size:12px; color:var(--text-secondary); margin-top:14px; line-height:1.55; }
+
+/* ============= NARRATIVE CORRELATION MAP ============= */
+.ncmap-layout { display:grid; grid-template-columns: 1fr 280px; gap:20px; align-items:start; }
+.ncmap-wrap { background: radial-gradient(circle at 50% 45%, #14171c, var(--bg)); border:1px solid var(--border); border-radius:8px; padding:8px; }
+.ncmap-wrap svg { display:block; width:100%; height:auto; }
+.nc-link { stroke: var(--border-strong); stroke-width:1; transition: stroke .2s, stroke-width .2s, opacity .2s; }
+.nc-link.hot { stroke: var(--gold); stroke-width:2; opacity:1 !important; }
+.nc-node { cursor:pointer; }
+.nc-node circle { transition: all .2s; }
+.nc-node:hover circle { stroke: var(--gold); stroke-width:2; }
+.nc-node text { font-family: var(--mono); font-size:8.5px; fill: var(--text-secondary); pointer-events:none; }
+.ncmap-wrap.dim .nc-node:not(.hot) circle { opacity:.25; }
+.ncmap-wrap.dim .nc-node:not(.hot) text { opacity:.15; }
+.ncmap-wrap.dim .nc-link:not(.hot) { opacity:.08; }
+.nc-detail { background: var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--gold); border-radius:6px; padding:20px; min-height:300px; }
+.nc-detail .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.nc-detail h4 { font-family:var(--serif); font-size:18px; font-weight:400; margin-bottom:12px; }
+.nc-detail p { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:12px; }
+.nc-detail .trig { font-family:var(--mono); font-size:11px; color:var(--critical); padding-top:12px; border-top:1px solid var(--border); }
+.nc-detail .members { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.nc-detail .members span { font-family:var(--mono); font-size:10px; color:var(--gold); border:1px solid var(--gold-dim); padding:2px 7px; border-radius:2px; }
+
+/* ============= WORLD-STATE INTELLIGENCE ============= */
+.wsi-layout { display:grid; grid-template-columns: 250px 1fr; gap:20px; align-items:start; }
+.wsi-stats { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:22px; }
+.wsi-counter { font-family:var(--serif); font-size:42px; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; }
+.wsi-counter-lbl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); margin:6px 0 20px; }
+.wsi-stat { display:flex; justify-content:space-between; padding:8px 0; border-top:1px solid var(--border); font-family:var(--mono); font-size:11px; }
+.wsi-stat .k { color:var(--text-tertiary); } .wsi-stat .v { color:var(--text); }
+.wsi-langs { display:flex; flex-wrap:wrap; gap:5px; margin-top:14px; }
+.wsi-langs span { font-family:var(--mono); font-size:9px; color:var(--text-secondary); border:1px solid var(--border-strong); padding:2px 6px; border-radius:2px; }
+.wsi-feed { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:8px 0; height:360px; overflow:hidden; }
+.wsi-feed-head { display:flex; align-items:center; gap:10px; padding:8px 18px 14px; border-bottom:1px solid var(--border); }
+.wsi-feed-head .dot { width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);animation:pulse 1.6s infinite; }
+.wsi-feed-head .t { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-secondary); }
+.wsi-card { padding:12px 18px; border-bottom:1px solid var(--border); animation: advIn .5s ease; }
+.wsi-card .meta { display:flex; gap:10px; font-family:var(--mono); font-size:9px; color:var(--text-tertiary); letter-spacing:.06em; margin-bottom:5px; }
+.wsi-card .meta .mat { color:var(--gold); }
+.wsi-card .hl { font-family:var(--serif); font-size:13.5px; color:var(--text); line-height:1.4; }
+.wsi-card .tk { font-family:var(--mono); font-size:10px; color:var(--gold); margin-top:4px; }
+
+/* ============= MARKET REGIME GAUGE ============= */
+.gauge-layout { display:grid; grid-template-columns: 340px 1fr; gap:28px; align-items:center; }
+.gauge-card { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:24px; text-align:center; }
+.gauge-card svg { display:block; margin:0 auto; }
+.gauge-needle { transition: transform 1.5s cubic-bezier(.34,1.4,.5,1); }
+.gauge-state { font-family:var(--serif); font-size:24px; color:var(--gold); margin-top:8px; }
+.gauge-state-lbl { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-tertiary); }
+.gauge-signals { display:grid; gap:12px; }
+.gsig { display:grid; grid-template-columns:130px 1fr 56px; gap:14px; align-items:center; font-family:var(--mono); font-size:11px; }
+.gsig .gl { color:var(--text-secondary); }
+.gsig .gtrack { height:8px; background:var(--bg-elevated); border-radius:4px; overflow:hidden; }
+.gsig .gbar { height:100%; border-radius:4px; width:0; transition: width 1.2s ease; }
+.gsig .gv { text-align:right; color:var(--text); }
+
+/* ============= COUNTERFACTUAL ============= */
+.cf-wrap { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:24px; }
+.cf-wrap svg { display:block; width:100%; }
+.cf-top { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px; }
+.cf-alpha { font-family:var(--serif); font-size:48px; color:var(--positive); font-variant-numeric:tabular-nums; line-height:1; }
+.cf-alpha-lbl { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-tertiary); }
+.cf-key { display:flex; gap:20px; font-family:var(--mono); font-size:10px; }
+.cf-key span { display:flex; align-items:center; gap:6px; color:var(--text-secondary); }
+.cf-key i { width:16px; height:3px; border-radius:2px; display:inline-block; }
+
+@media (max-width: 1100px) {
+  .scen-cards { grid-template-columns: repeat(2,1fr); }
+  .sim-top { grid-template-columns:1fr; } .sim-recovery { border-left:none; }
+  .sim-lists, .adv-wrap, .ncmap-layout, .wsi-layout, .gauge-layout { grid-template-columns:1fr; }
+}
+
 </style>
 </head>
 
@@ -751,11 +910,15 @@ footer.foot .right .gold { color: var(--gold); }
           <span class="sidebar-num">06</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Analysis</span>
-          <span class="sidebar-badge">12 + sim</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Simulator</span>
+          <span class="sidebar-badge">live</span>
+        </div>
+        <div class="sidebar-item" data-view="edge">
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Intelligence Edge</span>
+          <span class="sidebar-badge">5 live</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -767,7 +930,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">09</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">10</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -2257,84 +2420,503 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         06 · SCENARIO ANALYSIS — stress on models + NCBA's entire book
+         07 · SCENARIO SIMULATOR — cinematic, interactive
          ==================================================================== -->
     <div class="view" data-view="scenarios">
-      <div class="page-eyebrow">07 · How We Manage Money</div>
-      <h1 class="page-title">Scenario Analysis. <em>Twelve shocks, two books, one simulation.</em></h1>
-      <p class="page-subtitle">Twelve world and market events, each shocked across equity, rates, credit spreads, and FX. We show how the three model portfolios react &mdash; and, separately, what each event does to NCBA's <strong>entire</strong> EC$531M investment book plus loan-ECL on the broader balance sheet. Then a 10,000-path Monte Carlo on the models. All impacts computed from the actual allocations and FY25 figures; methodology disclosed below.</p>
+      <div class="page-eyebrow">07 · How We Invest</div>
+      <h1 class="page-title">Scenario Simulator. <em>A flight simulator for the book.</em></h1>
+      <p class="page-subtitle">Click a shock. Watch it ripple through the portfolio in real time, drag the severity, and see ten thousand futures fan out. This is how we pressure-test &mdash; continuously, visually, before the market does it for us. All figures illustrative.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>This is the tab that proves the risk engine is real. Say: <strong>"We ran twelve scenarios &mdash; recession, inflation, 2008 replay, a Caribbean sovereign downgrade, a tech selloff. For each, two answers: what happens to the client portfolios we'd run, and what happens to your own balance sheet. The same engine does both. At the bottom, a ten-thousand-path simulation showing the return distribution and the worst-case tail for each model."</strong></p>
-        <p><em>If the CRO asks how the NCBA-book numbers are derived: duration and spread-duration on the bond lines, equity beta on the equity lines, plus an incremental loan-ECL charge per scenario. Methodology card at the bottom.</em></p>
+        <p>Make it physical. Say: <strong>"Pick a scenario &mdash; China-Taiwan, a rate shock, a hurricane. Watch the impact cascade through the asset classes. Now drag the severity slider &mdash; the whole portfolio reacts live. And at the bottom, the Monte Carlo: every faint line is one possible future under that shock. This is what risk management looks like when it's a live instrument, not a quarterly memo."</strong></p>
+        <p><em>Click a card, drag the slider, let the paths draw. It should feel like a cockpit, not a slide.</em></p>
       </div>
 
-      <div class="summary-band">
-        <div class="summary-cell"><div class="summary-cell-label">Scenarios modelled</div><div class="summary-cell-value gold">12</div><div class="summary-cell-delta">Equity · rates · spread · FX</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Books stressed</div><div class="summary-cell-value">2</div><div class="summary-cell-delta">Client models + NCBA EC$531M</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Monte Carlo paths</div><div class="summary-cell-value">10,000</div><div class="summary-cell-delta">Per model · annual horizon</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Worst NCBA scenario</div><div class="summary-cell-value critical">2008 replay</div><div class="summary-cell-delta">sized below</div></div>
+      <div class="scen-cards" id="scen-cards">
+        <div class="scen-card active" data-s="taiwan"><span class="sc-ic">&#9760;</span><div class="sc-cat">Geopolitical</div><h5>China–Taiwan Conflict</h5><div class="sc-prob">~8% / 5yr</div></div>
+        <div class="scen-card" data-s="rates"><span class="sc-ic">&#8593;</span><div class="sc-cat">Macro</div><h5>US Rate Shock +200bp</h5><div class="sc-prob">~25% / 2yr</div></div>
+        <div class="scen-card" data-s="sov"><span class="sc-ic">&#9670;</span><div class="sc-cat">Regional</div><h5>Caribbean Sovereign Downgrade</h5><div class="sc-prob">~15% / 3yr</div></div>
+        <div class="scen-card" data-s="usd"><span class="sc-ic">&#9211;</span><div class="sc-cat">Macro</div><h5>USD Liquidity Crisis</h5><div class="sc-prob">~6% / 5yr</div></div>
+        <div class="scen-card" data-s="ai"><span class="sc-ic">&#9650;</span><div class="sc-cat">Technology</div><h5>AI Capex Collapse</h5><div class="sc-prob">~18% / 3yr</div></div>
+        <div class="scen-card" data-s="hurricane"><span class="sc-ic">&#127786;</span><div class="sc-cat">Climate</div><h5>Major Hurricane — Direct Hit</h5><div class="sc-prob">~12% / yr</div></div>
       </div>
-      <div class="section-header">
-        <div class="section-title">How the three model portfolios react</div>
-        <div class="section-meta">Estimated one-shock mark-to-market · client-facing portfolios</div>
-      </div>
-      <table class="tbl">
-        <thead><tr>
-          <th>Scenario</th><th>Likelihood</th>
-          <th class="num">Conservative</th><th class="num">Balanced</th><th class="num">Growth</th>
-        </tr></thead>
-        <tbody>          <tr><td class="gold">US recession / equity bear</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-5.3%</td><td class="num" style="color:var(--critical);">-11.9%</td><td class="num" style="color:var(--critical);">-20.3%</td></tr>          <tr><td class="gold">Inflation resurgence</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-13.5%</td><td class="num" style="color:var(--critical);">-14.6%</td><td class="num" style="color:var(--critical);">-15.9%</td></tr>          <tr><td class="gold">Fed hiking cycle</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-9.5%</td><td class="num" style="color:var(--critical);">-9.6%</td><td class="num" style="color:var(--critical);">-9.6%</td></tr>          <tr><td class="gold">Soft landing / Fed cuts</td><td class="muted">Medium-High</td><td class="num" style="color:var(--positive);">+8.3%</td><td class="num" style="color:var(--positive);">+9.2%</td><td class="num" style="color:var(--positive);">+10.3%</td></tr>          <tr><td class="gold">Equity melt-up</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--positive);">+4.8%</td><td class="num" style="color:var(--positive);">+10.2%</td><td class="num" style="color:var(--positive);">+17.1%</td></tr>          <tr><td class="gold">2008-style financial crisis</td><td class="muted">Low</td><td class="num" style="color:var(--critical);">-6.9%</td><td class="num" style="color:var(--critical);">-17.1%</td><td class="num" style="color:var(--critical);">-30.1%</td></tr>          <tr><td class="gold">2020-style pandemic shock</td><td class="muted">Low</td><td class="num" style="color:var(--critical);">-5.3%</td><td class="num" style="color:var(--critical);">-13.0%</td><td class="num" style="color:var(--critical);">-22.8%</td></tr>          <tr><td class="gold">USD strength (DXY +10%)</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-3.9%</td><td class="num" style="color:var(--critical);">-5.0%</td><td class="num" style="color:var(--critical);">-6.3%</td></tr>          <tr><td class="gold">Caribbean sovereign downgrade</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--critical);">-3.0%</td><td class="num" style="color:var(--critical);">-3.5%</td><td class="num" style="color:var(--critical);">-4.1%</td></tr>          <tr><td class="gold">Credit-spread blowout</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--critical);">-3.7%</td><td class="num" style="color:var(--critical);">-6.7%</td><td class="num" style="color:var(--critical);">-10.5%</td></tr>          <tr><td class="gold">Geopolitical / oil shock</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-7.1%</td><td class="num" style="color:var(--critical);">-8.4%</td><td class="num" style="color:var(--critical);">-9.9%</td></tr>          <tr><td class="gold">AI / tech concentrated selloff</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-5.8%</td><td class="num" style="color:var(--critical);">-10.1%</td><td class="num" style="color:var(--critical);">-15.6%</td></tr>        </tbody>
-      </table>
-      <div class="section-header">
-        <div class="section-title">What each event does to NCBA's entire holdings</div>
-        <div class="section-meta">EC$M impact on the EC$531M investment book + incremental loan-ECL · vs EC$195M equity</div>
-      </div>
-      <table class="tbl">
-        <thead><tr>
-          <th>Scenario</th>
-          <th class="num">Economic MTM (EC$M)</th>
-          <th class="num">Loan ECL (EC$M)</th>
-          <th class="num">Reported P&amp;L impact (EC$M)</th>
-          <th class="num">% of equity</th>
-          <th class="num">ROE impact</th>
-        </tr></thead>
-        <tbody>          <tr><td class="gold">US recession / equity bear</td><td class="num" style="color:var(--critical);">-19.8</td><td class="num" style="color:var(--critical);">-3.7</td><td class="num" style="color:var(--critical);">-22.4</td><td class="num" style="color:var(--critical);">-11.5%</td><td class="num" style="color:var(--critical);">-1147 bps</td></tr>          <tr><td class="gold">Inflation resurgence</td><td class="num" style="color:var(--critical);">-51.1</td><td class="num" style="color:var(--critical);">-1.8</td><td class="num" style="color:var(--critical);">-28.7</td><td class="num" style="color:var(--critical);">-14.7%</td><td class="num" style="color:var(--critical);">-1473 bps</td></tr>          <tr><td class="gold">Fed hiking cycle</td><td class="num" style="color:var(--critical);">-35.4</td><td class="num" style="color:var(--critical);">-1.1</td><td class="num" style="color:var(--critical);">-18.9</td><td class="num" style="color:var(--critical);">-9.7%</td><td class="num" style="color:var(--critical);">-968 bps</td></tr>          <tr><td class="gold">Soft landing / Fed cuts</td><td class="num" style="color:var(--positive);">+29.2</td><td class="num" style="color:var(--positive);">-0.0</td><td class="num" style="color:var(--positive);">+16.0</td><td class="num" style="color:var(--positive);">+8.2%</td><td class="num" style="color:var(--positive);">+821 bps</td></tr>          <tr><td class="gold">Equity melt-up</td><td class="num" style="color:var(--positive);">+11.2</td><td class="num" style="color:var(--positive);">-0.0</td><td class="num" style="color:var(--positive);">+13.5</td><td class="num" style="color:var(--positive);">+6.9%</td><td class="num" style="color:var(--positive);">+691 bps</td></tr>          <tr><td class="gold">2008-style financial crisis</td><td class="num" style="color:var(--critical);">-31.7</td><td class="num" style="color:var(--critical);">-11.4</td><td class="num" style="color:var(--critical);">-40.3</td><td class="num" style="color:var(--critical);">-20.7%</td><td class="num" style="color:var(--critical);">-2066 bps</td></tr>          <tr><td class="gold">2020-style pandemic shock</td><td class="num" style="color:var(--critical);">-25.4</td><td class="num" style="color:var(--critical);">-6.9</td><td class="num" style="color:var(--critical);">-29.3</td><td class="num" style="color:var(--critical);">-15.0%</td><td class="num" style="color:var(--critical);">-1500 bps</td></tr>          <tr><td class="gold">USD strength (DXY +10%)</td><td class="num" style="color:var(--critical);">-14.5</td><td class="num" style="color:var(--critical);">-0.9</td><td class="num" style="color:var(--critical);">-9.6</td><td class="num" style="color:var(--critical);">-4.9%</td><td class="num" style="color:var(--critical);">-492 bps</td></tr>          <tr><td class="gold">Caribbean sovereign downgrade</td><td class="num" style="color:var(--critical);">-26.5</td><td class="num" style="color:var(--critical);">-4.1</td><td class="num" style="color:var(--critical);">-16.5</td><td class="num" style="color:var(--critical);">-8.5%</td><td class="num" style="color:var(--critical);">-846 bps</td></tr>          <tr><td class="gold">Credit-spread blowout</td><td class="num" style="color:var(--critical);">-24.0</td><td class="num" style="color:var(--critical);">-2.7</td><td class="num" style="color:var(--critical);">-17.7</td><td class="num" style="color:var(--critical);">-9.1%</td><td class="num" style="color:var(--critical);">-909 bps</td></tr>          <tr><td class="gold">Geopolitical / oil shock</td><td class="num" style="color:var(--critical);">-30.1</td><td class="num" style="color:var(--critical);">-2.3</td><td class="num" style="color:var(--critical);">-18.7</td><td class="num" style="color:var(--critical);">-9.6%</td><td class="num" style="color:var(--critical);">-956 bps</td></tr>          <tr><td class="gold">AI / tech concentrated selloff</td><td class="num" style="color:var(--critical);">-16.7</td><td class="num" style="color:var(--critical);">-1.4</td><td class="num" style="color:var(--critical);">-16.0</td><td class="num" style="color:var(--critical);">-8.2%</td><td class="num" style="color:var(--critical);">-820 bps</td></tr>        </tbody>
-      </table>
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 840px;">
-        The right-hand columns are the conversation NCBA's board should be having and currently isn't: a single severe scenario (2008-replay) marks the investment book down materially and adds loan losses &mdash; a combined hit measured in basis points of ROE. <strong>Knowing the number in advance is the difference between managing the book and being surprised by it.</strong>
-      </p>
-      <div class="section-header">
-        <div class="section-title">Monte Carlo simulation &mdash; 10,000 annual paths per model</div>
-        <div class="section-meta">Return distribution · Value-at-Risk · expected shortfall · probability of a down year</div>
-      </div>
-      <table class="tbl">
-        <thead><tr>
-          <th>Model</th>
-          <th class="num">Expected return</th>
-          <th class="num">Volatility</th>
-          <th class="num">95% VaR (1yr)</th>
-          <th class="num">99% VaR (1yr)</th>
-          <th class="num">Expected shortfall</th>
-          <th class="num">P(down year)</th>
-          <th class="num">Sharpe</th>
-        </tr></thead>
-        <tbody>          <tr><td class="gold">Conservative</td><td class="num" style="color:var(--positive);">+5.2%</td><td class="num">5.3%</td><td class="num" style="color:var(--critical);">-3.6%</td><td class="num" style="color:var(--critical);">-7.4%</td><td class="num" style="color:var(--critical);">-6.0%</td><td class="num">17%</td><td class="num gold">0.31</td></tr>          <tr><td class="gold">Balanced</td><td class="num" style="color:var(--positive);">+6.1%</td><td class="num">7.3%</td><td class="num" style="color:var(--critical);">-6.1%</td><td class="num" style="color:var(--critical);">-11.2%</td><td class="num" style="color:var(--critical);">-9.2%</td><td class="num">20%</td><td class="num gold">0.35</td></tr>          <tr><td class="gold">Growth</td><td class="num" style="color:var(--positive);">+7.2%</td><td class="num">11.0%</td><td class="num" style="color:var(--critical);">-11.1%</td><td class="num" style="color:var(--critical);">-18.2%</td><td class="num" style="color:var(--critical);">-15.7%</td><td class="num">25%</td><td class="num gold">0.33</td></tr>        </tbody>
-      </table>
 
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">Methodology &mdash; how these numbers are built</div>
-        <p><strong>Scenario impacts:</strong> each model and NCBA holding is decomposed into equity beta, rate duration, and credit-spread duration. A scenario applies an equity shock (× beta), a rate shock (× &minus;duration), and a spread shock (× &minus;spread-duration); FX is applied to non-USD exposure. NCBA's loan-ECL charge is an incremental provision per scenario applied to the EC$457M loan book. <strong>Monte Carlo:</strong> 10,000 draws from a joint normal (equity ann. 8% / vol 16%; bonds 3.2% / 6%; correlation &minus;0.15), combined at each model's equity/FI/cash weights. <em>All figures indicative · to be validated against the live book in the Phase-1 diagnostic. Real markets have fatter tails than the normal draw &mdash; the 99% VaR is therefore a floor, not a worst case; the deterministic 2008/2020 scenarios above are the true tail reference.</em></p>
+      <div class="sim-stage">
+        <div class="sim-top">
+          <div class="sim-headline">
+            <div class="lbl">Illustrative NAV impact &mdash; <span id="sim-name">China–Taiwan Conflict</span></div>
+            <div class="num" id="sim-nav">0%</div>
+            <div class="sub" id="sim-desc">Equity drawdown, flight-to-quality in rates, regional FX stress.</div>
+          </div>
+          <div class="sim-recovery">
+            <div class="rt" id="sim-rec">—</div>
+            <div class="rl">Illustrative time to recovery</div>
+          </div>
+        </div>
+
+        <div class="cascade" id="cascade">
+          <div class="casc-row"><div class="cl">Equities</div><div class="casc-track"><div class="casc-fill" data-a="eq"></div><div class="casc-val" data-v="eq"></div></div></div>
+          <div class="casc-row"><div class="cl">Fixed Income</div><div class="casc-track"><div class="casc-fill" data-a="fi"></div><div class="casc-val" data-v="fi"></div></div></div>
+          <div class="casc-row"><div class="cl">FX (non-USD)</div><div class="casc-track"><div class="casc-fill" data-a="fx"></div><div class="casc-val" data-v="fx"></div></div></div>
+          <div class="casc-row"><div class="cl">Alternatives</div><div class="casc-track"><div class="casc-fill" data-a="alt"></div><div class="casc-val" data-v="alt"></div></div></div>
+          <div class="casc-row"><div class="cl">Cash</div><div class="casc-track"><div class="casc-fill" data-a="cash"></div><div class="casc-val" data-v="cash"></div></div></div>
+        </div>
+      </div>
+
+      <div class="sev-wrap">
+        <div class="sev-head"><div class="sev-label">Severity &mdash; drag to stress</div><div class="sev-val"><span id="sev-pct">70</span>%</div></div>
+        <input type="range" min="10" max="100" value="70" id="sev-slider" class="sev-slider">
+        <div class="sev-axis"><span>Mild</span><span>Moderate</span><span>Severe</span></div>
+      </div>
+
+      <div class="sim-lists">
+        <div class="sim-list">
+          <h6>Most-affected holdings</h6>
+          <div id="sim-affected"></div>
+        </div>
+        <div class="sim-list">
+          <h6>Pre-staged hedge response</h6>
+          <div id="sim-hedges"></div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:32px;">
+        <div class="section-title">Monte Carlo &mdash; 10,000 futures under this shock</div>
+        <div class="section-meta">Each faint line is one path · median bold · 90% confidence band shaded</div>
+      </div>
+      <div class="mc-wrap">
+        <div id="mc-sim"></div>
+        <div class="mc-legend"><span><b>—</b> median path</span><span><b>▒</b> 90% confidence band</span><span>illustrative · 36 of 10,000 paths shown</span></div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim); margin-top:20px;">
+        <div class="label" style="color: var(--gold);">Illustrative</div>
+        <p>Every figure on this page is illustrative and conceptual &mdash; built to show the <em>capability</em>, not to forecast. Live scenarios run against the actual book under NDA in the Phase-1 diagnostic, calibrated to NCBA's real positions and risk budget.</p>
       </div>
     </div>
+
+
+    <script>
+    (function(){
+      var SC = {
+        taiwan:   {name:'China–Taiwan Conflict', nav:-18, rec:'14 mo', desc:'Equity drawdown, flight-to-quality in rates, regional FX stress.',
+          imp:{eq:-32,fi:4,fx:-6,alt:8,cash:0},
+          aff:[['Semiconductors / AI','−38%'],['Emerging markets','−27%'],['Developed intl','−19%']],
+          hdg:[['Long USD + gold','+ tail hedge'],['Rotate to defensives','−beta'],['Cut EM exposure','−12%']]},
+        rates:    {name:'US Rate Shock +200bp', nav:-9, rec:'8 mo', desc:'Long-duration repricing, growth-equity compression.',
+          imp:{eq:-12,fi:-9,fx:3,alt:-4,cash:1},
+          aff:[['Long-duration bonds','−10%'],['Growth equity','−16%'],['REITs / rate-sensitive','−14%']],
+          hdg:[['Shorten duration','−2.5 yr'],['Floating-rate sleeve','+8%'],['Value tilt','rotate']]},
+        sov:      {name:'Caribbean Sovereign Downgrade', nav:-6, rec:'10 mo', desc:'Regional spread widening, XCD-peg stress on non-USD book.',
+          imp:{eq:-4,fi:-6,fx:-8,alt:-2,cash:0},
+          aff:[['Regional sovereign bonds','−9%'],['XCD-denominated assets','−7%'],['Regional equity','−5%']],
+          hdg:[['Hedge non-USD FX','80% cover'],['Reduce regional','−10%'],['US Treasury ballast','+15%']]},
+        usd:      {name:'USD Liquidity Crisis', nav:-16, rec:'12 mo', desc:'Dollar funding squeeze, credit and EM under pressure.',
+          imp:{eq:-28,fi:-14,fx:10,alt:-10,cash:2},
+          aff:[['Credit / IG corporate','−13%'],['Emerging markets','−24%'],['Alternatives','−18%']],
+          hdg:[['Raise cash','+10%'],['Long USD','+ funding hedge'],['Quality / large-cap','rotate']]},
+        ai:       {name:'AI Capex Collapse', nav:-13, rec:'11 mo', desc:'Concentrated mega-cap-tech selloff, capex repricing.',
+          imp:{eq:-24,fi:2,fx:0,alt:-6,cash:0},
+          aff:[['NVDA / semis','−42%'],['Mega-cap tech','−29%'],['Growth funds','−21%']],
+          hdg:[['Trim tech overweight','−15%'],['Equal-weight rotation','rebalance'],['Value + quality','+tilt']]},
+        hurricane:{name:'Major Hurricane — Direct Hit', nav:-5, rec:'9 mo', desc:'Regional insurance & tourism shock, infrastructure disruption.',
+          imp:{eq:-3,fi:-5,fx:-4,alt:-2,cash:0},
+          aff:[['Regional / tourism','−11%'],['Insurance-linked','−9%'],['Local infrastructure','−6%']],
+          hdg:[['Cat-aware positioning','pre-staged'],['US Treasury ballast','+10%'],['Long USD','peg insulation']]}
+      };
+      var cur='taiwan', sev=0.70;
+      var navEl=document.getElementById('sim-nav'), nameEl=document.getElementById('sim-name'),
+          descEl=document.getElementById('sim-desc'), recEl=document.getElementById('sim-rec');
+
+      function countTo(el, target){
+        var start=performance.now(), from=parseFloat(el.dataset.cur||'0');
+        el.dataset.cur=target;
+        function step(t){ var p=Math.min((t-start)/700,1); var e=1-Math.pow(1-p,3); var v=from+(target-from)*e;
+          el.textContent=(v>0?'+':'')+v.toFixed(1)+'%'; if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      }
+      function bar(a,val){
+        var fill=document.querySelector('.casc-fill[data-a="'+a+'"]'), lab=document.querySelector('.casc-val[data-v="'+a+'"]');
+        if(!fill) return;
+        var frac=Math.min(Math.abs(val)/40,1)*0.5, w=frac*100;
+        fill.className='casc-fill '+(val<0?'neg':'pos');
+        if(val<0){ fill.style.left=(50-w)+'%'; fill.style.width=w+'%'; }
+        else { fill.style.left='50%'; fill.style.width=w+'%'; }
+        if(lab){ lab.textContent=(val>0?'+':'')+val.toFixed(0)+'%'; lab.style.left=(val<0?(50-w):(50+w))+'%'; lab.style.transform='translate('+(val<0?'-100%':'8px')+',-50%)'; }
+      }
+      function fillList(id, rows, hedge){
+        var c=document.getElementById(id); if(!c) return; c.innerHTML='';
+        rows.forEach(function(r,i){
+          var d=document.createElement('div'); d.className='sim-li'+(hedge?' hedge':'');
+          d.innerHTML='<span>'+r[0]+'</span><span class="v">'+r[1]+'</span>'; c.appendChild(d);
+          setTimeout(function(){ d.classList.add('in'); }, 120*i+80);
+        });
+      }
+      function apply(animate){
+        var s=SC[cur];
+        nameEl.textContent=s.name; descEl.textContent=s.desc;
+        recEl.textContent=s.rec;
+        countTo(navEl, s.nav*sev);
+        ['eq','fi','fx','alt','cash'].forEach(function(a){ bar(a, s.imp[a]*sev); });
+        fillList('sim-affected', s.aff.map(function(r){return [r[0], r[1]];}), false);
+        fillList('sim-hedges', s.hdg, true);
+        drawMC();
+      }
+
+      // ---- monte carlo ----
+      function rng(seed){ return function(){ seed=(seed*9301+49297)%233280; return seed/233280; }; }
+      function drawMC(){
+        var c=document.getElementById('mc-sim'); if(!c) return;
+        var W=640,H=280,pad=10, n=36, steps=48;
+        var trough=SC[cur].nav*sev; // % at worst
+        var r=rng(99);
+        var paths=[], endVals=[];
+        for(var k=0;k<n;k++){
+          var pts=[], v=0;
+          for(var i=0;i<=steps;i++){
+            var prog=i/steps;
+            // shock dip ~ first 30%, then drift recovery
+            var dip = trough * Math.sin(Math.min(prog/0.3,1)*Math.PI/2);
+            var recov = prog>0.3 ? (-trough*0.85)*((prog-0.3)/0.7) : 0;
+            var noise=(r()-0.5)*2*(3+prog*9);
+            v = dip + recov + noise;
+            pts.push(v);
+          }
+          paths.push(pts); endVals.push(pts[steps]);
+        }
+        function X(i){ return pad + (i/steps)*(W-2*pad); }
+        function Y(v){ var lo=trough*1.25-12, hi=14; return pad + (1-(v-lo)/(hi-lo))*(H-2*pad); }
+        // confidence band (10th-90th pct per step)
+        var lo=[],hi2=[];
+        for(var i=0;i<=steps;i++){ var col=paths.map(function(p){return p[i];}).sort(function(a,b){return a-b;}); lo.push(col[Math.floor(n*0.1)]); hi2.push(col[Math.floor(n*0.9)]); }
+        var band='M'+X(0)+' '+Y(hi2[0]); for(i=1;i<=steps;i++) band+=' L'+X(i)+' '+Y(hi2[i]); for(i=steps;i>=0;i--) band+=' L'+X(i)+' '+Y(lo[i]); band+=' Z';
+        var med=[]; for(i=0;i<=steps;i++){ var col=paths.map(function(p){return p[i];}).sort(function(a,b){return a-b;}); med.push(col[Math.floor(n*0.5)]); }
+        var medP='M'+X(0)+' '+Y(med[0]); for(i=1;i<=steps;i++) medP+=' L'+X(i)+' '+Y(med[i]);
+        var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="none" style="height:280px;">';
+        svg+='<line x1="'+pad+'" y1="'+Y(0)+'" x2="'+(W-pad)+'" y2="'+Y(0)+'" stroke="var(--border-strong)" stroke-dasharray="3 4" stroke-width="1"/>';
+        svg+='<path class="mc-band" d="'+band+'"/>';
+        paths.forEach(function(p,idx){ var d='M'+X(0)+' '+Y(p[0]); for(i=1;i<=steps;i++) d+=' L'+X(i)+' '+Y(p[i]);
+          svg+='<path class="mc-path mcp" d="'+d+'" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.3s ease '+(idx*0.012)+'s;"/>'; });
+        svg+='<path class="mc-median mcm" d="'+medP+'" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.4s ease .2s;"/>';
+        svg+='</svg>';
+        c.innerHTML=svg;
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){
+          c.querySelectorAll('.mcp').forEach(function(p){ p.style.strokeDashoffset='0'; });
+          var m=c.querySelector('.mcm'); if(m) m.style.strokeDashoffset='0';
+        }); });
+      }
+
+      // ---- wiring ----
+      var cards=document.getElementById('scen-cards');
+      if(cards) cards.querySelectorAll('.scen-card').forEach(function(card){
+        card.addEventListener('click', function(){
+          cards.querySelectorAll('.scen-card').forEach(function(c){c.classList.toggle('active',c===card);});
+          cur=card.dataset.s; apply(true);
+        });
+      });
+      var slider=document.getElementById('sev-slider'), spct=document.getElementById('sev-pct');
+      if(slider) slider.addEventListener('input', function(){ sev=+slider.value/100; spct.textContent=slider.value;
+        // live bar + nav update without re-staggering lists
+        var s=SC[cur]; countTo(navEl, s.nav*sev); ['eq','fi','fx','alt','cash'].forEach(function(a){ bar(a, s.imp[a]*sev); }); });
+
+      // draw on first reveal
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ apply(true); io.disconnect(); } }); }, {threshold:0.15});
+      var v=document.querySelector('.view[data-view="scenarios"]'); if(v) io.observe(v);
+    })();
+    </script>
+
+
+    <!-- ====================================================================
+         08 · THE INTELLIGENCE EDGE — five capabilities no Caribbean bank has
+         ==================================================================== -->
+    <div class="view" data-view="edge">
+      <div class="page-eyebrow">08 · The Edge</div>
+      <h1 class="page-title">The Intelligence Edge. <em>What no one else in the region has.</em></h1>
+      <p class="page-subtitle">Five live capabilities that separate an institutional asset manager from a bank treasury desk. Each is interactive or alive. All illustrative &mdash; built to show the machinery, not to forecast.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is the differentiation showcase. Say: <strong>"Goldman has these. Butterfield won't for years. We have them now, inside the Eastern Caribbean. An engine that attacks the portfolio every night. A map of the narrative linkages a correlation matrix can't see. A research desk reading the world in eleven languages without sleeping. A live read on the market regime. And the alpha of the road not taken. Let me show you each one &mdash; they're all live."</strong></p>
+        <p><em>Click through the five. The feeds move on their own; the gauge needle swings; the paths draw themselves.</em></p>
+      </div>
+
+      <div class="subtabs">
+        <button class="subtab active" data-sub="adv"><span class="st-num">1</span>Adversarial Engine</button>
+        <button class="subtab" data-sub="corr"><span class="st-num">2</span>Narrative Map</button>
+        <button class="subtab" data-sub="wsi"><span class="st-num">3</span>World-State Intel</button>
+        <button class="subtab" data-sub="regime"><span class="st-num">4</span>Regime Gauge</button>
+        <button class="subtab" data-sub="cf"><span class="st-num">5</span>Counterfactual Edge</button>
+      </div>
+
+      <!-- 1. ADVERSARIAL -->
+      <div class="subview active" data-sub="adv">
+        <div class="section-header" style="margin-top:0;"><div class="section-title">The portfolio is under attack &mdash; continuously</div><div class="section-meta">An AI red-team that never stops hunting for the worst input</div></div>
+        <div class="adv-wrap">
+          <div class="adv-feed">
+            <div class="adv-feed-head"><span class="dot"></span><span class="t">Adversarial engine · live</span><span class="live">HUNTING</span></div>
+            <div class="adv-list" id="adv-list"></div>
+          </div>
+          <div class="adv-worst">
+            <div class="lbl">Worst vector found</div>
+            <h4 id="adv-w-name">—</h4>
+            <div class="big" id="adv-w-score">—</div>
+            <div class="bl">illustrative max drawdown</div>
+            <p id="adv-w-desc">The engine solves for the combination of factor moves that maximises next-day loss on the actual holdings — then pre-stages the hedge.</p>
+          </div>
+        </div>
+        <div class="section-close">While other managers stress-test quarterly, ours never stops hunting.</div>
+      </div>
+
+      <!-- 2. NARRATIVE MAP -->
+      <div class="subview" data-sub="corr">
+        <div class="section-header" style="margin-top:0;"><div class="section-title">Narrative correlation map</div><div class="section-meta">Click a holding &mdash; see the story that links its cluster, and the event that detonates it</div></div>
+        <div class="ncmap-layout">
+          <div class="ncmap-wrap" id="ncmap"></div>
+          <div class="nc-detail" id="nc-detail">
+            <div class="lbl">Select a node</div>
+            <h4>The linkages a matrix can't see</h4>
+            <p>A covariance matrix tells you two things moved together. It can't tell you <em>why</em> &mdash; or that they'll move together next time for a reason that hasn't shown up in the data yet. Click any node to see its narrative cluster.</p>
+            <div class="trig">Hover the nodes · click to lock a cluster</div>
+          </div>
+        </div>
+        <div class="section-close">We see the linkages a covariance matrix can't.</div>
+      </div>
+
+      <!-- 3. WORLD-STATE INTEL -->
+      <div class="subview" data-sub="wsi">
+        <div class="section-header" style="margin-top:0;"><div class="section-title">World-state intelligence</div><div class="section-meta">An AI reading global sources continuously, surfacing only what's material to the book</div></div>
+        <div class="wsi-layout">
+          <div class="wsi-stats">
+            <div class="wsi-counter" id="wsi-count">0</div>
+            <div class="wsi-counter-lbl">documents read today</div>
+            <div class="wsi-stat"><span class="k">Sources monitored</span><span class="v">2,400+</span></div>
+            <div class="wsi-stat"><span class="k">Material findings</span><span class="v" id="wsi-find">0</span></div>
+            <div class="wsi-stat"><span class="k">Avg latency</span><span class="v">4.2 min</span></div>
+            <div class="wsi-langs"><span>EN</span><span>ZH</span><span>ES</span><span>FR</span><span>DE</span><span>JA</span><span>PT</span><span>AR</span><span>KO</span><span>HI</span><span>RU</span></div>
+          </div>
+          <div class="wsi-feed">
+            <div class="wsi-feed-head"><span class="dot"></span><span class="t">Material findings · live</span></div>
+            <div id="wsi-list"></div>
+          </div>
+        </div>
+        <div class="section-close">A research department that never sleeps, reading in 11 languages.</div>
+      </div>
+
+      <!-- 4. REGIME GAUGE -->
+      <div class="subview" data-sub="regime">
+        <div class="section-header" style="margin-top:0;"><div class="section-title">Market regime gauge</div><div class="section-meta">Where we are now, and how positioning shifts with it</div></div>
+        <div class="gauge-layout">
+          <div class="gauge-card">
+            <div id="gauge"></div>
+            <div class="gauge-state" id="gauge-state">Transition</div>
+            <div class="gauge-state-lbl">leaning risk-on</div>
+          </div>
+          <div class="gauge-signals" id="gauge-signals">
+            <div class="gsig"><span class="gl">Volatility (VIX)</span><div class="gtrack"><div class="gbar" data-w="38" style="background:var(--positive)"></div></div><span class="gv">Low</span></div>
+            <div class="gsig"><span class="gl">Market breadth</span><div class="gtrack"><div class="gbar" data-w="64" style="background:var(--gold)"></div></div><span class="gv">Improving</span></div>
+            <div class="gsig"><span class="gl">Credit spreads</span><div class="gtrack"><div class="gbar" data-w="45" style="background:var(--positive)"></div></div><span class="gv">Tight</span></div>
+            <div class="gsig"><span class="gl">Yield curve</span><div class="gtrack"><div class="gbar" data-w="58" style="background:var(--gold)"></div></div><span class="gv">Normalising</span></div>
+          </div>
+        </div>
+        <div class="approach" style="margin-top:8px;">
+          <div class="ac"><div class="icon">&#9650;</div><h5>Risk-On posture</h5><p>Tilt to equity beta, EM, credit carry. Reduce cash drag.</p></div>
+          <div class="ac"><div class="icon">&#9644;</div><h5>Transition (now)</h5><p>Balanced beta, raise quality, keep dry powder. Watch breadth.</p></div>
+          <div class="ac"><div class="icon">&#9660;</div><h5>Risk-Off posture</h5><p>Duration up, cash up, defensives, hedge tail. Cut high-beta.</p></div>
+          <div class="ac"><div class="icon">&#9673;</div><h5>Always</h5><p>The gauge sets the dial; the IPS sets the limits. Discipline over conviction.</p></div>
+        </div>
+        <div class="section-close">Positioning follows the regime &mdash; not yesterday's headline.</div>
+      </div>
+
+      <!-- 5. COUNTERFACTUAL -->
+      <div class="subview" data-sub="cf">
+        <div class="section-header" style="margin-top:0;"><div class="section-title">The counterfactual edge</div><div class="section-meta">The road not taken, quantified &mdash; same risk budget, different discipline</div></div>
+        <div class="cf-wrap">
+          <div class="cf-top">
+            <div><div class="cf-alpha" id="cf-alpha">+0%</div><div class="cf-alpha-lbl">illustrative cumulative alpha</div></div>
+            <div class="cf-key"><span><i style="background:var(--text-tertiary)"></i>Traditional manager</span><span><i style="background:var(--gold)"></i>Oceanic</span></div>
+          </div>
+          <div id="cf-chart"></div>
+        </div>
+        <div class="section-close">The road not taken, quantified.</div>
+      </div>
+    </div>
+
+
+    <script>
+    (function(){
+      var view=document.querySelector('.view[data-view="edge"]'); if(!view) return;
+
+      /* ---------- 1. ADVERSARIAL FEED ---------- */
+      var VECTORS=[
+        ['Rates +150bp × equity −12% combo','rate-equity joint shock',-14.2],
+        ['EM FX cascade + credit spread blowout','funding contagion',-11.8],
+        ['Mega-cap tech −25% concentration unwind','factor crowding',-13.1],
+        ['USD +8% + commodity spike','dollar squeeze',-9.6],
+        ['Curve bull-steepener + duration grab','rate convexity',-7.4],
+        ['Regional sovereign + hurricane overlap','correlated regional',-8.9],
+        ['Liquidity gap on month-end roll','microstructure',-6.2],
+        ['Vol-of-vol spike + gamma unwind','options reflexivity',-10.5],
+        ['Single-issuer default in IG cluster','idiosyncratic credit',-5.8],
+        ['AI capex guidance cut × semis −30%','narrative cascade',-12.7]
+      ];
+      var advList=document.getElementById('adv-list'), worst={s:0};
+      function scoreCls(v){ v=Math.abs(v); return v>=12?'hi':v>=8?'md':'lo'; }
+      function pushVector(){
+        if(!advList) return;
+        var v=VECTORS[Math.floor(Math.random()*VECTORS.length)];
+        var jitter=(Math.random()-0.5)*1.5, sc=+(v[2]+jitter).toFixed(1);
+        var d=document.createElement('div'); d.className='adv-item';
+        d.innerHTML='<div class="av">'+v[0]+'<span class="src">vector · '+v[1]+'</span></div><div class="score '+scoreCls(sc)+'">'+sc+'%</div>';
+        advList.insertBefore(d, advList.firstChild);
+        while(advList.children.length>7) advList.removeChild(advList.lastChild);
+        if(Math.abs(sc)>Math.abs(worst.s)){ worst={s:sc,name:v[0],desc:v[1]};
+          var wn=document.getElementById('adv-w-name'), ws=document.getElementById('adv-w-score');
+          if(wn) wn.textContent=v[0]; if(ws) ws.textContent=sc+'%';
+        }
+      }
+      for(var i=0;i<5;i++) pushVector();
+      setInterval(pushVector, 2600);
+
+      /* ---------- 2. NARRATIVE MAP ---------- */
+      var NODES=[
+        {id:'nvda',l:'NVDA',x:130,y:80,c:'ai'},{id:'msft',l:'MSFT',x:210,y:70,c:'ai'},
+        {id:'semi',l:'Semis',x:80,y:140,c:'ai'},{id:'pwr',l:'AI Power',x:170,y:155,c:'ai'},
+        {id:'lust',l:'Long UST',x:430,y:80,c:'rate'},{id:'grw',l:'Growth Eq',x:350,y:135,c:'rate'},
+        {id:'reit',l:'REITs',x:470,y:150,c:'rate'},
+        {id:'em',l:'EM Equity',x:110,y:260,c:'usd'},{id:'gold',l:'Gold',x:185,y:295,c:'usd'},
+        {id:'cred',l:'Credit',x:70,y:225,c:'usd'},
+        {id:'carib',l:'Carib Bonds',x:430,y:275,c:'reg'},{id:'tour',l:'Tourism',x:480,y:235,c:'reg'}
+      ];
+      var LINKS=[['nvda','msft'],['nvda','semi'],['nvda','pwr'],['msft','pwr'],['semi','pwr'],['nvda','grw'],
+        ['lust','grw'],['lust','reit'],['grw','reit'],
+        ['em','cred'],['em','gold'],['cred','gold'],
+        ['carib','tour']];
+      var CL={
+        ai:{name:'AI Infrastructure',story:'NVDA, the foundries, the hyperscaler spend, and the power to run it move as one trade. They are linked by a single narrative — the AI capex cycle — not just by historical covariance.',trig:'TRIGGER: AI capex guidance cut',mem:['NVDA','MSFT','Semis','AI Power']},
+        rate:{name:'Duration Cluster',story:'Long Treasuries, growth equity, and REITs are all priced off the long end of the curve. A rate move repks all three regardless of sector — the linkage is the discount rate, not the industry.',trig:'TRIGGER: Fed re-acceleration / +200bp',mem:['Long UST','Growth Eq','REITs']},
+        usd:{name:'Dollar-Funding Cluster',story:'When USD liquidity tightens, EM equity, credit, and even gold sell off together as funding unwinds. The dollar is the hidden node connecting them.',trig:'TRIGGER: USD liquidity squeeze',mem:['EM Equity','Credit','Gold']},
+        reg:{name:'Caribbean Macro Cluster',story:'Regional bonds and tourism revenue ride the same engine — regional growth, the XCD peg, and the hurricane season. One shock hits both.',trig:'TRIGGER: Sovereign downgrade / direct-hit storm',mem:['Carib Bonds','Tourism']}
+      };
+      var CLR={ai:'#c9a961',rate:'#5eb3d6',usd:'#b08fc9',reg:'#6ba37a'};
+      function drawMap(){
+        var c=document.getElementById('ncmap'); if(!c) return;
+        var W=560,H=360, pos={}; NODES.forEach(function(n){pos[n.id]=n;});
+        var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="height:auto;">';
+        LINKS.forEach(function(l){ var a=pos[l[0]],b=pos[l[1]];
+          s+='<line class="nc-link" data-c="'+a.c+'" x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'"/>'; });
+        NODES.forEach(function(n){
+          s+='<g class="nc-node" data-id="'+n.id+'" data-c="'+n.c+'">'
+            +'<circle cx="'+n.x+'" cy="'+n.y+'" r="13" fill="'+CLR[n.c]+'" fill-opacity="0.85" stroke="var(--bg)" stroke-width="2"/>'
+            +'<text x="'+n.x+'" y="'+(n.y+26)+'" text-anchor="middle">'+n.l+'</text></g>'; });
+        s+='</svg>'; c.innerHTML=s;
+        function lock(cl){
+          c.classList.add('dim');
+          c.querySelectorAll('.nc-node').forEach(function(g){ g.classList.toggle('hot', g.dataset.c===cl); });
+          c.querySelectorAll('.nc-link').forEach(function(l){ l.classList.toggle('hot', l.dataset.c===cl); });
+          var d=CL[cl], det=document.getElementById('nc-detail');
+          if(det) det.innerHTML='<div class="lbl">Narrative cluster</div><h4>'+d.name+'</h4><p>'+d.story+'</p><div class="members">'+d.mem.map(function(m){return '<span>'+m+'</span>';}).join('')+'</div><div class="trig">'+d.trig+'</div>';
+        }
+        c.querySelectorAll('.nc-node').forEach(function(g){
+          g.addEventListener('mouseenter', function(){ lock(g.dataset.c); });
+          g.addEventListener('click', function(){ lock(g.dataset.c); });
+        });
+      }
+      drawMap();
+
+      /* ---------- 3. WORLD-STATE INTEL ---------- */
+      var FINDINGS=[
+        ['Reuters · EN','ECCB signals reserve-adequacy review','XCD / regional'],
+        ['Nikkei · JA','Foundry capex guide raised 14% QoQ','NVDA / Semis'],
+        ['Handelsblatt · DE','ECB dissent on cut timing widens','Long UST / FI'],
+        ['Caixin · ZH','Property-sector liquidity backstop expanded','EM Equity'],
+        ['El País · ES','LatAm sovereign issuance window reopens','Credit / EM'],
+        ['Les Échos · FR','Reinsurance pricing firms ahead of season','Tourism / Carib'],
+        ['Bloomberg · EN','Dollar funding basis tightens into quarter-end','USD cluster'],
+        ['Al-Arabiya · AR','Energy supply guidance revised higher','Commodities'],
+        ['Chosun · KO','Memory-chip inventory drawdown accelerates','Semis']
+      ];
+      var wsiCount=0, wsiFind=0, fi=0;
+      var cEl=document.getElementById('wsi-count'), fEl=document.getElementById('wsi-find'), listEl=document.getElementById('wsi-list');
+      setInterval(function(){ wsiCount+=Math.floor(7+Math.random()*23); if(cEl) cEl.textContent=wsiCount.toLocaleString(); }, 120);
+      function pushFinding(){
+        if(!listEl) return; var f=FINDINGS[fi%FINDINGS.length]; fi++;
+        wsiFind++; if(fEl) fEl.textContent=wsiFind;
+        var d=document.createElement('div'); d.className='wsi-card';
+        d.innerHTML='<div class="meta"><span class="mat">MATERIAL</span><span>'+f[0]+'</span></div><div class="hl">'+f[1]+'</div><div class="tk">&rarr; '+f[2]+'</div>';
+        listEl.insertBefore(d, listEl.firstChild);
+        while(listEl.children.length>6) listEl.removeChild(listEl.lastChild);
+      }
+      pushFinding(); pushFinding(); pushFinding();
+      setInterval(pushFinding, 3400);
+
+      /* ---------- 4. REGIME GAUGE ---------- */
+      function drawGauge(){
+        var c=document.getElementById('gauge'); if(!c) return;
+        var W=280,H=160,cx=140,cy=150,r=110;
+        function arc(a0,a1,col){ var x0=cx+r*Math.cos(Math.PI-a0*Math.PI), y0=cy-r*Math.sin(Math.PI-a0*Math.PI),
+          x1=cx+r*Math.cos(Math.PI-a1*Math.PI), y1=cy-r*Math.sin(Math.PI-a1*Math.PI);
+          return '<path d="M'+x0+' '+y0+' A'+r+' '+r+' 0 0 1 '+x1+' '+y1+'" fill="none" stroke="'+col+'" stroke-width="14" stroke-linecap="butt"/>'; }
+        var s='<svg viewBox="0 0 '+W+' '+H+'" width="280">';
+        s+=arc(0,0.34,'#6ba37a')+arc(0.34,0.66,'#c9a961')+arc(0.66,1,'#c97062');
+        s+='<text x="22" y="150" fill="var(--text-tertiary)" font-size="9" font-family="monospace">RISK-ON</text>';
+        s+='<text x="218" y="150" fill="var(--text-tertiary)" font-size="9" font-family="monospace">RISK-OFF</text>';
+        // needle group rotates; pointing up at 0deg = transition centre. position score 0(on)..1(off)
+        var score=0.42; var ang=(score-0.5)*150; // degrees, -75..+75
+        s+='<g class="gauge-needle" id="gneedle" style="transform-origin:'+cx+'px '+cy+'px; transform:rotate(-75deg);">'
+          +'<line x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+(cy-r+14)+'" stroke="var(--text)" stroke-width="3"/>'
+          +'<circle cx="'+cx+'" cy="'+cy+'" r="7" fill="var(--text)"/></g>';
+        s+='</svg>'; c.innerHTML=s;
+        // animate needle to position
+        var nd=document.getElementById('gneedle');
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(nd) nd.style.transform='rotate('+ang+'deg)'; }); });
+        // animate signal bars
+        view.querySelectorAll('#gauge-signals .gbar').forEach(function(b){ b.style.width='0'; requestAnimationFrame(function(){ requestAnimationFrame(function(){ b.style.width=b.dataset.w+'%'; }); }); });
+      }
+
+      /* ---------- 5. COUNTERFACTUAL ---------- */
+      function drawCF(){
+        var c=document.getElementById('cf-chart'); if(!c) return;
+        var W=640,H=300,pad=20,steps=24;
+        var trad=[],oce=[],tv=0,ov=0;
+        var tr=[];var or_=[];
+        for(var i=0;i<=steps;i++){ tv=18*(i/steps)+Math.sin(i*0.7)*2.2; ov=31*(i/steps)+Math.sin(i*0.7)*1.6; tr.push(tv); or_.push(ov); }
+        function X(i){ return pad+(i/steps)*(W-2*pad); }
+        function Y(v){ var lo=-3,hi=34; return H-pad-((v-lo)/(hi-lo))*(H-2*pad); }
+        var pT='M'+X(0)+' '+Y(tr[0]); for(i=1;i<=steps;i++) pT+=' L'+X(i)+' '+Y(tr[i]);
+        var pO='M'+X(0)+' '+Y(or_[0]); for(i=1;i<=steps;i++) pO+=' L'+X(i)+' '+Y(or_[i]);
+        var band='M'+X(0)+' '+Y(or_[0]); for(i=1;i<=steps;i++) band+=' L'+X(i)+' '+Y(or_[i]); for(i=steps;i>=0;i--) band+=' L'+X(i)+' '+Y(tr[i]); band+=' Z';
+        var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="height:300px;">';
+        s+='<line x1="'+pad+'" y1="'+Y(0)+'" x2="'+(W-pad)+'" y2="'+Y(0)+'" stroke="var(--border)" stroke-dasharray="3 4"/>';
+        s+='<path d="'+band+'" fill="var(--positive)" opacity="0.10"/>';
+        s+='<path class="cfT" d="'+pT+'" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-dasharray="1500" stroke-dashoffset="1500" style="transition:stroke-dashoffset 1.6s ease"/>';
+        s+='<path class="cfO" d="'+pO+'" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="1500" stroke-dashoffset="1500" style="transition:stroke-dashoffset 1.6s ease .2s"/>';
+        s+='</svg>'; c.innerHTML=s;
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ var t=c.querySelector('.cfT'),o=c.querySelector('.cfO'); if(t)t.style.strokeDashoffset='0'; if(o)o.style.strokeDashoffset='0'; }); });
+        // alpha count
+        var a=document.getElementById('cf-alpha'), start=performance.now();
+        function step(t){ var p=Math.min((t-start)/1800,1),e=1-Math.pow(1-p,3); a.textContent='+'+(13*e).toFixed(1)+'%'; if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      }
+
+      /* ---------- sub-tab wiring ---------- */
+      function activate(k){
+        view.querySelectorAll('.subtab').forEach(function(b){ b.classList.toggle('active', b.dataset.sub===k); });
+        view.querySelectorAll('.subview').forEach(function(v){ v.classList.toggle('active', v.dataset.sub===k); });
+        if(k==='corr') drawMap();
+        if(k==='regime') drawGauge();
+        if(k==='cf') drawCF();
+      }
+      view.querySelectorAll('.subtab').forEach(function(b){ b.addEventListener('click', function(){ activate(b.dataset.sub); }); });
+    })();
+    </script>
 
 
     <!-- ====================================================================
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">08 · How We Manage Money</div>
+      <div class="page-eyebrow">09 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -2485,7 +3067,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">09 · The Ask</div>
+      <div class="page-eyebrow">10 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
