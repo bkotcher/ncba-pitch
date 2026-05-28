@@ -895,6 +895,120 @@ footer.foot .right .gold { color: var(--gold); }
 
 @media (max-width:1100px){ .arc-opp{ grid-template-columns:1fr; } .seg-row{ grid-template-columns:1fr; } .seg-row .sv{ text-align:left; } }
 
+
+/* ===== PASS 2 — partnership flow, deal cards, benefits ===== */
+.pflow-wrap { background: radial-gradient(circle at 50% 50%, #15181d, var(--bg) 82%); border:1px solid var(--border); border-radius:8px; padding:22px 18px; margin-bottom:24px; }
+.pflow-svg { display:block; width:100%; height:auto; }
+.pflow-line { fill:none; stroke-width:2; stroke-dasharray:5 8; }
+.pflow-line.f1 { stroke: var(--gold); animation: pflow 1.1s linear infinite; }
+.pflow-line.f2 { stroke: var(--signal); animation: pflowR 1.1s linear infinite; }
+@keyframes pflow { to { stroke-dashoffset:-13; } }
+@keyframes pflowR { to { stroke-dashoffset:13; } }
+.pflow-node rect { fill: var(--bg-card); stroke: var(--gold-dim); stroke-width:2; }
+.pflow-node.center rect { stroke: var(--gold); stroke-width:2.5; }
+.pflow-node .nt { font-family:var(--serif); fill:var(--text); }
+.pflow-node .ns { font-family:var(--mono); fill:var(--text-tertiary); }
+.pflow-key { display:flex; gap:22px; justify-content:center; margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--text-tertiary); }
+.pflow-key span { display:flex; align-items:center; gap:6px; }
+.pflow-key i { width:16px; height:3px; border-radius:2px; display:inline-block; }
+
+.deal-cards { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin:8px 0 28px; }
+.deal-card { background:var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--gold-dim); border-radius:6px; padding:20px; }
+.deal-card .dl { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.deal-card h4 { font-family:var(--serif); font-size:17px; font-weight:400; margin-bottom:5px; line-height:1.2; }
+.deal-card .sz { font-family:var(--mono); font-size:11px; color:var(--text-secondary); margin-bottom:12px; }
+.deal-card .lesson { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); line-height:1.55; padding-top:12px; border-top:1px solid var(--border); }
+.deal-card .lesson b { color:var(--gold); font-weight:500; }
+
+.benefits3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+.benefit-col { background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:22px; }
+.benefit-col.b-bank { border-top:2px solid var(--signal); }
+.benefit-col.b-oc { border-top:2px solid var(--gold); }
+.benefit-col.b-cl { border-top:2px solid var(--positive); }
+.benefit-col h5 { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.benefit-col.b-bank h5 { color:var(--signal); } .benefit-col.b-cl h5 { color:var(--positive); }
+.benefit-col ul { list-style:none; padding:0; margin:0; }
+.benefit-col li { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); padding:9px 0; border-top:1px solid var(--border); display:flex; gap:9px; line-height:1.45; }
+.benefit-col li:first-child{border-top:none;}
+.benefit-col li::before { content:'\2192'; color:var(--gold); flex-shrink:0; }
+@media (max-width:1100px){ .deal-cards,.benefits3{ grid-template-columns:1fr; } }
+
+
+/* ===== PASS 3 — The Edge comparison ===== */
+.edge-grid { display:grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:24px; }
+.edge-head { background:var(--bg-card); padding:14px 16px; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); }
+.edge-head.oc { background:linear-gradient(180deg,var(--gold-dim),#6a5530); color:var(--bg); }
+.edge-row { display:contents; }
+.edge-row .edge-dim { background:var(--bg-card); padding:14px 16px; font-family:var(--sans); font-size:13px; color:var(--text); cursor:pointer; }
+.edge-row:hover .edge-dim { background:var(--bg-hover); }
+.edge-row .edge-dim .why { display:block; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; font-family:var(--sans); font-size:11.5px; color:var(--text-tertiary); line-height:1.5; }
+.edge-row.open .edge-dim .why { max-height:140px; margin-top:8px; }
+.edge-cell { background:var(--bg-card); padding:14px 16px; font-family:var(--mono); font-size:11.5px; display:flex; align-items:center; gap:8px; }
+.edge-cell .mk { font-size:13px; }
+.edge-cell.no { color:var(--text-tertiary); } .edge-cell.no .mk { color:var(--critical); }
+.edge-cell.mid { color:var(--text-secondary); } .edge-cell.mid .mk { color:var(--warning); }
+.edge-cell.oc { background:rgba(201,169,97,.07); color:var(--gold); } .edge-cell.oc .mk { color:var(--gold); }
+.edge-cell.oc2 { color:var(--positive); } .edge-cell.oc2 .mk { color:var(--positive); }
+.edge-verdict { background:linear-gradient(135deg,#1a1419,var(--bg-card)); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:24px 28px; }
+.edge-verdict .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.edge-verdict p { font-family:var(--serif); font-size:17px; line-height:1.55; color:var(--text-secondary); font-weight:300; margin:0; max-width:880px; }
+.edge-verdict em { color:var(--gold); font-style:italic; }
+@media (max-width:1100px){ .edge-grid{ grid-template-columns:1fr 1fr; } .edge-head.edge-dim, .edge-row .edge-dim{ grid-column:1 / -1; } }
+
+/* ===== PASS 3 — drawdown chart + risk terminal ===== */
+.dd-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:22px 24px; margin-bottom:24px; }
+.dd-wrap svg { display:block; width:100%; }
+.dd-key { display:flex; gap:20px; font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin-top:10px; }
+.dd-key span { display:flex; align-items:center; gap:6px; } .dd-key i { width:16px; height:3px; border-radius:2px; }
+.term-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px; }
+.term-card { background:#0d0f13; border:1px solid var(--border-strong); border-radius:8px; padding:18px; }
+.term-card .tt { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; justify-content:space-between; }
+.term-card .tt .live { color:var(--positive); }
+.heat { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; }
+.heat .cell { aspect-ratio:1.6; border-radius:2px; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:8px; color:rgba(255,255,255,.6); }
+.ladder { display:grid; gap:7px; }
+.ladder .lr { display:grid; grid-template-columns:54px 1fr 44px; gap:10px; align-items:center; font-family:var(--mono); font-size:10px; }
+.ladder .lt { color:var(--text-tertiary); }
+.ladder .lbar { height:16px; background:var(--bg-elevated); border-radius:3px; overflow:hidden; }
+.ladder .lfill { height:100%; background:linear-gradient(90deg,var(--gold-dim),var(--gold)); width:0; transition:width 1s ease; }
+.ladder .lv { text-align:right; color:var(--text); }
+.term-scatter svg { width:100%; height:auto; }
+@media (max-width:1100px){ .term-grid{ grid-template-columns:1fr; } }
+
+
+/* ===== PASS 4 — Risk Management ===== */
+.risk-layers-wrap { display:grid; grid-template-columns: 1fr 320px; gap:20px; align-items:start; margin-bottom:24px; }
+.risk-layers { display:grid; gap:6px; }
+.rlayer { display:flex; align-items:center; gap:14px; padding:15px 18px; background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0; cursor:pointer; transition:background .18s, border-color .18s, transform .18s; }
+.rlayer:hover { background:var(--bg-hover); transform:translateX(3px); }
+.rlayer.active { border-left-color:var(--gold); background:linear-gradient(90deg,#1a1614,var(--bg-card)); }
+.rlayer .rn { font-family:var(--mono); font-size:11px; color:var(--gold); width:26px; }
+.rlayer .rl { font-family:var(--serif); font-size:15px; color:var(--text); }
+.rlayer .rtag { margin-left:auto; font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-tertiary); }
+.risk-detail { background:var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--gold); border-radius:6px; padding:22px; min-height:260px; position:sticky; top:8px; }
+.risk-detail .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.risk-detail h4 { font-family:var(--serif); font-size:19px; font-weight:400; margin-bottom:10px; }
+.risk-detail p { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:10px; }
+.risk-detail .spec { font-family:var(--mono); font-size:11px; color:var(--gold); padding-top:10px; border-top:1px solid var(--border); }
+.liq-modes { display:flex; gap:8px; margin-bottom:14px; }
+.liq-mode { font-family:var(--mono); font-size:11px; color:var(--text-secondary); background:var(--bg-card); border:1px solid var(--border); border-radius:4px; padding:8px 16px; cursor:pointer; transition:all .15s; }
+.liq-mode:hover { color:var(--text); }
+.liq-mode.active { border-color:var(--gold); color:var(--gold); }
+.liq-ladder { display:grid; gap:8px; }
+.liq-row { display:grid; grid-template-columns:64px 1fr 54px; gap:12px; align-items:center; font-family:var(--mono); font-size:11px; }
+.liq-row .lt2 { color:var(--text-secondary); }
+.liq-track2 { height:20px; background:var(--bg-elevated); border-radius:3px; overflow:hidden; }
+.liq-fill2 { height:100%; background:linear-gradient(90deg,var(--positive),#3a6e44); width:0; transition:width .8s cubic-bezier(.2,.8,.2,1); }
+.liq-row .lv2 { text-align:right; color:var(--text); }
+@media (max-width:1100px){ .risk-layers-wrap{ grid-template-columns:1fr; } .risk-detail{ position:static; } }
+
+
+/* ===== PASS 5 — scenario book-wide recommendations ===== */
+.simbook { display:grid; gap:8px; margin-bottom:6px; }
+.simbook-row { display:grid; grid-template-columns:130px 1fr; gap:14px; align-items:start; padding:12px 16px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0; }
+.simbook-row .cat { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); padding-top:2px; }
+.simbook-row .act { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.5; }
+
 </style>
 </head>
 
@@ -949,37 +1063,60 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
     </div>
 
-    <div class="sidebar-section" data-section="capability">
+    <div class="sidebar-section" data-section="why">
       <div class="sidebar-section-toggle">
-        <div class="sidebar-label" style="color:var(--signal);"><span class="sidebar-emoji">◉</span>How We Manage Money</div>
+        <div class="sidebar-label" style="color:var(--signal);"><span class="sidebar-emoji">◉</span>Why Us</div>
         <div class="caret">▾</div>
       </div>
       <div class="sidebar-children">
-        <div class="sidebar-item" data-view="consultancy">
-          <span class="sidebar-num">03</span><span class="sidebar-item-label">Your Book, Today</span>
-          <span class="sidebar-badge">live</span>
+        <div class="sidebar-item" data-view="theedge">
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">The Edge</span>
+          <span class="sidebar-badge">vs ETF / mgr</span>
         </div>
-        <div class="sidebar-item" data-view="models">
-          <span class="sidebar-num">04</span><span class="sidebar-item-label">How We Invest</span>
-          <span class="sidebar-badge">interactive</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="invest">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◆</span>How We Invest</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
+        <div class="sidebar-item" data-view="models" data-sub="models">
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">Model Portfolios</span>
         </div>
+        <div class="sidebar-item" data-view="models" data-sub="hnw">
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
+        </div>
+        <div class="sidebar-item" data-view="models" data-sub="inst">
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Institutional</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" data-section="toolkit">
+      <div class="sidebar-section-toggle">
+        <div class="sidebar-label"><span class="sidebar-emoji">◧</span>The Toolkit</div>
+        <div class="caret">▾</div>
+      </div>
+      <div class="sidebar-children">
         <div class="sidebar-item" data-view="structuring">
-          <span class="sidebar-num">05</span><span class="sidebar-item-label">Wealth Structuring</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">Wealth Structuring</span>
           <span class="sidebar-badge">tax · trust</span>
         </div>
         <div class="sidebar-item" data-view="governance">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">Risk Management</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Simulator</span>
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">Scenario Simulator</span>
           <span class="sidebar-badge">live</span>
         </div>
         <div class="sidebar-item" data-view="edge">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Intelligence Edge</span>
+          <span class="sidebar-num">10</span><span class="sidebar-item-label">The Intelligence Edge</span>
           <span class="sidebar-badge">5 live</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">11</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -991,7 +1128,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">10</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">12</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -1171,6 +1308,25 @@ footer.foot .right .gold { color: var(--gold); }
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:20px;">
           <div id="rr-scatter"></div>
         </div>
+
+        <div class="section-header">
+          <div class="section-title">"Why not just buy the S&amp;P?"</div>
+          <div class="section-meta">Illustrative · Balanced model vs raw S&amp;P 500 through a drawdown</div>
+        </div>
+        <div class="dd-wrap">
+          <div id="dd-chart"></div>
+          <div class="dd-key"><span><i style="background:var(--text-tertiary)"></i>Raw S&amp;P 500 (buy it yourself)</span><span><i style="background:var(--gold)"></i>Oceanic Balanced model</span></div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9660;</div><h5>Drawdown protection</h5><p>The model is risk-budgeted &mdash; it falls materially less when the index crashes. The index has no one managing the downside.</p></div>
+          <div class="ac"><div class="icon">&#8635;</div><h5>Active rebalancing</h5><p>We rebalance into weakness and trim into strength. Buying the index, you do neither.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Tax-aware</h5><p>Lot-level harvesting and gain deferral &mdash; impossible holding a single index fund.</p></div>
+          <div class="ac"><div class="icon">&#36;</div><h5>Currency-aware</h5><p>Multi-currency construction for Caribbean clients, not just USD beta.</p></div>
+        </div>
+        <div class="caveat-card" style="border-color:var(--gold-dim);">
+          <div class="label" style="color:var(--gold);">Communicating this to a Caribbean client</div>
+          <p>"You could buy the US index yourself &mdash; and in a good year you'd do fine. But the year it falls thirty percent, no one's there to protect you. We manage the downside, rebalance for you, and handle the tax and the currency. You sleep; we watch the book." <em>Illustrative.</em></p>
+        </div>
       </div>
 
       <!-- ===== SUB-VIEW B: HNW CLIENTS ===== -->
@@ -1276,12 +1432,87 @@ footer.foot .right .gold { color: var(--gold); }
           <div class="ac"><div class="icon">&#43;</div><h5>+15&ndash;35 bps</h5><p>Indicative risk-adjusted yield uplift &mdash; diversification at equal-or-better risk.</p></div>
         </div>
 
-        <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="section-header">
+          <div class="section-title">Institutional risk terminal</div>
+          <div class="section-meta">Illustrative Analysis — based on FY25 audited figures (investment book EC$531M)</div>
+        </div>
+        <div class="term-grid">
+          <div class="term-card">
+            <div class="tt"><span>Concentration heatmap</span><span class="live">● LIVE</span></div>
+            <div class="heat" id="risk-heat"></div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:10px;">red = soft-cap breach · hover-equivalent flags rebalance</div>
+          </div>
+          <div class="term-card">
+            <div class="tt"><span>Duration ladder</span><span class="live">● LIVE</span></div>
+            <div class="ladder" id="risk-ladder">
+              <div class="lr"><span class="lt">0–1y</span><div class="lbar"><div class="lfill" data-w="18"></div></div><span class="lv">18%</span></div>
+              <div class="lr"><span class="lt">1–3y</span><div class="lbar"><div class="lfill" data-w="26"></div></div><span class="lv">26%</span></div>
+              <div class="lr"><span class="lt">3–5y</span><div class="lbar"><div class="lfill" data-w="31"></div></div><span class="lv">31%</span></div>
+              <div class="lr"><span class="lt">5–7y</span><div class="lbar"><div class="lfill" data-w="15"></div></div><span class="lv">15%</span></div>
+              <div class="lr"><span class="lt">7y+</span><div class="lbar"><div class="lfill" data-w="10"></div></div><span class="lv">10%</span></div>
+            </div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:10px;">target ~3.0y · live re-laddering on rate signal</div>
+          </div>
+        </div>
+        <div class="term-card term-scatter">
+          <div class="tt"><span>Yield vs. risk — current holdings</span><span class="live">● LIVE</span></div>
+          <div id="term-scatter-svg"></div>
+        </div>
+
+        <div class="caveat-card" style="border-color: var(--gold-dim); margin-top:16px;">
           <div class="label" style="color: var(--gold);">Why this beats what they have</div>
-          <p>NCBA's EC$531M book is 70% in one asset class, with no VaR, no scenario framework, and no daily monitoring (tab 03). We don't just diversify it &mdash; we run it with the same risk infrastructure a global asset manager uses, inside the Eastern Caribbean perimeter. <em>This is the institutional capability Butterfield will spend two years trying to build. NCBA gets it on day one. Indicative &middot; to be validated with NCBA ALCO.</em></p>
+          <p>NCBA's EC$531M book is 70% in one asset class, with no VaR, no scenario framework, and no daily monitoring (tab 03). We don't just diversify it &mdash; we run it with the same risk infrastructure a global asset manager uses, inside the Eastern Caribbean perimeter. <em>This is the institutional capability Butterfield will spend two years trying to build. NCBA gets it on day one. Illustrative Analysis — based on FY25 audited figures; to be validated with NCBA ALCO.</em></p>
         </div>
       </div>
     </div>
+
+
+    <script>
+    (function(){
+      // Pass 3 extras: drawdown chart, concentration heatmap, duration ladder, yield-risk scatter
+      function ddChart(){
+        var c=document.getElementById('dd-chart'); if(!c) return;
+        var W=620,H=240,pad=14,steps=12;
+        var sp=[100,98,92,84,75,70,68,73,80,86,90,93,95];
+        var oc=[100,99,96,92,87,84,82,85,89,92,95,97,98];
+        function X(i){return pad+(i/steps)*(W-2*pad);}
+        function Y(v){var lo=64,hi=104; return pad+(1-(v-lo)/(hi-lo))*(H-2*pad);}
+        function path(a){var d='M'+X(0)+' '+Y(a[0]); for(var i=1;i<=steps;i++) d+=' L'+X(i)+' '+Y(a[i]); return d;}
+        var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="height:240px;">';
+        for(var g=70;g<=100;g+=10){ s+='<line x1="'+pad+'" y1="'+Y(g)+'" x2="'+(W-pad)+'" y2="'+Y(g)+'" stroke="var(--border)" stroke-width="1"/>'; s+='<text x="'+(pad+2)+'" y="'+(Y(g)-3)+'" fill="var(--text-tertiary)" font-size="9" font-family="monospace">'+g+'</text>'; }
+        s+='<path d="'+path(sp)+'" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-dasharray="1300" stroke-dashoffset="1300" class="ddp"/>';
+        s+='<path d="'+path(oc)+'" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="1300" stroke-dashoffset="1300" class="ddp"/>';
+        s+='<text x="'+X(6)+'" y="'+(Y(68)+16)+'" fill="var(--critical)" font-size="10" font-family="monospace" text-anchor="middle">−32%</text>';
+        s+='<text x="'+X(6)+'" y="'+(Y(82)-8)+'" fill="var(--gold)" font-size="10" font-family="monospace" text-anchor="middle">−18%</text>';
+        s+='</svg>'; c.innerHTML=s;
+        requestAnimationFrame(function(){requestAnimationFrame(function(){ c.querySelectorAll('.ddp').forEach(function(p){ p.style.transition='stroke-dashoffset 1.6s ease'; p.style.strokeDashoffset='0'; }); });});
+      }
+      function heat(){
+        var c=document.getElementById('risk-heat'); if(!c) return;
+        var vals=[8,4,3,6,2,5, 11,3,4,2,7,3, 5,9,2,4,3,6, 3,2,7,5,2,4]; // % concentrations
+        c.innerHTML=vals.map(function(v){ var hot=v>=10, warm=v>=6; var col=hot?'rgba(201,112,98,.85)':warm?'rgba(212,163,71,.7)':'rgba(94,179,214,.35)'; return '<div class="cell" style="background:'+col+'">'+v+'</div>'; }).join('');
+      }
+      function ladder(){ document.querySelectorAll('#risk-ladder .lfill').forEach(function(b){ requestAnimationFrame(function(){requestAnimationFrame(function(){ b.style.width=(b.dataset.w*2)+'%'; });}); }); }
+      function termScatter(){
+        var c=document.getElementById('term-scatter-svg'); if(!c) return;
+        var W=620,H=220,pad=40;
+        var pts=[{x:1,y:1.2,r:6},{x:2,y:2.1,r:9},{x:3,y:3.0,r:14},{x:4,y:3.6,r:8},{x:5,y:4.1,r:7},{x:6.5,y:4.8,r:6},{x:8,y:5.2,r:5}];
+        function X(v){return pad+(v/10)*(W-2*pad);} function Y(v){return H-pad-(v/6)*(H-2*pad);}
+        var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="height:220px;">';
+        for(var gx=0;gx<=10;gx+=2){ s+='<line x1="'+X(gx)+'" y1="'+pad+'" x2="'+X(gx)+'" y2="'+(H-pad)+'" stroke="var(--border)"/>'; }
+        for(var gy=0;gy<=6;gy+=2){ s+='<line x1="'+pad+'" y1="'+Y(gy)+'" x2="'+(W-pad)+'" y2="'+Y(gy)+'" stroke="var(--border)"/>'; s+='<text x="'+(pad-6)+'" y="'+(Y(gy)+3)+'" fill="var(--text-tertiary)" font-size="9" font-family="monospace" text-anchor="end">'+gy+'%</text>'; }
+        s+='<text x="'+(W/2)+'" y="'+(H-8)+'" fill="var(--text-secondary)" font-size="9" font-family="monospace" text-anchor="middle" letter-spacing="0.1em">RISK (vol) &rarr;</text>';
+        s+='<text x="14" y="'+(pad+2)+'" fill="var(--text-secondary)" font-size="9" font-family="monospace">YIELD</text>';
+        pts.forEach(function(p){ s+='<circle cx="'+X(p.x)+'" cy="'+Y(p.y)+'" r="'+p.r+'" fill="rgba(201,169,97,.35)" stroke="var(--gold)" stroke-width="1.5"/>'; });
+        s+='</svg>'; c.innerHTML=s;
+      }
+      function drawAll(){ ddChart(); heat(); ladder(); termScatter(); }
+      var mv=document.querySelector('.view[data-view="models"]');
+      if(mv){ var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ drawAll(); } }); },{threshold:0.05}); io.observe(mv); }
+      // also redraw when sub-tabs are clicked (charts live in hidden subviews)
+      if(mv) mv.querySelectorAll('.subtab').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(drawAll, 30); }); });
+    })();
+    </script>
 
 
     <script>
@@ -1385,30 +1616,55 @@ footer.foot .right .gold { color: var(--gold); }
          ==================================================================== -->
     <div class="view" data-view="legal">
       <div class="page-eyebrow">02 · The Structure</div>
-      <h1 class="page-title">Sub-advisory. <em>You own the client; we are the engine.</em></h1>
-      <p class="page-subtitle">One structure, two product tiers. Oceanic is always the sub-advisor &mdash; the platform and investment-management engine underneath. NCBA always owns the client, the license, the balance sheet, and the brand. The mass-affluent tier looks like <strong>RBC Investments</strong>; the sophisticated tier looks like <strong>RBC Dominion Securities</strong> &mdash; but both run on the same engine, with the same owner of record. This is the model that scales to every local bank in the region without ever competing with them.</p>
+      <h1 class="page-title">Sub-advisory. <em>The bank owns the client; we are the engine.</em></h1>
+      <p class="page-subtitle">This is how bank + asset-manager partnerships work across the industry. The bank keeps the client, the license, the balance sheet, and the brand. The asset manager supplies the platform, the products, and the investment management underneath. One structure, two product tiers &mdash; proven by real regional deals, shown below.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>This is the structure to whiteboard. Say: <strong>"We landed on the RBC split. You take the branch and mass-affluent tier &mdash; simpler products, your wealth segment, like RBC Investments. We take the larger sophisticated clients on the full platform, like RBC Dominion Securities. Two clean lanes. You keep your broker-dealer license and the balance sheet; we sub-advise underneath. The assets stay reportable as yours. Let's pressure-test where the line between the lanes actually sits."</strong></p>
-        <p><em>June 8 is a whiteboard, not a pitch. This tab is the starting diagram &mdash; expect to redraw the lane boundary live.</em></p>
+        <p>Keep it neutral and proven. Say: <strong>"This isn't a theory &mdash; it's how the industry already works. Butterfield just bought CIBC Caribbean's wealth capability for one-point-eight billion. RBC runs two tiers: simple products for the branch, a full platform for sophisticated clients. First Citizens runs a bank-group investment arm across the ECCU. The model is settled. The question is who runs the engine underneath your brand &mdash; you own the client, we run the platform."</strong></p>
+        <p><em>The flow diagram makes it instant for a non-technical board member. The real-deal cards below prove it isn't speculative.</em></p>
+      </div>
+
+      <div class="section-header" style="margin-top:0;">
+        <div class="section-title">How the partnership works</div>
+        <div class="section-meta">Client &harr; Bank &harr; Oceanic &mdash; clients &amp; mandates flow out, fees &amp; reporting flow back</div>
+      </div>
+      <div class="pflow-wrap">
+        <svg class="pflow-svg" viewBox="0 0 760 210" preserveAspectRatio="xMidYMid meet">
+          <path class="pflow-line f1" d="M190 84 H300"/>
+          <path class="pflow-line f1" d="M460 84 H570"/>
+          <path class="pflow-line f2" d="M570 128 H460"/>
+          <path class="pflow-line f2" d="M300 128 H190"/>
+          <circle r="3.5" fill="var(--gold)"><animateMotion dur="2s" repeatCount="indefinite" path="M190 84 H300"/></circle>
+          <circle r="3.5" fill="var(--gold)"><animateMotion dur="2s" repeatCount="indefinite" path="M460 84 H570"/></circle>
+          <circle r="3.5" fill="var(--signal)"><animateMotion dur="2.2s" repeatCount="indefinite" path="M570 128 H460"/></circle>
+          <circle r="3.5" fill="var(--signal)"><animateMotion dur="2.2s" repeatCount="indefinite" path="M300 128 H190"/></circle>
+          <g class="pflow-node"><rect x="30" y="70" width="160" height="72" rx="7"/><text class="nt" x="110" y="100" text-anchor="middle" font-size="15">Client</text><text class="ns" x="110" y="120" text-anchor="middle" font-size="8.5" letter-spacing="0.08em">HNW DEPOSITOR</text></g>
+          <g class="pflow-node center"><rect x="300" y="60" width="160" height="92" rx="7"/><text class="nt" x="380" y="94" text-anchor="middle" font-size="15">The Bank</text><text class="ns" x="380" y="114" text-anchor="middle" font-size="8.5" letter-spacing="0.08em">RELATIONSHIP · LICENSE</text><text class="ns" x="380" y="128" text-anchor="middle" font-size="8.5" letter-spacing="0.08em">BRAND · BALANCE SHEET</text></g>
+          <g class="pflow-node"><rect x="570" y="70" width="160" height="72" rx="7"/><text class="nt" x="650" y="100" text-anchor="middle" font-size="15">Oceanic</text><text class="ns" x="650" y="120" text-anchor="middle" font-size="8.5" letter-spacing="0.08em">PLATFORM · PRODUCTS</text></g>
+          <text class="ns" x="245" y="74" text-anchor="middle" font-size="8">introduces</text>
+          <text class="ns" x="515" y="74" text-anchor="middle" font-size="8">sub-advises</text>
+          <text class="ns" x="515" y="144" text-anchor="middle" font-size="8">reporting</text>
+          <text class="ns" x="245" y="144" text-anchor="middle" font-size="8">fee share / AUA</text>
+        </svg>
+        <div class="pflow-key"><span><i style="background:var(--gold)"></i>Clients &amp; mandates flow out</span><span><i style="background:var(--signal)"></i>Fees &amp; reporting flow back</span></div>
       </div>
 
       <div class="summary-band">
         <div class="summary-cell">
           <div class="summary-cell-label">Model</div>
-          <div class="summary-cell-value" style="font-size: 18px;">RBC two-lane</div>
-          <div class="summary-cell-delta">Investments + Dominion Securities</div>
+          <div class="summary-cell-value" style="font-size: 18px;">Two-tier sub-advisory</div>
+          <div class="summary-cell-delta">Mass-affluent + full platform</div>
         </div>
         <div class="summary-cell">
           <div class="summary-cell-label">Licenses</div>
           <div class="summary-cell-value gold">Both</div>
-          <div class="summary-cell-delta">NCBA BD application + Oceanic ECSRC</div>
+          <div class="summary-cell-delta">Bank BD license + Oceanic ECSRC</div>
         </div>
         <div class="summary-cell">
           <div class="summary-cell-label">Asset reporting</div>
           <div class="summary-cell-value">Retained</div>
-          <div class="summary-cell-delta">Stays on NCBA books / AUA</div>
+          <div class="summary-cell-delta">Stays on bank books / AUA</div>
         </div>
         <div class="summary-cell">
           <div class="summary-cell-label">Oceanic role</div>
@@ -1419,13 +1675,13 @@ footer.foot .right .gold { color: var(--gold); }
 
       <div class="section-header">
         <div class="section-title">The two lanes</div>
-        <div class="section-meta">Same split RBC runs in Canada · adapted for the OECS</div>
+        <div class="section-meta">One engine · two product tiers</div>
       </div>
 
       <div class="two-up">
         <div class="interp-card">
-          <div class="label">Lane 1 &mdash; NCBA Wealth</div>
-          <h4>The mass-affluent tier &mdash; like RBC Investments.</h4>
+          <div class="label">Lane A &mdash; Bank Wealth</div>
+          <h4>The mass-affluent tier.</h4>
           <p><strong>Who:</strong> NCBA's branch and mass-affluent clients. The depositor who wants a simple managed product, not a private banker.</p>
           <p><strong>Product:</strong> simple model portfolios &mdash; mutual-fund-style managed solutions. Three risk-graded models (tab 04).</p>
           <p><strong>Who runs it:</strong> NCBA-branded, in NCBA's wealth segment. <em>Oceanic manages the money for a fee.</em></p>
@@ -1435,8 +1691,8 @@ footer.foot .right .gold { color: var(--gold); }
           </div>
         </div>
         <div class="interp-card primary">
-          <div class="label">Lane 2 &mdash; Oceanic Private</div>
-          <h4>The sophisticated tier &mdash; like RBC Dominion Securities.</h4>
+          <div class="label">Lane B &mdash; Oceanic Private</div>
+          <h4>The sophisticated / HNW tier.</h4>
           <p><strong>Who:</strong> larger, more sophisticated clients. HNW arrivals via residency-by-investment, business owners, multi-jurisdiction families.</p>
           <p><strong>Product:</strong> full platform &mdash; bespoke portfolios, individual securities, trading, trust &amp; tax structuring, multi-currency.</p>
           <p><strong>Who runs it:</strong> Oceanic-led on the full platform, co-branded with NCBA. <em>NCBA refers up; Oceanic delivers.</em></p>
@@ -1462,7 +1718,7 @@ footer.foot .right .gold { color: var(--gold); }
         </thead>
         <tbody>
           <tr><td class="gold">Client size (indicative)</td><td class="muted">US$ 25k – 250k</td><td class="muted">US$ 250k+</td></tr>
-          <tr><td class="gold">RBC analog</td><td class="muted">RBC Investments division</td><td class="muted">RBC Dominion Securities</td></tr>
+          <tr><td class="gold">Industry analog</td><td class="muted">Bank wealth / branch-investments tier</td><td class="muted">Full brokerage &amp; advisory platform</td></tr>
           <tr><td class="gold">Product</td><td class="muted">3 model portfolios, simple, managed</td><td class="muted">Full platform: bespoke, trading, trust/tax</td></tr>
           <tr><td class="gold">Branding</td><td class="muted">NCBA-branded</td><td class="muted">Co-branded NCBA × Oceanic</td></tr>
           <tr><td class="gold">Who advises the client</td><td class="muted">NCBA branch / wealth staff</td><td class="muted">Oceanic private team + NCBA banker</td></tr>
@@ -1540,6 +1796,68 @@ footer.foot .right .gold { color: var(--gold); }
       </table>
 
       <div class="section-header">
+        <div class="section-title">Real deals that prove the model</div>
+        <div class="section-meta">This is how the industry already does it &mdash; not a copy of any one firm</div>
+      </div>
+      <div class="deal-cards">
+        <div class="deal-card">
+          <div class="dl">Consolidation · 2026</div>
+          <h4>Butterfield acquires CIBC Caribbean</h4>
+          <div class="sz">~US$ 1.8B</div>
+          <div class="lesson">Wealth capability is being <b>bought, not built</b> &mdash; and the integration takes years. <b>The lesson:</b> a local bank that partners now competes before the consolidator finishes.</div>
+        </div>
+        <div class="deal-card">
+          <div class="dl">Two-tier model</div>
+          <h4>RBC Investments + Dominion Securities</h4>
+          <div class="sz">Mass-affluent + full platform</div>
+          <div class="lesson">RBC runs <b>two lanes</b>: simple managed products for the branch tier, a sophisticated full platform for HNW. <b>The lesson:</b> one bank, two products, one engine.</div>
+        </div>
+        <div class="deal-card">
+          <div class="dl">Bank-group subsidiary</div>
+          <h4>First Citizens Investment Services</h4>
+          <div class="sz">Serving the ECCU</div>
+          <div class="lesson">A Caribbean bank group runs an <b>in-house investment arm</b> across the region. <b>The lesson:</b> the model is proven in the OECS, not just in Canada.</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">What each side gets</div>
+        <div class="section-meta">The partnership is positive-sum across all three parties</div>
+      </div>
+      <div class="benefits3">
+        <div class="benefit-col b-bank">
+          <h5>The Bank gets</h5>
+          <ul>
+            <li>A wealth platform on day one &mdash; no build, no team to hire</li>
+            <li>The client relationship stays theirs, structurally</li>
+            <li>Recurring fee income + reportable AUA growth</li>
+            <li>A reason for HNW depositors to stop leaving</li>
+            <li>Capabilities a consolidating competitor needs years to match</li>
+          </ul>
+        </div>
+        <div class="benefit-col b-oc">
+          <h5>Oceanic gets</h5>
+          <ul>
+            <li>Distribution at near-zero acquisition cost</li>
+            <li>A repeatable model across every regional bank</li>
+            <li>Scale on the platform it has already built</li>
+            <li>The anchor partner that proves the model</li>
+            <li>No brand conflict &mdash; invisible infrastructure</li>
+          </ul>
+        </div>
+        <div class="benefit-col b-cl">
+          <h5>The Client gets</h5>
+          <ul>
+            <li>Banking + wealth under one trusted roof</li>
+            <li>Lower fees than offshore wrappers</li>
+            <li>Local, in-region supervision &amp; relationship</li>
+            <li>Institutional platform &amp; global market access</li>
+            <li>Transparency a fund wrapper can't offer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-header">
         <div class="section-title">Why sub-advisory is the right spine &mdash; for both sides</div>
         <div class="section-meta">The structural logic, stated plainly</div>
       </div>
@@ -1572,321 +1890,84 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         05 · INVESTMENT BOOK ANALYSIS — live consultation w/ NCBA's real data
+         03 · THE EDGE — why us vs passive ETF vs traditional manager
          ==================================================================== -->
-    <div class="view" data-view="consultancy">
-      <div class="page-eyebrow">03 · How We Manage Money</div>
-      <h1 class="page-title">Your book, today &mdash; <em>what we'd change right now.</em></h1>
-      <p class="page-subtitle">Not a capabilities slide. This is what a real diagnostic engagement would surface against your audited investment book — concentration math on the EC$372M bond line, fee decomposition on the EC$37.9M mutual fund line, peg-stress on the 71/24/5 currency mix. Every number below is sourced from your FY25 audit or modelled from Caribbean institutional norms with the assumption stated. Validated under NDA.</p>
+    <div class="view" data-view="theedge">
+      <div class="page-eyebrow">03 · Why Us</div>
+      <h1 class="page-title">The Edge. <em>Why not just buy an ETF? Why not a traditional manager?</em></h1>
+      <p class="page-subtitle">Two fair questions a sharp board will ask. Here's the honest, side-by-side answer across the dimensions that actually decide outcomes. Click a row to see why it matters. Illustrative.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>This is where you stop being a vendor and start being a CRO. Say: <strong>"We read your audit. Here's what we'd produce in the first thirty days of the consulting engagement. Every chart below is keyed to your actual numbers. The issuer names are modelled — we don't have your schedule of investments yet — but the analytical work is real, and we'll replace the model with the real schedule in week one."</strong></p>
-        <p><em>Then walk through it. Concentration. Fee leakage. FX peg-stress. ECL. The point is not capability — it's that we've already done the homework.</em></p>
+        <p>Disarm the obvious objection first. Say: <strong>"Before we go further &mdash; why not just put clients in a low-cost ETF? Or use a traditional manager? Fair questions. Here's the comparison across the things that decide a client's actual outcome: active risk management, continuous research, downside protection, customization, transparency. A passive ETF is cheap but blind. A traditional manager checks risk quarterly. We do it continuously. Click any row."</strong></p>
+        <p><em>Don't bash ETFs &mdash; concede their cost advantage, then win on everything that matters when markets break.</em></p>
       </div>
 
-      <div class="summary-band">
-        <div class="summary-cell">
-          <div class="summary-cell-label">Book reviewed</div>
-          <div class="summary-cell-value gold">EC$ 531M</div>
-          <div class="summary-cell-delta">Across 7 holding categories</div>
+      <div class="edge-grid">
+        <div class="edge-head edge-dim">Dimension</div>
+        <div class="edge-head">Passive ETF</div>
+        <div class="edge-head">Traditional Manager</div>
+        <div class="edge-head oc">Oceanic</div>
+
+        <div class="edge-row" data-d="0">
+          <div class="edge-dim">Active risk management<span class="why">A passive ETF holds the index through any crash &mdash; no one is managing the downside. We manage risk continuously and de-risk into stress.</span></div>
+          <div class="edge-cell no"><span class="mk">—</span>None</div>
+          <div class="edge-cell mid"><span class="mk">◷</span>Quarterly review</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>Continuous, adversarial</div>
         </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Largest single line</div>
-          <div class="summary-cell-value">EC$ 372M</div>
-          <div class="summary-cell-delta">70.1% in corporate bonds</div>
+        <div class="edge-row" data-d="1">
+          <div class="edge-dim">Continuous research<span class="why">Indexes don't research; most managers can't read the world in real time. Our engine reads global sources continuously and surfaces only what's material.</span></div>
+          <div class="edge-cell no"><span class="mk">—</span>None</div>
+          <div class="edge-cell mid"><span class="mk">◷</span>Analyst team, periodic</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>AI, 11 languages, live</div>
         </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Est. fee leakage</div>
-          <div class="summary-cell-value critical">~US$ 273k/yr</div>
-          <div class="summary-cell-delta">On embedded mutual fund layer</div>
+        <div class="edge-row" data-d="2">
+          <div class="edge-dim">Downside protection<span class="why">In a drawdown the ETF falls with the market. We pre-stage hedges and shift positioning by regime &mdash; the model draws down less (see Model Portfolios).</span></div>
+          <div class="edge-cell no"><span class="mk">—</span>Full market drawdown</div>
+          <div class="edge-cell mid"><span class="mk">◷</span>Some, reactive</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>Pre-staged, regime-aware</div>
         </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Peg-stress exposure</div>
-          <div class="summary-cell-value">EC$ 144M</div>
-          <div class="summary-cell-delta">Non-USD positions (24% XCD + 5% Other)</div>
+        <div class="edge-row" data-d="3">
+          <div class="edge-dim">Customization<span class="why">An ETF is one-size-fits-all. We build per-client: exclusions, tax lots, currency, concentrated-position management.</span></div>
+          <div class="edge-cell no"><span class="mk">—</span>One-size-fits-all</div>
+          <div class="edge-cell mid"><span class="mk">◷</span>Model buckets</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>Bespoke per client</div>
+        </div>
+        <div class="edge-row" data-d="4">
+          <div class="edge-dim">Transparency<span class="why">Fund wrappers disclose holdings quarterly if at all. Our clients see every line, daily, in their own name.</span></div>
+          <div class="edge-cell mid"><span class="mk">◷</span>Holdings, daily NAV</div>
+          <div class="edge-cell no"><span class="mk">—</span>Quarterly, fund-level</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>Line-by-line, daily</div>
+        </div>
+        <div class="edge-row" data-d="5">
+          <div class="edge-dim">Cost (honest)<span class="why">We concede this: a raw ETF is the cheapest. But cheapest isn't the same as best outcome when markets break. We're far below offshore wrappers.</span></div>
+          <div class="edge-cell oc2"><span class="mk">✓</span>Lowest (raw beta)</div>
+          <div class="edge-cell no"><span class="mk">—</span>140–200 bps offshore</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>100 bps, transparent</div>
+        </div>
+        <div class="edge-row" data-d="6">
+          <div class="edge-dim">Regional fit<span class="why">Neither an ETF nor a foreign manager is supervised in your region or speaks to your clients on-island. We are.</span></div>
+          <div class="edge-cell no"><span class="mk">—</span>None</div>
+          <div class="edge-cell no"><span class="mk">—</span>Offshore</div>
+          <div class="edge-cell oc"><span class="mk">✓</span>ECSRC, on-island</div>
         </div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">Finding 01 &mdash; corporate bond concentration on the EC$ 372M line</div>
-        <div class="section-meta">Modeled top-15 issuers · Caribbean institutional norms applied</div>
-      </div>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 16px; max-width: 820px;">
-        Your audit reports EC$ 372.4M in corporate bonds — 70.1% of the investment book and your single largest concentration. The audit does not name issuers. Below: an inferred top-15 modeled against your scale, currency mix, and regional bank treasury norms. <em>Replace with your actual schedule of investments in week one of the engagement.</em>
-      </p>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Inferred issuer (model)</th>
-            <th class="num">Exposure</th>
-            <th class="num">% of bonds</th>
-            <th class="num">% of equity</th>
-            <th>Rating · Sector</th>
-            <th class="num">Status vs Basel large-exposure limit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">US Treasury (long-dated)</td><td class="num">EC$ 52.0M</td><td class="num">14.0%</td><td class="num">26.6%</td><td class="muted">AA+ · Sovereign</td><td class="num">Within</td></tr>
-          <tr><td class="gold">JPMorgan / Citi / BAC senior (combined)</td><td class="num">EC$ 38.5M</td><td class="num">10.3%</td><td class="num">19.7%</td><td class="muted">A · US bank</td><td class="num critical">Sector cluster ≥ 25% &mdash; flag</td></tr>
-          <tr><td class="gold">Apple / Microsoft IG (combined)</td><td class="num">EC$ 24.2M</td><td class="num">6.5%</td><td class="num">12.4%</td><td class="muted">AA · Tech</td><td class="num">Within</td></tr>
-          <tr><td class="gold">EDC (Export Dev Canada)</td><td class="num">EC$ 18.6M</td><td class="num">5.0%</td><td class="num">9.5%</td><td class="muted">AAA · Supra-sovereign</td><td class="num">Within</td></tr>
-          <tr><td class="gold">RBC / BMO senior</td><td class="num">EC$ 17.2M</td><td class="num">4.6%</td><td class="num">8.8%</td><td class="muted">A · CA bank</td><td class="num">Within</td></tr>
-          <tr><td class="gold">Verizon / AT&amp;T IG</td><td class="num">EC$ 14.8M</td><td class="num">4.0%</td><td class="num">7.6%</td><td class="muted">BBB+ · Telecom</td><td class="num">Within</td></tr>
-          <tr><td class="gold">Walmart / Amazon IG</td><td class="num">EC$ 12.4M</td><td class="num">3.3%</td><td class="num">6.4%</td><td class="muted">AA− · Retail</td><td class="num">Within</td></tr>
-          <tr><td class="gold">Pfizer / Johnson &amp; Johnson</td><td class="num">EC$ 11.7M</td><td class="num">3.1%</td><td class="num">6.0%</td><td class="muted">AA · Pharma</td><td class="num">Within</td></tr>
-          <tr><td class="gold">Caterpillar / Deere IG</td><td class="num">EC$ 9.8M</td><td class="num">2.6%</td><td class="num">5.0%</td><td class="muted">A · Industrial</td><td class="num">Within</td></tr>
-          <tr><td class="gold">Caribbean Development Bank</td><td class="num">EC$ 8.5M</td><td class="num">2.3%</td><td class="num">4.4%</td><td class="muted">AA · Regional MDB</td><td class="num">Within</td></tr>
-          <tr><td class="muted">Remaining bonds (top 25 tail + below)</td><td class="num">EC$ 164.7M</td><td class="num">44.2%</td><td class="num">84.4%</td><td class="muted">Mix</td><td class="num">&mdash;</td></tr>
-          <tr class="total"><td>Corporate bond total</td><td class="num">EC$ 372.4M</td><td class="num">100%</td><td class="num">190.8%</td><td class="muted">98.4% IG</td><td class="num">1 sector flag</td></tr>
-        </tbody>
-      </table>
-
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">What this surfaces immediately</div>
-        <p>At your scale, US bank senior debt is statistically the largest sector concentration — modelled at ~10% of bonds and ~20% of total equity. <strong>Under Basel III large-exposure rules, sector clusters approaching 25% of equity warrant a documented limit policy.</strong> If your real schedule shows the US bank cluster at or above this threshold, that's a defensible board conversation about diversification. If it's well below, the analysis simply confirms the book is well-distributed. Either outcome is information you don't have from your current audit.</p>
-      </div>
-
-      <div class="section-header">
-        <div class="section-title">Finding 02 &mdash; mutual fund TER decomposition on the EC$ 37.9M FVTPL line</div>
-        <div class="section-meta">Line grew +37% YoY · audit discloses no funds, no managers, no expense ratios</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Fee component (modelled at Caribbean institutional norms)</th>
-            <th class="num">bps</th>
-            <th class="num">EC$ annual cost</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Management fee (fund manager)</td><td class="num">50–80</td><td class="num">EC$ 190k–303k</td><td class="muted">Embedded in NAV · invisible on your P&amp;L</td></tr>
-          <tr><td class="gold">Sub-advisor fee</td><td class="num">15–25</td><td class="num">EC$ 57k–95k</td><td class="muted">Multi-asset funds typically carry sub-advisors</td></tr>
-          <tr><td class="gold">Custody &amp; administration</td><td class="num">5–10</td><td class="num">EC$ 19k–38k</td><td class="muted">Cayman / Bermuda admin standard</td></tr>
-          <tr><td class="gold">Distribution &amp; trail</td><td class="num">10–20</td><td class="num">EC$ 38k–76k</td><td class="muted">Typical for offshore-marketed funds</td></tr>
-          <tr><td class="gold">Audit / regulatory</td><td class="num">5–10</td><td class="num">EC$ 19k–38k</td><td class="muted">Annual fund audit + filings</td></tr>
-          <tr class="total"><td>Estimated all-in TER on the EC$ 37.9M line</td><td class="num critical">85–145</td><td class="num critical">EC$ 322k–550k</td><td class="muted">~ US$ 119k–204k / yr</td></tr>
-        </tbody>
-      </table>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 820px;">
-        <strong>Re-deploying the EC$ 37.9M into a direct SMA at 35–45 bps recaptures ~US$ 75k–140k of that leakage annually.</strong> The audit does not show this leakage because TERs are taken inside fund NAV. We rebuild the equivalent exposure with US-listed liquid instruments at materially lower all-in cost, full transparency, and lot-level tax treatment.
-      </p>
-
-      <div class="section-header">
-        <div class="section-title">Finding 03 &mdash; FX peg-stress on the 71/24/5 currency mix</div>
-        <div class="section-meta">Scenarios on the EC$ 333M XCD + EC$ 70M "other" non-USD exposure</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Scenario</th>
-            <th class="num">XCD−USD impact</th>
-            <th class="num">P&amp;L on non-USD bond holdings</th>
-            <th class="num">Equity ratio impact</th>
-            <th>Probability (modelled)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Base case &mdash; peg holds (continuation)</td><td class="num">0%</td><td class="num">EC$ 0</td><td class="num">0 bps</td><td class="muted">~96% (any 5y window)</td></tr>
-          <tr><td class="gold">Mild stress &mdash; ECCB reserve drawdown</td><td class="num">−2%</td><td class="num">−EC$ 2.9M</td><td class="num critical">−15 bps on ROE</td><td class="muted">~3% (within window)</td></tr>
-          <tr><td class="gold">Moderate stress &mdash; coordinated USD strength</td><td class="num">−5%</td><td class="num">−EC$ 7.2M</td><td class="num critical">−37 bps on ROE</td><td class="muted">~0.8% (within window)</td></tr>
-          <tr><td class="gold">Severe stress &mdash; peg adjustment (hypothetical)</td><td class="num">−15%</td><td class="num">−EC$ 21.5M</td><td class="num critical">−110 bps on ROE</td><td class="muted">~0.2% (within window)</td></tr>
-          <tr><td class="gold">Tail scenario &mdash; full peg break</td><td class="num">−30%</td><td class="num">−EC$ 43.1M</td><td class="num critical">−220 bps on ROE</td><td class="muted">&lt;0.1% (within window)</td></tr>
-        </tbody>
-      </table>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 820px;">
-        Your audit (Note 6) covers market risk in narrative terms with no quantified peg-stress framework. The above gives your board a defensible framework for discussing FX exposure under ECCB reserve scenarios. <strong>Even the moderate-stress scenario removes 37 bps from your 20.8% ROE — material enough that the board should have seen this from the auditor.</strong>
-      </p>
-
-      <div class="section-header">
-        <div class="section-title">Finding 04 &mdash; IFRS 9 ECL stage distribution on the investment book</div>
-        <div class="section-meta">Modelled Stage 1 / 2 / 3 split · benchmarked against regional bank peers</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>IFRS 9 stage</th>
-            <th class="num">Estimated exposure</th>
-            <th class="num">% of investment book</th>
-            <th class="num">12m ECL provision (modelled)</th>
-            <th>Peer norm</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Stage 1 &mdash; performing</td><td class="num">EC$ 487M</td><td class="num">91.7%</td><td class="num">EC$ 0.8M</td><td class="muted">85–92% (regional peers)</td></tr>
-          <tr><td class="gold">Stage 2 &mdash; significant credit deterioration</td><td class="num">EC$ 38M</td><td class="num">7.2%</td><td class="num">EC$ 2.1M</td><td class="muted">6–12% (regional peers)</td></tr>
-          <tr><td class="gold">Stage 3 &mdash; credit-impaired</td><td class="num">EC$ 6M</td><td class="num">1.1%</td><td class="num">EC$ 1.4M</td><td class="muted">1–3% (regional peers)</td></tr>
-          <tr class="total"><td>Total ECL provision required (modelled)</td><td class="num">EC$ 531M</td><td class="num">100%</td><td class="num gold">EC$ 4.3M</td><td class="muted">~0.81% of book</td></tr>
-        </tbody>
-      </table>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 820px;">
-        Your audited ECL on the investment book sits inside Note 8. We'd benchmark your actual reserve against this model and against five regional peers. <strong>If the modelled reserve and your actual differ by more than 20%, that's a board-grade conversation with your external auditor.</strong>
-      </p>
-
-      <div class="section-header">
-        <div class="section-title">Finding 05 &mdash; repo counterparty concentration on the EC$ 50.6M repo line</div>
-        <div class="section-meta">Counterparties not named in audit · inferred from regional bank treasury norms</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Inferred counterparty (model)</th>
-            <th class="num">Estimated exposure</th>
-            <th class="num">% of repo book</th>
-            <th class="num">% of Tier 1 capital</th>
-            <th>Collateral · Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Federal Reserve overnight (via correspondent)</td><td class="num">EC$ 22.8M</td><td class="num">45.1%</td><td class="num">11.7%</td><td class="muted">UST · within Basel limits</td></tr>
-          <tr><td class="gold">JPMorgan repo facility</td><td class="num">EC$ 14.2M</td><td class="num">28.1%</td><td class="num">7.3%</td><td class="muted">UST · within</td></tr>
-          <tr><td class="gold">Citi tri-party repo</td><td class="num">EC$ 9.4M</td><td class="num">18.6%</td><td class="num">4.8%</td><td class="muted">IG corp · within</td></tr>
-          <tr><td class="gold">Regional / other</td><td class="num">EC$ 4.2M</td><td class="num">8.3%</td><td class="num">2.2%</td><td class="muted">Mixed · review</td></tr>
-          <tr class="total"><td>Repo book total</td><td class="num">EC$ 50.6M</td><td class="num">100%</td><td class="num">25.9%</td><td class="muted">Validate vs actual</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Finding 06 &mdash; equity book governance split</div>
-        <div class="section-meta">EC$ 27.8M quoted + EC$ 22.9M unquoted · audit does not classify</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Holding type</th>
-            <th class="num">Exposure</th>
-            <th>Likely identity (modelled)</th>
-            <th>Recommended classification</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Quoted equity</td><td class="num">EC$ 27.8M</td><td class="muted">US-listed multi-asset fund proxies, regional banking peers</td><td class="muted">Financial · benchmark vs MSCI World</td></tr>
-          <tr><td class="gold">Unquoted &mdash; ECCB stake</td><td class="num">EC$ 12–15M</td><td class="muted">ECCB membership requirement</td><td class="muted">Strategic · governance separate</td></tr>
-          <tr><td class="gold">Unquoted &mdash; regional infrastructure</td><td class="num">EC$ 5–8M</td><td class="muted">Caribbean Dev Bank stake, regional utility minority</td><td class="muted">Strategic · governance separate</td></tr>
-          <tr><td class="gold">Unquoted &mdash; other</td><td class="num">EC$ 2–5M</td><td class="muted">Private holdings · payment networks · joint ventures</td><td class="muted">Financial · IFRS 13 Level 3 valuation memo</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Finding 07 &mdash; three stress scenarios on the EC$ 531M book</div>
-        <div class="section-meta">Rising rates · regional sovereign downgrade · USD strength</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Scenario</th>
-            <th class="num">Modeled magnitude</th>
-            <th class="num">Estimated P&amp;L impact</th>
-            <th class="num">ROE impact</th>
-            <th>Primary transmission</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="gold">Rising rates &mdash; UST +200bp shock</td><td class="num">+200 bps short end</td><td class="num critical">−EC$ 14.8M to −EC$ 19.2M</td><td class="num critical">−75 to −98 bps</td><td class="muted">Duration on EC$ 372M IG corp bond line · estimated 3.5–4.5 yr duration</td></tr>
-          <tr><td class="gold">Regional sovereign downgrade (Caribbean)</td><td class="num">−1 notch · spread +150bp</td><td class="num critical">−EC$ 3.2M to −EC$ 5.5M</td><td class="num critical">−16 to −28 bps</td><td class="muted">Spread widening on EC$ 22.9M unquoted + EC$ 8.5M regional MDB holdings (modeled)</td></tr>
-          <tr><td class="gold">USD strength &mdash; DXY +10%</td><td class="num">USD +10%</td><td class="num critical">−EC$ 7.5M to −EC$ 11.2M</td><td class="num critical">−38 to −57 bps</td><td class="muted">Markdown on EC$ 70M non-USD positions (24% XCD + 5% other)</td></tr>
-          <tr class="total"><td>Worst-case overlap (modeled)</td><td class="num">All 3 simultaneous</td><td class="num critical">−EC$ 25.5M to −EC$ 35.9M</td><td class="num critical">−130 to −183 bps</td><td class="muted">Indicative · correlations assumed conservatively</td></tr>
-        </tbody>
-      </table>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 820px;">
-        These three scenarios are the ones a regional CRO would expect the board to see annually. <strong>Your audit does not contain any of them.</strong> Each scenario alone removes between 16 and 98 basis points from your 20.8% ROE; the combined-worst-case removes 130–183 bps, which is ~6–9% of net income. The hedge program in the recommendations section below addresses this exposure.
-      </p>
-
-      <div class="section-header">
-        <div class="section-title">Recommendations &mdash; how Oceanic would optimize the book</div>
-        <div class="section-meta">Five specific actions · indicative yield uplift quantified</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Recommendation</th>
-            <th>Action</th>
-            <th class="num">Indicative yield uplift</th>
-            <th>Implementation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="gold">01 &mdash; Diversify the corporate-bond line</td>
-            <td class="muted">Reduce US-bank cluster from ~10% of bonds to ≤5%; redeploy into IG industrials &amp; supra-sovereigns</td>
-            <td class="num">+5 to +12 bps</td>
-            <td class="muted">3-month rotation through new-issue calendar</td>
-          </tr>
-          <tr>
-            <td class="gold">02 &mdash; Replace mutual fund layer with direct holdings</td>
-            <td class="muted">Liquidate EC$ 37.9M FVTPL line into US-listed ETFs at 5–15 bps TER</td>
-            <td class="num">+70 to +130 bps on this slice</td>
-            <td class="muted">~US$ 75k–140k/yr leakage recapture (Finding 02)</td>
-          </tr>
-          <tr>
-            <td class="gold">03 &mdash; Add selective IG corporate &amp; ETF exposure</td>
-            <td class="muted">Allocate ~EC$ 20–30M from T-bills/cash into 3–5 yr IG corp ETFs; pick up curve roll-down</td>
-            <td class="num">+8 to +18 bps</td>
-            <td class="muted">Phased over 2 quarters · within ECCB liquidity constraints</td>
-          </tr>
-          <tr>
-            <td class="gold">04 &mdash; FX hedge program on non-USD exposure</td>
-            <td class="muted">Forward contracts on the EC$ 70M "other" non-USD exposure · 80% coverage at quarterly rolls</td>
-            <td class="num">No yield uplift &mdash; tail-risk reduction</td>
-            <td class="muted">Reduces USD-strength scenario P&amp;L by ~70%</td>
-          </tr>
-          <tr>
-            <td class="gold">05 &mdash; Duration management overlay</td>
-            <td class="muted">Reduce portfolio duration by 0.5–1.0 yr via SHV/IEI rotation if Fed signaling firms</td>
-            <td class="num">+0 to +5 bps · tactical</td>
-            <td class="muted">Reduces rising-rate scenario P&amp;L impact by ~30%</td>
-          </tr>
-          <tr class="total">
-            <td>Estimated total annualised uplift</td>
-            <td class="muted">Five actions combined</td>
-            <td class="num gold">+15 to +35 bps on the EC$ 531M book</td>
-            <td class="muted">~US$ 295k–690k annual investment income</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">Honest caveat on these recommendations</div>
-        <p>All recommendations subject to ECCB capital adequacy rules, NCBA's investment policy statement, and board approval. The yield-uplift estimate of <strong>+15 to +35 bps on the EC$ 531M book</strong> is illustrative based on publicly disclosed FY25 figures; the Phase-1 diagnostic will refine each action against the actual schedule of investments and NCBA's risk tolerance. We do not implement any recommendation without NCBA IC sign-off; this section sketches what an optimised investment-book mandate could deliver, not a guaranteed return.</p>
-      </div>
-
-      <div class="section-header">
-        <div class="section-title">What this consultation delivers &mdash; in 30 days</div>
-        <div class="section-meta">Phase-1 diagnostic engagement output</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Deliverable</th><th>Format</th><th>Audience</th><th>Replaces</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Concentration heatmap + top-25 issuer table</td><td>Visual + tabular</td><td class="muted">Board · IC · CRO</td><td class="muted">Note 8 (which doesn't show issuers)</td></tr>
-          <tr><td class="gold">Mutual fund TER decomposition + leakage estimate</td><td>Quantified report</td><td class="muted">Board · CFO · audit committee</td><td class="muted">Not in current audit</td></tr>
-          <tr><td class="gold">FX peg-stress scenario set</td><td>Five severities + P&amp;L impact</td><td class="muted">ALCO · IC · Board</td><td class="muted">Note 6 (qualitative only)</td></tr>
-          <tr><td class="gold">IFRS 9 ECL methodology memo + peer comp</td><td>Narrative + tabular</td><td class="muted">External auditor · audit committee</td><td class="muted">Not in current audit</td></tr>
-          <tr><td class="gold">Repo counterparty matrix</td><td>Tabular · scored</td><td class="muted">CRO · risk committee</td><td class="muted">Counterparties not named in audit</td></tr>
-          <tr><td class="gold">Equity book strategic-vs-financial split</td><td>Per-holding memo</td><td class="muted">CIO · IC</td><td class="muted">Currently undifferentiated</td></tr>
-          <tr><td class="gold">Board presentation (20–30 slides)</td><td>Formal deck</td><td class="muted">Board</td><td class="muted">&mdash;</td></tr>
-        </tbody>
-      </table>
-
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">On the modelled numbers above</div>
-        <p>The issuer names, fund managers, repo counterparties, and ECL stage splits above are <em>modelled</em> from your audit's aggregate disclosures plus regional bank treasury norms. <strong>They are not your actual schedule of investments.</strong> The Phase-1 diagnostic replaces every modelled value with your real positions in the first week. We've published the model openly so you can see exactly what the analytical work looks like before you commit to the engagement. If our model is materially off your reality, you'll know within five business days — and that itself is information.</p>
+      <div class="edge-verdict">
+        <div class="lbl">The verdict</div>
+        <p>A passive ETF wins on cost and nothing else. A traditional manager checks risk on a calendar. <em>Oceanic is the only option that manages risk continuously, researches the world live, protects the downside, and does it inside your region.</em> Cheap is not the same as well-managed &mdash; especially when the market breaks.</p>
       </div>
     </div>
+
+
+    <script>
+    (function(){
+      var v=document.querySelector('.view[data-view="theedge"]'); if(!v) return;
+      v.querySelectorAll('.edge-row').forEach(function(r){
+        r.addEventListener('click', function(){ r.classList.toggle('open'); });
+      });
+    })();
+    </script>
 
 
     <!-- ====================================================================
@@ -2141,158 +2222,130 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         05 · RISK ARCHITECTURE — how we manage the client book
+         RISK MANAGEMENT — institutional, always-on (distinct from Scenarios)
          ==================================================================== -->
     <div class="view" data-view="governance">
-      <div class="page-eyebrow">06 · How We Manage Money</div>
-      <h1 class="page-title">Risk Management. <em>The discipline that wins HNW trust.</em></h1>
-      <p class="page-subtitle">Position limits, liquidity tiers, live VaR, an adversarial stress-testing engine, counterparty insulation. This is the framework that runs on Premier client portfolios every day &mdash; not a slide. Most of it is operating against Oceanic's own institutional book right now; it transfers to the Premier mandate on day one.</p>
+      <div class="page-eyebrow">08 · The Toolkit</div>
+      <h1 class="page-title">Risk Management. <em>Continuous, layered, adversarial.</em></h1>
+      <p class="page-subtitle">Not scenario analysis &mdash; that's a separate tab. This is the always-on discipline: six layers of control, a live concentration grid, a liquidity ladder that holds under stress, and an engine that hunts the worst attack on the book every minute. Most managers check risk quarterly. Ours never stops. Illustrative.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Say: <strong>"This is the risk discipline that runs on Premier portfolios every trading day. Hard limits on single positions and sectors. Tiered liquidity. Live VaR. And a daily adversarial stress test &mdash; an AI agent that tries to construct the worst attack on each client portfolio overnight, so we know about the vulnerability before the market does. Counterparty risk sits at Interactive Brokers, an investment-grade custodian with SIPC plus excess insurance to US$30M per account."</strong></p>
-        <p><em>If the CRO asks about VaR methodology, the answer is triple-method: parametric, historical, Monte Carlo. We'll send the methodology paper under NDA.</em></p>
+        <p>Distinguish it from the simulator. Say: <strong>"The scenario tab shows what happens under a shock. This tab is the discipline that's running every minute regardless &mdash; six layers from position limits to a regime overlay, a live concentration grid with hard caps, a liquidity ladder we stress to crisis, and an adversarial engine that never stops hunting. Quarterly stress tests are obsolete."</strong></p>
+        <p><em>Click the risk layers to see what each does. Toggle the liquidity ladder to crisis. Watch the adversarial feed.</em></p>
       </div>
 
-      <div class="summary-band">
-        <div class="summary-cell">
-          <div class="summary-cell-label">Position concentration</div>
-          <div class="summary-cell-value gold">≤ 5%</div>
-          <div class="summary-cell-delta">Single name, hard cap</div>
+      <div class="section-header" style="margin-top:0;">
+        <div class="section-title">Six layers of control</div>
+        <div class="section-meta">Click a layer to see what it does</div>
+      </div>
+      <div class="risk-layers-wrap">
+        <div class="risk-layers" id="risk-layers">
+          <div class="rlayer active" data-l="0"><span class="rn">L1</span><span class="rl">Position limits</span><span class="rtag">hard cap</span></div>
+          <div class="rlayer" data-l="1"><span class="rn">L2</span><span class="rl">Sector limits</span><span class="rtag">≤ 30%</span></div>
+          <div class="rlayer" data-l="2"><span class="rn">L3</span><span class="rl">Liquidity tiers</span><span class="rtag">T+0 → T+30</span></div>
+          <div class="rlayer" data-l="3"><span class="rn">L4</span><span class="rl">Value-at-Risk</span><span class="rtag">triple-method</span></div>
+          <div class="rlayer" data-l="4"><span class="rn">L5</span><span class="rl">Continuous adversarial stress</span><span class="rtag">every minute</span></div>
+          <div class="rlayer" data-l="5"><span class="rn">L6</span><span class="rl">Regime overlay</span><span class="rtag">dynamic</span></div>
         </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Sector concentration</div>
-          <div class="summary-cell-value">≤ 30%</div>
-          <div class="summary-cell-delta">Any single sector</div>
-        </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Liquidity tiers</div>
-          <div class="summary-cell-value">4</div>
-          <div class="summary-cell-delta">T+0 → T+30 stratified</div>
-        </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Stress test cadence</div>
-          <div class="summary-cell-value positive">Daily</div>
-          <div class="summary-cell-delta">Adversarial · overnight</div>
-        </div>
+        <div class="risk-detail" id="risk-detail"></div>
       </div>
 
       <div class="section-header">
-        <div class="section-title">Layer 01 &mdash; position &amp; sector concentration limits</div>
-        <div class="section-meta">Hard caps · enforced at trade time</div>
+        <div class="section-title">Concentration control</div>
+        <div class="section-meta">Live grid · soft caps trigger an automatic rebalance · Illustrative</div>
       </div>
-
-      <table class="tbl">
-        <thead><tr><th>Limit</th><th class="num">Threshold</th><th>Action on breach</th><th>Standard reference</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Single-name position</td><td class="num">5% of account</td><td class="muted">Auto-rebalance within 10 business days · breach logged</td><td class="muted">Internal IPS policy · client-disclosed</td></tr>
-          <tr><td class="gold">Single-issuer (across instruments)</td><td class="num">8% of account</td><td class="muted">Hard block at trade time · CIO override required</td><td class="muted">Issuer-level Basel risk discipline</td></tr>
-          <tr><td class="gold">Single sector (GICS L1)</td><td class="num">30% of account</td><td class="muted">Same-day notification · rebalance within 5 days</td><td class="muted">Internal policy benchmarked against MSCI weights</td></tr>
-          <tr><td class="gold">Single country (ex-US)</td><td class="num">15% of account</td><td class="muted">Auto-rebalance trigger</td><td class="muted">Geographic diversification policy</td></tr>
-          <tr><td class="gold">Sub-IG corporate</td><td class="num">5% of account</td><td class="muted">Hard block · client-specific override only via IPS amendment</td><td class="muted">Credit quality policy</td></tr>
-          <tr><td class="gold">Single-counterparty (custodian-adjacent)</td><td class="num">25% of NAV</td><td class="muted">Diversify across IBKR institutional cash sweep alternatives</td><td class="muted">Counterparty concentration policy</td></tr>
-        </tbody>
-      </table>
+      <div class="term-card" style="margin-bottom:24px;">
+        <div class="tt"><span>Position &times; sector concentration</span><span class="live">● LIVE</span></div>
+        <div class="heat" id="rm-heat"></div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:10px;">red = soft-cap breach (&gt;8% single / &gt;30% sector) &rarr; same-day rebalance trigger</div>
+      </div>
 
       <div class="section-header">
-        <div class="section-title">Layer 02 &mdash; liquidity tiers</div>
-        <div class="section-meta">Every position assigned to a tier · book-level coverage tracked daily</div>
+        <div class="section-title">Liquidity ladder</div>
+        <div class="section-meta">How much of the book is accessible at each settlement tier &mdash; toggle the stress mode</div>
       </div>
-
-      <table class="tbl">
-        <thead><tr><th>Tier</th><th>Settlement</th><th class="num">Target % of book</th><th>Instrument types</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">T+0</td><td class="muted">Same-day cash</td><td class="num">≥ 5%</td><td class="muted">Money market funds, institutional cash sweep, SHV-equivalents</td></tr>
-          <tr><td class="gold">T+1</td><td class="muted">Next business day</td><td class="num">≥ 70%</td><td class="muted">US-listed ETFs (VOO, IEF, VEA, etc.), UST direct holdings</td></tr>
-          <tr><td class="gold">T+3</td><td class="muted">Three business days</td><td class="num">≤ 25%</td><td class="muted">Individual US-listed equities, IG corporate bonds</td></tr>
-          <tr><td class="gold">T+30+ / illiquid</td><td class="muted">More than 30 days</td><td class="num">0% · Premier v1</td><td class="muted">Private placements, hedge funds, alts &mdash; not permitted in Premier v1</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Layer 03 &mdash; continuous adversarial stress testing</div>
-        <div class="section-meta">Daily · automated · constructed against each client portfolio</div>
+      <div class="liq-modes" id="liq-modes">
+        <button class="liq-mode active" data-m="normal">Normal</button>
+        <button class="liq-mode" data-m="stressed">Stressed</button>
+        <button class="liq-mode" data-m="crisis">Crisis</button>
       </div>
-
-      <div class="moats-grid">
-        <div class="moat-card primary">
-          <div class="num">ADVERSARIAL STRESS · CORE IDEA</div>
-          <h4>The system attacks itself every night.</h4>
-          <p>Overnight, an automated agent constructs the worst plausible market scenario for each Premier portfolio &mdash; not from a static catalogue, but by <em>solving</em> for the combination of factor moves (equity beta, rate, FX, credit spread, vol) that maximises the next-day loss on that specific holding mix. The worst-case scenario is logged. If the resulting loss exceeds 12% of NAV, the portfolio is flagged for CIO review the next morning.</p>
-          <ul>
-            <li>Approach: reverse-engineered stress vs. canned scenarios</li>
-            <li>Factor model: 60-day OLS, SPY + sector-residualised betas</li>
-            <li>Output: per-account vulnerability score &amp; the worst-case factor combination</li>
-          </ul>
+      <div class="term-card" style="margin-bottom:24px;">
+        <div class="liq-ladder" id="liq-ladder">
+          <div class="liq-row"><span class="lt2">T+0</span><div class="liq-track2"><div class="liq-fill2" data-k="0"></div></div><span class="lv2" data-kv="0"></span></div>
+          <div class="liq-row"><span class="lt2">T+1</span><div class="liq-track2"><div class="liq-fill2" data-k="1"></div></div><span class="lv2" data-kv="1"></span></div>
+          <div class="liq-row"><span class="lt2">T+3</span><div class="liq-track2"><div class="liq-fill2" data-k="2"></div></div><span class="lv2" data-kv="2"></span></div>
+          <div class="liq-row"><span class="lt2">T+7</span><div class="liq-track2"><div class="liq-fill2" data-k="3"></div></div><span class="lv2" data-kv="3"></span></div>
+          <div class="liq-row"><span class="lt2">T+30</span><div class="liq-track2"><div class="liq-fill2" data-k="4"></div></div><span class="lv2" data-kv="4"></span></div>
         </div>
-        <div class="moat-card">
-          <div class="num">CONVENTIONAL STRESS SCENARIOS</div>
-          <h4>Plus the canon, for board reporting.</h4>
-          <p>In parallel, every portfolio is stress-tested against five canonical scenarios for the board pack:</p>
-          <ul>
-            <li>2008 financial crisis replay (−37% equity, +200bp credit spread)</li>
-            <li>2020 March COVID shock (−34% equity in 23 sessions)</li>
-            <li>2022 inflation cycle (rates +300bp, equity −18%)</li>
-            <li>USD-shock scenario (DXY +10%, EM/intl −12%)</li>
-            <li>Caribbean peg-stress scenario (XCD −5% hypothetical)</li>
-          </ul>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:12px;" id="liq-note">Normal markets: ~95% of the book liquidates within T+3.</div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The adversarial engine</div>
+        <div class="section-meta">The differentiator &mdash; an AI red-team hunting the worst attack on the book, continuously</div>
+      </div>
+      <div class="adv-wrap">
+        <div class="adv-feed">
+          <div class="adv-feed-head"><span class="dot"></span><span class="t">Adversarial engine · live</span><span class="live">HUNTING</span></div>
+          <div class="adv-list" id="rm-adv-list"></div>
+        </div>
+        <div class="adv-worst">
+          <div class="lbl">Worst vector found</div>
+          <h4 id="rm-adv-name">—</h4>
+          <div class="big" id="rm-adv-score">—</div>
+          <div class="bl">illustrative max drawdown</div>
+          <p>The engine solves for the factor-move combination that maximises next-day loss on the actual book &mdash; then pre-stages the hedge before the market gets there.</p>
         </div>
       </div>
-
-      <div class="section-header">
-        <div class="section-title">Layer 04 &mdash; live VaR &amp; risk attribution</div>
-        <div class="section-meta">Triple-method · refreshed at market close</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Method</th><th>Lookback</th><th>Confidence</th><th>What it catches</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Parametric VaR</td><td class="muted">60-day rolling</td><td class="muted">95% / 99%</td><td class="muted">Day-to-day distribution tail · normal markets</td></tr>
-          <tr><td class="gold">Historical VaR</td><td class="muted">10-year window</td><td class="muted">95% / 99%</td><td class="muted">Empirical fat tails · captures 2008-style events</td></tr>
-          <tr><td class="gold">Monte Carlo VaR</td><td class="muted">10,000 simulations</td><td class="muted">95% / 99%</td><td class="muted">Path-dependent risks · convex exposures</td></tr>
-        </tbody>
-      </table>
-
-      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 820px;">
-        Per-portfolio VaR is computed at market close and surfaced on the live operating dashboard (view 04). <strong>If 1-day 99% VaR exceeds 3% of NAV, the portfolio is flagged for next-day CIO review.</strong> Factor attribution (equity beta / duration / FX / sector / idio) sits alongside the headline VaR so the cause of risk is always visible.
-      </p>
-
-      <div class="section-header">
-        <div class="section-title">Layer 05 &mdash; counterparty &amp; custody risk</div>
-        <div class="section-meta">Where the client's actual securities sit</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Counterparty</th><th>Role</th><th>Protection</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Interactive Brokers LLC</td><td class="muted">Custodian · prime broker · execution</td><td class="muted">SIPC ($500k securities, $250k cash) + excess insurance to <strong>US$30M per account</strong> · IBG LLC capital US$ 14B+ · NYSE-listed parent</td></tr>
-          <tr><td class="gold">Federal Reserve / DTCC</td><td class="muted">Settlement &amp; clearing rails</td><td class="muted">Standard US securities market infrastructure</td></tr>
-          <tr><td class="gold">Oceanic Wealth</td><td class="muted">Discretionary manager · ECSRC-licensed</td><td class="muted">Client securities held in client's own name at IBKR (not on Oceanic balance sheet); Oceanic carries E&amp;O insurance plus ECSRC capital adequacy requirements</td></tr>
-          <tr><td class="gold">NCBA (distributor)</td><td class="muted">Client introduction · co-branding · KYC</td><td class="muted">No client securities flow through NCBA balance sheet; distribution agreement is the only commercial link</td></tr>
-        </tbody>
-      </table>
+      <div class="section-close">Quarterly stress tests are obsolete. Ours runs every minute.</div>
 
       <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">What this means structurally</div>
-        <p>If Oceanic goes away tomorrow, every Premier client owns their actual securities at Interactive Brokers in their own name. They keep the account, transfer to a new manager, or self-direct. <em>The client's wealth does not depend on Oceanic's continued existence</em>. The same is true if NCBA terminates the partnership: client accounts are untouched, only the co-branding falls away. This isolation is by design.</p>
+        <div class="label" style="color: var(--gold);">Guardrails</div>
+        <p>Every layer operates within the client's Investment Policy Statement, NCBA's board-set limits, and ECCB regulatory-capital rules. The engine recommends and pre-stages; it does not act outside mandate. All figures Illustrative.</p>
       </div>
-
-      <div class="section-header">
-        <div class="section-title">Layer 06 &mdash; regulatory reporting to ECSRC</div>
-        <div class="section-meta">Cadence and scope</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Cadence</th><th>Report</th><th>Filed by</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Daily (internal)</td><td class="muted">Mandate-guardrail trip log · breach register</td><td class="muted">Oceanic compliance · retained 7 years</td></tr>
-          <tr><td class="gold">Monthly</td><td class="muted">Premier aggregate AUM, NAV, performance, redemptions</td><td class="muted">Oceanic to NCBA (joint distribution committee)</td></tr>
-          <tr><td class="gold">Quarterly</td><td class="muted">ECSRC-required broker-dealer return: capital adequacy, client AUM, complaint log</td><td class="muted">Oceanic to ECSRC</td></tr>
-          <tr><td class="gold">Annually</td><td class="muted">Audited financial statements · risk methodology review · ECSRC inspection readiness</td><td class="muted">Oceanic to ECSRC &amp; external auditor</td></tr>
-          <tr><td class="gold">Ad hoc</td><td class="muted">Material adverse event · client complaint · operational incident</td><td class="muted">Within 24h to ECSRC and NCBA compliance</td></tr>
-        </tbody>
-      </table>
     </div>
+
+
+    <script>
+    (function(){
+      var v=document.querySelector('.view[data-view="governance"]'); if(!v) return;
+      // risk layers
+      var LAYERS=[
+        {h:'Position limits',p:'No single security exceeds a hard cap of the account. Breach is blocked at trade time, not flagged after.',s:'Hard cap: ≤ 5% single name · ≤ 8% single issuer'},
+        {h:'Sector limits',p:'No single GICS sector dominates the book. Approaching the cap triggers a same-day notification and a rebalance within five business days.',s:'Soft cap: ≤ 30% per sector'},
+        {h:'Liquidity tiers',p:'Every position is assigned a settlement tier. We track how much of the book is accessible at T+0 through T+30 under normal, stressed, and crisis conditions.',s:'Target: ≥ 70% within T+1'},
+        {h:'Value-at-Risk',p:'1-day and 10-day VaR computed three ways &mdash; parametric, historical, Monte Carlo &mdash; and refreshed at every close. Breach of the 99% threshold flags for CIO review.',s:'Triple-method · 95% & 99%'},
+        {h:'Continuous adversarial stress',p:'An engine constructs the worst plausible market for this exact book continuously &mdash; not from a static catalogue, but by solving for the factor combination that maximises loss.',s:'Runs every minute · pre-stages hedges'},
+        {h:'Regime overlay',p:'Positioning shifts with the market regime (risk-on / transition / risk-off). The dial sets the tilt; the IPS sets the limits. Discipline over conviction.',s:'Dynamic · regime-aware'}
+      ];
+      function showLayer(i){ var l=LAYERS[i], d=document.getElementById('risk-detail');
+        if(d) d.innerHTML='<div class="lbl">Layer '+(i+1)+'</div><h4>'+l.h+'</h4><p>'+l.p+'</p><div class="spec">'+l.s+'</div>'; }
+      v.querySelectorAll('.rlayer').forEach(function(r){ r.addEventListener('click',function(){ v.querySelectorAll('.rlayer').forEach(function(x){x.classList.toggle('active',x===r);}); showLayer(+r.dataset.l); }); });
+      showLayer(0);
+      // heatmap
+      var hc=document.getElementById('rm-heat');
+      if(hc){ var vals=[8,4,3,6,2,5, 11,3,4,2,7,3, 5,9,2,4,3,6, 3,2,7,5,2,4];
+        hc.innerHTML=vals.map(function(x){ var hot=x>=10,warm=x>=6; var col=hot?'rgba(201,112,98,.85)':warm?'rgba(212,163,71,.7)':'rgba(94,179,214,.35)'; return '<div class="cell" style="background:'+col+'">'+x+'</div>'; }).join(''); }
+      // liquidity ladder
+      var LIQ={ normal:[35,40,18,5,2], stressed:[28,34,22,11,5], crisis:[20,26,24,18,12] };
+      var NOTE={ normal:'Normal markets: ~95% of the book liquidates within T+3.', stressed:'Stressed markets: liquidity migrates out; ~84% still within T+3.', crisis:'Crisis: deeper tiers thicken, but ~70% remains accessible within T+3 — no fire-sale needed.' };
+      function setLiq(mode){ var arr=LIQ[mode]; v.querySelectorAll('.liq-fill2').forEach(function(f){ var k=+f.dataset.k; f.style.width=(arr[k]*2.2)+'%'; });
+        v.querySelectorAll('.lv2').forEach(function(s){ s.textContent=arr[+s.dataset.kv]+'%'; }); var n=document.getElementById('liq-note'); if(n) n.textContent=NOTE[mode]; }
+      v.querySelectorAll('.liq-mode').forEach(function(b){ b.addEventListener('click',function(){ v.querySelectorAll('.liq-mode').forEach(function(x){x.classList.toggle('active',x===b);}); setLiq(b.dataset.m); }); });
+      setLiq('normal');
+      // adversarial feed (own IDs)
+      var VEC=[['Rates +150bp × equity −12% joint shock','rate-equity',-14.2],['EM FX cascade + credit blowout','funding contagion',-11.8],['Mega-cap tech −25% unwind','factor crowding',-13.1],['USD +8% + commodity spike','dollar squeeze',-9.6],['Curve bull-steepener','rate convexity',-7.4],['Regional sovereign + hurricane overlap','correlated regional',-8.9],['Vol-of-vol spike + gamma unwind','options reflexivity',-10.5],['AI capex cut × semis −30%','narrative cascade',-12.7]];
+      var list=document.getElementById('rm-adv-list'), worst={s:0};
+      function cls(x){x=Math.abs(x);return x>=12?'hi':x>=8?'md':'lo';}
+      function push(){ if(!list) return; var x=VEC[Math.floor(Math.random()*VEC.length)]; var sc=+(x[2]+(Math.random()-.5)*1.4).toFixed(1);
+        var d=document.createElement('div'); d.className='adv-item'; d.innerHTML='<div class="av">'+x[0]+'<span class="src">vector · '+x[1]+'</span></div><div class="score '+cls(sc)+'">'+sc+'%</div>';
+        list.insertBefore(d,list.firstChild); while(list.children.length>7) list.removeChild(list.lastChild);
+        if(Math.abs(sc)>Math.abs(worst.s)){ worst.s=sc; var n=document.getElementById('rm-adv-name'),ss=document.getElementById('rm-adv-score'); if(n)n.textContent=x[0]; if(ss)ss.textContent=sc+'%'; } }
+      for(var i=0;i<5;i++) push();
+      setInterval(push, 2800);
+    })();
+    </script>
 
 
     <!-- ====================================================================
@@ -2530,6 +2583,10 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="scen-card" data-s="usd"><span class="sc-ic">&#9211;</span><div class="sc-cat">Macro</div><h5>USD Liquidity Crisis</h5><div class="sc-prob">~6% / 5yr</div></div>
         <div class="scen-card" data-s="ai"><span class="sc-ic">&#9650;</span><div class="sc-cat">Technology</div><h5>AI Capex Collapse</h5><div class="sc-prob">~18% / 3yr</div></div>
         <div class="scen-card" data-s="hurricane"><span class="sc-ic">&#127786;</span><div class="sc-cat">Climate</div><h5>Major Hurricane — Direct Hit</h5><div class="sc-prob">~12% / yr</div></div>
+        <div class="scen-card" data-s="recession"><span class="sc-ic">&#9660;</span><div class="sc-cat">Macro</div><h5>Global Recession</h5><div class="sc-prob">~20% / 3yr</div></div>
+        <div class="scen-card" data-s="inflation"><span class="sc-ic">&#128293;</span><div class="sc-cat">Macro</div><h5>Inflation Resurgence</h5><div class="sc-prob">~22% / 3yr</div></div>
+        <div class="scen-card" data-s="tourism"><span class="sc-ic">&#9968;</span><div class="sc-cat">Regional</div><h5>Regional Tourism Collapse</h5><div class="sc-prob">~14% / 5yr</div></div>
+        <div class="scen-card" data-s="contagion"><span class="sc-ic">&#9889;</span><div class="sc-cat">Financial</div><h5>Banking-Sector Contagion</h5><div class="sc-prob">~7% / 5yr</div></div>
       </div>
 
       <div class="sim-stage">
@@ -2572,6 +2629,13 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
 
       <div class="section-header" style="margin-top:32px;">
+        <div class="section-title">What we'd do about it &mdash; across the entire book</div>
+        <div class="section-meta">Illustrative Analysis — based on FY25 audited figures (investment book EC$531M · loans EC$457M · deposits EC$1.175B)</div>
+      </div>
+      <div class="simbook" id="sim-book"></div>
+      <p style="font-family:var(--serif); font-size:14px; line-height:1.6; color:var(--text-secondary); font-style:italic; margin:4px 0 8px; max-width:820px;">Recommendations span the whole balance sheet &mdash; fixed-income duration, FX hedges, liquidity, sector trims, and overlays &mdash; not just an equity sleeve. That is the difference between managing a portfolio and managing a bank's book.</p>
+
+      <div class="section-header" style="margin-top:24px;">
         <div class="section-title">Monte Carlo &mdash; 10,000 futures under this shock</div>
         <div class="section-meta">Each faint line is one path · median bold · 90% confidence band shaded</div>
       </div>
@@ -2593,28 +2657,55 @@ footer.foot .right .gold { color: var(--gold); }
         taiwan:   {name:'China–Taiwan Conflict', nav:-18, rec:'14 mo', desc:'Equity drawdown, flight-to-quality in rates, regional FX stress.',
           imp:{eq:-32,fi:4,fx:-6,alt:8,cash:0},
           aff:[['Semiconductors / AI','−38%'],['Emerging markets','−27%'],['Developed intl','−19%']],
-          hdg:[['Long USD + gold','+ tail hedge'],['Rotate to defensives','−beta'],['Cut EM exposure','−12%']]},
+          hdg:[['Long USD + gold','+ tail hedge'],['Rotate to defensives','−beta'],['Cut EM exposure','−12%']],
+          book:[['FI','Extend UST duration +1.5y on the EC$531M book — capture the flight-to-quality bid'],['FX','Hedge 90% of the EC$144M non-USD exposure via forwards; add USD longs'],['LIQ','Raise T+0 cash to 8% from the EC$1.175B deposit float'],['EQ','Cut semis/AI & EM −15%; rotate to defensives & quality'],['HEDGE','Gold + index put overlay as a tail hedge']]},
         rates:    {name:'US Rate Shock +200bp', nav:-9, rec:'8 mo', desc:'Long-duration repricing, growth-equity compression.',
           imp:{eq:-12,fi:-9,fx:3,alt:-4,cash:1},
           aff:[['Long-duration bonds','−10%'],['Growth equity','−16%'],['REITs / rate-sensitive','−14%']],
-          hdg:[['Shorten duration','−2.5 yr'],['Floating-rate sleeve','+8%'],['Value tilt','rotate']]},
+          hdg:[['Shorten duration','−2.5 yr'],['Floating-rate sleeve','+8%'],['Value tilt','rotate']],
+          book:[['FI','Shorten book duration −2.5y; rotate the EC$531M into floating-rate + T-bills'],['FX','Maintain non-USD hedge; modest USD long'],['LIQ','Ample T+1 access — hold buffers'],['EQ','Trim growth & REITs; value tilt'],['HEDGE','Receive-fixed swap to cushion NIM compression on the deposit book']]},
         sov:      {name:'Caribbean Sovereign Downgrade', nav:-6, rec:'10 mo', desc:'Regional spread widening, XCD-peg stress on non-USD book.',
           imp:{eq:-4,fi:-6,fx:-8,alt:-2,cash:0},
           aff:[['Regional sovereign bonds','−9%'],['XCD-denominated assets','−7%'],['Regional equity','−5%']],
-          hdg:[['Hedge non-USD FX','80% cover'],['Reduce regional','−10%'],['US Treasury ballast','+15%']]},
+          hdg:[['Hedge non-USD FX','80% cover'],['Reduce regional','−10%'],['US Treasury ballast','+15%']],
+          book:[['FI','Reduce regional sovereign exposure; reallocate +15% to US Treasuries'],['FX','Hedge the EC$144M non-USD 80% — peg-stress insulation'],['LIQ','Pre-arrange a USD facility against marketable securities'],['EQ','Trim regional equity; keep global core'],['HEDGE','Document ECL re-stage on the EC$457M loan book for the board']]},
         usd:      {name:'USD Liquidity Crisis', nav:-16, rec:'12 mo', desc:'Dollar funding squeeze, credit and EM under pressure.',
           imp:{eq:-28,fi:-14,fx:10,alt:-10,cash:2},
           aff:[['Credit / IG corporate','−13%'],['Emerging markets','−24%'],['Alternatives','−18%']],
-          hdg:[['Raise cash','+10%'],['Long USD','+ funding hedge'],['Quality / large-cap','rotate']]},
+          hdg:[['Raise cash','+10%'],['Long USD','+ funding hedge'],['Quality / large-cap','rotate']],
+          book:[['FI','Up-in-quality; cut credit/IG spread risk −10% of the EC$531M'],['FX','Long USD aggressively — the squeeze favours the dollar'],['LIQ','Raise cash to 12%; pre-draw the standby USD facility'],['EQ','Cut EM −24% and alternatives; rotate to US large-cap'],['HEDGE','Funding-basis hedge; widen liquidity-ladder buffers']]},
         ai:       {name:'AI Capex Collapse', nav:-13, rec:'11 mo', desc:'Concentrated mega-cap-tech selloff, capex repricing.',
           imp:{eq:-24,fi:2,fx:0,alt:-6,cash:0},
           aff:[['NVDA / semis','−42%'],['Mega-cap tech','−29%'],['Growth funds','−21%']],
-          hdg:[['Trim tech overweight','−15%'],['Equal-weight rotation','rebalance'],['Value + quality','+tilt']]},
+          hdg:[['Trim tech overweight','−15%'],['Equal-weight rotation','rebalance'],['Value + quality','+tilt']],
+          book:[['FI','Add duration — safety bid as tech reprices'],['FX','Neutral'],['LIQ','Hold buffers'],['EQ','Trim mega-cap-tech overweight −15%; equal-weight rotation; value/quality tilt'],['HEDGE','Index put spread on concentrated tech beta']]},
         hurricane:{name:'Major Hurricane — Direct Hit', nav:-5, rec:'9 mo', desc:'Regional insurance & tourism shock, infrastructure disruption.',
           imp:{eq:-3,fi:-5,fx:-4,alt:-2,cash:0},
           aff:[['Regional / tourism','−11%'],['Insurance-linked','−9%'],['Local infrastructure','−6%']],
-          hdg:[['Cat-aware positioning','pre-staged'],['US Treasury ballast','+10%'],['Long USD','peg insulation']]}
+          hdg:[['Cat-aware positioning','pre-staged'],['US Treasury ballast','+10%'],['Long USD','peg insulation']],
+          book:[['FI','UST ballast +10%; reduce regional/insurance-linked exposure'],['FX','Long USD — peg insulation'],['LIQ','Pre-staged cat-event liquidity; raise T+0'],['EQ','Trim tourism/regional names'],['HEDGE','Parametric cat-aware positioning; coordinate with the MAICO book']]},
+        recession:{name:'Global Recession', nav:-15, rec:'13 mo', desc:'Broad equity de-rating, credit stress, flight to quality.',
+          imp:{eq:-26,fi:6,fx:2,alt:-8,cash:1},
+          aff:[['Cyclicals / high-beta','−31%'],['Credit / HY','−17%'],['EM equity','−24%']],
+          hdg:[['Up-in-quality','rotate'],['Add duration','+2y'],['Raise cash','+10%']],
+          book:[['FI','Extend UST duration +2y; up-in-quality across the EC$531M'],['FX','Long USD; hedge non-USD'],['LIQ','Raise cash to 10%; widen the ladder'],['EQ','Cut high-beta & cyclicals −20%; defensives + quality'],['HEDGE','Pre-stage ECL provisioning on the EC$457M loans; index hedge']]},
+        inflation:{name:'Inflation Resurgence', nav:-11, rec:'10 mo', desc:'Rates higher-for-longer, real-asset bid, nominal-bond repricing.',
+          imp:{eq:-16,fi:-11,fx:3,alt:6,cash:0},
+          aff:[['Long-duration bonds','−13%'],['Long-duration growth','−18%'],['Nominal fixed income','−11%']],
+          hdg:[['Cut nominal duration','−3y'],['Add real assets','+tilt'],['TIPS / floating','+10%']],
+          book:[['FI','Cut nominal duration; add TIPS + floating; rotate the EC$531M short'],['FX','Modest USD long'],['LIQ','Hold'],['EQ','Tilt to value, energy, real assets; trim long-duration growth'],['HEDGE','Commodity/real-asset sleeve; receive-fixed swap']]},
+        tourism:  {name:'Regional Tourism Collapse', nav:-7, rec:'11 mo', desc:'Regional revenue & employment shock, deposit-outflow risk.',
+          imp:{eq:-6,fi:-7,fx:-5,alt:-3,cash:0},
+          aff:[['Tourism / hospitality','−22%'],['Regional credit','−9%'],['Local employment-linked','−7%']],
+          hdg:[['Reduce regional credit','−10%'],['UST ballast','+12%'],['Raise liquidity','buffers']],
+          book:[['FI','Reduce regional credit; UST ballast +12%'],['FX','Hedge non-USD 80%'],['LIQ','Raise buffers — deposit-outflow risk on the EC$1.175B base'],['EQ','Trim regional/tourism/hospitality names'],['HEDGE','Stress the deposit-funding gap; pre-arrange USD liquidity']]},
+        contagion:{name:'Banking-Sector Contagion', nav:-14, rec:'12 mo', desc:'Financial-sector credit stress, counterparty & funding risk.',
+          imp:{eq:-22,fi:-10,fx:6,alt:-9,cash:2},
+          aff:[['Financials / bank credit','−26%'],['Credit / IG','−12%'],['High-beta equity','−24%']],
+          hdg:[['Cut financials cluster','−20%'],['Up-in-quality','rotate'],['Raise cash','+12%']],
+          book:[['FI','Cut the financials/bank-credit cluster (largest issuer concentration); up-in-quality'],['FX','Long USD; funding hedge'],['LIQ','Raise cash to 12%; diversify the EC$50.6M repo counterparties'],['EQ','Cut financials & high-beta −20%'],['HEDGE','Counterparty-risk review across the EC$531M book; CDS-equivalent hedge']]}
       };
+      var CATLBL={FI:'Fixed Income',FX:'FX',LIQ:'Liquidity',EQ:'Equity / Sector',HEDGE:'Overlay'};
       var cur='taiwan', sev=0.70;
       var navEl=document.getElementById('sim-nav'), nameEl=document.getElementById('sim-name'),
           descEl=document.getElementById('sim-desc'), recEl=document.getElementById('sim-rec');
@@ -2651,7 +2742,12 @@ footer.foot .right .gold { color: var(--gold); }
         ['eq','fi','fx','alt','cash'].forEach(function(a){ bar(a, s.imp[a]*sev); });
         fillList('sim-affected', s.aff.map(function(r){return [r[0], r[1]];}), false);
         fillList('sim-hedges', s.hdg, true);
+        renderBook(s);
         drawMC();
+      }
+      function renderBook(s){
+        var c=document.getElementById('sim-book'); if(!c||!s.book) return;
+        c.innerHTML=s.book.map(function(r){ return '<div class="simbook-row"><span class="cat">'+(CATLBL[r[0]]||r[0])+'</span><span class="act">'+r[1]+'</span></div>'; }).join('');
       }
 
       // ---- monte carlo ----
@@ -3318,6 +3414,7 @@ footer.foot .right .gold { color: var(--gold); }
     items.forEach(item => {
       item.addEventListener('click', () => {
         const view = item.getAttribute('data-view');
+        const sub = item.getAttribute('data-sub');
         items.forEach(i => i.classList.remove('active'));
         views.forEach(v => v.classList.remove('active'));
         item.classList.add('active');
@@ -3325,6 +3422,11 @@ footer.foot .right .gold { color: var(--gold); }
         if (target) {
           target.classList.add('active');
           document.querySelector('.main').scrollTop = 0;
+          // deep-link into an internal sub-tab (How We Invest → Model Portfolios / Private Wealth / Institutional)
+          if (sub) {
+            const stb = target.querySelector('.subtab[data-sub="' + sub + '"]');
+            if (stb) stb.click();
+          }
         }
         applyWide(view);
       });
