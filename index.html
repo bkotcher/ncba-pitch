@@ -582,6 +582,11 @@ footer.foot .right .gold { color: var(--gold); }
   .facts { display: none; }
 }
 
+/* Full-width mode — hide the right rail on interactive tabs for more room */
+.app.wide { grid-template-columns: 280px 1fr; grid-template-areas: "header header" "sidebar main" "footer footer"; }
+.app.wide .facts { display: none; }
+.app.wide .main-inner { max-width: 1320px; }
+
 /* ============= SUB-TABS (within a view) ============= */
 .subtabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .subtab {
