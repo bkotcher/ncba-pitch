@@ -3219,6 +3219,12 @@ footer.foot .right .gold { color: var(--gold); }
   (function () {
     const items = document.querySelectorAll('.sidebar-item');
     const views = document.querySelectorAll('.view');
+    const app = document.querySelector('.app');
+    // Tabs whose interactive features need full width — right panel hides on these.
+    const WIDE = ['models', 'scenarios', 'edge'];
+    function applyWide(view) {
+      if (app) app.classList.toggle('wide', WIDE.indexOf(view) !== -1);
+    }
     items.forEach(item => {
       item.addEventListener('click', () => {
         const view = item.getAttribute('data-view');
@@ -3230,8 +3236,11 @@ footer.foot .right .gold { color: var(--gold); }
           target.classList.add('active');
           document.querySelector('.main').scrollTop = 0;
         }
+        applyWide(view);
       });
     });
+    // set initial state from whichever view is active on load
+    (function(){ var a=document.querySelector('.view.active'); if(a) applyWide(a.getAttribute('data-view')); })();
     document.querySelectorAll('.sidebar-section').forEach(section => {
       const toggle = section.querySelector('.sidebar-section-toggle');
       toggle.addEventListener('click', () => section.classList.toggle('collapsed'));
