@@ -651,8 +651,12 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="sidebar-item" data-view="governance">
           <span class="sidebar-num">05</span><span class="sidebar-item-label">Risk Management</span>
         </div>
+        <div class="sidebar-item" data-view="scenarios">
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Scenario Analysis</span>
+          <span class="sidebar-badge">12 + sim</span>
+        </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -664,7 +668,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -2025,10 +2029,84 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
+         06 · SCENARIO ANALYSIS — stress on models + NCBA's entire book
+         ==================================================================== -->
+    <div class="view" data-view="scenarios">
+      <div class="page-eyebrow">06 · How We Manage Money</div>
+      <h1 class="page-title">Scenario Analysis. <em>Twelve shocks, two books, one simulation.</em></h1>
+      <p class="page-subtitle">Twelve world and market events, each shocked across equity, rates, credit spreads, and FX. We show how the three model portfolios react &mdash; and, separately, what each event does to NCBA's <strong>entire</strong> EC$531M investment book plus loan-ECL on the broader balance sheet. Then a 10,000-path Monte Carlo on the models. All impacts computed from the actual allocations and FY25 figures; methodology disclosed below.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is the tab that proves the risk engine is real. Say: <strong>"We ran twelve scenarios &mdash; recession, inflation, 2008 replay, a Caribbean sovereign downgrade, a tech selloff. For each, two answers: what happens to the client portfolios we'd run, and what happens to your own balance sheet. The same engine does both. At the bottom, a ten-thousand-path simulation showing the return distribution and the worst-case tail for each model."</strong></p>
+        <p><em>If the CRO asks how the NCBA-book numbers are derived: duration and spread-duration on the bond lines, equity beta on the equity lines, plus an incremental loan-ECL charge per scenario. Methodology card at the bottom.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell"><div class="summary-cell-label">Scenarios modelled</div><div class="summary-cell-value gold">12</div><div class="summary-cell-delta">Equity · rates · spread · FX</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Books stressed</div><div class="summary-cell-value">2</div><div class="summary-cell-delta">Client models + NCBA EC$531M</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Monte Carlo paths</div><div class="summary-cell-value">10,000</div><div class="summary-cell-delta">Per model · annual horizon</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Worst NCBA scenario</div><div class="summary-cell-value critical">2008 replay</div><div class="summary-cell-delta">sized below</div></div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">How the three model portfolios react</div>
+        <div class="section-meta">Estimated one-shock mark-to-market · client-facing portfolios</div>
+      </div>
+      <table class="tbl">
+        <thead><tr>
+          <th>Scenario</th><th>Likelihood</th>
+          <th class="num">Conservative</th><th class="num">Balanced</th><th class="num">Growth</th>
+        </tr></thead>
+        <tbody>          <tr><td class="gold">US recession / equity bear</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-5.3%</td><td class="num" style="color:var(--critical);">-11.9%</td><td class="num" style="color:var(--critical);">-20.3%</td></tr>          <tr><td class="gold">Inflation resurgence</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-13.5%</td><td class="num" style="color:var(--critical);">-14.6%</td><td class="num" style="color:var(--critical);">-15.9%</td></tr>          <tr><td class="gold">Fed hiking cycle</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-9.5%</td><td class="num" style="color:var(--critical);">-9.6%</td><td class="num" style="color:var(--critical);">-9.6%</td></tr>          <tr><td class="gold">Soft landing / Fed cuts</td><td class="muted">Medium-High</td><td class="num" style="color:var(--positive);">+8.3%</td><td class="num" style="color:var(--positive);">+9.2%</td><td class="num" style="color:var(--positive);">+10.3%</td></tr>          <tr><td class="gold">Equity melt-up</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--positive);">+4.8%</td><td class="num" style="color:var(--positive);">+10.2%</td><td class="num" style="color:var(--positive);">+17.1%</td></tr>          <tr><td class="gold">2008-style financial crisis</td><td class="muted">Low</td><td class="num" style="color:var(--critical);">-6.9%</td><td class="num" style="color:var(--critical);">-17.1%</td><td class="num" style="color:var(--critical);">-30.1%</td></tr>          <tr><td class="gold">2020-style pandemic shock</td><td class="muted">Low</td><td class="num" style="color:var(--critical);">-5.3%</td><td class="num" style="color:var(--critical);">-13.0%</td><td class="num" style="color:var(--critical);">-22.8%</td></tr>          <tr><td class="gold">USD strength (DXY +10%)</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-3.9%</td><td class="num" style="color:var(--critical);">-5.0%</td><td class="num" style="color:var(--critical);">-6.3%</td></tr>          <tr><td class="gold">Caribbean sovereign downgrade</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--critical);">-3.0%</td><td class="num" style="color:var(--critical);">-3.5%</td><td class="num" style="color:var(--critical);">-4.1%</td></tr>          <tr><td class="gold">Credit-spread blowout</td><td class="muted">Low-Medium</td><td class="num" style="color:var(--critical);">-3.7%</td><td class="num" style="color:var(--critical);">-6.7%</td><td class="num" style="color:var(--critical);">-10.5%</td></tr>          <tr><td class="gold">Geopolitical / oil shock</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-7.1%</td><td class="num" style="color:var(--critical);">-8.4%</td><td class="num" style="color:var(--critical);">-9.9%</td></tr>          <tr><td class="gold">AI / tech concentrated selloff</td><td class="muted">Medium</td><td class="num" style="color:var(--critical);">-5.8%</td><td class="num" style="color:var(--critical);">-10.1%</td><td class="num" style="color:var(--critical);">-15.6%</td></tr>        </tbody>
+      </table>
+      <div class="section-header">
+        <div class="section-title">What each event does to NCBA's entire holdings</div>
+        <div class="section-meta">EC$M impact on the EC$531M investment book + incremental loan-ECL · vs EC$195M equity</div>
+      </div>
+      <table class="tbl">
+        <thead><tr>
+          <th>Scenario</th>
+          <th class="num">Economic MTM (EC$M)</th>
+          <th class="num">Loan ECL (EC$M)</th>
+          <th class="num">Reported P&amp;L impact (EC$M)</th>
+          <th class="num">% of equity</th>
+          <th class="num">ROE impact</th>
+        </tr></thead>
+        <tbody>          <tr><td class="gold">US recession / equity bear</td><td class="num" style="color:var(--critical);">-19.8</td><td class="num" style="color:var(--critical);">-3.7</td><td class="num" style="color:var(--critical);">-22.4</td><td class="num" style="color:var(--critical);">-11.5%</td><td class="num" style="color:var(--critical);">-1147 bps</td></tr>          <tr><td class="gold">Inflation resurgence</td><td class="num" style="color:var(--critical);">-51.1</td><td class="num" style="color:var(--critical);">-1.8</td><td class="num" style="color:var(--critical);">-28.7</td><td class="num" style="color:var(--critical);">-14.7%</td><td class="num" style="color:var(--critical);">-1473 bps</td></tr>          <tr><td class="gold">Fed hiking cycle</td><td class="num" style="color:var(--critical);">-35.4</td><td class="num" style="color:var(--critical);">-1.1</td><td class="num" style="color:var(--critical);">-18.9</td><td class="num" style="color:var(--critical);">-9.7%</td><td class="num" style="color:var(--critical);">-968 bps</td></tr>          <tr><td class="gold">Soft landing / Fed cuts</td><td class="num" style="color:var(--positive);">+29.2</td><td class="num" style="color:var(--positive);">-0.0</td><td class="num" style="color:var(--positive);">+16.0</td><td class="num" style="color:var(--positive);">+8.2%</td><td class="num" style="color:var(--positive);">+821 bps</td></tr>          <tr><td class="gold">Equity melt-up</td><td class="num" style="color:var(--positive);">+11.2</td><td class="num" style="color:var(--positive);">-0.0</td><td class="num" style="color:var(--positive);">+13.5</td><td class="num" style="color:var(--positive);">+6.9%</td><td class="num" style="color:var(--positive);">+691 bps</td></tr>          <tr><td class="gold">2008-style financial crisis</td><td class="num" style="color:var(--critical);">-31.7</td><td class="num" style="color:var(--critical);">-11.4</td><td class="num" style="color:var(--critical);">-40.3</td><td class="num" style="color:var(--critical);">-20.7%</td><td class="num" style="color:var(--critical);">-2066 bps</td></tr>          <tr><td class="gold">2020-style pandemic shock</td><td class="num" style="color:var(--critical);">-25.4</td><td class="num" style="color:var(--critical);">-6.9</td><td class="num" style="color:var(--critical);">-29.3</td><td class="num" style="color:var(--critical);">-15.0%</td><td class="num" style="color:var(--critical);">-1500 bps</td></tr>          <tr><td class="gold">USD strength (DXY +10%)</td><td class="num" style="color:var(--critical);">-14.5</td><td class="num" style="color:var(--critical);">-0.9</td><td class="num" style="color:var(--critical);">-9.6</td><td class="num" style="color:var(--critical);">-4.9%</td><td class="num" style="color:var(--critical);">-492 bps</td></tr>          <tr><td class="gold">Caribbean sovereign downgrade</td><td class="num" style="color:var(--critical);">-26.5</td><td class="num" style="color:var(--critical);">-4.1</td><td class="num" style="color:var(--critical);">-16.5</td><td class="num" style="color:var(--critical);">-8.5%</td><td class="num" style="color:var(--critical);">-846 bps</td></tr>          <tr><td class="gold">Credit-spread blowout</td><td class="num" style="color:var(--critical);">-24.0</td><td class="num" style="color:var(--critical);">-2.7</td><td class="num" style="color:var(--critical);">-17.7</td><td class="num" style="color:var(--critical);">-9.1%</td><td class="num" style="color:var(--critical);">-909 bps</td></tr>          <tr><td class="gold">Geopolitical / oil shock</td><td class="num" style="color:var(--critical);">-30.1</td><td class="num" style="color:var(--critical);">-2.3</td><td class="num" style="color:var(--critical);">-18.7</td><td class="num" style="color:var(--critical);">-9.6%</td><td class="num" style="color:var(--critical);">-956 bps</td></tr>          <tr><td class="gold">AI / tech concentrated selloff</td><td class="num" style="color:var(--critical);">-16.7</td><td class="num" style="color:var(--critical);">-1.4</td><td class="num" style="color:var(--critical);">-16.0</td><td class="num" style="color:var(--critical);">-8.2%</td><td class="num" style="color:var(--critical);">-820 bps</td></tr>        </tbody>
+      </table>
+      <p style="font-family: var(--serif); font-size: 14px; line-height: 1.65; color: var(--text-secondary); margin: 16px 0; max-width: 840px;">
+        The right-hand columns are the conversation NCBA's board should be having and currently isn't: a single severe scenario (2008-replay) marks the investment book down materially and adds loan losses &mdash; a combined hit measured in basis points of ROE. <strong>Knowing the number in advance is the difference between managing the book and being surprised by it.</strong>
+      </p>
+      <div class="section-header">
+        <div class="section-title">Monte Carlo simulation &mdash; 10,000 annual paths per model</div>
+        <div class="section-meta">Return distribution · Value-at-Risk · expected shortfall · probability of a down year</div>
+      </div>
+      <table class="tbl">
+        <thead><tr>
+          <th>Model</th>
+          <th class="num">Expected return</th>
+          <th class="num">Volatility</th>
+          <th class="num">95% VaR (1yr)</th>
+          <th class="num">99% VaR (1yr)</th>
+          <th class="num">Expected shortfall</th>
+          <th class="num">P(down year)</th>
+          <th class="num">Sharpe</th>
+        </tr></thead>
+        <tbody>          <tr><td class="gold">Conservative</td><td class="num" style="color:var(--positive);">+5.2%</td><td class="num">5.3%</td><td class="num" style="color:var(--critical);">-3.6%</td><td class="num" style="color:var(--critical);">-7.4%</td><td class="num" style="color:var(--critical);">-6.0%</td><td class="num">17%</td><td class="num gold">0.31</td></tr>          <tr><td class="gold">Balanced</td><td class="num" style="color:var(--positive);">+6.1%</td><td class="num">7.3%</td><td class="num" style="color:var(--critical);">-6.1%</td><td class="num" style="color:var(--critical);">-11.2%</td><td class="num" style="color:var(--critical);">-9.2%</td><td class="num">20%</td><td class="num gold">0.35</td></tr>          <tr><td class="gold">Growth</td><td class="num" style="color:var(--positive);">+7.2%</td><td class="num">11.0%</td><td class="num" style="color:var(--critical);">-11.1%</td><td class="num" style="color:var(--critical);">-18.2%</td><td class="num" style="color:var(--critical);">-15.7%</td><td class="num">25%</td><td class="num gold">0.33</td></tr>        </tbody>
+      </table>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">Methodology &mdash; how these numbers are built</div>
+        <p><strong>Scenario impacts:</strong> each model and NCBA holding is decomposed into equity beta, rate duration, and credit-spread duration. A scenario applies an equity shock (× beta), a rate shock (× &minus;duration), and a spread shock (× &minus;spread-duration); FX is applied to non-USD exposure. NCBA's loan-ECL charge is an incremental provision per scenario applied to the EC$457M loan book. <strong>Monte Carlo:</strong> 10,000 draws from a joint normal (equity ann. 8% / vol 16%; bonds 3.2% / 6%; correlation &minus;0.15), combined at each model's equity/FI/cash weights. <em>All figures indicative · to be validated against the live book in the Phase-1 diagnostic. Real markets have fatter tails than the normal draw &mdash; the 99% VaR is therefore a floor, not a worst case; the deterministic 2008/2020 scenarios above are the true tail reference.</em></p>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">06 · How We Manage Money</div>
+      <div class="page-eyebrow">07 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -2179,7 +2257,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">07 · The Ask</div>
+      <div class="page-eyebrow">08 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
