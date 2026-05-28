@@ -1070,6 +1070,61 @@ footer.foot .right .gold { color: var(--gold); }
 
 @media (max-width:1100px){ .deal-hero-stats{ grid-template-columns:1fr 1fr; } .stat-grid{ grid-template-columns:1fr 1fr; } .honest,.market-band{ grid-template-columns:1fr; } }
 
+
+/* ===== SCENARIO — two-layer NCBA balance-sheet impact ===== */
+.scn-layer { border-radius:10px; padding:24px 26px; margin-bottom:16px; border:1px solid var(--border); }
+.scn-layer.l1 { background:linear-gradient(180deg,#0e1519,var(--bg-card)); border-color:#2a4a59; }
+.scn-layer.l2 { background:linear-gradient(180deg,#16130d,var(--bg-card)); border-color:var(--gold-dim); }
+.scn-layer-tag { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:5px; display:flex; align-items:center; gap:8px; }
+.scn-layer.l1 .scn-layer-tag { color:var(--signal); }
+.scn-layer.l2 .scn-layer-tag { color:var(--gold); }
+.scn-layer-tag .dot { width:7px;height:7px;border-radius:50%; }
+.scn-layer.l1 .scn-layer-tag .dot { background:var(--signal); box-shadow:0 0 8px var(--signal); animation:pulse 1.6s infinite; }
+.scn-layer.l2 .scn-layer-tag .dot { background:var(--gold); box-shadow:0 0 8px var(--gold); animation:pulse 1.6s infinite; }
+.scn-layer h3 { font-family:var(--serif); font-size:21px; font-weight:400; margin-bottom:4px; }
+.scn-layer .sub { font-family:var(--sans); font-size:13px; color:var(--text-secondary); margin-bottom:18px; line-height:1.5; }
+
+.bsi-hero { display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--border); }
+.bsi-pl .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:6px; }
+.bsi-pl .num { font-family:var(--serif); font-size:54px; font-weight:300; line-height:1; color:var(--critical); font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+.bsi-pl .ctx { font-family:var(--mono); font-size:11px; color:var(--text-secondary); margin-top:8px; }
+.roe-shift { text-align:center; border-left:1px solid var(--border); }
+.roe-shift .rr { font-family:var(--serif); font-size:30px; font-variant-numeric:tabular-nums; }
+.roe-shift .rr .from { color:var(--positive); } .roe-shift .rr .to { color:var(--critical); } .roe-shift .rr .ar { color:var(--text-tertiary); margin:0 10px; font-size:22px; }
+.roe-shift .rl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); margin-top:8px; }
+
+.bsi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.bsi-cell { background:var(--bg-elevated); border:1px solid var(--border); border-left:2px solid var(--signal); border-radius:0 6px 6px 0; padding:14px 16px; }
+.bsi-cell .bk { font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-tertiary); }
+.bsi-cell .base { font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin-top:1px; }
+.bsi-cell .bv { font-family:var(--serif); font-size:23px; color:var(--critical); font-variant-numeric:tabular-nums; margin:6px 0 3px; }
+.bsi-cell .bv.pos { color:var(--positive); }
+.bsi-cell .bd { font-family:var(--mono); font-size:9.5px; color:var(--text-secondary); line-height:1.4; }
+
+.scn-recs { display:grid; gap:7px; margin-top:8px; }
+.rec-row { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:11px 15px; background:var(--bg-elevated); border-radius:0 4px 4px 0; }
+.rec-row .cat { font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; padding-top:2px; }
+.rec-row .act { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); line-height:1.5; }
+.scn-layer.l1 .rec-row { border-left:2px solid var(--signal); } .scn-layer.l1 .rec-row .cat { color:var(--signal); }
+.scn-layer.l2 .rec-row { border-left:2px solid var(--gold); } .scn-layer.l2 .rec-row .cat { color:var(--gold); }
+.scn-recs-h { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); margin:18px 0 10px; }
+
+.model-dd { display:grid; gap:9px; }
+.mdd-row { display:grid; grid-template-columns:210px 1fr 64px; gap:14px; align-items:center; }
+.mdd-row .ml { font-family:var(--sans); font-size:13px; color:var(--text); }
+.mdd-row .ml small { display:block; font-family:var(--mono); font-size:9px; color:var(--text-tertiary); }
+.mdd-track { height:24px; background:var(--bg-elevated); border-radius:3px; overflow:hidden; }
+.mdd-fill { height:100%; width:0; background:linear-gradient(90deg,#8a3a30,var(--critical)); border-radius:3px; transition:width .9s cubic-bezier(.2,.8,.2,1); }
+.mdd-fill.shallow { background:linear-gradient(90deg,#6e5a30,var(--gold)); }
+.mdd-row .mv { font-family:var(--mono); font-size:13px; text-align:right; color:var(--critical); font-variant-numeric:tabular-nums; }
+
+.scn-frame { background:linear-gradient(135deg,#16130d,var(--bg-card)); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:24px 28px; margin:20px 0; }
+.scn-frame .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.scn-frame p { font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--text-secondary); font-weight:300; margin:0; max-width:920px; }
+.scn-frame em { color:var(--gold); font-style:italic; }
+.scn-illus { font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); margin-top:12px; font-style:italic; }
+@media (max-width:1100px){ .bsi-hero{ grid-template-columns:1fr; } .roe-shift{ border-left:none; } .bsi-grid{ grid-template-columns:1fr 1fr; } .mdd-row{ grid-template-columns:1fr; } }
+
 </style>
 </head>
 
@@ -2639,17 +2694,17 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         07 · SCENARIO SIMULATOR — cinematic, interactive
+         07 · SCENARIO SIMULATOR — two-layer real NCBA balance-sheet impact
          ==================================================================== -->
     <div class="view" data-view="scenarios">
       <div class="page-eyebrow">07 · How We Invest</div>
-      <h1 class="page-title">Scenario Simulator. <em>A flight simulator for the book.</em></h1>
-      <p class="page-subtitle">Click a shock. Watch it ripple through the portfolio in real time, drag the severity, and see ten thousand futures fan out. This is how we pressure-test &mdash; continuously, visually, before the market does it for us. All figures illustrative.</p>
+      <h1 class="page-title">Scenario Simulator. <em>Your real book, stressed in real time.</em></h1>
+      <p class="page-subtitle">Click a shock. We show the EC$ impact on NCBA's <em>actual</em> FY25 balance sheet &mdash; the investment book, the loans, liquidity, and the ROE the board reports &mdash; then exactly what we'd do about it. A separate layer shows how client portfolios react. Drag the severity; everything updates live. Illustrative Analysis — based on FY25 audited figures.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Make it physical. Say: <strong>"Pick a scenario &mdash; China-Taiwan, a rate shock, a hurricane. Watch the impact cascade through the asset classes. Now drag the severity slider &mdash; the whole portfolio reacts live. And at the bottom, the Monte Carlo: every faint line is one possible future under that shock. This is what risk management looks like when it's a live instrument, not a quarterly memo."</strong></p>
-        <p><em>Click a card, drag the slider, let the paths draw. It should feel like a cockpit, not a slide.</em></p>
+        <p>This is the moment. Say: <strong>"Let me show you something no one has shown you before &mdash; your own book under stress, in real time. Pick a rate shock. Watch: your EC$531M investment book marks down by this much, your loan provisions rise by this, and your reported ROE goes from twenty-point-eight percent to this. Now here's exactly what we'd do about it &mdash; across the whole balance sheet, not just stocks. Drag the severity. This is what it means to have a risk desk."</strong></p>
+        <p><em>The top layer is NCBA's own treasury book (real FY25 figures). The lower layer is client portfolios. Two different animals — managed correctly as what they are.</em></p>
       </div>
 
       <div class="scen-cards" id="scen-cards">
@@ -2665,55 +2720,64 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="scen-card" data-s="contagion"><span class="sc-ic">&#9889;</span><div class="sc-cat">Financial</div><h5>Banking-Sector Contagion</h5><div class="sc-prob">~7% / 5yr</div></div>
       </div>
 
-      <div class="sim-stage">
-        <div class="sim-top">
-          <div class="sim-headline">
-            <div class="lbl">Illustrative NAV impact &mdash; <span id="sim-name">China–Taiwan Conflict</span></div>
-            <div class="num" id="sim-nav">0%</div>
-            <div class="sub" id="sim-desc">Equity drawdown, flight-to-quality in rates, regional FX stress.</div>
-          </div>
-          <div class="sim-recovery">
-            <div class="rt" id="sim-rec">—</div>
-            <div class="rl">Illustrative time to recovery</div>
-          </div>
-        </div>
-
-        <div class="cascade" id="cascade">
-          <div class="casc-row"><div class="cl">Equities</div><div class="casc-track"><div class="casc-fill" data-a="eq"></div><div class="casc-val" data-v="eq"></div></div></div>
-          <div class="casc-row"><div class="cl">Fixed Income</div><div class="casc-track"><div class="casc-fill" data-a="fi"></div><div class="casc-val" data-v="fi"></div></div></div>
-          <div class="casc-row"><div class="cl">FX (non-USD)</div><div class="casc-track"><div class="casc-fill" data-a="fx"></div><div class="casc-val" data-v="fx"></div></div></div>
-          <div class="casc-row"><div class="cl">Alternatives</div><div class="casc-track"><div class="casc-fill" data-a="alt"></div><div class="casc-val" data-v="alt"></div></div></div>
-          <div class="casc-row"><div class="cl">Cash</div><div class="casc-track"><div class="casc-fill" data-a="cash"></div><div class="casc-val" data-v="cash"></div></div></div>
-        </div>
-      </div>
-
       <div class="sev-wrap">
-        <div class="sev-head"><div class="sev-label">Severity &mdash; drag to stress</div><div class="sev-val"><span id="sev-pct">70</span>%</div></div>
+        <div class="sev-head"><div class="sev-label">Severity &mdash; drag to stress both layers</div><div class="sev-val"><span id="sev-pct">70</span>%</div></div>
         <input type="range" min="10" max="100" value="70" id="sev-slider" class="sev-slider">
         <div class="sev-axis"><span>Mild</span><span>Moderate</span><span>Severe</span></div>
       </div>
 
-      <div class="sim-lists">
-        <div class="sim-list">
-          <h6>Most-affected holdings</h6>
-          <div id="sim-affected"></div>
+      <!-- LAYER 1 — NCBA OWN BOOK -->
+      <div class="scn-layer l1">
+        <div class="scn-layer-tag"><span class="dot"></span>Layer 1 · NCBA's Own Book — Treasury Impact</div>
+        <h3 id="l1-name">China–Taiwan Conflict</h3>
+        <div class="sub" id="l1-desc">How the shock hits the bank's <strong>actual</strong> balance sheet — investment book, loans, liquidity, capital.</div>
+        <div class="bsi-hero">
+          <div class="bsi-pl">
+            <div class="lbl">Illustrative reported P&amp;L impact</div>
+            <div class="num" id="l1-pl">−EC$0.0M</div>
+            <div class="ctx" id="l1-pl-ctx">vs EC$40.6M FY25 net income</div>
+          </div>
+          <div class="roe-shift">
+            <div class="rr"><span class="from">20.8%</span><span class="ar">&rarr;</span><span class="to" id="l1-roe">—</span></div>
+            <div class="rl">Reported ROE — before / after</div>
+          </div>
         </div>
-        <div class="sim-list">
-          <h6>Pre-staged hedge response</h6>
-          <div id="sim-hedges"></div>
+        <div class="bsi-grid">
+          <div class="bsi-cell"><div class="bk">Investment book</div><div class="base">EC$531M · FY25</div><div class="bv" id="bsi-inv">−EC$0M</div><div class="bd" id="bsi-inv-d">mark-to-market</div></div>
+          <div class="bsi-cell"><div class="bk">Loan book</div><div class="base">EC$457M · FY25</div><div class="bv" id="bsi-loan">+EC$0M</div><div class="bd" id="bsi-loan-d">ECL provision</div></div>
+          <div class="bsi-cell"><div class="bk">Funding &amp; liquidity</div><div class="base">EC$1.175B deposits</div><div class="bv" id="bsi-liq">EC$0M</div><div class="bd" id="bsi-liq-d">outflow at risk</div></div>
+          <div class="bsi-cell"><div class="bk">Common equity</div><div class="base">EC$195.2M · FY25</div><div class="bv" id="bsi-cap">−EC$0M</div><div class="bd" id="bsi-cap-d">capital / CET1 drag</div></div>
         </div>
+        <div class="scn-recs-h">What we'd do — NCBA's book (whole balance sheet)</div>
+        <div class="scn-recs" id="l1-recs"></div>
+        <div class="scn-illus">Illustrative — modelled on disclosed FY25 totals and typical ECCU bank treasury composition (bond-heavy: corp/government bonds EC$372M, repos EC$51M, funds EC$38M, equity EC$51M, T-bills EC$16M). Precise impact requires line-level holdings, captured in the diagnostic phase.</div>
       </div>
 
-      <div class="section-header" style="margin-top:32px;">
-        <div class="section-title">What we'd do about it &mdash; across the entire book</div>
-        <div class="section-meta">Illustrative Analysis — based on FY25 audited figures (investment book EC$531M · loans EC$457M · deposits EC$1.175B)</div>
+      <!-- LAYER 2 — CLIENT WEALTH -->
+      <div class="scn-layer l2">
+        <div class="scn-layer-tag"><span class="dot"></span>Layer 2 · Client Wealth — Model Portfolio Impact</div>
+        <h3>How the same shock hits client portfolios</h3>
+        <div class="sub">Different animal: diversified growth mandates, not a capital-constrained treasury book. Higher-equity models draw down more &mdash; the honest trade-off.</div>
+        <div class="model-dd" id="l2-dd">
+          <div class="mdd-row"><div class="ml">Capital Preservation<small>25% equity · 70% FI · 5% cash</small></div><div class="mdd-track"><div class="mdd-fill shallow" data-m="0"></div></div><div class="mv" data-mv="0"></div></div>
+          <div class="mdd-row"><div class="ml">Income &amp; Stability<small>35% equity · 60% FI · 5% cash</small></div><div class="mdd-track"><div class="mdd-fill shallow" data-m="1"></div></div><div class="mv" data-mv="1"></div></div>
+          <div class="mdd-row"><div class="ml">Balanced Growth<small>50% equity · 45% FI · 5% cash</small></div><div class="mdd-track"><div class="mdd-fill" data-m="2"></div></div><div class="mv" data-mv="2"></div></div>
+          <div class="mdd-row"><div class="ml">Long-Horizon Growth<small>75% equity · 20% FI · 5% cash</small></div><div class="mdd-track"><div class="mdd-fill" data-m="3"></div></div><div class="mv" data-mv="3"></div></div>
+        </div>
+        <div class="scn-recs-h">What we'd do — client portfolios</div>
+        <div class="scn-recs" id="l2-recs"></div>
+        <div class="scn-illus">Illustrative model-portfolio behaviour. Actual client portfolios are managed to each client's Investment Policy Statement.</div>
       </div>
-      <div class="simbook" id="sim-book"></div>
-      <p style="font-family:var(--serif); font-size:14px; line-height:1.6; color:var(--text-secondary); font-style:italic; margin:4px 0 8px; max-width:820px;">Recommendations span the whole balance sheet &mdash; fixed-income duration, FX hedges, liquidity, sector trims, and overlays &mdash; not just an equity sleeve. That is the difference between managing a portfolio and managing a bank's book.</p>
+
+      <!-- FRAMING -->
+      <div class="scn-frame">
+        <div class="lbl">The distinction that signals sophistication</div>
+        <p>A bank's treasury book and a client's wealth portfolio respond to the same shock <em>very differently</em> &mdash; and require different responses. Your EC$531M investment book is a capital-constrained, bond-heavy treasury; your clients' portfolios are diversified growth mandates. We manage both, correctly, as what they are. <em>Most managers treat everything like a stock portfolio. That is the difference between managing a balance sheet and trading equities.</em></p>
+      </div>
 
       <div class="section-header" style="margin-top:24px;">
         <div class="section-title">Monte Carlo &mdash; 10,000 futures under this shock</div>
-        <div class="section-meta">Each faint line is one path · median bold · 90% confidence band shaded</div>
+        <div class="section-meta">Investment-book value path · each faint line is one future · median bold · 90% band shaded</div>
       </div>
       <div class="mc-wrap">
         <div id="mc-sim"></div>
@@ -2721,169 +2785,154 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
 
       <div class="caveat-card" style="border-color: var(--gold-dim); margin-top:20px;">
-        <div class="label" style="color: var(--gold);">Illustrative</div>
-        <p>Every figure on this page is illustrative and conceptual &mdash; built to show the <em>capability</em>, not to forecast. Live scenarios run against the actual book under NDA in the Phase-1 diagnostic, calibrated to NCBA's real positions and risk budget.</p>
+        <div class="label" style="color: var(--gold);">Illustrative Analysis — based on FY25 audited figures</div>
+        <p>Balance-sheet impacts are modelled on NCBA's disclosed FY25 totals and a typical ECCU-bank treasury composition, not line-level holdings. They show the <em>capability</em> and the order of magnitude. Live, position-level scenarios run against the actual book under NDA in the Phase-1 diagnostic.</p>
       </div>
     </div>
 
 
     <script>
     (function(){
-      var SC = {
-        taiwan:   {name:'China–Taiwan Conflict', nav:-18, rec:'14 mo', desc:'Equity drawdown, flight-to-quality in rates, regional FX stress.',
-          imp:{eq:-32,fi:4,fx:-6,alt:8,cash:0},
-          aff:[['Semiconductors / AI','−38%'],['Emerging markets','−27%'],['Developed intl','−19%']],
-          hdg:[['Long USD + gold','+ tail hedge'],['Rotate to defensives','−beta'],['Cut EM exposure','−12%']],
-          book:[['FI','Extend UST duration +1.5y on the EC$531M book — capture the flight-to-quality bid'],['FX','Hedge 90% of the EC$144M non-USD exposure via forwards; add USD longs'],['LIQ','Raise T+0 cash to 8% from the EC$1.175B deposit float'],['EQ','Cut semis/AI & EM −15%; rotate to defensives & quality'],['HEDGE','Gold + index put overlay as a tail hedge']]},
-        rates:    {name:'US Rate Shock +200bp', nav:-9, rec:'8 mo', desc:'Long-duration repricing, growth-equity compression.',
-          imp:{eq:-12,fi:-9,fx:3,alt:-4,cash:1},
-          aff:[['Long-duration bonds','−10%'],['Growth equity','−16%'],['REITs / rate-sensitive','−14%']],
-          hdg:[['Shorten duration','−2.5 yr'],['Floating-rate sleeve','+8%'],['Value tilt','rotate']],
-          book:[['FI','Shorten book duration −2.5y; rotate the EC$531M into floating-rate + T-bills'],['FX','Maintain non-USD hedge; modest USD long'],['LIQ','Ample T+1 access — hold buffers'],['EQ','Trim growth & REITs; value tilt'],['HEDGE','Receive-fixed swap to cushion NIM compression on the deposit book']]},
-        sov:      {name:'Caribbean Sovereign Downgrade', nav:-6, rec:'10 mo', desc:'Regional spread widening, XCD-peg stress on non-USD book.',
-          imp:{eq:-4,fi:-6,fx:-8,alt:-2,cash:0},
-          aff:[['Regional sovereign bonds','−9%'],['XCD-denominated assets','−7%'],['Regional equity','−5%']],
-          hdg:[['Hedge non-USD FX','80% cover'],['Reduce regional','−10%'],['US Treasury ballast','+15%']],
-          book:[['FI','Reduce regional sovereign exposure; reallocate +15% to US Treasuries'],['FX','Hedge the EC$144M non-USD 80% — peg-stress insulation'],['LIQ','Pre-arrange a USD facility against marketable securities'],['EQ','Trim regional equity; keep global core'],['HEDGE','Document ECL re-stage on the EC$457M loan book for the board']]},
-        usd:      {name:'USD Liquidity Crisis', nav:-16, rec:'12 mo', desc:'Dollar funding squeeze, credit and EM under pressure.',
-          imp:{eq:-28,fi:-14,fx:10,alt:-10,cash:2},
-          aff:[['Credit / IG corporate','−13%'],['Emerging markets','−24%'],['Alternatives','−18%']],
-          hdg:[['Raise cash','+10%'],['Long USD','+ funding hedge'],['Quality / large-cap','rotate']],
-          book:[['FI','Up-in-quality; cut credit/IG spread risk −10% of the EC$531M'],['FX','Long USD aggressively — the squeeze favours the dollar'],['LIQ','Raise cash to 12%; pre-draw the standby USD facility'],['EQ','Cut EM −24% and alternatives; rotate to US large-cap'],['HEDGE','Funding-basis hedge; widen liquidity-ladder buffers']]},
-        ai:       {name:'AI Capex Collapse', nav:-13, rec:'11 mo', desc:'Concentrated mega-cap-tech selloff, capex repricing.',
-          imp:{eq:-24,fi:2,fx:0,alt:-6,cash:0},
-          aff:[['NVDA / semis','−42%'],['Mega-cap tech','−29%'],['Growth funds','−21%']],
-          hdg:[['Trim tech overweight','−15%'],['Equal-weight rotation','rebalance'],['Value + quality','+tilt']],
-          book:[['FI','Add duration — safety bid as tech reprices'],['FX','Neutral'],['LIQ','Hold buffers'],['EQ','Trim mega-cap-tech overweight −15%; equal-weight rotation; value/quality tilt'],['HEDGE','Index put spread on concentrated tech beta']]},
-        hurricane:{name:'Major Hurricane — Direct Hit', nav:-5, rec:'9 mo', desc:'Regional insurance & tourism shock, infrastructure disruption.',
-          imp:{eq:-3,fi:-5,fx:-4,alt:-2,cash:0},
-          aff:[['Regional / tourism','−11%'],['Insurance-linked','−9%'],['Local infrastructure','−6%']],
-          hdg:[['Cat-aware positioning','pre-staged'],['US Treasury ballast','+10%'],['Long USD','peg insulation']],
-          book:[['FI','UST ballast +10%; reduce regional/insurance-linked exposure'],['FX','Long USD — peg insulation'],['LIQ','Pre-staged cat-event liquidity; raise T+0'],['EQ','Trim tourism/regional names'],['HEDGE','Parametric cat-aware positioning; coordinate with the MAICO book']]},
-        recession:{name:'Global Recession', nav:-15, rec:'13 mo', desc:'Broad equity de-rating, credit stress, flight to quality.',
-          imp:{eq:-26,fi:6,fx:2,alt:-8,cash:1},
-          aff:[['Cyclicals / high-beta','−31%'],['Credit / HY','−17%'],['EM equity','−24%']],
-          hdg:[['Up-in-quality','rotate'],['Add duration','+2y'],['Raise cash','+10%']],
-          book:[['FI','Extend UST duration +2y; up-in-quality across the EC$531M'],['FX','Long USD; hedge non-USD'],['LIQ','Raise cash to 10%; widen the ladder'],['EQ','Cut high-beta & cyclicals −20%; defensives + quality'],['HEDGE','Pre-stage ECL provisioning on the EC$457M loans; index hedge']]},
-        inflation:{name:'Inflation Resurgence', nav:-11, rec:'10 mo', desc:'Rates higher-for-longer, real-asset bid, nominal-bond repricing.',
-          imp:{eq:-16,fi:-11,fx:3,alt:6,cash:0},
-          aff:[['Long-duration bonds','−13%'],['Long-duration growth','−18%'],['Nominal fixed income','−11%']],
-          hdg:[['Cut nominal duration','−3y'],['Add real assets','+tilt'],['TIPS / floating','+10%']],
-          book:[['FI','Cut nominal duration; add TIPS + floating; rotate the EC$531M short'],['FX','Modest USD long'],['LIQ','Hold'],['EQ','Tilt to value, energy, real assets; trim long-duration growth'],['HEDGE','Commodity/real-asset sleeve; receive-fixed swap']]},
-        tourism:  {name:'Regional Tourism Collapse', nav:-7, rec:'11 mo', desc:'Regional revenue & employment shock, deposit-outflow risk.',
-          imp:{eq:-6,fi:-7,fx:-5,alt:-3,cash:0},
-          aff:[['Tourism / hospitality','−22%'],['Regional credit','−9%'],['Local employment-linked','−7%']],
-          hdg:[['Reduce regional credit','−10%'],['UST ballast','+12%'],['Raise liquidity','buffers']],
-          book:[['FI','Reduce regional credit; UST ballast +12%'],['FX','Hedge non-USD 80%'],['LIQ','Raise buffers — deposit-outflow risk on the EC$1.175B base'],['EQ','Trim regional/tourism/hospitality names'],['HEDGE','Stress the deposit-funding gap; pre-arrange USD liquidity']]},
-        contagion:{name:'Banking-Sector Contagion', nav:-14, rec:'12 mo', desc:'Financial-sector credit stress, counterparty & funding risk.',
-          imp:{eq:-22,fi:-10,fx:6,alt:-9,cash:2},
-          aff:[['Financials / bank credit','−26%'],['Credit / IG','−12%'],['High-beta equity','−24%']],
-          hdg:[['Cut financials cluster','−20%'],['Up-in-quality','rotate'],['Raise cash','+12%']],
-          book:[['FI','Cut the financials/bank-credit cluster (largest issuer concentration); up-in-quality'],['FX','Long USD; funding hedge'],['LIQ','Raise cash to 12%; diversify the EC$50.6M repo counterparties'],['EQ','Cut financials & high-beta −20%'],['HEDGE','Counterparty-risk review across the EC$531M book; CDS-equivalent hedge']]}
+      // ---- NCBA book (FY25 audited totals, EC$M) ----
+      var BK={corpBonds:372.4,repos:50.6,mf:37.9,quotedEq:27.8,unquotedEq:22.9,tbills:15.8,invest:531,loans:457,deposits:1175,equity:195.2,baseNI:40.6,nonUSD:70};
+      var DUR={corp:3.0,tbill:0.4,repo:0.2}, AFS=0.40, BASE_ROE=20.8;
+      // factors at severity 1.0: rate(bp), spread(bp), eq(%), fx(%), ecl(bp add'l), dout(% deposits)
+      var SC={
+        taiwan:{name:'China–Taiwan Conflict',desc:'Equity selloff, flight-to-quality in rates, regional FX & trade stress.',
+          f:{rate:-60,spread:80,eq:-32,fx:-6,ecl:30,dout:2},
+          tre:[['Fixed Income','Hold/extend UST duration — capture the flight-to-quality bid as rates fall'],['Credit','Trim spread-sensitive corporate bonds; up-in-quality'],['Liquidity','Raise T+0 cash from the deposit float; pre-stage USD facility'],['Capital','Flag AFS reserve move to ALCO; equity/fund marks hit FVTPL directly'],['FX','Hedge the non-USD sleeve via forwards']],
+          cli:[['Equity','Cut semis/AI & EM −15%; rotate to defensives & quality'],['Hedge','Gold + index put overlay as tail hedge'],['Fixed Income','Add duration in client FI sleeves'],['Rotation','Reduce beta across growth models']]},
+        rates:{name:'US Rate Shock +200bp',desc:'Long-duration repricing across the bond book — the classic treasury risk.',
+          f:{rate:200,spread:20,eq:-12,fx:3,ecl:15,dout:1},
+          tre:[['Fixed Income','Shorten book duration −2.5y; rotate into floating-rate notes + T-bills'],['Credit','Hold quality; modest spread add as carry improves'],['Liquidity','Ample T+1 access — hold buffers'],['Capital','Largest AFS mark-down driver — stagger realisations to protect CET1'],['NIM','Receive-fixed swap to cushion deposit-cost repricing']],
+          cli:[['Equity','Trim long-duration growth & REITs; value tilt'],['Fixed Income','Shorten client duration; add floating + TIPS'],['Rotation','Quality + value over growth'],['Hedge','Rate-cap overlay on income models']]},
+        sov:{name:'Caribbean Sovereign Downgrade',desc:'Regional spread widening, XCD-peg stress, regional-loan credit risk.',
+          f:{rate:30,spread:150,eq:-4,fx:-8,ecl:60,dout:3},
+          tre:[['Fixed Income','Reduce regional sovereign exposure; reallocate +15% to US Treasuries'],['Credit','Largest hit — regional spread widening on the bond book'],['Liquidity','Pre-arrange USD facility against marketable securities'],['Capital','Model ECL re-stage on the EC$457M loan book for the board'],['FX','Hedge non-USD 80% — peg-stress insulation']],
+          cli:[['Equity','Trim regional equity; keep global core'],['Fixed Income','Cut regional credit; UST ballast'],['Rotation','Global diversification over local concentration'],['Hedge','FX-forward cover on non-USD client assets']]},
+        usd:{name:'USD Liquidity Crisis',desc:'Dollar funding squeeze, credit spreads blow out, deposit-funding pressure.',
+          f:{rate:80,spread:120,eq:-28,fx:10,ecl:45,dout:5},
+          tre:[['Fixed Income','Up-in-quality; cut credit/IG spread risk −10% of the book'],['Liquidity','Raise cash to 12%; pre-draw the standby USD facility'],['Funding','Stress the deposit-funding gap on the EC$1.175B base; diversify wholesale lines'],['Capital','Protect CET1 — defer discretionary distributions'],['FX','Long USD — the squeeze favours the dollar']],
+          cli:[['Equity','Cut EM −24% and alternatives; rotate to US large-cap'],['Fixed Income','Up-in-quality; reduce credit'],['Hedge','Funding-basis hedge; raise cash'],['Rotation','Quality / liquidity over yield']]},
+        ai:{name:'AI Capex Collapse',desc:'Concentrated global mega-cap-tech selloff; limited direct bank-book hit.',
+          f:{rate:-20,spread:20,eq:-24,fx:0,ecl:10,dout:1},
+          tre:[['Fixed Income','Add duration — safety bid as tech reprices'],['Credit','Minimal direct exposure — hold'],['Liquidity','Hold buffers'],['Capital','Small FVTPL mark on equity/fund sleeve only'],['Note','Bank book is bond-heavy — largely insulated from a tech selloff']],
+          cli:[['Equity','Trim mega-cap-tech overweight −15%; equal-weight rotation'],['Rotation','Value + quality tilt'],['Hedge','Index put spread on concentrated tech beta'],['Fixed Income','Add quality duration']]},
+        hurricane:{name:'Major Hurricane — Direct Hit',desc:'Regional loan impairment, deposit outflows for rebuilding, insurance shock.',
+          f:{rate:0,spread:40,eq:-3,fx:-4,ecl:120,dout:6},
+          tre:[['Credit','Largest hit — loan-book impairment (property, tourism, SME). Pre-stage ECL'],['Liquidity','Pre-staged cat-event liquidity; expect deposit drawdowns for rebuilding'],['Fixed Income','UST ballast; reduce regional/insurance-linked bonds'],['Capital','Model the combined ECL + outflow hit to CET1 with ALCO'],['Coordination','Align with the MAICO insurance book on regional exposure']],
+          cli:[['Equity','Trim tourism / regional / hospitality names'],['Fixed Income','UST ballast +10%'],['Hedge','Long USD — peg insulation'],['Rotation','Reduce local-economy concentration']]},
+        recession:{name:'Global Recession',desc:'Broad equity de-rating, credit stress, rising loan defaults, flight to quality.',
+          f:{rate:-50,spread:150,eq:-26,fx:2,ecl:100,dout:3},
+          tre:[['Fixed Income','Extend UST duration +2y; up-in-quality across the book'],['Credit','Reduce cyclical/HY credit; widen provisioning'],['Liquidity','Raise cash to 10%; widen the ladder'],['Capital','Pre-stage ECL provisioning on the EC$457M loans — the dominant hit'],['FX','Long USD; hedge non-USD']],
+          cli:[['Equity','Cut high-beta & cyclicals −20%; defensives + quality'],['Fixed Income','Add duration; up-in-quality'],['Hedge','Index hedge; raise cash'],['Rotation','Quality factor across all models']]},
+        inflation:{name:'Inflation Resurgence',desc:'Rates higher-for-longer, nominal-bond repricing, real-asset bid.',
+          f:{rate:150,spread:40,eq:-16,fx:3,ecl:25,dout:1},
+          tre:[['Fixed Income','Cut nominal duration; add TIPS + floating-rate'],['Credit','Hold quality; spread carry improves'],['Liquidity','Hold'],['Capital','AFS mark-down from rising rates — stagger realisations'],['NIM','Asset-sensitive positioning benefits net interest margin']],
+          cli:[['Equity','Tilt to value, energy, real assets; trim long-duration growth'],['Fixed Income','Cut nominal duration; TIPS + floating'],['Rotation','Real assets / commodities sleeve'],['Hedge','Receive-fixed swap on income models']]},
+        tourism:{name:'Regional Tourism Collapse',desc:'Regional revenue & employment shock, deposit outflows, SME-loan stress.',
+          f:{rate:20,spread:90,eq:-6,fx:-5,ecl:110,dout:7},
+          tre:[['Credit','Largest hit — tourism/SME loan impairment. Pre-stage ECL'],['Funding','Raise buffers — material deposit-outflow risk on the EC$1.175B base'],['Fixed Income','Reduce regional credit; UST ballast +12%'],['Capital','Model combined ECL + funding-gap hit to CET1'],['FX','Hedge non-USD 80%']],
+          cli:[['Equity','Trim regional / tourism / hospitality names'],['Fixed Income','Reduce regional credit'],['Rotation','Global diversification'],['Hedge','USD liquidity buffer']]},
+        contagion:{name:'Banking-Sector Contagion',desc:'Financial-sector credit stress, counterparty & wholesale-funding risk.',
+          f:{rate:40,spread:180,eq:-22,fx:6,ecl:90,dout:8},
+          tre:[['Credit','Cut financials/bank-credit cluster (largest issuer concentration); up-in-quality'],['Funding','Raise cash to 12%; diversify the EC$50.6M repo counterparties'],['Liquidity','Largest outflow scenario — pre-draw all standby lines'],['Capital','Counterparty-risk review across the book; protect CET1'],['FX','Long USD; funding hedge']],
+          cli:[['Equity','Cut financials & high-beta −20%'],['Fixed Income','Up-in-quality; cut bank credit'],['Hedge','CDS-equivalent / put overlay'],['Rotation','Quality + liquidity']]}
       };
-      var CATLBL={FI:'Fixed Income',FX:'FX',LIQ:'Liquidity',EQ:'Equity / Sector',HEDGE:'Overlay'};
+      var CATCli={Equity:'Equity',Fixed:'Fixed Income','Fixed Income':'Fixed Income',Rotation:'Rotation',Hedge:'Hedge'};
+      var MW=[{e:.25,f:.70},{e:.35,f:.60},{e:.50,f:.45},{e:.75,f:.20}]; // model equity/FI weights
       var cur='taiwan', sev=0.70;
-      var navEl=document.getElementById('sim-nav'), nameEl=document.getElementById('sim-name'),
-          descEl=document.getElementById('sim-desc'), recEl=document.getElementById('sim-rec');
 
-      function countTo(el, target){
-        var start=performance.now(), from=parseFloat(el.dataset.cur||'0');
-        el.dataset.cur=target;
-        function step(t){ var p=Math.min((t-start)/700,1); var e=1-Math.pow(1-p,3); var v=from+(target-from)*e;
-          el.textContent=(v>0?'+':'')+v.toFixed(1)+'%'; if(p<1) requestAnimationFrame(step); }
-        requestAnimationFrame(step);
+      function impact(f,s){
+        var rate=f.rate*s, spread=f.spread*s, eq=f.eq*s/100, fx=f.fx*s/100, ecl=f.ecl*s, dout=f.dout*s/100;
+        var bondMTM=-(BK.corpBonds*DUR.corp*((rate+spread)/10000)) - (BK.tbills*DUR.tbill*(rate/10000)) - (BK.repos*DUR.repo*(rate/10000));
+        var eqMTM=(BK.quotedEq+BK.mf+BK.unquotedEq*0.6)*eq;
+        var fxMTM=BK.nonUSD*fx*0.4;
+        var investMTM=bondMTM+eqMTM+fxMTM;
+        var loanECL=BK.loans*(ecl/10000); // positive provision (a cost)
+        var reportedPL=bondMTM*AFS+eqMTM+fxMTM-loanECL;
+        var newNI=BK.baseNI+reportedPL;
+        var newROE=newNI/BK.equity*100;
+        var outflow=BK.deposits*dout;
+        // client model bond return (shorter client duration ~3.0 blended)
+        var cliBond=-(3.0*((rate+0.5*spread)/10000))*100;
+        return {bondMTM:bondMTM,eqMTM:eqMTM,investMTM:investMTM,investBps:investMTM/BK.invest*10000,
+          loanECL:loanECL,reportedPL:reportedPL,newNI:newNI,newROE:newROE,outflow:outflow,
+          outflowPct:dout*100, cliEq:f.eq*s, cliBond:cliBond};
       }
-      function bar(a,val){
-        var fill=document.querySelector('.casc-fill[data-a="'+a+'"]'), lab=document.querySelector('.casc-val[data-v="'+a+'"]');
-        if(!fill) return;
-        var frac=Math.min(Math.abs(val)/40,1)*0.5, w=frac*100;
-        fill.className='casc-fill '+(val<0?'neg':'pos');
-        if(val<0){ fill.style.left=(50-w)+'%'; fill.style.width=w+'%'; }
-        else { fill.style.left='50%'; fill.style.width=w+'%'; }
-        if(lab){ lab.textContent=(val>0?'+':'')+val.toFixed(0)+'%'; lab.style.left=(val<0?(50-w):(50+w))+'%'; lab.style.transform='translate('+(val<0?'-100%':'8px')+',-50%)'; }
+      function ec(v,dec){ var a=Math.abs(v).toFixed(dec==null?1:dec); return (v<0?'−EC$':'+EC$')+a+'M'; }
+      function ecv(v){ return 'EC$'+Math.abs(v).toFixed(1)+'M'; }
+      function anim(el,target,fmt,dur){ var start=performance.now(), from=parseFloat(el.dataset.c||'0'); el.dataset.c=target;
+        function step(t){ var p=Math.min((t-start)/(dur||700),1), e=1-Math.pow(1-p,3), v=from+(target-from)*e; el.textContent=fmt(v); if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step); }
+
+      function renderL1(){
+        var s=SC[cur], r=impact(s.f,sev);
+        document.getElementById('l1-name').textContent=s.name;
+        document.getElementById('l1-desc').innerHTML='How the shock hits the bank’s <strong>actual</strong> balance sheet — investment book, loans, liquidity, capital.';
+        anim(document.getElementById('l1-pl'), r.reportedPL, function(v){return ec(v);}, 800);
+        document.getElementById('l1-pl-ctx').textContent='vs EC$40.6M FY25 net income  ·  '+(r.reportedPL<0?(Math.abs(r.reportedPL/BK.baseNI*100)).toFixed(0)+'% of annual profit':'—');
+        anim(document.getElementById('l1-roe'), r.newROE, function(v){return v.toFixed(1)+'%';}, 800);
+        anim(document.getElementById('bsi-inv'), r.investMTM, function(v){return ec(v);}, 800);
+        document.getElementById('bsi-inv-d').textContent=(r.investBps).toFixed(0)+' bps · bonds '+ec(r.bondMTM)+' · equity '+ec(r.eqMTM);
+        var lc=document.getElementById('bsi-loan'); anim(lc, r.loanECL, function(v){return '+EC$'+v.toFixed(1)+'M';}, 800); lc.classList.remove('pos');
+        document.getElementById('bsi-loan-d').textContent='+'+(s.f.ecl*sev).toFixed(0)+' bps ECL provision';
+        anim(document.getElementById('bsi-liq'), r.outflow, function(v){return 'EC$'+v.toFixed(0)+'M';}, 800);
+        document.getElementById('bsi-liq-d').textContent=r.outflowPct.toFixed(1)+'% deposit outflow at risk';
+        anim(document.getElementById('bsi-cap'), -Math.abs(r.reportedPL), function(v){return ec(v);}, 800);
+        document.getElementById('bsi-cap-d').textContent='retained-earnings / CET1 drag';
+        document.getElementById('l1-recs').innerHTML=s.tre.map(function(x){return '<div class="rec-row"><span class="cat">'+x[0]+'</span><span class="act">'+x[1]+'</span></div>';}).join('');
       }
-      function fillList(id, rows, hedge){
-        var c=document.getElementById(id); if(!c) return; c.innerHTML='';
-        rows.forEach(function(r,i){
-          var d=document.createElement('div'); d.className='sim-li'+(hedge?' hedge':'');
-          d.innerHTML='<span>'+r[0]+'</span><span class="v">'+r[1]+'</span>'; c.appendChild(d);
-          setTimeout(function(){ d.classList.add('in'); }, 120*i+80);
+      function renderL2(){
+        var s=SC[cur], r=impact(s.f,sev), maxScale=34;
+        MW.forEach(function(w,i){ var dd=w.e*r.cliEq + w.f*r.cliBond; // % (negative)
+          var fill=document.querySelector('.mdd-fill[data-m="'+i+'"]'), val=document.querySelector('.mv[data-mv="'+i+'"]');
+          if(fill) fill.style.width=Math.min(Math.abs(dd)/maxScale*100,100)+'%';
+          if(val) val.textContent=dd.toFixed(1)+'%';
         });
-      }
-      function apply(animate){
-        var s=SC[cur];
-        nameEl.textContent=s.name; descEl.textContent=s.desc;
-        recEl.textContent=s.rec;
-        countTo(navEl, s.nav*sev);
-        ['eq','fi','fx','alt','cash'].forEach(function(a){ bar(a, s.imp[a]*sev); });
-        fillList('sim-affected', s.aff.map(function(r){return [r[0], r[1]];}), false);
-        fillList('sim-hedges', s.hdg, true);
-        renderBook(s);
-        drawMC();
-      }
-      function renderBook(s){
-        var c=document.getElementById('sim-book'); if(!c||!s.book) return;
-        c.innerHTML=s.book.map(function(r){ return '<div class="simbook-row"><span class="cat">'+(CATLBL[r[0]]||r[0])+'</span><span class="act">'+r[1]+'</span></div>'; }).join('');
+        document.getElementById('l2-recs').innerHTML=s.cli.map(function(x){return '<div class="rec-row"><span class="cat">'+(CATCli[x[0]]||x[0])+'</span><span class="act">'+x[1]+'</span></div>';}).join('');
       }
 
-      // ---- monte carlo ----
+      // ---- monte carlo (investment-book value path) ----
       function rng(seed){ return function(){ seed=(seed*9301+49297)%233280; return seed/233280; }; }
       function drawMC(){
         var c=document.getElementById('mc-sim'); if(!c) return;
-        var W=640,H=280,pad=10, n=36, steps=48;
-        var trough=SC[cur].nav*sev; // % at worst
-        var r=rng(99);
-        var paths=[], endVals=[];
-        for(var k=0;k<n;k++){
-          var pts=[], v=0;
-          for(var i=0;i<=steps;i++){
-            var prog=i/steps;
-            // shock dip ~ first 30%, then drift recovery
-            var dip = trough * Math.sin(Math.min(prog/0.3,1)*Math.PI/2);
-            var recov = prog>0.3 ? (-trough*0.85)*((prog-0.3)/0.7) : 0;
-            var noise=(r()-0.5)*2*(3+prog*9);
-            v = dip + recov + noise;
-            pts.push(v);
-          }
-          paths.push(pts); endVals.push(pts[steps]);
-        }
-        function X(i){ return pad + (i/steps)*(W-2*pad); }
-        function Y(v){ var lo=trough*1.25-12, hi=14; return pad + (1-(v-lo)/(hi-lo))*(H-2*pad); }
-        // confidence band (10th-90th pct per step)
-        var lo=[],hi2=[];
-        for(var i=0;i<=steps;i++){ var col=paths.map(function(p){return p[i];}).sort(function(a,b){return a-b;}); lo.push(col[Math.floor(n*0.1)]); hi2.push(col[Math.floor(n*0.9)]); }
+        var W=640,H=260,pad=10,n=36,steps=48;
+        var r0=impact(SC[cur].f,sev), trough=r0.investBps/100; // % of investment book at worst
+        var r=rng(99), paths=[];
+        for(var k=0;k<n;k++){ var pts=[],v=0;
+          for(var i=0;i<=steps;i++){ var prog=i/steps;
+            var dip=trough*Math.sin(Math.min(prog/0.3,1)*Math.PI/2);
+            var recov=prog>0.3?(-trough*0.8)*((prog-0.3)/0.7):0;
+            var noise=(r()-0.5)*2*(1.5+prog*5);
+            pts.push(dip+recov+noise); }
+          paths.push(pts); }
+        function X(i){ return pad+(i/steps)*(W-2*pad); }
+        function Y(v){ var lo=trough*1.3-6, hi=8; return pad+(1-(v-lo)/(hi-lo))*(H-2*pad); }
+        var lo=[],hi2=[],med=[];
+        for(var i=0;i<=steps;i++){ var col=paths.map(function(p){return p[i];}).sort(function(a,b){return a-b;}); lo.push(col[Math.floor(n*0.1)]); hi2.push(col[Math.floor(n*0.9)]); med.push(col[Math.floor(n*0.5)]); }
         var band='M'+X(0)+' '+Y(hi2[0]); for(i=1;i<=steps;i++) band+=' L'+X(i)+' '+Y(hi2[i]); for(i=steps;i>=0;i--) band+=' L'+X(i)+' '+Y(lo[i]); band+=' Z';
-        var med=[]; for(i=0;i<=steps;i++){ var col=paths.map(function(p){return p[i];}).sort(function(a,b){return a-b;}); med.push(col[Math.floor(n*0.5)]); }
         var medP='M'+X(0)+' '+Y(med[0]); for(i=1;i<=steps;i++) medP+=' L'+X(i)+' '+Y(med[i]);
-        var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="none" style="height:280px;">';
-        svg+='<line x1="'+pad+'" y1="'+Y(0)+'" x2="'+(W-pad)+'" y2="'+Y(0)+'" stroke="var(--border-strong)" stroke-dasharray="3 4" stroke-width="1"/>';
+        var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="none" style="height:260px;">';
+        svg+='<line x1="'+pad+'" y1="'+Y(0)+'" x2="'+(W-pad)+'" y2="'+Y(0)+'" stroke="var(--border-strong)" stroke-dasharray="3 4"/>';
         svg+='<path class="mc-band" d="'+band+'"/>';
         paths.forEach(function(p,idx){ var d='M'+X(0)+' '+Y(p[0]); for(i=1;i<=steps;i++) d+=' L'+X(i)+' '+Y(p[i]);
           svg+='<path class="mc-path mcp" d="'+d+'" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.3s ease '+(idx*0.012)+'s;"/>'; });
         svg+='<path class="mc-median mcm" d="'+medP+'" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.4s ease .2s;"/>';
-        svg+='</svg>';
-        c.innerHTML=svg;
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){
-          c.querySelectorAll('.mcp').forEach(function(p){ p.style.strokeDashoffset='0'; });
-          var m=c.querySelector('.mcm'); if(m) m.style.strokeDashoffset='0';
-        }); });
+        svg+='</svg>'; c.innerHTML=svg;
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.querySelectorAll('.mcp').forEach(function(p){p.style.strokeDashoffset='0';}); var m=c.querySelector('.mcm'); if(m) m.style.strokeDashoffset='0'; }); });
       }
 
-      // ---- wiring ----
-      var cards=document.getElementById('scen-cards');
-      if(cards) cards.querySelectorAll('.scen-card').forEach(function(card){
-        card.addEventListener('click', function(){
-          cards.querySelectorAll('.scen-card').forEach(function(c){c.classList.toggle('active',c===card);});
-          cur=card.dataset.s; apply(true);
-        });
-      });
-      var slider=document.getElementById('sev-slider'), spct=document.getElementById('sev-pct');
-      if(slider) slider.addEventListener('input', function(){ sev=+slider.value/100; spct.textContent=slider.value;
-        // live bar + nav update without re-staggering lists
-        var s=SC[cur]; countTo(navEl, s.nav*sev); ['eq','fi','fx','alt','cash'].forEach(function(a){ bar(a, s.imp[a]*sev); }); });
+      function apply(){ renderL1(); renderL2(); drawMC(); }
+      function applyLive(){ renderL1(); renderL2(); } // slider: skip MC redraw for smoothness
 
-      // draw on first reveal
-      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ apply(true); io.disconnect(); } }); }, {threshold:0.15});
+      var cards=document.getElementById('scen-cards');
+      if(cards) cards.querySelectorAll('.scen-card').forEach(function(card){ card.addEventListener('click',function(){ cards.querySelectorAll('.scen-card').forEach(function(c){c.classList.toggle('active',c===card);}); cur=card.dataset.s; apply(); }); });
+      var slider=document.getElementById('sev-slider'), spct=document.getElementById('sev-pct');
+      if(slider){ slider.addEventListener('input',function(){ sev=+slider.value/100; spct.textContent=slider.value; applyLive(); });
+        slider.addEventListener('change',function(){ drawMC(); }); }
+
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ apply(); io.disconnect(); } }); },{threshold:0.12});
       var v=document.querySelector('.view[data-view="scenarios"]'); if(v) io.observe(v);
     })();
     </script>
