@@ -581,6 +581,90 @@ footer.foot .right .gold { color: var(--gold); }
   .app { grid-template-columns: 220px 1fr; grid-template-areas: "header header" "sidebar main" "footer footer"; }
   .facts { display: none; }
 }
+
+/* ============= SUB-TABS (within a view) ============= */
+.subtabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.subtab {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  color: var(--text-secondary); background: none; border: none;
+  border-bottom: 2px solid transparent; padding: 12px 20px; cursor: pointer;
+  transition: all 0.15s ease; letter-spacing: 0.01em; display: flex; align-items: center; gap: 8px;
+}
+.subtab .st-num { font-family: var(--mono); font-size: 10px; color: var(--text-quaternary); }
+.subtab:hover { color: var(--text); }
+.subtab.active { color: var(--gold); border-bottom-color: var(--gold); }
+.subtab.active .st-num { color: var(--gold); }
+.subview { display: none; animation: fadeIn 0.3s ease; }
+.subview.active { display: block; }
+
+/* ============= PORTFOLIO DONUTS ============= */
+.pf-layout { display: grid; grid-template-columns: 300px 1fr; gap: 32px; align-items: start; margin-bottom: 28px; }
+.pf-donut-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 24px 22px; position: sticky; top: 8px; }
+.pf-donut { position: relative; width: 220px; height: 220px; margin: 0 auto 18px; }
+.pf-donut .donut-svg { display: block; }
+.donut-seg { transition: opacity 0.18s ease; cursor: pointer; }
+.pf-donut.dim .donut-seg { opacity: 0.28; }
+.pf-donut.dim .donut-seg.hot { opacity: 1; }
+.pf-donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; text-align: center; }
+.pf-donut-center .big { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.pf-donut-center .lbl { font-family: var(--mono); font-size: 9px; color: var(--text-tertiary); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px; }
+.pf-legend { display: grid; gap: 3px; }
+.pf-legend-row { display: grid; grid-template-columns: 11px 1fr auto; gap: 9px; align-items: center; font-family: var(--mono); font-size: 11px; cursor: pointer; padding: 4px 6px; border-radius: 3px; transition: background 0.12s ease; }
+.pf-legend-row:hover { background: var(--bg-hover); }
+.pf-legend-row .dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.pf-legend-row .nm { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-legend-row .pc { color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* before/after dual donut */
+.pf-dual { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 16px; align-items: center; margin-bottom: 28px; }
+.pf-dual .vs { text-align: center; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--gold); }
+.pf-dual .pf-donut-card { position: static; }
+.pf-dual .pf-donut-card h5 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-tertiary); text-align: center; margin-bottom: 14px; }
+.pf-dual .pf-donut-card h5.bad { color: var(--critical); }
+.pf-dual .pf-donut-card h5.good { color: var(--positive); }
+
+/* model selector chips (mass-affluent) */
+.model-chips { display: flex; gap: 8px; margin-bottom: 20px; }
+.model-chip { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 10px 18px; cursor: pointer; transition: all 0.15s ease; }
+.model-chip:hover { border-color: var(--gold-dim); color: var(--text); }
+.model-chip.active { background: linear-gradient(180deg, var(--bg-card) 0%, #1a1614 100%); border-color: var(--gold); color: var(--gold); }
+.model-chip .mc-sub { font-family: var(--mono); font-size: 9px; color: var(--text-tertiary); margin-left: 6px; }
+
+/* approach cards (the "how" narrative blocks) */
+.approach { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 28px; }
+.approach .ac { background: var(--bg-card); border: 1px solid var(--border); border-top: 2px solid var(--gold-dim); padding: 16px 18px; }
+.approach .ac .icon { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gold); margin-bottom: 8px; }
+.approach .ac h5 { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.02em; }
+.approach .ac p { font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+
+/* jurisdiction cards (wealth structuring) */
+.juris-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 28px; }
+.juris { background: var(--bg-card); border: 1px solid var(--border); padding: 20px; cursor: pointer; transition: all 0.18s ease; }
+.juris:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
+.juris.active { border-color: var(--gold); background: linear-gradient(180deg, var(--bg-card) 0%, #1a1614 100%); }
+.juris .flag { font-size: 22px; margin-bottom: 8px; }
+.juris h4 { font-family: var(--serif); font-size: 17px; font-weight: 400; margin-bottom: 4px; }
+.juris .tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.juris ul { list-style: none; padding: 0; margin: 0; }
+.juris ul li { font-family: var(--sans); font-size: 11px; color: var(--text-secondary); padding: 3px 0; border-top: 1px solid var(--border); line-height: 1.4; }
+.juris ul li:first-child { border-top: none; }
+
+/* structuring flow */
+.struct-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 20px 0 28px; align-items: stretch; }
+.struct-step { background: var(--bg-card); border: 1px solid var(--border); padding: 16px 14px; text-align: center; position: relative; }
+.struct-step .n { font-family: var(--mono); font-size: 9px; color: var(--gold); letter-spacing: 0.16em; margin-bottom: 8px; }
+.struct-step .ic { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--gold); margin-bottom: 6px; }
+.struct-step h5 { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.struct-step p { font-family: var(--mono); font-size: 9.5px; color: var(--text-tertiary); margin: 0; line-height: 1.4; }
+
+@media (max-width: 1100px) {
+  .pf-layout { grid-template-columns: 1fr; }
+  .pf-donut-card { position: static; }
+  .pf-dual { grid-template-columns: 1fr; }
+  .pf-dual .vs { display: none; }
+  .approach, .juris-grid { grid-template-columns: 1fr 1fr; }
+  .struct-flow { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 
@@ -647,16 +731,21 @@ footer.foot .right .gold { color: var(--gold); }
         </div>
         <div class="sidebar-item" data-view="models">
           <span class="sidebar-num">04</span><span class="sidebar-item-label">How We Manage Money</span>
+          <span class="sidebar-badge">interactive</span>
+        </div>
+        <div class="sidebar-item" data-view="structuring">
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Wealth Structuring</span>
+          <span class="sidebar-badge">tax · trust</span>
         </div>
         <div class="sidebar-item" data-view="governance">
-          <span class="sidebar-num">05</span><span class="sidebar-item-label">Risk Management</span>
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">Scenario Analysis</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Analysis</span>
           <span class="sidebar-badge">12 + sim</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -668,7 +757,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -762,239 +851,228 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         03 · THE THREE MODELS — Premier Wealth product
+         04 · HOW WE MANAGE MONEY — three mandates, interactive
          ==================================================================== -->
     <div class="view" data-view="models">
       <div class="page-eyebrow">04 · How We Manage Money</div>
-      <h1 class="page-title">How we manage money. <em>And why a client picks us.</em></h1>
-      <p class="page-subtitle">Two mandates, one engine. We manage <strong>institutional money</strong> for the bank's own book, and <strong>client money</strong> for the HNW arrivals who land via residency-by-investment and referral. Same risk discipline, same platform, same transparency. This is the capability Butterfield needs two years to build &mdash; and the reason a sophisticated client picks a regional firm over an offshore name.</p>
+      <h1 class="page-title">How we manage money. <em>Three mandates, one engine.</em></h1>
+      <p class="page-subtitle">We run money three distinct ways. Click through each &mdash; the allocation charts are interactive, the holdings are real, the dollar figures are illustrative against a representative book. Hover any chart segment to isolate it.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>This is where you sell the CEO and her team on the actual money management. Say: <strong>"We run two mandates off one engine. If NCBA places treasury or balance-sheet money with us, that's an institutional mandate &mdash; duration-matched, risk-budgeted, benchmarked. If a HNW client comes in, that's a private mandate &mdash; one of three models, fully transparent, US-listed, no hidden fees. Same risk system underneath both. The reason a client picks us over Butterfield or an offshore name is on this tab: local relationship, global platform, full transparency, and fees materially below the 140&ndash;200 bps offshore wrappers charge."</strong></p>
-        <p><em>If the CIO probes the philosophy: liquid instruments only, defined-risk, benchmark-relative, no leverage in v1, daily risk monitoring. We send the full IPS &amp; methodology under NDA.</em></p>
+        <p>Click the three sub-tabs as you talk. Say: <strong>"We manage money three ways. For a high-net-worth client, a bespoke portfolio &mdash; individual securities, tax-aware, multi-currency. For NCBA's own balance sheet, an institutional diversification of the book you already hold. And for the mass-affluent tier, three clean model portfolios. Same risk engine underneath all three. Let me show you the actual allocations."</strong></p>
+        <p><em>Hover the donut segments. Click the legend rows. This is a live tool, not a printed page &mdash; that's the point.</em></p>
       </div>
 
-      <div class="summary-band">
-        <div class="summary-cell">
-          <div class="summary-cell-label">Mandate types</div>
-          <div class="summary-cell-value gold">2</div>
-          <div class="summary-cell-delta">Institutional + HNW private</div>
-        </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">HNW models</div>
-          <div class="summary-cell-value">3</div>
-          <div class="summary-cell-delta">Conservative · Balanced · Growth</div>
-        </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Fee vs offshore</div>
-          <div class="summary-cell-value positive">100 bps</div>
-          <div class="summary-cell-delta">vs 140–200 bps offshore wrappers</div>
-        </div>
-        <div class="summary-cell">
-          <div class="summary-cell-label">Instruments</div>
-          <div class="summary-cell-value">US-listed</div>
-          <div class="summary-cell-delta">Liquid · transparent · no opaque funds</div>
-        </div>
+      <div class="subtabs">
+        <button class="subtab active" data-sub="hnw"><span class="st-num">A</span>HNW Individuals</button>
+        <button class="subtab" data-sub="ncba"><span class="st-num">B</span>NCBA's Own Book</button>
+        <button class="subtab" data-sub="massaff"><span class="st-num">C</span>Mass-Affluent Models</button>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">The investment philosophy &mdash; the edge</div>
-        <div class="section-meta">What makes our money management different · and defensible</div>
-      </div>
-
-      <div class="moats-grid">
-        <div class="moat-card">
-          <div class="num">EDGE 01 · TRANSPARENCY</div>
-          <h4>Liquid, US-listed, fully visible.</h4>
-          <p>Every position is a US-listed security or ETF the client can look up. No proprietary funds, no offshore wrappers, no embedded layers. The client sees exactly what they own, daily. This alone wins clients away from the 140&ndash;200 bps opaque offshore products they're in today.</p>
+      <!-- ===== SUB-VIEW A: HNW ===== -->
+      <div class="subview active" data-sub="hnw">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">Bespoke mandate &mdash; a representative US$2.5M client</div>
+          <div class="section-meta">Individual securities · tax-aware · multi-currency</div>
         </div>
-        <div class="moat-card">
-          <div class="num">EDGE 02 · DEFINED RISK</div>
-          <h4>Risk-budgeted, benchmark-relative.</h4>
-          <p>Every mandate has an explicit risk budget (volatility target, max drawdown trigger) and a published benchmark. Positions sized to the budget, not to conviction. No leverage in v1. Risk monitored daily (tab 05), not quarterly.</p>
+        <div class="pf-layout">
+          <div class="pf-donut-card">
+            <div class="pf-donut" id="donut-hnw"></div>
+            <div class="pf-legend" id="legend-hnw"></div>
+          </div>
+          <div>
+            <table class="tbl" style="margin-bottom:18px;">
+              <thead><tr><th>Holding</th><th class="num">Weight</th><th class="num">US$</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr><td class="gold">AAPL · MSFT · NVDA · GOOGL (direct)</td><td class="num">18%</td><td class="num">450,000</td><td class="muted">Individual mega-cap — tax-lot control</td></tr>
+                <tr><td class="gold">VOO — S&amp;P 500 core</td><td class="num">10%</td><td class="num">250,000</td><td class="muted">Liquid beta anchor</td></tr>
+                <tr><td class="gold">IJH · IJR — US mid/small</td><td class="num">7%</td><td class="num">175,000</td><td class="muted">Domestic diversifier</td></tr>
+                <tr><td class="gold">VEA · VGK — developed intl</td><td class="num">10%</td><td class="num">250,000</td><td class="muted">Non-US developed</td></tr>
+                <tr><td class="gold">VWO — emerging markets</td><td class="num">5%</td><td class="num">125,000</td><td class="muted">Long-horizon growth</td></tr>
+                <tr><td class="gold">US Treasuries 5y/10y (direct ladder)</td><td class="num">22%</td><td class="num">550,000</td><td class="muted">Duration + safety, held to maturity</td></tr>
+                <tr><td class="gold">IEF — intermediate UST</td><td class="num">8%</td><td class="num">200,000</td><td class="muted">Liquid duration</td></tr>
+                <tr><td class="gold">LQD — IG corporate</td><td class="num">12%</td><td class="num">300,000</td><td class="muted">Spread carry</td></tr>
+                <tr><td class="gold">SHV — cash / liquidity</td><td class="num">8%</td><td class="num">200,000</td><td class="muted">T+0 liquidity buffer</td></tr>
+                <tr class="total"><td>Total</td><td class="num">100%</td><td class="num">2,500,000</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="moat-card">
-          <div class="num">EDGE 03 · THE PLATFORM</div>
-          <h4>Institutional engine, regional delivery.</h4>
-          <p>Factor risk model, scenario engine, live monitoring, audit trail &mdash; the infrastructure of a global asset manager, running for an Eastern Caribbean client base. Tab 06. This is the two-year moat against a consolidating Butterfield.</p>
-        </div>
-        <div class="moat-card">
-          <div class="num">EDGE 04 · LOCAL + GLOBAL</div>
-          <h4>Same regulator, global markets.</h4>
-          <p>ECSRC-supervised, on-island, same time zone &mdash; but invested across 150 global markets via IBKR. The client gets a local relationship they trust and global reach they can't get from a purely local bank.</p>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>Individual securities</h5><p>Direct stock &amp; bond ownership, not fund units &mdash; full transparency and tax-lot control.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Tax-loss harvesting</h5><p>Lot-level loss harvesting and gain deferral — impossible inside a pooled fund.</p></div>
+          <div class="ac"><div class="icon">&#9672;</div><h5>Custom exclusions</h5><p>Per-client ESG screens, sector caps, single-name vetoes applied at the account level.</p></div>
+          <div class="ac"><div class="icon">&#9671;</div><h5>Multi-currency &amp; lending</h5><p>USD/EUR/GBP sleeves and securities-backed lending against the portfolio.</p></div>
         </div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">Mandate A &mdash; institutional money (NCBA's own book)</div>
-        <div class="section-meta">If NCBA places treasury or balance-sheet assets with us</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Dimension</th><th>How we run an institutional mandate</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">Objective</td><td class="muted">Yield + capital preservation against the bank's liability profile · not return-chasing</td></tr>
-          <tr><td class="gold">Construction</td><td class="muted">Duration-matched fixed income core, IG corporate carry, selective equity on surplus capital, FX hedging on non-USD exposure</td></tr>
-          <tr><td class="gold">Risk budget</td><td class="muted">Set with NCBA ALCO · capital-adequacy aware · ECCB-aligned</td></tr>
-          <tr><td class="gold">Benchmark</td><td class="muted">Custom liability-aware benchmark, agreed with NCBA treasury</td></tr>
-          <tr><td class="gold">Reporting</td><td class="muted">Daily NAV/risk, monthly attribution, quarterly IC pack</td></tr>
-          <tr><td class="gold">Fee</td><td class="muted">Institutional rate ~35–45 bps (below the HNW rate — this is self-managed institutional money)</td></tr>
-          <tr><td class="gold">What it replaces</td><td class="muted">The opaque mutual-fund layer + external advisor fees identified in tab 03</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Mandate B &mdash; HNW client money &amp; why they pick us</div>
-        <div class="section-meta">The residency-by-investment arrivals, business owners, offshore Canadians</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>What the HNW client wants</th><th>What we deliver vs the offshore alternative</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">A relationship they can see &amp; trust</td><td class="muted">Local, on-island, ECSRC-supervised &mdash; vs a Bermuda/Cayman private banker they meet twice a year</td></tr>
-          <tr><td class="gold">Transparency on what they own</td><td class="muted">Line-by-line US-listed holdings, daily &mdash; vs opaque fund NAV with holdings disclosed quarterly if at all</td></tr>
-          <tr><td class="gold">Fair fees</td><td class="muted">100 bps all-in &mdash; vs 140–200 bps for offshore Caribbean private banking wrappers</td></tr>
-          <tr><td class="gold">Global reach</td><td class="muted">150 global markets via IBKR · multi-currency · trust &amp; tax structuring referral network (Bermuda/Cayman/St Maarten)</td></tr>
-          <tr><td class="gold">A home when they arrive</td><td class="muted">Residency-by-investment arrivals get banking (NCBA) + wealth (Oceanic) in one introduction — nobody else offers this on-island today</td></tr>
-          <tr><td class="gold">Liquidity &amp; control</td><td class="muted">T+1/T+3 settlement · no lock-ups · own securities in own name at IBKR &mdash; vs fund redemption queues</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">The residency-by-investment channel</div>
-        <div class="section-meta">A concrete, near-term HNW pipeline — flagged by the board</div>
-      </div>
-
-      <div class="narrative-card">
-        <div class="narrative-eyebrow">The pipeline NCBA already sees</div>
-        <div class="narrative-title">RBI arrivals land with no investment home. We are that home.</div>
-        <div class="narrative-body">
-          Anguilla's residency-by-investment program is bringing HNW arrivals &mdash; many Canadians exiting &mdash; into NCBA's orbit <strong>now</strong>. They open banking relationships but there is no premium banking or investment product to keep their wealth. The play: <strong>approach the RBI processing agents</strong> so that when an applicant inquires, the agent says <em>"there's a regional firm that can manage your investments when you arrive."</em> NCBA banks them; Oceanic manages them; the relationship never leaves the region. A small base of these clients builds meaningful recurring income &mdash; and they are exactly the sophisticated, multi-jurisdiction clients Lane 2 is built for.
+      <!-- ===== SUB-VIEW B: NCBA OWN BOOK ===== -->
+      <div class="subview" data-sub="ncba">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">NCBA's own book &mdash; diversifying the EC$531M</div>
+          <div class="section-meta">From a 70% single-asset-class concentration to a diversified, risk-budgeted book</div>
+        </div>
+        <div class="pf-dual">
+          <div class="pf-donut-card">
+            <h5 class="bad">Today &mdash; as audited</h5>
+            <div class="pf-donut" id="donut-ncba-now"></div>
+            <div class="pf-legend" id="legend-ncba-now"></div>
+          </div>
+          <div class="vs">&rarr;</div>
+          <div class="pf-donut-card">
+            <h5 class="good">Proposed &mdash; diversified</h5>
+            <div class="pf-donut" id="donut-ncba-new"></div>
+            <div class="pf-legend" id="legend-ncba-new"></div>
+          </div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9660;</div><h5>Cut concentration</h5><p>Corporate bonds 70% &rarr; 28%, diversified by issuer, sector, and geography.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>Add Treasury ballast</h5><p>25% US Treasury ladder for liquidity, safety, and rate-shock insulation.</p></div>
+          <div class="ac"><div class="icon">&#8644;</div><h5>FX hedge</h5><p>Forward-hedge the non-USD exposure that the audit leaves open.</p></div>
+          <div class="ac"><div class="icon">&#43;</div><h5>+15&ndash;35 bps</h5><p>Indicative risk-adjusted yield uplift on the book — to be validated in diagnostic.</p></div>
+        </div>
+        <div class="caveat-card" style="border-color: var(--gold-dim);">
+          <div class="label" style="color: var(--gold);">Why NCBA would do this</div>
+          <p>NCBA's investment book is 70% in one asset class with no issuer-level disclosure (tab 03). Diversification is not return-chasing &mdash; it is <em>risk reduction at equal-or-better yield</em>. The proposed book keeps NCBA's strategic Caribbean holdings, adds Treasury liquidity, hedges the FX tail, and is built to a stated risk budget agreed with NCBA's ALCO. Indicative &middot; to be validated.</p>
         </div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">The HNW product &mdash; three models</div>
-        <div class="section-meta">What a private client is actually placed into · US-listed · transparent</div>
-      </div>
-
-      <div class="section-header" style="border:none; margin-top:0; padding-bottom:0;">
-        <div class="section-title">Model 01 &mdash; Conservative</div>
-        <div class="section-meta">70 / 25 / 5 · fixed income / equity / cash · preservation-focused</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th><th>Why this exposure</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">US Treasury intermediate</td><td class="num">40%</td><td class="muted">IEF (iShares 7-10y), IEI (3-7y)</td><td class="muted">Duration core · ECCB-eligible · liquid</td></tr>
-          <tr><td class="gold">US Treasury short</td><td class="num">15%</td><td class="muted">SHV, BIL</td><td class="muted">Liquidity buffer · rate-rise insulation</td></tr>
-          <tr><td class="gold">IG corporate bond</td><td class="num">15%</td><td class="muted">LQD, VCIT</td><td class="muted">Yield enhancement at low spread risk</td></tr>
-          <tr><td class="gold">US large-cap equity</td><td class="num">15%</td><td class="muted">VOO (S&amp;P 500)</td><td class="muted">Capital growth · highest liquidity</td></tr>
-          <tr><td class="gold">Developed international equity</td><td class="num">5%</td><td class="muted">VEA</td><td class="muted">Geographic diversification</td></tr>
-          <tr><td class="gold">Emerging markets equity</td><td class="num">5%</td><td class="muted">VWO</td><td class="muted">Long-horizon growth tilt</td></tr>
-          <tr><td class="gold">Cash / money market</td><td class="num">5%</td><td class="muted">SHV / IBKR institutional cash</td><td class="muted">Daily liquidity for redemptions</td></tr>
-          <tr class="total"><td>Total</td><td class="num">100%</td><td class="muted">All US-listed</td><td class="muted">&mdash;</td></tr>
-        </tbody>
-      </table>
-
-      <table class="tbl">
-        <thead><tr><th>Risk &amp; return profile</th><th>Conservative model · indicative</th></tr></thead>
-        <tbody>
-          <tr><td>Target annualised return</td><td class="gold">5–7% net of fees</td></tr>
-          <tr><td>Expected annualised volatility</td><td>6–8%</td></tr>
-          <tr><td>Expected max drawdown (3-year)</td><td>−8% to −12%</td></tr>
-          <tr><td>Expected Sharpe ratio</td><td>0.55–0.70</td></tr>
-          <tr><td>Liquidity profile</td><td>ETF sleeve T+1 · cash sleeve T+0 · 95% of book within 5 business days</td></tr>
-          <tr><td>Suitable for</td><td>Capital preservation · near or in retirement · income-focused clients</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Model 02 &mdash; Balanced</div>
-        <div class="section-meta">50 / 45 / 5 · the canonical reference model · most Premier clients</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th><th>Why this exposure</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">US Treasury intermediate</td><td class="num">30%</td><td class="muted">IEF, IEI · individual UST 5y/10y</td><td class="muted">Duration anchor</td></tr>
-          <tr><td class="gold">US Treasury short</td><td class="num">10%</td><td class="muted">SHV, BIL</td><td class="muted">Rate-rise hedge</td></tr>
-          <tr><td class="gold">IG corporate bond</td><td class="num">10%</td><td class="muted">LQD</td><td class="muted">Spread carry</td></tr>
-          <tr><td class="gold">US large-cap equity</td><td class="num">25%</td><td class="muted">VOO + individual S&amp;P 500 names</td><td class="muted">Core growth engine</td></tr>
-          <tr><td class="gold">US mid / small-cap</td><td class="num">5%</td><td class="muted">IJR, IJH</td><td class="muted">Domestic diversifier</td></tr>
-          <tr><td class="gold">Developed international</td><td class="num">10%</td><td class="muted">VEA, VGK</td><td class="muted">Non-US developed exposure</td></tr>
-          <tr><td class="gold">Emerging markets</td><td class="num">5%</td><td class="muted">VWO</td><td class="muted">Long-horizon allocation</td></tr>
-          <tr><td class="gold">Cash</td><td class="num">5%</td><td class="muted">SHV / institutional cash</td><td class="muted">Daily liquidity buffer</td></tr>
-          <tr class="total"><td>Total</td><td class="num">100%</td><td class="muted">All US-listed</td><td class="muted">&mdash;</td></tr>
-        </tbody>
-      </table>
-
-      <table class="tbl">
-        <thead><tr><th>Risk &amp; return profile</th><th>Balanced model · indicative</th></tr></thead>
-        <tbody>
-          <tr><td>Target annualised return</td><td class="gold">7–9% net of fees</td></tr>
-          <tr><td>Expected annualised volatility</td><td>10–12%</td></tr>
-          <tr><td>Expected max drawdown (3-year)</td><td>−15% to −20%</td></tr>
-          <tr><td>Expected Sharpe ratio</td><td>0.60–0.75</td></tr>
-          <tr><td>Liquidity profile</td><td>ETF sleeve T+1 · individual equity T+3 · 90% within 5 business days</td></tr>
-          <tr><td>Suitable for</td><td>Mid-career clients · 10–15 year horizon · balanced growth &amp; preservation</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Model 03 &mdash; Growth</div>
-        <div class="section-meta">25 / 70 / 5 · long-horizon capital appreciation</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th><th>Why this exposure</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">US large-cap equity</td><td class="num">40%</td><td class="muted">VOO + individual S&amp;P 500 names</td><td class="muted">Primary growth engine</td></tr>
-          <tr><td class="gold">US mid / small-cap</td><td class="num">10%</td><td class="muted">IJR, IJH</td><td class="muted">Higher-beta US exposure</td></tr>
-          <tr><td class="gold">Developed international</td><td class="num">15%</td><td class="muted">VEA, VGK</td><td class="muted">Non-US developed equity</td></tr>
-          <tr><td class="gold">Emerging markets</td><td class="num">5%</td><td class="muted">VWO</td><td class="muted">EM equity overlay</td></tr>
-          <tr><td class="gold">US Treasury intermediate</td><td class="num">15%</td><td class="muted">IEF</td><td class="muted">Equity-drawdown hedge</td></tr>
-          <tr><td class="gold">IG corporate</td><td class="num">5%</td><td class="muted">LQD</td><td class="muted">Spread carry</td></tr>
-          <tr><td class="gold">US Treasury short</td><td class="num">5%</td><td class="muted">SHV, BIL</td><td class="muted">Liquidity buffer</td></tr>
-          <tr><td class="gold">Cash</td><td class="num">5%</td><td class="muted">SHV / institutional cash</td><td class="muted">Daily liquidity</td></tr>
-          <tr class="total"><td>Total</td><td class="num">100%</td><td class="muted">All US-listed</td><td class="muted">&mdash;</td></tr>
-        </tbody>
-      </table>
-
-      <table class="tbl">
-        <thead><tr><th>Risk &amp; return profile</th><th>Growth model · indicative</th></tr></thead>
-        <tbody>
-          <tr><td>Target annualised return</td><td class="gold">9–12% net of fees</td></tr>
-          <tr><td>Expected annualised volatility</td><td>14–17%</td></tr>
-          <tr><td>Expected max drawdown (3-year)</td><td>−25% to −32%</td></tr>
-          <tr><td>Expected Sharpe ratio</td><td>0.55–0.70</td></tr>
-          <tr><td>Liquidity profile</td><td>ETF sleeve T+1 · individual equity T+3 · 90% within 5 business days</td></tr>
-          <tr><td>Suitable for</td><td>Early-career / next-generation clients · 20+ year horizon · drawdown-tolerant</td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-header">
-        <div class="section-title">Tax considerations &mdash; Caribbean clients</div>
-        <div class="section-meta">Indicative · client-specific advice not provided here</div>
-      </div>
-
-      <table class="tbl">
-        <thead><tr><th>Item</th><th>Treatment</th></tr></thead>
-        <tbody>
-          <tr><td class="gold">US withholding on dividends</td><td class="muted">30% standard rate on US-listed dividend payments unless client is in a US tax treaty jurisdiction · same as direct US brokerage</td></tr>
-          <tr><td class="gold">US capital gains</td><td class="muted">Non-resident aliens are not subject to US capital gains tax on listed securities (Internal Revenue Code §871(a)(2))</td></tr>
-          <tr><td class="gold">Anguilla taxation</td><td class="muted">No income tax, no capital gains tax, no wealth tax in Anguilla &mdash; standard client benefit</td></tr>
-          <tr><td class="gold">FATCA / CRS reporting</td><td class="muted">IBKR institutional reports per FATCA &amp; CRS protocols · NCBA already operates within these frameworks</td></tr>
-          <tr><td class="gold">Estate planning</td><td class="muted">US-situs estate tax applies on US-listed holdings above US$60k for non-residents · advisable to discuss with client's estate counsel</td></tr>
-        </tbody>
-      </table>
-
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">A note on what these tables represent</div>
-        <p>Sleeve weights are <em>indicative model targets</em>. Actual portfolios drift between rebalances and can be customised per-client (sector exclusions, ESG screens, individual-name vetoes) without changing the underlying model. Return and risk metrics are <em>indicative · to be validated</em> against the partnership benchmark in the Phase-1 diagnostic &mdash; we do not represent these as historical performance because the live Premier book does not yet exist. All recommendations subject to client IPS, NCBA suitability sign-off, and Oceanic discretionary mandate.</p>
+      <!-- ===== SUB-VIEW C: MASS-AFFLUENT MODELS ===== -->
+      <div class="subview" data-sub="massaff">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">Mass-affluent &mdash; three model portfolios</div>
+          <div class="section-meta">Click a model to see its allocation · all US-listed, all transparent</div>
+        </div>
+        <div class="model-chips">
+          <button class="model-chip active" data-model="cons">Conservative<span class="mc-sub">70/25/5 · 5&ndash;7%</span></button>
+          <button class="model-chip" data-model="bal">Balanced<span class="mc-sub">50/45/5 · 7&ndash;9%</span></button>
+          <button class="model-chip" data-model="grow">Growth<span class="mc-sub">25/70/5 · 9&ndash;12%</span></button>
+        </div>
+        <div class="pf-layout">
+          <div class="pf-donut-card">
+            <div class="pf-donut" id="donut-model"></div>
+            <div class="pf-legend" id="legend-model"></div>
+          </div>
+          <div>
+            <table class="tbl" id="model-holdings" style="margin-bottom:18px;"></table>
+            <table class="tbl" id="model-metrics"></table>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <script>
+    (function() {
+      // ---- donut + legend renderer ----
+      var PAL = ['#c9a961','#8a7642','#5eb3d6','#b08fc9','#6ba37a','#3d7a91','#d4a347','#5a6270','#9c6f4a'];
+      function render(donutId, legendId, segs, big, lbl) {
+        var c = document.getElementById(donutId); if (!c) return;
+        var size=220, stroke=30, r=(size-stroke)/2, cx=size/2, cy=size/2, circ=2*Math.PI*r;
+        var total = segs.reduce(function(s,x){return s+x.v;},0), off=0;
+        var s = '<svg viewBox="0 0 '+size+' '+size+'" width="'+size+'" height="'+size+'" class="donut-svg">';
+        s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="var(--bg-elevated)" stroke-width="'+stroke+'"/>';
+        segs.forEach(function(seg,i){
+          var len=(seg.v/total)*circ;
+          s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+seg.c+'" stroke-width="'+stroke+'" stroke-dasharray="'+len.toFixed(2)+' '+(circ-len).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 '+cx+' '+cy+')" class="donut-seg" data-i="'+i+'"/>';
+          off += len;
+        });
+        s += '</svg><div class="pf-donut-center"><div class="big">'+big+'</div><div class="lbl">'+lbl+'</div></div>';
+        c.innerHTML = s;
+        var leg = document.getElementById(legendId);
+        if (leg) {
+          leg.innerHTML = segs.map(function(seg,i){
+            return '<div class="pf-legend-row" data-i="'+i+'"><span class="dot" style="background:'+seg.c+'"></span><span class="nm">'+seg.n+'</span><span class="pc">'+seg.v+'%</span></div>';
+          }).join('');
+        }
+        // hover isolation
+        function hot(i, on) {
+          var donut = c.querySelector('.pf-donut') || c;
+          c.classList.toggle('dim', on);
+          c.querySelectorAll('.donut-seg').forEach(function(el){ el.classList.toggle('hot', on && +el.dataset.i===i); });
+          if (leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){ el.style.background = (on && +el.dataset.i===i)?'var(--bg-hover)':''; });
+        }
+        c.querySelectorAll('.donut-seg').forEach(function(el){
+          el.addEventListener('mouseenter', function(){ hot(+el.dataset.i, true); });
+          el.addEventListener('mouseleave', function(){ hot(+el.dataset.i, false); });
+        });
+        if (leg) leg.querySelectorAll('.pf-legend-row').forEach(function(el){
+          el.addEventListener('mouseenter', function(){ hot(+el.dataset.i, true); });
+          el.addEventListener('mouseleave', function(){ hot(+el.dataset.i, false); });
+        });
+      }
+
+      // ---- data ----
+      var HNW = [
+        {n:'US mega-cap (direct)',c:PAL[0],v:18},{n:'VOO core',c:PAL[1],v:10},
+        {n:'US mid/small',c:PAL[8],v:7},{n:'Developed intl',c:PAL[2],v:10},
+        {n:'Emerging mkts',c:PAL[3],v:5},{n:'UST 5y/10y direct',c:PAL[4],v:22},
+        {n:'IEF intermediate',c:PAL[5],v:8},{n:'IG corporate',c:PAL[6],v:12},{n:'Cash',c:PAL[7],v:8}
+      ];
+      var NCBA_NOW = [
+        {n:'Corporate bonds',c:PAL[6],v:70},{n:'Repos',c:PAL[5],v:9.5},
+        {n:'Mutual funds',c:PAL[3],v:7.1},{n:'Quoted equity',c:PAL[0],v:5.2},
+        {n:'Unquoted equity',c:PAL[1],v:4.3},{n:'T-bills',c:PAL[4],v:3},{n:'Other',c:PAL[7],v:0.9}
+      ];
+      var NCBA_NEW = [
+        {n:'US Treasuries (ladder)',c:PAL[4],v:25},{n:'IG corporate (diversified)',c:PAL[6],v:28},
+        {n:'Credit / IG ETFs',c:PAL[5],v:8},{n:'Equity (liquid, diversified)',c:PAL[0],v:14},
+        {n:'Intl / EM bonds',c:PAL[2],v:5},{n:'Repos & T-bills',c:PAL[1],v:7},
+        {n:'Cash',c:PAL[7],v:8},{n:'Caribbean strategic',c:PAL[3],v:5}
+      ];
+      var MODELS = {
+        cons: { big:'70/25/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:15},{n:'Developed intl',c:PAL[2],v:5},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:40},{n:'UST short',c:PAL[5],v:15},{n:'IG corporate',c:PAL[6],v:15},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','5–7% net'],['Volatility','6–8%'],['Max drawdown (3y)','−8% to −12%'],['Sharpe (sim)','0.31'],['Suitable for','Preservation · near/in retirement']] },
+        bal: { big:'50/45/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:25},{n:'US mid/small',c:PAL[1],v:5},{n:'Developed intl',c:PAL[2],v:10},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:30},{n:'UST short',c:PAL[5],v:10},{n:'IG corporate',c:PAL[6],v:10},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','7–9% net'],['Volatility','10–12%'],['Max drawdown (3y)','−15% to −20%'],['Sharpe (sim)','0.35'],['Suitable for','Mid-career · 10–15yr horizon']] },
+        grow: { big:'25/70/5', lbl:'FI / EQ / Cash',
+          segs:[{n:'US large-cap',c:PAL[0],v:40},{n:'US mid/small',c:PAL[1],v:10},{n:'Developed intl',c:PAL[2],v:15},{n:'Emerging mkts',c:PAL[3],v:5},{n:'UST intermediate',c:PAL[4],v:15},{n:'UST short',c:PAL[5],v:5},{n:'IG corporate',c:PAL[6],v:5},{n:'Cash',c:PAL[7],v:5}],
+          metrics:[['Target return','9–12% net'],['Volatility','14–17%'],['Max drawdown (3y)','−25% to −32%'],['Sharpe (sim)','0.33'],['Suitable for','Next-gen · 20yr+ horizon']] }
+      };
+
+      function drawModel(key) {
+        var m = MODELS[key];
+        render('donut-model','legend-model', m.segs, m.big, m.lbl);
+        var h = document.getElementById('model-holdings');
+        if (h) h.innerHTML = '<thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th></tr></thead><tbody>' +
+          m.segs.map(function(s){ return '<tr><td class="gold">'+s.n+'</td><td class="num">'+s.v+'%</td><td class="muted">'+vehicleFor(s.n)+'</td></tr>'; }).join('') + '</tbody>';
+        var mt = document.getElementById('model-metrics');
+        if (mt) mt.innerHTML = '<thead><tr><th>Risk &amp; return</th><th>Indicative</th></tr></thead><tbody>' +
+          m.metrics.map(function(r){ return '<tr><td class="gold">'+r[0]+'</td><td class="muted">'+r[1]+'</td></tr>'; }).join('') + '</tbody>';
+      }
+      function vehicleFor(n){
+        var map={'US large-cap':'VOO + S&P names','US mid/small':'IJR, IJH','Developed intl':'VEA, VGK','Emerging mkts':'VWO','UST intermediate':'IEF + UST 5y/10y','UST short':'SHV, BIL','IG corporate':'LQD','Cash':'SHV / institutional'};
+        return map[n]||'';
+      }
+
+      // ---- initial render ----
+      render('donut-hnw','legend-hnw', HNW, 'US$2.5M', 'Bespoke');
+      render('donut-ncba-now','legend-ncba-now', NCBA_NOW, '70%', 'in bonds');
+      render('donut-ncba-new','legend-ncba-new', NCBA_NEW, 'Diversified', '8 sleeves');
+      drawModel('cons');
+
+      // ---- sub-tab switching ----
+      var view = document.querySelector('.view[data-view="models"]');
+      if (view) {
+        view.querySelectorAll('.subtab').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var k = btn.dataset.sub;
+            view.querySelectorAll('.subtab').forEach(function(b){ b.classList.toggle('active', b===btn); });
+            view.querySelectorAll('.subview').forEach(function(v){ v.classList.toggle('active', v.dataset.sub===k); });
+          });
+        });
+        view.querySelectorAll('.model-chip').forEach(function(chip){
+          chip.addEventListener('click', function(){
+            view.querySelectorAll('.model-chip').forEach(function(c){ c.classList.toggle('active', c===chip); });
+            drawModel(chip.dataset.model);
+          });
+        });
+      }
+    })();
+    </script>
 
 
     <!-- ====================================================================
@@ -1660,10 +1738,108 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
+         05 · WEALTH STRUCTURING — tax, trust, multi-jurisdiction
+         ==================================================================== -->
+    <div class="view" data-view="structuring">
+      <div class="page-eyebrow">05 · How We Manage Money</div>
+      <h1 class="page-title">Wealth Structuring. <em>Beyond the portfolio.</em></h1>
+      <p class="page-subtitle">The HNW client arriving through Anguilla's residency-by-investment program doesn't just need a portfolio &mdash; they need a structure: a trust, a tax-efficient wrapper, and coordination across the jurisdictions they touch. Most are intimidated by the complexity. It isn't complex &mdash; once someone sets it up properly. That someone is the partnership. Click a jurisdiction below.</p>
+
+      <div class="open-this">
+        <div class="label">When you open this tab in the meeting</div>
+        <p>This is the "what else" that turns a portfolio into a relationship. Say: <strong>"Your residency-by-investment arrivals don't just want returns &mdash; they want their affairs structured. Trusts, tax efficiency, estate planning across Anguilla, Bermuda, Cayman, St Maarten. We bring the legal and tax partner network; you keep the client and the banking. This is what makes the relationship sticky for thirty years instead of a portfolio they can move."</strong></p>
+        <p><em>Click the jurisdiction cards &mdash; each shows what it's actually used for. The five-step flow shows the client journey from arrival to estate plan.</em></p>
+      </div>
+
+      <div class="summary-band">
+        <div class="summary-cell"><div class="summary-cell-label">Jurisdictions covered</div><div class="summary-cell-value gold">4</div><div class="summary-cell-delta">Anguilla · Bermuda · Cayman · St Maarten</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Partner network</div><div class="summary-cell-value">Legal + Tax</div><div class="summary-cell-delta">Trust &amp; tax specialists per jurisdiction</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Client trigger</div><div class="summary-cell-value">RBI arrival</div><div class="summary-cell-delta">Residency-by-investment pipeline</div></div>
+        <div class="summary-cell"><div class="summary-cell-label">Relationship horizon</div><div class="summary-cell-value positive">Multi-decade</div><div class="summary-cell-delta">Structure → stickiness</div></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The jurisdictions &mdash; click to explore</div>
+        <div class="section-meta">What each is actually used for · in plain terms</div>
+      </div>
+
+      <div class="juris-grid" id="juris-grid">
+        <div class="juris active" data-j="anguilla">
+          <div class="flag">&#9673;</div>
+          <h4>Anguilla</h4>
+          <div class="tag">Home base · residency</div>
+          <ul><li>Zero income / capital-gains / wealth tax</li><li>Residency-by-investment program</li><li>ECSRC-supervised investment account</li><li>The client's banking + wealth home</li></ul>
+        </div>
+        <div class="juris" data-j="bermuda">
+          <div class="flag">&#9671;</div>
+          <h4>Bermuda</h4>
+          <div class="tag">Trust &amp; insurance</div>
+          <ul><li>Mature trust law &amp; case precedent</li><li>Captive insurance / PCC structures</li><li>Where the legacy offshore wealth often already sits</li><li>Partner network in place</li></ul>
+        </div>
+        <div class="juris" data-j="cayman">
+          <div class="flag">&#9672;</div>
+          <h4>Cayman</h4>
+          <div class="tag">Funds &amp; holding co</div>
+          <ul><li>Holding-company &amp; SPV structures</li><li>Fund domicile if pooling is ever needed</li><li>Globally-recognised for institutional capital</li><li>Partner network in place</li></ul>
+        </div>
+        <div class="juris" data-j="stmaarten">
+          <div class="flag">&#9670;</div>
+          <h4>St Maarten</h4>
+          <div class="tag">Regional tie</div>
+          <ul><li>Geographically &amp; commercially tied to Anguilla</li><li>Dutch-Caribbean legal access</li><li>On-island operational leverage</li><li>Network being built</li></ul>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The client structuring journey</div>
+        <div class="section-meta">From residency application to estate plan · one coordinated relationship</div>
+      </div>
+
+      <div class="struct-flow">
+        <div class="struct-step"><div class="n">01</div><div class="ic">&#9673;</div><h5>Residency</h5><p>RBI applicant referred by processing agent</p></div>
+        <div class="struct-step"><div class="n">02</div><div class="ic">&#9636;</div><h5>Banking</h5><p>NCBA premier banking relationship opened</p></div>
+        <div class="struct-step"><div class="n">03</div><div class="ic">&#9671;</div><h5>Structure</h5><p>Trust / holding co set up with partner network</p></div>
+        <div class="struct-step"><div class="n">04</div><div class="ic">&#9650;</div><h5>Invest</h5><p>Bespoke portfolio inside the structure</p></div>
+        <div class="struct-step"><div class="n">05</div><div class="ic">&#9672;</div><h5>Estate</h5><p>Succession &amp; estate plan across jurisdictions</p></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">What the partnership delivers</div>
+        <div class="section-meta">The full-service layer that keeps the client for decades</div>
+      </div>
+
+      <div class="approach">
+        <div class="ac"><div class="icon">&#9671;</div><h5>Trust formation</h5><p>Asset-protection &amp; succession trusts via vetted Bermuda/Cayman counsel.</p></div>
+        <div class="ac"><div class="icon">&#9670;</div><h5>Tax structuring</h5><p>Treaty-aware, residence-aware planning &mdash; legitimate efficiency, fully disclosed.</p></div>
+        <div class="ac"><div class="icon">&#9636;</div><h5>Estate &amp; succession</h5><p>Multi-jurisdiction wills, US-situs estate-tax mitigation on US holdings.</p></div>
+        <div class="ac"><div class="icon">&#9673;</div><h5>One coordinator</h5><p>The partnership orchestrates the specialists &mdash; the client deals with one relationship.</p></div>
+      </div>
+
+      <div class="caveat-card" style="border-color: var(--gold-dim);">
+        <div class="label" style="color: var(--gold);">Why this is the moat, not a side-service</div>
+        <p>A portfolio can be moved with a signature. <em>A structure cannot.</em> Once a client's trust, tax plan, and estate arrangements are built around the NCBA &times; Oceanic relationship, the relationship is multi-decade and effectively un-poachable &mdash; by Butterfield or anyone. This is the difference between renting a client and owning one. We bring the legal and tax partner network across the jurisdictions; NCBA keeps the client and the banking. <em>Specialist legal and tax advice is delivered by licensed third-party partners; Oceanic coordinates, it does not provide legal or tax opinions directly.</em></p>
+      </div>
+    </div>
+
+
+    <script>
+    (function(){
+      var grid = document.getElementById('juris-grid');
+      if (!grid) return;
+      grid.querySelectorAll('.juris').forEach(function(card){
+        card.addEventListener('click', function(){
+          grid.querySelectorAll('.juris').forEach(function(c){ c.classList.toggle('active', c===card); });
+        });
+      });
+    })();
+    </script>
+
+
+    <!-- ====================================================================
          05 · RISK ARCHITECTURE — how we manage the client book
          ==================================================================== -->
     <div class="view" data-view="governance">
-      <div class="page-eyebrow">05 · How We Manage Money</div>
+      <div class="page-eyebrow">06 · How We Manage Money</div>
       <h1 class="page-title">Risk Management. <em>The discipline that wins HNW trust.</em></h1>
       <p class="page-subtitle">Position limits, liquidity tiers, live VaR, an adversarial stress-testing engine, counterparty insulation. This is the framework that runs on Premier client portfolios every day &mdash; not a slide. Most of it is operating against Oceanic's own institutional book right now; it transfers to the Premier mandate on day one.</p>
 
@@ -2032,7 +2208,7 @@ footer.foot .right .gold { color: var(--gold); }
          06 · SCENARIO ANALYSIS — stress on models + NCBA's entire book
          ==================================================================== -->
     <div class="view" data-view="scenarios">
-      <div class="page-eyebrow">06 · How We Manage Money</div>
+      <div class="page-eyebrow">07 · How We Manage Money</div>
       <h1 class="page-title">Scenario Analysis. <em>Twelve shocks, two books, one simulation.</em></h1>
       <p class="page-subtitle">Twelve world and market events, each shocked across equity, rates, credit spreads, and FX. We show how the three model portfolios react &mdash; and, separately, what each event does to NCBA's <strong>entire</strong> EC$531M investment book plus loan-ECL on the broader balance sheet. Then a 10,000-path Monte Carlo on the models. All impacts computed from the actual allocations and FY25 figures; methodology disclosed below.</p>
 
@@ -2106,7 +2282,7 @@ footer.foot .right .gold { color: var(--gold); }
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">07 · How We Manage Money</div>
+      <div class="page-eyebrow">08 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -2257,7 +2433,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">08 · The Ask</div>
+      <div class="page-eyebrow">09 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
