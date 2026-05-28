@@ -56,14 +56,16 @@ body::after {
 
 .app {
   display: grid;
-  grid-template-columns: 280px 1fr 360px;
+  grid-template-columns: 280px 1fr;
   grid-template-rows: 56px 1fr 32px;
   grid-template-areas:
-    "header header header"
-    "sidebar main facts"
-    "footer footer footer";
+    "header header"
+    "sidebar main"
+    "footer footer";
   height: 100vh; position: relative; z-index: 1;
 }
+/* right-rail removed globally for full-width content */
+.facts { display: none !important; }
 
 /* ============= HEADER ============= */
 .header {
