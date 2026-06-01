@@ -1286,6 +1286,102 @@ footer.foot .right .gold { color: var(--gold); }
 .plat-deliver li::before { content:'\2713'; color:var(--positive); position:absolute; left:0; top:3px; font-size:12px; line-height:1; }
 @media (max-width:1100px){ .plat-grid{ grid-template-columns:1fr 1fr; } .sa-legend{ grid-template-columns:1fr; } .plat-deliver ul{ grid-template-columns:1fr; } }
 
+
+/* ========== REDESIGNED SUB-ADVISORY FLOW ========== */
+.sa2-wrap { position:relative; background: radial-gradient(ellipse at 50% 30%, #181c22 0%, var(--bg) 85%); border:1px solid var(--border); border-radius:10px; padding:36px 32px 30px; margin-bottom:22px; overflow:hidden; }
+.sa2-wrap::before { content:''; position:absolute; inset:0; background-image: radial-gradient(circle at 1px 1px, rgba(201,169,97,.04) 1px, transparent 0); background-size: 22px 22px; pointer-events:none; }
+.sa2-svg { display:block; width:100%; height:auto; max-width:1100px; margin:0 auto; position:relative; }
+.sa2-perim { fill: rgba(201,169,97,.03); stroke: var(--gold-dim); stroke-width: 1.5; stroke-dasharray: 6 6; }
+.sa2-perim-label { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; fill: var(--gold); }
+.sa2-node-rect { fill: var(--bg-card); stroke-width:2; transition: all .25s ease; }
+.sa2-node-rect.client { stroke: var(--gold); }
+.sa2-node-rect.bank { stroke: var(--signal); stroke-width:2.5; }
+.sa2-node-rect.us { stroke: var(--gold); stroke-width:2.5; }
+.sa2-node-rect.cust { stroke: var(--text-tertiary); stroke-dasharray: 5 4; }
+.sa2-node-rect.glow { filter: drop-shadow(0 0 18px rgba(201,169,97,.4)); }
+.sa2-title { font-family: var(--serif); font-weight: 400; }
+.sa2-role { font-family: var(--mono); letter-spacing: .14em; }
+.sa2-sub { font-family: var(--mono); letter-spacing: .04em; }
+.sa2-flow { fill: none; stroke-width: 2.5; transition: opacity .25s, stroke-width .25s; }
+.sa2-flow.gold { stroke: var(--gold); }
+.sa2-flow.teal { stroke: var(--signal); }
+.sa2-flow.dim { opacity: .12; }
+.sa2-flow-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; fill: var(--text-secondary); transition: opacity .25s; }
+.sa2-flow-label.dim { opacity: .15; }
+.sa2-num { cursor: pointer; transition: all .25s ease; }
+.sa2-num circle { transition: r .2s, stroke-width .2s; }
+.sa2-num:hover circle { r: 17; stroke-width: 3; }
+.sa2-num.gold circle { fill: var(--gold); stroke: #0a0b0d; stroke-width: 2; }
+.sa2-num.teal circle { fill: var(--signal); stroke: #0a0b0d; stroke-width: 2; }
+.sa2-num text { fill: #0a0b0d; font-family: var(--mono); font-weight: 700; font-size: 13px; pointer-events:none; }
+.sa2-marker { fill: var(--gold); }
+.sa2-marker.teal { fill: var(--signal); }
+.sa2-legend { display:grid; grid-template-columns: repeat(2,1fr); gap:8px 24px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+.sa2-leg-row { display:grid; grid-template-columns: 28px 1fr; gap:12px; align-items:start; font-family: var(--sans); font-size: 13px; color: var(--text-secondary); line-height: 1.55; padding:6px 8px; border-radius:4px; transition: background .2s; cursor: pointer; }
+.sa2-leg-row:hover { background: var(--bg-elevated); }
+.sa2-leg-row .ln { font-family: var(--mono); font-size: 11.5px; font-weight: 700; color: #0a0b0d; background: var(--gold); border-radius: 50%; width: 24px; height: 24px; display:flex; align-items:center; justify-content:center; }
+.sa2-leg-row.teal .ln { background: var(--signal); }
+.sa2-leg-row b { color: var(--text); }
+.sa2-verify { font-family:var(--mono); font-size:10px; color:var(--text-tertiary); line-height:1.55; margin:0 0 28px; padding:12px 16px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0; }
+.sa2-verify b { color:var(--gold); }
+
+/* ========== CO-BRANDING SECTION ========== */
+.cobrand-wrap { background: linear-gradient(135deg, #16130d 0%, var(--bg-card) 60%); border: 1px solid var(--gold-dim); border-radius: 8px; padding: 28px 30px; margin-bottom: 22px; }
+.cobrand-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.cobrand-h h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--gold); margin:0; }
+.cobrand-h .tag { font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color:#0a0b0d; background: var(--gold); padding: 4px 10px; border-radius: 3px; }
+.cobrand-sub { font-family: var(--serif); font-size: 16px; color: var(--text-secondary); line-height: 1.6; font-style: italic; margin-bottom: 22px; max-width: 800px; }
+.cobrand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cobrand-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 6px; padding: 18px 20px; }
+.cobrand-card .ic { font-family: var(--serif); font-size: 22px; color: var(--gold); margin-bottom: 8px; font-style: italic; }
+.cobrand-card h5 { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+.cobrand-card p { font-family: var(--sans); font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+
+/* ========== ALTERNATIVES COMPARISON ========== */
+.alt-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 8px 0 22px; }
+.alt-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--text-tertiary); border-radius: 6px; padding: 20px 22px; }
+.alt-card.win { border-top-color: var(--gold); background: linear-gradient(180deg, var(--bg-card) 0%, #1a1614 100%); }
+.alt-card .alt-h { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-tertiary); }
+.alt-card.win .alt-h { color: var(--gold); }
+.alt-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 400; margin: 6px 0 12px; line-height: 1.2; color: var(--text); }
+.alt-card .row { display:grid; grid-template-columns: 80px 1fr; gap: 8px; font-family: var(--mono); font-size: 11px; padding: 6px 0; border-top: 1px solid var(--border); }
+.alt-card .row:first-of-type { border-top: none; }
+.alt-card .row .k { color: var(--text-tertiary); }
+.alt-card .row .v { color: var(--text); }
+.alt-card .row .v.bad { color: var(--critical); } .alt-card .row .v.mid { color: var(--warning); } .alt-card .row .v.good { color: var(--positive); }
+.alt-card.win .row .v.good { color: var(--gold); font-weight: 600; }
+.alt-card .verdict { font-family: var(--sans); font-size: 12px; color: var(--text-secondary); line-height: 1.5; padding-top: 10px; border-top: 1px solid var(--border); margin-top: 6px; font-style: italic; }
+.alt-card.win .verdict { color: var(--gold); font-style: normal; }
+
+/* ========== THREE LANES UNDER ONE ENGINE ========== */
+.lanes-wrap { background: radial-gradient(ellipse at 50% 20%, #181c22 0%, var(--bg) 85%); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px 24px; margin-bottom: 26px; position: relative; overflow: hidden; }
+.lanes-wrap::before { content:''; position:absolute; inset:0; background-image: radial-gradient(circle at 1px 1px, rgba(201,169,97,.04) 1px, transparent 0); background-size: 22px 22px; pointer-events:none; }
+.lanes-svg { display: block; width: 100%; height: auto; max-width: 1100px; margin: 0 auto; position: relative; }
+.lane-box-rect { fill: var(--bg-card); stroke-width: 2; }
+.lane-box-rect.l1 { stroke: var(--signal); }
+.lane-box-rect.l2 { stroke: var(--gold); stroke-width: 2.5; }
+.lane-box-rect.l3 { stroke: #b08fc9; }
+.lane-title { font-family: var(--serif); fill: var(--text); }
+.lane-tag { font-family: var(--mono); letter-spacing: .14em; }
+.lane-tag.l1 { fill: var(--signal); }
+.lane-tag.l2 { fill: var(--gold); }
+.lane-tag.l3 { fill: #b08fc9; }
+.lane-step { font-family: var(--sans); fill: var(--text-secondary); }
+.lane-sub { font-family: var(--mono); fill: var(--text-tertiary); }
+.lane-arrow { fill: none; stroke-width: 2; }
+.lane-arrow.l1 { stroke: var(--signal); }
+.lane-arrow.l2 { stroke: var(--gold); }
+.lane-arrow.l3 { stroke: #b08fc9; }
+.engine-bar { fill: url(#engineGrad); stroke: var(--gold); stroke-width: 2; }
+.engine-title { font-family: var(--serif); fill: #0a0b0d; font-weight: 400; }
+.engine-pill { fill: rgba(10,11,13,.6); stroke: var(--gold); stroke-width: 1; }
+.engine-pill-text { font-family: var(--mono); fill: var(--text); font-weight: 600; }
+.lanes-quote { background: linear-gradient(135deg, #16130d 0%, var(--bg-card) 70%); border: 1px solid var(--gold-dim); border-left: 4px solid var(--gold); border-radius: 6px; padding: 18px 22px; margin-bottom: 18px; font-family: var(--serif); font-size: 16px; color: var(--text-secondary); font-style: italic; line-height: 1.6; }
+.lanes-quote em { color: var(--gold); font-style: italic; }
+.lanes-quote .who { display:block; font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-top: 8px; font-style: normal; }
+
+@media (max-width:1100px){ .cobrand-grid{ grid-template-columns: 1fr 1fr; } .alt-grid{ grid-template-columns: 1fr 1fr; } .sa2-legend{ grid-template-columns: 1fr; } }
+
 </style>
 </head>
 
@@ -1424,6 +1520,62 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="label">When you open this tab in the meeting</div>
         <p>Click all three sub-tabs as you talk. Say: <strong>"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get a bespoke mandate &mdash; and I'll show you exactly why they'd leave their offshore bank for it. And your own balance sheet gets managed like a hedge-fund risk desk, not a buy-and-hold bond book. Same risk engine underneath all three."</strong></p>
         <p><em>The risk/return chart, the model donuts, the HNW comparison, the institutional risk engine &mdash; all live. Hover and click.</em></p>
+      </div>
+
+      <div class="lanes-quote">"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get a bespoke mandate &mdash; and I'll show you exactly why they'd leave their offshore bank for it. And your own balance sheet gets managed like a hedge-fund risk desk, not a buy-and-hold bond book. <em>Same risk engine underneath all three.</em>"<span class="who">The structure, in one breath</span></div>
+
+      <div class="lanes-wrap">
+        <div class="lanes-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px;">
+
+          <div class="lane-col l1" style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid var(--signal); border-radius:8px; padding:20px 22px;">
+            <div style="font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--signal);">Lane 1 &middot; Branch / Mass-affluent</div>
+            <h4 style="font-family:var(--serif); font-size:17px; font-weight:400; margin:6px 0 12px; color:var(--text); line-height:1.2;">Your retail wealth clients</h4>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10112; KYC</b> at the branch</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10113; Discovery</b> &middot; risk score 1&ndash;10</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10114; Assigned</b> to one of <b style="color:var(--gold)">4 model portfolios</b></div>
+            <div style="font-family:var(--mono); font-size:10.5px; color:var(--gold); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); letter-spacing:.04em;">Conservative &middot; Income &middot; Balanced &middot; Growth</div>
+          </div>
+
+          <div class="lane-col l2" style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid var(--gold); border-radius:8px; padding:20px 22px;">
+            <div style="font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold);">Lane 2 &middot; High-Net-Worth</div>
+            <h4 style="font-family:var(--serif); font-size:17px; font-weight:400; margin:6px 0 12px; color:var(--text); line-height:1.2;">RBI arrivals + existing depositors</h4>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10112; Situation captured</b> &mdash; goals, tax, FX, concentrations</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10113; Bespoke portfolio</b> constructed line-by-line</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10114; Trust / tax structuring</b> coordinated</div>
+            <div style="font-family:var(--serif); font-style:italic; font-size:12.5px; color:var(--gold); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.45;">The platform that wins them back from offshore</div>
+          </div>
+
+          <div class="lane-col l3" style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid #b08fc9; border-radius:8px; padding:20px 22px;">
+            <div style="font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:#b08fc9;">Lane 3 &middot; The Bank's Own Treasury</div>
+            <h4 style="font-family:var(--serif); font-size:17px; font-weight:400; margin:6px 0 12px; color:var(--text); line-height:1.2;">Your investment + loan book</h4>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10112; Factor decomposition</b> &middot; concentration mapping</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10113; Live VaR</b> &middot; adversarial stress &middot; scenarios</div>
+            <div style="font-family:var(--mono); color:var(--gold-dim); font-size:14px; padding:1px 0 1px 6px;">&darr;</div>
+            <div style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:6px 0;"><b style="color:var(--text)">&#10114; Dynamic positioning</b> by market regime</div>
+            <div style="font-family:var(--serif); font-style:italic; font-size:12.5px; color:#b08fc9; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.45;">Managed like a hedge-fund risk desk &mdash; not a buy-and-hold bond book</div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; font-family:var(--mono); font-size:10px; letter-spacing:.22em; color:var(--gold); padding:8px 0; text-transform:uppercase;">&darr; &nbsp; same engine underneath all three &nbsp; &darr;</div>
+
+        <div class="lane-engine" style="background:linear-gradient(90deg, #c9a961 0%, #d4b878 50%, #c9a961 100%); border-radius:8px; padding:22px 28px; text-align:center;">
+          <div style="font-family:var(--serif); font-size:24px; font-weight:500; color:#0a0b0d; letter-spacing:.01em;">ONE RISK ENGINE</div>
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#0a0b0d; opacity:.7; margin-top:4px; margin-bottom:16px;">running underneath all three lanes</div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:7px;">
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">live VaR</span>
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">adversarial stress</span>
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">scenario simulator</span>
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">regime overlay</span>
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">factor decomposition</span>
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:600; color:var(--text); background:#0a0b0d; padding:6px 12px; border-radius:3px; letter-spacing:.04em;">concentration grid</span>
+          </div>
+        </div>
       </div>
 
       <div class="subtabs">
@@ -1774,70 +1926,111 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         01 · SUB-ADVISORY — direct flow chart + platform offering
+         01 · SUB-ADVISORY — redesigned flow + co-branding + alternatives
          ==================================================================== -->
     <div class="view active" data-view="legal">
       <div class="page-eyebrow">01 · The Structure</div>
       <h1 class="page-title">Sub-advisory. <em>How it works &mdash; and what we deliver.</em></h1>
-      <p class="page-subtitle">The textbook institutional sub-advisory model: the bank stays adviser of record; we become the sub-adviser running the money; an independent custodian holds the assets. One diagram below shows exactly how the relationships, money, and reporting flow. Then: the platform we deliver underneath your brand.</p>
+      <p class="page-subtitle">The textbook institutional sub-advisory model: the bank stays adviser of record; we become the sub-adviser running the money; an independent custodian holds the assets in the client's name. The diagram is below. Then: co-branding, the platform we deliver, and how we compare to the alternatives.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Point at the diagram. Say: <strong>"This is how sub-advisory actually works. Four parties: your client, your bank as adviser of record, us as sub-adviser, and an independent custodian holding the assets in the client's name. You sign the client. You sign us. We run the portfolios. The custodian holds the money. That's the entire model &mdash; standard institutional asset-management practice. Underneath that, we deliver the platform &mdash; trading, risk, research, reporting, compliance. You provide the brand and the client. We provide the engine."</strong></p>
+        <p>Point at the diagram. Say: <strong>"This is how sub-advisory works. Four parties &mdash; the client, the bank as adviser of record, us as sub-adviser, and an independent custodian holding the assets in the client's name. The bank signs the client. The bank signs us. We run the portfolios. The custodian holds the money. That's the entire model &mdash; standard institutional practice. Underneath it, what differs from one partnership to another is the sub-adviser's platform and the quality of the co-branding. Both are on this page."</strong></p>
       </div>
 
       <div class="section-header" style="margin-top:0;">
         <div class="section-title">How sub-advisory actually works</div>
-        <div class="section-meta">Four parties · six labelled flows · the standard institutional model, verified against industry practice</div>
+        <div class="section-meta">Four parties · six numbered flows · click any number to isolate that flow</div>
       </div>
-      <div class="sa-flow-wrap">
-        <svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
-          <!-- arrows -->
-          <path class="sa-arrow fwd"  d="M460 100 Q360 170 280 230"/>
-          <path class="sa-arrow back" d="M240 230 Q340 140 540 100"/>
-          <path class="sa-arrow fwd"  d="M340 275 L660 275"/>
-          <path class="sa-arrow back" d="M660 305 L340 305"/>
-          <path class="sa-arrow fwd"  d="M790 350 Q720 420 600 460"/>
-          <path class="sa-arrow back" d="M280 460 Q210 410 200 350"/>
-          <path class="sa-arrow back" d="M720 460 Q800 410 800 350"/>
+      <div class="sa2-wrap">
+        <svg class="sa2-svg" viewBox="0 0 1100 700" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="mkG" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 0,10 z" class="sa2-marker"/></marker>
+            <marker id="mkT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 0,10 z" class="sa2-marker teal"/></marker>
+          </defs>
 
-          <!-- arrow heads (small triangles at ends) -->
-          <polygon points="280,230 270,220 274,236" fill="var(--gold)"/>
-          <polygon points="540,100 533,108 550,112" fill="var(--signal)"/>
-          <polygon points="660,275 651,269 651,281" fill="var(--gold)"/>
-          <polygon points="340,305 349,299 349,311" fill="var(--signal)"/>
-          <polygon points="600,460 608,452 614,464" fill="var(--gold)"/>
-          <polygon points="200,350 192,341 209,341" fill="var(--signal)"/>
-          <polygon points="800,350 808,341 791,341" fill="var(--signal)"/>
+          <!-- partnership perimeter -->
+          <rect class="sa2-perim" x="40" y="220" width="1020" height="200" rx="12"/>
+          <text class="sa2-perim-label" x="540" y="244" text-anchor="middle">Sub-Advisory Partnership &mdash; one regulatory perimeter</text>
 
-          <!-- numbered tags on each arrow -->
-          <g><rect x="318" y="146" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="329" y="161" text-anchor="middle">1</text></g>
-          <g><rect x="418" y="146" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="429" y="161" text-anchor="middle">2</text></g>
-          <g><rect x="489" y="263" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="500" y="278" text-anchor="middle">3</text></g>
-          <g><rect x="489" y="294" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="500" y="309" text-anchor="middle">4</text></g>
-          <g><rect x="685" y="408" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="696" y="423" text-anchor="middle">5</text></g>
-          <g><rect x="208" y="408" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="219" y="423" text-anchor="middle">6</text></g>
+          <!-- arrow paths -->
+          <path class="sa2-flow gold" data-n="1" d="M520 120 C 520 180, 280 195, 280 260" marker-end="url(#mkG)"/>
+          <path class="sa2-flow teal" data-n="2" d="M250 260 C 250 180, 590 180, 590 120" marker-end="url(#mkT)"/>
+          <path class="sa2-flow gold" data-n="3" d="M380 305 L 720 305" marker-end="url(#mkG)"/>
+          <path class="sa2-flow teal" data-n="4" d="M720 345 L 380 345" marker-end="url(#mkT)"/>
+          <path class="sa2-flow gold" data-n="5" d="M870 400 C 870 480, 560 490, 560 545" marker-end="url(#mkG)"/>
+          <path class="sa2-flow teal" data-n="6" d="M340 545 C 260 500, 180 460, 180 400" marker-end="url(#mkT)"/>
+          <path class="sa2-flow teal" data-n="6" d="M760 545 C 840 500, 920 460, 920 400" marker-end="url(#mkT)"/>
 
-          <!-- nodes -->
-          <g class="sa-node client"><rect x="400" y="30" width="200" height="70" rx="8"/><text class="nt" x="500" y="62" text-anchor="middle" font-size="20">Client</text><text class="ns" x="500" y="82" text-anchor="middle" font-size="9" letter-spacing="0.1em">OWNER OF THE ASSETS</text></g>
+          <!-- inline labels along arrows -->
+          <text class="sa2-flow-label" data-n="1" x="378" y="184" text-anchor="middle">Advisory agreement &middot; KYC &middot; fee</text>
+          <text class="sa2-flow-label" data-n="2" x="430" y="162" text-anchor="middle">Branded statements</text>
+          <text class="sa2-flow-label" data-n="3" x="550" y="296" text-anchor="middle">Sub-advisory mandate &middot; IPS</text>
+          <text class="sa2-flow-label" data-n="4" x="550" y="360" text-anchor="middle">Performance &middot; risk &middot; reports</text>
+          <text class="sa2-flow-label" data-n="5" x="722" y="476" text-anchor="end">Discretionary trades</text>
+          <text class="sa2-flow-label" data-n="6" x="100" y="478" text-anchor="start">Position files &middot; NAV</text>
 
-          <g class="sa-node bank"><rect x="80" y="230" width="260" height="120" rx="8"/><text class="nt" x="210" y="270" text-anchor="middle" font-size="22">The Bank</text><text class="ns" x="210" y="293" text-anchor="middle" font-size="10" letter-spacing="0.12em">ADVISER OF RECORD</text><text class="ns" x="210" y="313" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">CLIENT · LICENCE · BRAND</text><text class="ns" x="210" y="331" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">KYC · SUITABILITY · BS</text></g>
+          <!-- CLIENT -->
+          <g><rect class="sa2-node-rect client" x="430" y="38" width="220" height="84" rx="10"/>
+            <text class="sa2-title" x="540" y="75" text-anchor="middle" font-size="22">Client</text>
+            <text class="sa2-role" x="540" y="98" text-anchor="middle" font-size="10.5" fill="var(--gold)">OWNER OF THE ASSETS</text></g>
 
-          <g class="sa-node us"><rect x="660" y="230" width="260" height="120" rx="8"/><text class="nt" x="790" y="270" text-anchor="middle" font-size="22">Oceanic</text><text class="ns" x="790" y="293" text-anchor="middle" font-size="10" letter-spacing="0.12em">SUB-ADVISER</text><text class="ns" x="790" y="313" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">PORTFOLIO MGMT · TRADING</text><text class="ns" x="790" y="331" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">RISK · RESEARCH · COMPLIANCE</text></g>
+          <!-- BANK -->
+          <g><rect class="sa2-node-rect bank" x="80" y="260" width="300" height="140" rx="10"/>
+            <text class="sa2-title" x="230" y="302" text-anchor="middle" font-size="26">The Bank</text>
+            <text class="sa2-role" x="230" y="326" text-anchor="middle" font-size="11" fill="var(--signal)">ADVISER OF RECORD</text>
+            <text class="sa2-sub" x="230" y="350" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">CLIENT &middot; LICENCE &middot; BRAND</text>
+            <text class="sa2-sub" x="230" y="368" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">KYC &middot; SUITABILITY &middot; BALANCE SHEET</text>
+            <text class="sa2-sub" x="230" y="386" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">GOVERNANCE &middot; FEE TO CLIENT</text></g>
 
-          <g class="sa-node cust"><rect x="220" y="460" width="560" height="100" rx="8"/><text class="nt" x="500" y="495" text-anchor="middle" font-size="20">Custodian</text><text class="ns" x="500" y="517" text-anchor="middle" font-size="9.5" letter-spacing="0.06em">INDEPENDENT THIRD-PARTY · IBKR · PERSHING (BNY)</text><text class="ns" x="500" y="537" text-anchor="middle" font-size="9.5" letter-spacing="0.06em">HOLDS ASSETS IN THE CLIENT'S NAME · SEGREGATED · SIPC / EQUIVALENT</text></g>
+          <!-- OCEANIC -->
+          <g><rect class="sa2-node-rect us" x="720" y="260" width="300" height="140" rx="10"/>
+            <text class="sa2-title" x="870" y="302" text-anchor="middle" font-size="26">Oceanic</text>
+            <text class="sa2-role" x="870" y="326" text-anchor="middle" font-size="11" fill="var(--gold)">SUB-ADVISER</text>
+            <text class="sa2-sub" x="870" y="350" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">PORTFOLIO MGMT &middot; TRADING</text>
+            <text class="sa2-sub" x="870" y="368" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">RISK ENGINE &middot; RESEARCH</text>
+            <text class="sa2-sub" x="870" y="386" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">INVESTMENT COMPLIANCE</text></g>
+
+          <!-- CUSTODIAN -->
+          <g><rect class="sa2-node-rect cust" x="240" y="545" width="620" height="125" rx="10"/>
+            <text class="sa2-title" x="550" y="585" text-anchor="middle" font-size="22">Custodian</text>
+            <text class="sa2-role" x="550" y="608" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">INDEPENDENT THIRD-PARTY</text>
+            <text class="sa2-sub" x="550" y="630" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">IBKR &middot; PERSHING (BNY) &middot; OR BANK-OF-RECORD</text>
+            <text class="sa2-sub" x="550" y="650" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">HOLDS ASSETS IN THE CLIENT'S NAME &middot; SEGREGATED &middot; SIPC / EQUIVALENT</text></g>
+
+          <!-- numbered tags -->
+          <g class="sa2-num gold" data-n="1"><circle cx="290" cy="200" r="15"/><text x="290" y="205" text-anchor="middle">1</text></g>
+          <g class="sa2-num teal" data-n="2"><circle cx="440" cy="180" r="15"/><text x="440" y="185" text-anchor="middle">2</text></g>
+          <g class="sa2-num gold" data-n="3"><circle cx="550" cy="312" r="15"/><text x="550" y="317" text-anchor="middle">3</text></g>
+          <g class="sa2-num teal" data-n="4"><circle cx="550" cy="338" r="15"/><text x="550" y="343" text-anchor="middle">4</text></g>
+          <g class="sa2-num gold" data-n="5"><circle cx="710" cy="480" r="15"/><text x="710" y="485" text-anchor="middle">5</text></g>
+          <g class="sa2-num teal" data-n="6"><circle cx="180" cy="480" r="15"/><text x="180" y="485" text-anchor="middle">6</text></g>
         </svg>
 
-        <div class="sa-legend">
-          <div class="sa-legend-row"><div class="ln">1</div><div><b>Client &rarr; Bank.</b> Investment-advisory agreement signed. KYC, suitability, fee schedule. The client is the bank's, structurally and contractually.</div></div>
-          <div class="sa-legend-row back"><div class="ln">2</div><div><b>Bank &rarr; Client.</b> Branded statements, ongoing relationship management, performance review meetings. <em>Everything client-facing carries the bank's name.</em></div></div>
-          <div class="sa-legend-row"><div class="ln">3</div><div><b>Bank &rarr; Oceanic.</b> Sub-advisory agreement signed. Discretionary investment mandate delegated under the bank's IPS and limits. Agreed fee share to Oceanic.</div></div>
-          <div class="sa-legend-row back"><div class="ln">4</div><div><b>Oceanic &rarr; Bank.</b> Performance, risk attribution, holdings, breaches, governance reporting back to the bank &mdash; daily data feed, monthly review, quarterly board pack.</div></div>
-          <div class="sa-legend-row"><div class="ln">5</div><div><b>Oceanic &rarr; Custodian.</b> Discretionary trade instructions executed directly at the custodian, per the IPS. Best-execution policy and audit trail on every order.</div></div>
-          <div class="sa-legend-row back"><div class="ln">6</div><div><b>Custodian &rarr; Bank &amp; Oceanic.</b> Position files, NAV, settlement and reconciliation flow back to both. <em>Bank sees the holdings; Oceanic sees the holdings; the assets stay with the custodian.</em></div></div>
+        <div class="sa2-legend" id="sa2-legend">
+          <div class="sa2-leg-row" data-n="1"><div class="ln">1</div><div><b>Client &rarr; Bank.</b> Investment-advisory agreement signed. KYC, suitability, fee schedule. <em>The client is the bank's, structurally and contractually.</em></div></div>
+          <div class="sa2-leg-row teal" data-n="2"><div class="ln">2</div><div><b>Bank &rarr; Client.</b> Branded statements, ongoing relationship, performance reviews. Everything client-facing carries the bank's name.</div></div>
+          <div class="sa2-leg-row" data-n="3"><div class="ln">3</div><div><b>Bank &rarr; Oceanic.</b> Sub-advisory agreement signed. Discretionary investment mandate delegated under the bank's IPS and limits. Agreed fee share.</div></div>
+          <div class="sa2-leg-row teal" data-n="4"><div class="ln">4</div><div><b>Oceanic &rarr; Bank.</b> Performance, risk, attribution, holdings, breaches, governance reporting &mdash; daily feed, monthly review, quarterly board pack.</div></div>
+          <div class="sa2-leg-row" data-n="5"><div class="ln">5</div><div><b>Oceanic &rarr; Custodian.</b> Discretionary trade instructions executed directly at the custodian, per IPS. Best-execution policy + full audit trail.</div></div>
+          <div class="sa2-leg-row teal" data-n="6"><div class="ln">6</div><div><b>Custodian &rarr; Bank &amp; Oceanic.</b> Position files, NAV, settlement &amp; reconciliation flow back to both parties. The assets stay with the custodian.</div></div>
         </div>
       </div>
-      <div class="sa-verify"><b>Verified —</b> this is the textbook institutional sub-advisory architecture used across asset management: <b>adviser of record</b> + <b>delegated sub-adviser</b> + <b>independent custodian holding assets in the client's name</b>. The structural separation is the same one every regulated jurisdiction relies on (US ’40-Act sub-advised mutual funds, UK FCA delegated portfolio management, ECCU bank+investment-arm structures). The components are textbook; <em>what differs from one partnership to another is the sub-adviser platform underneath</em>. Ours is below.</div>
+      <div class="sa2-verify"><b>Verified &mdash;</b> this is the standard institutional sub-advisory architecture used across asset management: <b>adviser of record + delegated sub-adviser + independent custodian holding assets in the client's name</b>. The same structure underpins US '40-Act sub-advised mutual funds, UK FCA delegated portfolio management, and regional ECCU bank + investment-arm arrangements. <em>The architecture is settled; what differs partnership-to-partnership is the platform underneath and the quality of the co-branding.</em></div>
+
+      <!-- CO-BRANDING -->
+      <div class="cobrand-wrap">
+        <div class="cobrand-h"><h3>State-of-the-art co-branding</h3><span class="tag">your brand, our engine</span></div>
+        <div class="cobrand-sub">The client experiences the bank, end-to-end. The platform underneath is invisible. <em>Co-branding done badly is a sticker on a logo; done properly, the client cannot tell where the bank ends and the sub-adviser begins.</em> What we offer:</div>
+        <div class="cobrand-grid">
+          <div class="cobrand-card"><div class="ic">&#9673;</div><h5>Bank-branded client portal</h5><p>Your domain, your colours, your UX. Hosted under your authentication. The portal speaks to your client in the bank's voice, not ours.</p></div>
+          <div class="cobrand-card"><div class="ic">&#9670;</div><h5>Bank-branded statements &amp; reports</h5><p>Every PDF, every email, every alert carries the bank's logo and styling. Audit-grade documents from your firm, not ours.</p></div>
+          <div class="cobrand-card"><div class="ic">&#9636;</div><h5>White-label API + mobile</h5><p>Investment data fed directly into the bank's mobile app and customer dashboard. The client sees one experience &mdash; banking + wealth, one app.</p></div>
+          <div class="cobrand-card"><div class="ic">&#9671;</div><h5>Single sign-on integration</h5><p>Clients sign in through the bank's existing authentication. No second password, no separate identity, no friction.</p></div>
+          <div class="cobrand-card"><div class="ic">&#9672;</div><h5>CRM &amp; relationship integration</h5><p>Holdings, performance, and risk flagged inside the bank's customer record &mdash; so relationship managers see the full picture in their normal tools.</p></div>
+          <div class="cobrand-card"><div class="ic">&#9650;</div><h5>Co-branded materials &amp; events</h5><p>Marketing collateral, client letters, education sessions &mdash; presented as the bank's wealth offering. Oceanic does not appear on the front.</p></div>
+        </div>
+      </div>
 
       <div class="section-header">
         <div class="section-title">What we offer &mdash; the sub-adviser platform</div>
@@ -1849,7 +2042,7 @@ footer.foot .right .gold { color: var(--gold); }
           <h4>Trading &amp; Execution</h4>
           <ul>
             <li><b>IBKR institutional</b> master account architecture</li>
-            <li>Multi-currency · <b>150 global markets</b></li>
+            <li>Multi-currency &middot; <b>150 global markets</b></li>
             <li>Best-execution policy + full audit trail</li>
             <li>Block trading + automated client allocation</li>
             <li>T+0 to T+2 settlement, automated</li>
@@ -1870,7 +2063,7 @@ footer.foot .right .gold { color: var(--gold); }
           <div class="pn">Component 3</div>
           <h4>Risk Engine</h4>
           <ul>
-            <li><b>Pre-trade compliance overlay</b> &mdash; hard limits enforced at trade, not after</li>
+            <li><b>Pre-trade compliance overlay</b> &mdash; hard limits at trade</li>
             <li>Daily VaR &mdash; parametric, historical, Monte Carlo</li>
             <li>Factor exposure &amp; concentration monitoring</li>
             <li><b>Scenario simulator</b> on the live book</li>
@@ -1885,7 +2078,7 @@ footer.foot .right .gold { color: var(--gold); }
             <li>Narrative correlation mapping</li>
             <li>Market regime gauge</li>
             <li>Counterfactual analytics</li>
-            <li>Material-finding alerts to portfolio managers</li>
+            <li>Material-finding alerts to PMs</li>
           </ul>
         </div>
         <div class="plat-card">
@@ -1906,30 +2099,80 @@ footer.foot .right .gold { color: var(--gold); }
             <li><b>IPS-driven</b> mandate management</li>
             <li>Hard caps enforced at trade time</li>
             <li><b>Quarterly board governance pack</b></li>
-            <li>Monthly portfolio review with the bank's CIO/treasurer</li>
+            <li>Monthly portfolio review with your CIO/treasurer</li>
             <li>Annual fee &amp; performance review</li>
           </ul>
         </div>
       </div>
 
-      <div class="plat-deliver">
-        <div class="lbl">What this means for the bank</div>
-        <p>You don't build any of this. <em>You don't hire a portfolio team. You don't license a risk system. You don't write a research process.</em> The platform is delivered turnkey, operating under your brand, governed under your IPS &mdash; ready inside sixteen weeks.</p>
-        <ul>
-          <li>Trading platform · delivered</li>
-          <li>Portfolio-management system · delivered</li>
-          <li>Risk engine · delivered</li>
-          <li>Research &amp; intelligence · delivered</li>
-          <li>Client reporting · delivered</li>
-          <li>Compliance overlay · delivered</li>
-        </ul>
+      <!-- ALTERNATIVES -->
+      <div class="section-header">
+        <div class="section-title">Your alternatives &mdash; and where each one breaks</div>
+        <div class="section-meta">If a bank wants investment capability, there are exactly four paths. Three of them have a serious cost.</div>
       </div>
-
-      <div class="opp-close-frame">
-        <div class="lbl">What we are offering</div>
-        <div class="big">A complete, turnkey sub-adviser platform operating <em>underneath your brand</em>, inside the institutional sub-advisory model proven across the industry. <em>You stay the bank.</em> We become the engine.</div>
+      <div class="alt-grid">
+        <div class="alt-card">
+          <div class="alt-h">Path 1</div>
+          <h4>Build it in-house</h4>
+          <div class="row"><span class="k">Time to live</span><span class="v bad">18–24+ months</span></div>
+          <div class="row"><span class="k">Build cost</span><span class="v bad">US$3–8M capital</span></div>
+          <div class="row"><span class="k">Team</span><span class="v bad">15–25 hires</span></div>
+          <div class="row"><span class="k">Co-brand</span><span class="v good">Yes &mdash; you own it</span></div>
+          <div class="row"><span class="k">Risk infra</span><span class="v mid">Build it yourself</span></div>
+          <div class="verdict">The NCB Capital Markets / First Citizens Investment Services route. Works at scale &mdash; if you have the capital, the years, and the talent to hire.</div>
+        </div>
+        <div class="alt-card">
+          <div class="alt-h">Path 2</div>
+          <h4>Hire a global house</h4>
+          <div class="row"><span class="k">Examples</span><span class="v">Schroders, BlackRock, Russell, Mercer</span></div>
+          <div class="row"><span class="k">Time to live</span><span class="v mid">6–12 months</span></div>
+          <div class="row"><span class="k">Regulator</span><span class="v bad">Offshore &mdash; not in your perimeter</span></div>
+          <div class="row"><span class="k">Co-brand</span><span class="v bad">No &mdash; they won't</span></div>
+          <div class="row"><span class="k">Local fit</span><span class="v bad">Doesn't know your client</span></div>
+          <div class="verdict">Big name, but they manage your money on their terms. The Caribbean client is a rounding error to them; you are not.</div>
+        </div>
+        <div class="alt-card">
+          <div class="alt-h">Path 3</div>
+          <h4>Off-the-shelf wrap product</h4>
+          <div class="row"><span class="k">Examples</span><span class="v">Generic fund / model platforms</span></div>
+          <div class="row"><span class="k">Time to live</span><span class="v good">Weeks</span></div>
+          <div class="row"><span class="k">Customisation</span><span class="v bad">None</span></div>
+          <div class="row"><span class="k">Co-brand</span><span class="v bad">No</span></div>
+          <div class="row"><span class="k">Fee leakage</span><span class="v bad">Layered: fund + wrap + bank</span></div>
+          <div class="verdict">Fast and easy, but you're distributing someone else's product. The bank earns a clip; the client pays for the layers.</div>
+        </div>
+        <div class="alt-card win">
+          <div class="alt-h">Path 4 &mdash; the partnership</div>
+          <h4>Oceanic sub-advisory</h4>
+          <div class="row"><span class="k">Time to live</span><span class="v good">16 weeks</span></div>
+          <div class="row"><span class="k">Build cost</span><span class="v good">None &mdash; turnkey</span></div>
+          <div class="row"><span class="k">Regulator</span><span class="v good">ECSRC, in your perimeter</span></div>
+          <div class="row"><span class="k">Co-brand</span><span class="v good">State-of-the-art (above)</span></div>
+          <div class="row"><span class="k">Local fit</span><span class="v good">On-island, your time zone</span></div>
+          <div class="verdict">No build cost, in your regulatory perimeter, full co-branding, ready in sixteen weeks. The path none of the other three can match.</div>
+        </div>
       </div>
     </div>
+
+    <script>
+    (function(){
+      var v=document.querySelector('.view[data-view="legal"]'); if(!v) return;
+      var flows=v.querySelectorAll('.sa2-flow'), labels=v.querySelectorAll('.sa2-flow-label'),
+          nums=v.querySelectorAll('.sa2-num'), rows=v.querySelectorAll('.sa2-leg-row');
+      function highlight(n){
+        flows.forEach(function(f){ f.classList.toggle('dim', f.dataset.n!==n); });
+        labels.forEach(function(l){ l.classList.toggle('dim', l.dataset.n!==n); });
+        rows.forEach(function(r){ r.style.background = r.dataset.n===n ? 'var(--bg-elevated)' : ''; });
+      }
+      function clear(){
+        flows.forEach(function(f){ f.classList.remove('dim'); });
+        labels.forEach(function(l){ l.classList.remove('dim'); });
+        rows.forEach(function(r){ r.style.background=''; });
+      }
+      nums.forEach(function(g){ g.addEventListener('mouseenter',function(){ highlight(g.dataset.n); }); g.addEventListener('mouseleave',clear); g.addEventListener('click',function(){ highlight(g.dataset.n); }); });
+      rows.forEach(function(r){ r.addEventListener('mouseenter',function(){ highlight(r.dataset.n); }); r.addEventListener('mouseleave',clear); });
+    })();
+    </script>
 
 
     <!-- ====================================================================
