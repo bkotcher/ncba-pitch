@@ -1167,6 +1167,45 @@ footer.foot .right .gold { color: var(--gold); }
 .prov-note { font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); line-height:1.5; margin:10px 0 2px; padding:10px 14px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0; }
 .prov-note b { color:var(--gold); }
 
+
+/* ===== ENGAGEMENT PATH ===== */
+.path-wrap { display:grid; gap:10px; margin: 8px 0 28px; }
+.path-step { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--gold-dim); border-radius:0 6px 6px 0; overflow:hidden; transition:border-color .15s; }
+.path-step:hover { border-left-color:var(--gold); }
+.path-step.open { border-left-color:var(--gold); }
+.path-head { display:grid; grid-template-columns:104px 1fr 110px auto; gap:14px; align-items:center; padding:16px 18px; cursor:pointer; user-select:none; }
+.path-head:hover { background:var(--bg-hover); }
+.path-num { font-family:var(--mono); font-size:9px; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; }
+.path-num .pp { font-family:var(--serif); font-size:26px; font-weight:300; color:var(--text); display:block; line-height:1; margin-top:3px; }
+.path-title { font-family:var(--serif); font-size:17px; color:var(--text); line-height:1.2; }
+.path-title small { display:block; font-family:var(--sans); font-size:12px; color:var(--text-secondary); margin-top:3px; }
+.path-when { font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-dim); white-space:nowrap; text-align:right; }
+.path-tog { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-dim); border-radius:3px; padding:4px 9px; display:flex; align-items:center; gap:5px; white-space:nowrap; }
+.path-tog .chev { display:inline-block; transition:transform .2s; }
+.path-step.open .path-tog .chev { transform:rotate(90deg); }
+.path-body { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.path-step.open .path-body { max-height:480px; }
+.path-body-inner { padding:0 18px 18px 136px; display:grid; gap:7px; }
+.path-row { display:grid; grid-template-columns:96px 1fr; gap:14px; }
+.path-row .pk { font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-tertiary); padding-top:3px; }
+.path-row .pv { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.55; }
+.path-row .pv b { color:var(--gold); }
+.path-talk { background:rgba(94,179,214,.07); border-left:3px solid var(--signal); border-radius:0 4px 4px 0; padding:10px 14px; margin-top:6px; font-family:var(--serif); font-size:13px; color:var(--text-secondary); font-style:italic; line-height:1.55; }
+.path-talk::before { content:'You say — '; font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--signal); font-style:normal; display:block; margin-bottom:3px; }
+
+/* ===== CARIBBEAN BANKS GRID ===== */
+.banks-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:8px 0 22px; }
+.bank-card { background:var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--gold-dim); border-radius:6px; padding:18px 20px; transition:transform .18s, border-color .18s; }
+.bank-card:hover { border-top-color:var(--gold); transform:translateY(-2px); }
+.bank-card .bm { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+.bank-card h4 { font-family:var(--serif); font-size:17px; font-weight:400; margin:5px 0 4px; line-height:1.2; }
+.bank-card .ms { font-family:var(--mono); font-size:10.5px; color:var(--text-tertiary); margin-bottom:10px; letter-spacing:.04em; }
+.bank-card .struct { font-family:var(--sans); font-size:12.5px; color:var(--text); line-height:1.5; padding-bottom:10px; }
+.bank-card .struct b { color:var(--gold); }
+.bank-card .talk { font-family:var(--sans); font-size:11.5px; color:var(--text-secondary); font-style:italic; border-top:1px solid var(--border); padding-top:10px; line-height:1.5; }
+.bank-card .talk::before { content:'Talking point \2014  '; color:var(--gold); font-style:normal; font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; }
+@media (max-width:1100px){ .banks-grid{ grid-template-columns:1fr; } .path-head{ grid-template-columns:1fr auto; } .path-when{ display:none; } .path-body-inner{ padding-left:18px; } }
+
 </style>
 </head>
 
@@ -1195,27 +1234,14 @@ footer.foot .right .gold { color: var(--gold); }
   <!-- SIDEBAR -->
   <aside class="sidebar">
 
-    <div class="sidebar-section" data-section="moment">
-      <div class="sidebar-section-toggle">
-        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◆</span>The Opportunity</div>
-        <div class="caret">▾</div>
-      </div>
-      <div class="sidebar-children">
-        <div class="sidebar-item active" data-view="wallet">
-          <span class="sidebar-num">01</span><span class="sidebar-item-label">The Opportunity</span>
-          <span class="sidebar-badge">start here</span>
-        </div>
-      </div>
-    </div>
-
     <div class="sidebar-section" data-section="structure">
       <div class="sidebar-section-toggle">
         <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◇</span>The Structure</div>
         <div class="caret">▾</div>
       </div>
       <div class="sidebar-children">
-        <div class="sidebar-item" data-view="legal">
-          <span class="sidebar-num">02</span><span class="sidebar-item-label">The Sub-Advisory Model</span>
+        <div class="sidebar-item active" data-view="legal">
+          <span class="sidebar-num">01</span><span class="sidebar-item-label">The Sub-Advisory Model</span>
           <span class="sidebar-badge">core</span>
         </div>
       </div>
@@ -1228,7 +1254,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="theedge">
-          <span class="sidebar-num">03</span><span class="sidebar-item-label">The Edge</span>
+          <span class="sidebar-num">02</span><span class="sidebar-item-label">The Edge</span>
           <span class="sidebar-badge">vs ETF / mgr</span>
         </div>
       </div>
@@ -1241,13 +1267,13 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="models" data-sub="models">
-          <span class="sidebar-num">04</span><span class="sidebar-item-label">Model Portfolios</span>
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">Model Portfolios</span>
         </div>
         <div class="sidebar-item" data-view="models" data-sub="hnw">
-          <span class="sidebar-num">05</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
         </div>
         <div class="sidebar-item" data-view="models" data-sub="inst">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">Institutional</span>
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Institutional</span>
         </div>
       </div>
     </div>
@@ -1259,22 +1285,22 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="structuring">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">Wealth Structuring</span>
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Wealth Structuring</span>
           <span class="sidebar-badge">tax · trust</span>
         </div>
         <div class="sidebar-item" data-view="governance">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">Risk Management</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">09</span><span class="sidebar-item-label">Scenario Simulator</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">Scenario Simulator</span>
           <span class="sidebar-badge">live</span>
         </div>
         <div class="sidebar-item" data-view="edge">
-          <span class="sidebar-num">10</span><span class="sidebar-item-label">The Intelligence Edge</span>
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Intelligence Edge</span>
           <span class="sidebar-badge">5 live</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">11</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">10</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -1286,7 +1312,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">12</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">11</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -1307,127 +1333,10 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         01 · THE OPPORTUNITY — real, sourced (4 moves)
-         ==================================================================== -->
-    <div class="view active" data-view="wallet">
-      <div class="page-eyebrow">01 · The Opportunity</div>
-      <h1 class="page-title">The region just repriced. <em>The window is now.</em></h1>
-      <p class="opp-thesis">Days ago, the largest players paid billions to combine banking and wealth. Anguilla's government is importing wealthy residents by design. And the bank that holds their cash holds none of their investments. Every figure below is real and sourced.</p>
-
-      <div class="open-this">
-        <div class="label">When you open this tab in the meeting</div>
-        <p>Lead with the deal &mdash; it's days old. Say: <strong>"Last week Butterfield agreed to buy CIBC Caribbean for one-point-eight billion dollars &mdash; at a hundred-and-six percent of book. The market is now paying a premium for banks that have a wealth platform. Meanwhile your government is recruiting wealthy residents, and their portfolios are walking straight to Butterfield and the offshore brokers, because no local bank offers a platform. This deck is how you build one &mdash; without building it from scratch."</strong></p>
-        <p><em>Every number on this page is sourced and survives board scrutiny. Point to the citations.</em></p>
-      </div>
-
-      <!-- MOVE 1 -->
-      <div class="move-tag">Move 1 · The Threat</div>
-      <div class="deal-hero">
-        <div class="deal-hero-tag"><span class="dot"></span>The region just repriced &mdash; announced May 2026</div>
-        <div class="deal-hero-num" id="deal-num">US$0.0B</div>
-        <div class="deal-hero-sub">Butterfield acquires CIBC Caribbean &mdash; creating a combined banking + wealth platform of roughly US$29 billion in assets.</div>
-        <div class="deal-hero-stats">
-          <div class="dhs"><div class="v">US$1.794B</div><div class="k">exact consideration</div></div>
-          <div class="dhs"><div class="v">106%</div><div class="k">of tangible book value &mdash; a <b>premium</b> paid for the wealth platform</div></div>
-          <div class="dhs"><div class="v">~22% + 2 seats</div><div class="k">CIBC retains in Butterfield + two board seats</div></div>
-          <div class="dhs"><div class="v">H1 2027</div><div class="k">expected close</div></div>
-        </div>
-        <div class="deal-hero-callout"><b>106% of book</b> &mdash; acquirers now pay a <b>premium</b> for banks with a wealth platform. A wealth capability doesn't just earn fees; it raises what your bank is worth. The banks <em>without</em> one are what gets acquired &mdash; or left behind.</div>
-        <div class="cite">Butterfield/CIBC announcement, May 2026</div>
-      </div>
-
-      <!-- MOVE 2 -->
-      <div class="move-tag">Move 2 · The Anguilla Wedge</div>
-      <div class="section-header" style="margin-top:0;">
-        <div class="section-title">The wealth is arriving by design</div>
-        <div class="section-meta">Anguilla's government is recruiting UHNW residents &mdash; and handing their portfolios to foreign managers</div>
-      </div>
-      <div class="ang-flow">
-        <svg viewBox="0 0 760 230" preserveAspectRatio="xMidYMid meet">
-          <path class="ang-line in"    d="M182 116 H300"/>
-          <path class="ang-line stay"  d="M462 116 Q522 88 582 66"/>
-          <path class="ang-line leave" d="M462 116 Q522 150 582 170"/>
-          <circle r="3.5" fill="var(--signal)"><animateMotion dur="2s" repeatCount="indefinite" path="M182 116 H300"/></circle>
-          <circle r="3.5" fill="var(--positive)"><animateMotion dur="2.3s" repeatCount="indefinite" path="M462 116 Q522 88 582 66"/></circle>
-          <circle r="3.5" fill="var(--critical)"><animateMotion dur="2.3s" repeatCount="indefinite" path="M462 116 Q522 150 582 170"/></circle>
-          <circle r="3.5" fill="var(--critical)"><animateMotion dur="2.3s" begin="1.15s" repeatCount="indefinite" path="M462 116 Q522 150 582 170"/></circle>
-          <g class="ang-node gov"><rect x="22" y="88" width="160" height="56" rx="6"/><text class="t" x="102" y="113" text-anchor="middle" font-size="14">Anguilla Gov't</text><text class="s" x="102" y="130" text-anchor="middle" font-size="8" letter-spacing="0.06em">SELECT ANGUILLA · RBI</text></g>
-          <g class="ang-node"><rect x="300" y="88" width="162" height="56" rx="6"/><text class="t" x="381" y="113" text-anchor="middle" font-size="14">UHNW Residents</text><text class="s" x="381" y="130" text-anchor="middle" font-size="8" letter-spacing="0.06em">IMPORTED BY DESIGN</text></g>
-          <g class="ang-node stay"><rect x="582" y="40" width="160" height="52" rx="6"/><text class="t" x="662" y="62" text-anchor="middle" font-size="13">The Local Bank</text><text class="s" x="662" y="78" text-anchor="middle" font-size="8" letter-spacing="0.05em">CASH — STAYS</text></g>
-          <g class="ang-node leave"><rect x="582" y="146" width="160" height="52" rx="6"/><text class="t" x="662" y="168" text-anchor="middle" font-size="13">Offshore Managers</text><text class="s" x="662" y="184" text-anchor="middle" font-size="8" letter-spacing="0.05em">INVESTMENTS — LEAVE</text></g>
-        </svg>
-        <div class="ang-key"><span><i style="background:var(--signal)"></i>Gov't imports residents</span><span><i style="background:var(--positive)"></i>Cash banked locally</span><span><i style="background:var(--critical)"></i>Portfolios leave the franchise</span></div>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-block"><div class="v">US$75,000</div><div class="k">per year &mdash; High-Value Resident annual tax</div></div>
-        <div class="stat-block"><div class="v">US$400,000+</div><div class="k">minimum qualifying property purchase</div></div>
-        <div class="stat-block"><div class="v">45 days</div><div class="k">per year &mdash; minimum presence required</div></div>
-        <div class="stat-block"><div class="v">US$2.5M+</div><div class="k">fast-track investment threshold</div></div>
-        <div class="stat-block"><div class="v">Zero</div><div class="k">direct taxation &mdash; no income, capital-gains, inheritance or corporate tax</div></div>
-        <div class="stat-block"><div class="v">Since 2019</div><div class="k">residency-by-investment program (launched June 2019)</div></div>
-      </div>
-      <div class="cite">Government of Anguilla / Select Anguilla, 2025</div>
-      <p style="font-family:var(--serif); font-size:15px; line-height:1.6; color:var(--text-secondary); font-style:italic; margin:14px 0 28px; max-width:840px;">The state is importing ideal clients and handing them to foreign competitors. They bank their cash here. Their portfolios go to Butterfield, RBC, and offshore brokers &mdash; because no local bank offers a platform.</p>
-
-      <!-- MOVE 3 -->
-      <div class="move-tag">Move 3 · The Prize</div>
-      <div class="section-header" style="margin-top:0;">
-        <div class="section-title">The market, sized honestly</div>
-        <div class="section-meta">We don't guess NCBA's HNW wallet &mdash; the structural fact is enough</div>
-      </div>
-      <div class="market-band">
-        <div class="mb"><div class="v">US$75.59B</div><div class="k">Caribbean wealth-management market, projected by 2027</div><div class="cite" style="margin-top:8px;">Statista</div></div>
-        <div class="mb"><div class="v">~US$10T</div><div class="k">offshore wealth held globally</div><div class="cite" style="margin-top:8px;">Industry data</div></div>
-      </div>
-      <div class="honest">
-        <div class="honest-col have">
-          <h5>What NCBA holds — FY25 audited</h5>
-          <div class="honest-row"><span class="hk">Total assets</span><span class="hv">EC$ 1.394B</span></div>
-          <div class="honest-row"><span class="hk">Customer deposits</span><span class="hv">EC$ 1.175B</span></div>
-          <div class="honest-row"><span class="hk">Investment book (own treasury)</span><span class="hv">EC$ 531M</span></div>
-          <div class="cite">NCBA FY25 audited financial statements</div>
-        </div>
-        <div class="honest-col havent">
-          <h5>What NCBA doesn't hold</h5>
-          <div class="big-absent">Its clients' <em>investment wealth.</em> The bank holds the cash &mdash; and <em>none</em> of the portfolios. That gap is recurring fee revenue on money that is leaving anyway.</div>
-        </div>
-      </div>
-      <p style="font-family:var(--serif); font-size:15px; line-height:1.6; color:var(--text-secondary); font-style:italic; margin:0 0 28px; max-width:840px;">We don't need to guess NCBA's exact HNW wallet. The structural fact is clear: the bank holds the cash and none of the investment wealth. Closing even a fraction of that gap is recurring fee revenue on money that is leaving anyway.</p>
-
-      <!-- MOVE 4 -->
-      <div class="move-tag">Move 4 · The Window</div>
-      <div class="opp-close-frame">
-        <div class="lbl">The window &mdash; why now</div>
-        <div class="big">Consolidation is happening <em>now</em> &mdash; Butterfield/CIBC, days ago. The residency program is growing the wealthy-resident base <em>now</em>. The bank that builds the platform first <em>keeps these clients</em>; the bank that waits funds its competitors &mdash; or becomes the next target.</div>
-        <div style="font-family:var(--serif); font-size:17px; color:var(--gold); font-style:italic; margin-top:18px;">This deck is how a bank like this one builds that platform &mdash; without building it from scratch.</div>
-      </div>
-    </div>
-
-
-    <script>
-    (function(){
-      var v=document.querySelector('.view[data-view="wallet"]'); if(!v) return;
-      function countTo(el, target, prefix, suffix, decimals, dur){
-        var start=performance.now();
-        function step(t){ var p=Math.min((t-start)/(dur||1500),1), e=1-Math.pow(1-p,3), val=target*e;
-          el.textContent=prefix+val.toFixed(decimals)+suffix; if(p<1) requestAnimationFrame(step); }
-        requestAnimationFrame(step);
-      }
-      var done=false;
-      function run(){ if(done) return; done=true;
-        var d=document.getElementById('deal-num'); if(d) countTo(d, 1.8, 'US$ ', 'B', 1, 1600);
-      }
-      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) run(); }); }, {threshold:0.1});
-      io.observe(v);
-    })();
-    </script>
-
-
-    <!-- ====================================================================
          04 · HOW WE INVEST — three sub-tabs: models / HNW / institutional
          ==================================================================== -->
     <div class="view" data-view="models">
-      <div class="page-eyebrow">04 · How We Invest</div>
+      <div class="page-eyebrow">03 · How We Invest</div>
       <h1 class="page-title">How we invest. <em>Three clients, one discipline.</em></h1>
       <p class="page-subtitle">Three distinct ways we put money to work &mdash; mass-affluent clients into model portfolios, high-net-worth clients into bespoke mandates, and NCBA's own balance sheet into an actively risk-managed institutional book. Click through. Everything is interactive: hover the charts, click the models, expand the differentiators.</p>
 
@@ -1787,18 +1696,115 @@ footer.foot .right .gold { color: var(--gold); }
     <!-- ====================================================================
          02 · THE TWO-LANE MODEL — the partnership structure
          ==================================================================== -->
-    <div class="view" data-view="legal">
-      <div class="page-eyebrow">02 · The Structure</div>
+    <div class="view active" data-view="legal">
+      <div class="page-eyebrow">01 · The Structure</div>
       <h1 class="page-title">Sub-advisory. <em>The bank owns the client; we are the engine.</em></h1>
       <p class="page-subtitle">This is how bank + asset-manager partnerships work across the industry. The bank keeps the client, the license, the balance sheet, and the brand. The asset manager supplies the platform, the products, and the investment management underneath. One structure, two product tiers &mdash; proven by real regional deals, shown below.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
         <p>Keep it neutral and proven. Say: <strong>"This isn't a theory &mdash; it's how the industry already works. Butterfield just bought CIBC Caribbean's wealth capability for one-point-eight billion. RBC runs two tiers: simple products for the branch, a full platform for sophisticated clients. First Citizens runs a bank-group investment arm across the ECCU. The model is settled. The question is who runs the engine underneath your brand &mdash; you own the client, we run the platform."</strong></p>
-        <p><em>The flow diagram makes it instant for a non-technical board member. The real-deal cards below prove it isn't speculative.</em></p>
+        <p><em>The engagement path below is the concrete sequence — six phases, fixed scope, live with real clients in sixteen weeks. The flow diagram and the regional precedent show how it works and who already does it.</em></p>
       </div>
 
       <div class="section-header" style="margin-top:0;">
+        <div class="section-title">The engagement path &mdash; what we'd actually do</div>
+        <div class="section-meta">Six phases · diagnostic in week one · live with real clients in sixteen weeks · click any phase to drill in</div>
+      </div>
+      <div class="path-wrap" id="path-wrap">
+        <div class="path-step open" data-p="0">
+          <div class="path-head">
+            <div class="path-num">Phase 0<span class="pp">00</span></div>
+            <div class="path-title">Agreement<small>NDA signed · scope agreed · data room opened</small></div>
+            <div class="path-when">Week 0</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">NDA executed; the paid-diagnostic statement-of-work signed. <b>NCBA gates every step</b> from here.</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">Signed NDA + paid-diagnostic SoW.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">A fixed-scope, fixed-fee agreement before any data moves.</span></div>
+            <div class="path-talk">Before anything happens, we sign an NDA and agree the diagnostic scope. Sixty days, fixed fee. Your call at every gate.</div>
+          </div></div>
+        </div>
+
+        <div class="path-step" data-p="1">
+          <div class="path-head">
+            <div class="path-num">Phase 1<span class="pp">01</span></div>
+            <div class="path-title">Diagnostic<small>line-level book review · fee analysis · client segmentation · IPS gap</small></div>
+            <div class="path-when">Weeks 1&ndash;4</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">Line-level review of the EC$531M investment book; loan-concentration analysis on the EC$457M loan book; <b>fee-savings analysis vs market</b>; HNW depositor segmentation; IPS &amp; regulatory gap analysis.</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">Board-ready diagnostic: <b>exactly what you pay, what you actually hold, what you're leaving on the table</b>.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">A document the CEO can take to the board with the numbers, not a sales deck.</span></div>
+            <div class="path-talk">In four weeks we'll show you exactly what you're paying, what you actually hold, and what you're leaving on the table. No further commitment required.</div>
+          </div></div>
+        </div>
+
+        <div class="path-step" data-p="2">
+          <div class="path-head">
+            <div class="path-num">Phase 2<span class="pp">02</span></div>
+            <div class="path-title">Structuring<small>term sheet · two-lane product design · licensing path · economics</small></div>
+            <div class="path-when">Weeks 5&ndash;8</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">Partnership term sheet drafted; two-lane product design; licensing path mapped (NCBA broker-dealer + Oceanic ECSRC); fee economics modelled; legal &amp; compliance review (ECCB, ECSRC, Anguilla FSC).</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">Signed partnership term sheet + product roadmap.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">A clear deal &mdash; economics, governance, who does what, what reports where.</span></div>
+            <div class="path-talk">By week eight we have a signed term sheet. The economics are transparent. The governance is on paper.</div>
+          </div></div>
+        </div>
+
+        <div class="path-step" data-p="3">
+          <div class="path-head">
+            <div class="path-num">Phase 3<span class="pp">03</span></div>
+            <div class="path-title">Soft launch<small>3&ndash;5 pilot HNW clients · branch model portfolios live · platform reporting flowing</small></div>
+            <div class="path-when">Weeks 9&ndash;16</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">Pilot with 3&ndash;5 HNW clients on the full Oceanic platform; mass-affluent model portfolios go live in NCBA's branch wealth segment; scenario simulator running on the actual book.</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">First client AUA on the platform; real performance &amp; reporting flowing to NCBA.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">Real money under management, real reports, the platform working with NCBA's branding.</span></div>
+            <div class="path-talk">Live with real clients in sixteen weeks. Pilot first; nothing rolls at scale until it works in the pilot.</div>
+          </div></div>
+        </div>
+
+        <div class="path-step" data-p="4">
+          <div class="path-head">
+            <div class="path-num">Phase 4<span class="pp">04</span></div>
+            <div class="path-title">Full launch<small>NCBA Premier Wealth branded · both lanes live · pipeline activated</small></div>
+            <div class="path-when">Month 6</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">NCBA Premier Wealth fully branded; mass-affluent product rolled to all branches; HNW pipeline activated through Anguilla's residency-by-investment channel + existing depositors.</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">Partnership live across both lanes.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">The franchise running with a wealth platform &mdash; month six, on schedule.</span></div>
+            <div class="path-talk">Month six, you have a wealth platform &mdash; across both lanes &mdash; branded, governed, live.</div>
+          </div></div>
+        </div>
+
+        <div class="path-step" data-p="5">
+          <div class="path-head">
+            <div class="path-num">Phase 5<span class="pp">05</span></div>
+            <div class="path-title">Steady state<small>quarterly governance · monthly scenarios on the real book · annual review</small></div>
+            <div class="path-when">Ongoing</div>
+            <div class="path-tog"><span class="chev">&#9656;</span>Detail</div>
+          </div>
+          <div class="path-body"><div class="path-body-inner">
+            <div class="path-row"><span class="pk">What</span><span class="pv">Quarterly board governance pack; monthly scenario simulator on the live book; AUA growth tracked; new-product gates pre-agreed; annual fee &amp; performance review.</span></div>
+            <div class="path-row"><span class="pk">Output</span><span class="pv">Recurring fee revenue + reportable AUA growth + <b>a wealth narrative for NCBA's annual report</b>.</span></div>
+            <div class="path-row"><span class="pk">NCBA sees</span><span class="pv">The platform compounds; the board sees the wealth line growing year after year.</span></div>
+            <div class="path-talk">Ongoing. And the wealth line becomes a real number in your annual report &mdash; which it currently isn't.</div>
+          </div></div>
+        </div>
+      </div>
+      <script>(function(){var w=document.getElementById('path-wrap');if(!w)return;w.querySelectorAll('.path-head').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});})();</script>
+
+      <div class="section-header">
         <div class="section-title">How the partnership works</div>
         <div class="section-meta">Client &harr; Bank &harr; Oceanic &mdash; clients &amp; mandates flow out, fees &amp; reporting flow back</div>
       </div>
@@ -1969,29 +1975,82 @@ footer.foot .right .gold { color: var(--gold); }
       </table>
 
       <div class="section-header">
-        <div class="section-title">Real deals that prove the model</div>
-        <div class="section-meta">This is how the industry already does it &mdash; not a copy of any one firm</div>
+        <div class="section-title">Every Caribbean bank that does this &mdash; and how</div>
+        <div class="section-meta">Real, named, regional precedent · the bank + investment-arm model is the regional standard</div>
       </div>
-      <div class="deal-cards">
-        <div class="deal-card">
-          <div class="dl">Consolidation · 2026</div>
-          <h4>Butterfield acquires CIBC Caribbean</h4>
-          <div class="sz">~US$ 1.8B</div>
-          <div class="lesson">Wealth capability is being <b>bought, not built</b> &mdash; and the integration takes years. <b>The lesson:</b> a local bank that partners now competes before the consolidator finishes.</div>
+      <div class="banks-grid">
+        <div class="bank-card">
+          <div class="bm">Consolidation · May 2026</div>
+          <h4>Butterfield Bank</h4>
+          <div class="ms">Bermuda · Cayman · Channel Islands &rarr; Caribbean</div>
+          <div class="struct">In-house <b>Butterfield Asset Management</b>. Announced acquisition of CIBC Caribbean for <b>US$1.794B</b> at <b>106% of tangible book</b> &mdash; creating a ~US$29B combined banking + wealth platform.</div>
+          <div class="talk">This is the acquirer of the moment. The price they paid tells you what a wealth platform is worth.</div>
         </div>
-        <div class="deal-card">
-          <div class="dl">Two-tier model</div>
-          <h4>RBC Investments + Dominion Securities</h4>
-          <div class="sz">Mass-affluent + full platform</div>
-          <div class="lesson">RBC runs <b>two lanes</b>: simple managed products for the branch tier, a sophisticated full platform for HNW. <b>The lesson:</b> one bank, two products, one engine.</div>
+        <div class="bank-card">
+          <div class="bm">Acquired · 2026</div>
+          <h4>CIBC FirstCaribbean</h4>
+          <div class="ms">16 Caribbean markets</div>
+          <div class="struct">CIBC FirstCaribbean International Wealth Management &mdash; currently being absorbed into Butterfield.</div>
+          <div class="talk">This is what gets acquired when you don't have a wealth-platform path of your own.</div>
         </div>
-        <div class="deal-card">
-          <div class="dl">Bank-group subsidiary</div>
-          <h4>First Citizens Investment Services</h4>
-          <div class="sz">Serving the ECCU</div>
-          <div class="lesson">A Caribbean bank group runs an <b>in-house investment arm</b> across the region. <b>The lesson:</b> the model is proven in the OECS, not just in Canada.</div>
+        <div class="bank-card">
+          <div class="bm">Two-tier model</div>
+          <h4>RBC Royal Bank Caribbean</h4>
+          <div class="ms">Pan-Caribbean</div>
+          <div class="struct"><b>RBC Wealth Management Caribbean</b>. In Canada, RBC runs the proven two-tier model: <b>RBC Investments</b> (branch / mass-affluent) + <b>RBC Dominion Securities</b> (full HNW platform).</div>
+          <div class="talk">Two lanes &mdash; branch wealth + full HNW platform &mdash; works at every scale. We replicate it for NCBA.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Bank-group subsidiary</div>
+          <h4>First Citizens (T&amp;T)</h4>
+          <div class="ms">Trinidad · Barbados · St. Vincent · St. Lucia</div>
+          <div class="struct"><b>First Citizens Investment Services</b> &mdash; the largest full-service investment house in the Caribbean. Bank-group subsidiary. Uses <b>Pershing LLC (BNY Mellon)</b> as the third-party platform for international trading.</div>
+          <div class="talk">A regional bank already does this &mdash; including using a third-party platform partner. Proves the model in your region.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Wholly-owned subsidiary</div>
+          <h4>Republic Bank (T&amp;T)</h4>
+          <div class="ms">Trinidad &amp; regional</div>
+          <div class="struct"><b>Republic Wealth Management Limited</b> &mdash; wholly-owned subsidiary of Republic Financial Holdings (rebranded 2020). Full-service stock broking, portfolio management, retirement planning.</div>
+          <div class="talk">Another regional bank with a wholly-owned investment arm. The bank-group structure is the regional standard playbook.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Bank-group subsidiary</div>
+          <h4>Scotiabank Caribbean</h4>
+          <div class="ms">Jamaica · Trinidad · regional</div>
+          <div class="struct"><b>Scotia Investments Jamaica</b> &mdash; group investment arm. Since 2025, clients view investments and bank balances together via the <b>Scotia Caribbean mobile and online banking</b> platform.</div>
+          <div class="talk">Investments and bank accounts in one app &mdash; the integrated experience NCBA customers will expect.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Bank-group subsidiary</div>
+          <h4>NCB Jamaica</h4>
+          <div class="ms">Jamaica · Cayman · Trinidad</div>
+          <div class="struct"><b>NCB Capital Markets</b> &mdash; the <b>oldest operational brokerage house in the English-speaking Caribbean</b> (since 1968). Full equity, bonds, mutual funds. NCB bank accounts fund NCBCM offerings directly.</div>
+          <div class="talk">Bank account &rarr; investment account in one click. The standard for what "good" looks like.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Insurance-group subsidiary</div>
+          <h4>Sagicor</h4>
+          <div class="ms">Jamaica · Barbados · Trinidad</div>
+          <div class="struct"><b>Sagicor Investments Jamaica</b>. Clients buy and sell JSE-listed stocks directly through Sagicor Bank's <b>e-bank platform</b>.</div>
+          <div class="talk">An insurance group built an integrated banking + investment platform. You don't need to be a global giant to do this.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">Vertically-integrated group</div>
+          <h4>JMMB Group</h4>
+          <div class="ms">Jamaica · Trinidad · Dominican Republic</div>
+          <div class="struct">Full financial group: banking + investment + brokerage under one parent. Built outward from a securities firm into a multi-market platform.</div>
+          <div class="talk">A non-traditional group built into a multi-market platform &mdash; proof there are multiple paths to the same destination.</div>
+        </div>
+        <div class="bank-card">
+          <div class="bm">OECS &mdash; in your perimeter</div>
+          <h4>ECFH / Bank of Saint Lucia</h4>
+          <div class="ms">OECS · ECCU / ECCB / ECSRC</div>
+          <div class="struct"><b>East Caribbean Financial Holding</b> runs Bank of Saint Lucia + an investment arm in the same currency union and under the same regulator as NCBA.</div>
+          <div class="talk">Right next door. Same regulator, same currency union. The closest precedent for what we'd build with NCBA.</div>
         </div>
       </div>
+      <div style="font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); line-height:1.5; margin:0 0 28px; padding:10px 14px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0;"><b style="color:var(--gold)">Sources:</b> public group websites &amp; filings · Butterfield/CIBC May 2026 announcement (US$1.794B, 106% of tangible book, ~US$29B combined) · First Citizens / Pershing LLC partnership and regional offices · NCB Capital Markets (founded 1968, English-speaking Caribbean) · Scotia Investments Jamaica / Scotia Caribbean integration · Sagicor Investments Jamaica / Sagicor Bank e-bank.</div>
 
       <div class="section-header">
         <div class="section-title">What each side gets</div>
@@ -2066,7 +2125,7 @@ footer.foot .right .gold { color: var(--gold); }
          03 · THE EDGE — why us vs passive ETF vs traditional manager
          ==================================================================== -->
     <div class="view" data-view="theedge">
-      <div class="page-eyebrow">03 · Why Us</div>
+      <div class="page-eyebrow">02 · Why Us</div>
       <h1 class="page-title">The Edge. <em>Why not just buy an ETF? Why not a traditional manager?</em></h1>
       <p class="page-subtitle">Two fair questions a sharp board will ask. Here's the honest, side-by-side answer across the dimensions that actually decide outcomes. Click a row to see why it matters. Illustrative.</p>
 
@@ -2300,7 +2359,7 @@ footer.foot .right .gold { color: var(--gold); }
          05 · WEALTH STRUCTURING — tax, trust, multi-jurisdiction
          ==================================================================== -->
     <div class="view" data-view="structuring">
-      <div class="page-eyebrow">05 · How We Manage Money</div>
+      <div class="page-eyebrow">06 · How We Manage Money</div>
       <h1 class="page-title">Wealth Structuring. <em>Beyond the portfolio.</em></h1>
       <p class="page-subtitle">The HNW client arriving through Anguilla's residency-by-investment program doesn't just need a portfolio &mdash; they need a structure: a trust, a tax-efficient wrapper, and coordination across the jurisdictions they touch. Most are intimidated by the complexity. It isn't complex &mdash; once someone sets it up properly. That someone is the partnership. Click a jurisdiction below.</p>
 
@@ -2398,7 +2457,7 @@ footer.foot .right .gold { color: var(--gold); }
          RISK MANAGEMENT — institutional, always-on (distinct from Scenarios)
          ==================================================================== -->
     <div class="view" data-view="governance">
-      <div class="page-eyebrow">08 · The Toolkit</div>
+      <div class="page-eyebrow">07 · The Toolkit</div>
       <h1 class="page-title">Risk Management. <em>Continuous, layered, adversarial.</em></h1>
       <p class="page-subtitle">Not scenario analysis &mdash; that's a separate tab. This is the always-on discipline: six layers of control, a live concentration grid, a liquidity ladder that holds under stress, and an engine that hunts the worst attack on the book every minute. Most managers check risk quarterly. Ours never stops. Illustrative.</p>
 
@@ -2739,7 +2798,7 @@ footer.foot .right .gold { color: var(--gold); }
          07 · SCENARIO SIMULATOR — two-layer real NCBA balance-sheet impact
          ==================================================================== -->
     <div class="view" data-view="scenarios">
-      <div class="page-eyebrow">07 · How We Invest</div>
+      <div class="page-eyebrow">08 · How We Invest</div>
       <h1 class="page-title">Scenario Simulator. <em>Your real book, stressed in real time.</em></h1>
       <p class="page-subtitle">Click a shock. We model the EC$ impact on NCBA's <em>actual</em> FY25 balance sheet &mdash; the amortised-cost bond book, the fair-valued sleeve, the loan book, liquidity, and reported ROE &mdash; then the action plan, targeting the real concentrations NCBA discloses. A separate layer shows client portfolios. Illustrative Analysis — based on FY25 audited figures (Notes 4.1.5 &amp; 8).</p>
 
@@ -3046,7 +3105,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE INTELLIGENCE EDGE — five capabilities no Caribbean bank has
          ==================================================================== -->
     <div class="view" data-view="edge">
-      <div class="page-eyebrow">08 · The Edge</div>
+      <div class="page-eyebrow">09 · The Edge</div>
       <h1 class="page-title">The Intelligence Edge. <em>What no one else in the region has.</em></h1>
       <p class="page-subtitle">Five live capabilities that separate an institutional asset manager from a bank treasury desk. Each is interactive or alive. All illustrative &mdash; built to show the machinery, not to forecast.</p>
 
@@ -3331,7 +3390,7 @@ footer.foot .right .gold { color: var(--gold); }
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">09 · How We Manage Money</div>
+      <div class="page-eyebrow">10 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -3482,7 +3541,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">10 · The Ask</div>
+      <div class="page-eyebrow">11 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
