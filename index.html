@@ -1244,6 +1244,48 @@ footer.foot .right .gold { color: var(--gold); }
 .qa-body-inner b { color:var(--text); }
 @media (max-width:1100px){ .ydw-grid{ grid-template-columns:1fr; } .ydw-divider{ display:none; } .qa-body-inner{ padding-left:18px; } .qa-head{ grid-template-columns:36px 1fr auto; } }
 
+
+/* ===== sub-advisory flow chart ===== */
+.sa-flow-wrap { background: radial-gradient(circle at 50% 50%, #14171c, var(--bg) 80%); border:1px solid var(--border); border-radius:8px; padding:30px 28px 22px; margin-bottom:24px; }
+.sa-flow-wrap svg { display:block; width:100%; height:auto; max-width:1000px; margin:0 auto; }
+.sa-node rect { fill: var(--bg-card); stroke: var(--gold-dim); stroke-width:2; }
+.sa-node.client rect { stroke: var(--gold); }
+.sa-node.bank rect { stroke: var(--signal); stroke-width:2.5; }
+.sa-node.us rect { stroke: var(--gold); stroke-width:2.5; }
+.sa-node.cust rect { stroke: var(--text-tertiary); stroke-dasharray:6 5; }
+.sa-node .nt { font-family:var(--serif); fill:var(--text); }
+.sa-node .ns { font-family:var(--mono); fill:var(--text-tertiary); }
+.sa-arrow { fill:none; stroke-width:2; }
+.sa-arrow.fwd  { stroke: var(--gold); }
+.sa-arrow.back { stroke: var(--signal); }
+.sa-num-text { fill:#0a0b0d; font-family:var(--mono); font-weight:700; font-size:11.5px; }
+.sa-legend { display:grid; grid-template-columns:repeat(2,1fr); gap:9px 22px; margin-top:22px; padding-top:20px; border-top:1px solid var(--border); }
+.sa-legend-row { display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:start; font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.5; }
+.sa-legend-row .ln { font-family:var(--mono); font-size:11px; font-weight:600; color:#0a0b0d; background:var(--gold); border-radius:3px; padding:3px 0; text-align:center; line-height:1; }
+.sa-legend-row.back .ln { background:var(--signal); }
+.sa-legend-row b { color:var(--text); }
+.sa-verify { font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); line-height:1.55; margin:0 0 24px; padding:12px 16px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0; }
+.sa-verify b { color:var(--gold); }
+
+/* ===== platform offering cards ===== */
+.plat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin:8px 0 22px; }
+.plat-card { background:var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--gold-dim); border-radius:6px; padding:20px 22px; transition:transform .18s, border-color .18s; }
+.plat-card:hover { border-top-color:var(--gold); transform:translateY(-2px); }
+.plat-card .pn { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+.plat-card h4 { font-family:var(--serif); font-size:18px; font-weight:400; margin:6px 0 12px; line-height:1.2; }
+.plat-card ul { list-style:none; padding:0; margin:0; }
+.plat-card li { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); padding:5px 0 5px 14px; line-height:1.5; position:relative; }
+.plat-card li::before { content:'\2022'; color:var(--gold); position:absolute; left:0; top:6px; font-size:11px; line-height:1; }
+.plat-card li b { color:var(--text); }
+.plat-deliver { background:linear-gradient(135deg,#16130d,var(--bg-card)); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:22px 26px; margin-bottom:24px; }
+.plat-deliver .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.plat-deliver p { font-family:var(--serif); font-size:16px; color:var(--text-secondary); line-height:1.55; font-weight:300; margin:0 0 10px; }
+.plat-deliver em { color:var(--gold); font-style:italic; }
+.plat-deliver ul { display:grid; grid-template-columns:repeat(2,1fr); gap:4px 18px; list-style:none; padding:0; margin:6px 0 0; }
+.plat-deliver li { font-family:var(--mono); font-size:11px; color:var(--text); padding:3px 0 3px 16px; position:relative; }
+.plat-deliver li::before { content:'\2713'; color:var(--positive); position:absolute; left:0; top:3px; font-size:12px; line-height:1; }
+@media (max-width:1100px){ .plat-grid{ grid-template-columns:1fr 1fr; } .sa-legend{ grid-template-columns:1fr; } .plat-deliver ul{ grid-template-columns:1fr; } }
+
 </style>
 </head>
 
@@ -1732,205 +1774,160 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         01 · SUB-ADVISORY — CEO-question-driven, bank-agnostic
+         01 · SUB-ADVISORY — direct flow chart + platform offering
          ==================================================================== -->
     <div class="view active" data-view="legal">
       <div class="page-eyebrow">01 · The Structure</div>
-      <h1 class="page-title">Sub-advisory. <em>You run the bank. We run the investments.</em></h1>
-      <p class="page-subtitle">An institutional asset-management firm operating beneath your brand. You keep the client, the license, the balance sheet, the brand. We manage the portfolios. You share the fee. Every question a bank CEO actually asks is answered below.</p>
+      <h1 class="page-title">Sub-advisory. <em>How it works &mdash; and what we deliver.</em></h1>
+      <p class="page-subtitle">The textbook institutional sub-advisory model: the bank stays adviser of record; we become the sub-adviser running the money; an independent custodian holds the assets. One diagram below shows exactly how the relationships, money, and reporting flow. Then: the platform we deliver underneath your brand.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Open with the proposition, plainly. Say: <strong>"The simplest description: we become your investment desk. Your clients see your brand on every statement. You keep the license, the relationship, the balance sheet. We run the portfolios and share the fee with you. Nothing about this requires you to build a wealth platform &mdash; you already have everything else. Twelve questions a bank CEO would ask are answered on this page. Pick one and let's start there."</strong></p>
-        <p><em>Don't sell. Open the Q&A. Let them choose where to start &mdash; that tells you what they actually care about.</em></p>
+        <p>Point at the diagram. Say: <strong>"This is how sub-advisory actually works. Four parties: your client, your bank as adviser of record, us as sub-adviser, and an independent custodian holding the assets in the client's name. You sign the client. You sign us. We run the portfolios. The custodian holds the money. That's the entire model &mdash; standard institutional asset-management practice. Underneath that, we deliver the platform &mdash; trading, risk, research, reporting, compliance. You provide the brand and the client. We provide the engine."</strong></p>
       </div>
 
       <div class="section-header" style="margin-top:0;">
-        <div class="section-title">What sub-advisory actually means</div>
-        <div class="section-meta">A simple split &mdash; what stays yours, what becomes ours</div>
+        <div class="section-title">How sub-advisory actually works</div>
+        <div class="section-meta">Four parties · six labelled flows · the standard institutional model, verified against industry practice</div>
       </div>
-      <div class="ydw-grid">
-        <div class="ydw-col ydw-you">
-          <div class="ydw-h">The Bank — you do</div>
-          <div class="ydw-sub">Everything client-facing stays yours.</div>
-          <ul>
-            <li><b>Own the client relationship</b> — the client is yours, structurally</li>
-            <li><b>Hold the deposit &amp; banking accounts</b> on your balance sheet</li>
-            <li><b>Carry your brand</b> on every statement and touchpoint</li>
-            <li><b>Hold the broker-dealer / investment-services licence</b> in your jurisdiction</li>
-            <li><b>Set the all-in fee</b> to your client</li>
-            <li><b>Front-office, distribution, KYC &amp; suitability</b></li>
-            <li><b>Board governance</b> over the partnership</li>
-          </ul>
-        </div>
-        <div class="ydw-divider">+</div>
-        <div class="ydw-col ydw-us">
-          <div class="ydw-h">Oceanic — we do</div>
-          <div class="ydw-sub">Everything investment-engine stays ours.</div>
-          <ul>
-            <li><b>Run the investment platform</b> &mdash; trading, portfolio mgmt, risk</li>
-            <li><b>Construct &amp; manage the portfolios</b> (models + bespoke)</li>
-            <li><b>Sub-advise under your brand</b> &mdash; invisible to your client</li>
-            <li><b>Hold the asset-management licence</b> (ECSRC)</li>
-            <li><b>Take an agreed share of that fee</b> as the manager</li>
-            <li><b>Research, execution, best-ex, risk discipline</b></li>
-            <li><b>Operate within your IPS, board limits, regulatory caps</b></li>
-          </ul>
+      <div class="sa-flow-wrap">
+        <svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+          <!-- arrows -->
+          <path class="sa-arrow fwd"  d="M460 100 Q360 170 280 230"/>
+          <path class="sa-arrow back" d="M240 230 Q340 140 540 100"/>
+          <path class="sa-arrow fwd"  d="M340 275 L660 275"/>
+          <path class="sa-arrow back" d="M660 305 L340 305"/>
+          <path class="sa-arrow fwd"  d="M790 350 Q720 420 600 460"/>
+          <path class="sa-arrow back" d="M280 460 Q210 410 200 350"/>
+          <path class="sa-arrow back" d="M720 460 Q800 410 800 350"/>
+
+          <!-- arrow heads (small triangles at ends) -->
+          <polygon points="280,230 270,220 274,236" fill="var(--gold)"/>
+          <polygon points="540,100 533,108 550,112" fill="var(--signal)"/>
+          <polygon points="660,275 651,269 651,281" fill="var(--gold)"/>
+          <polygon points="340,305 349,299 349,311" fill="var(--signal)"/>
+          <polygon points="600,460 608,452 614,464" fill="var(--gold)"/>
+          <polygon points="200,350 192,341 209,341" fill="var(--signal)"/>
+          <polygon points="800,350 808,341 791,341" fill="var(--signal)"/>
+
+          <!-- numbered tags on each arrow -->
+          <g><rect x="318" y="146" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="329" y="161" text-anchor="middle">1</text></g>
+          <g><rect x="418" y="146" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="429" y="161" text-anchor="middle">2</text></g>
+          <g><rect x="489" y="263" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="500" y="278" text-anchor="middle">3</text></g>
+          <g><rect x="489" y="294" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="500" y="309" text-anchor="middle">4</text></g>
+          <g><rect x="685" y="408" width="22" height="22" rx="11" fill="var(--gold)"/><text class="sa-num-text" x="696" y="423" text-anchor="middle">5</text></g>
+          <g><rect x="208" y="408" width="22" height="22" rx="11" fill="var(--signal)"/><text class="sa-num-text" x="219" y="423" text-anchor="middle">6</text></g>
+
+          <!-- nodes -->
+          <g class="sa-node client"><rect x="400" y="30" width="200" height="70" rx="8"/><text class="nt" x="500" y="62" text-anchor="middle" font-size="20">Client</text><text class="ns" x="500" y="82" text-anchor="middle" font-size="9" letter-spacing="0.1em">OWNER OF THE ASSETS</text></g>
+
+          <g class="sa-node bank"><rect x="80" y="230" width="260" height="120" rx="8"/><text class="nt" x="210" y="270" text-anchor="middle" font-size="22">The Bank</text><text class="ns" x="210" y="293" text-anchor="middle" font-size="10" letter-spacing="0.12em">ADVISER OF RECORD</text><text class="ns" x="210" y="313" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">CLIENT · LICENCE · BRAND</text><text class="ns" x="210" y="331" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">KYC · SUITABILITY · BS</text></g>
+
+          <g class="sa-node us"><rect x="660" y="230" width="260" height="120" rx="8"/><text class="nt" x="790" y="270" text-anchor="middle" font-size="22">Oceanic</text><text class="ns" x="790" y="293" text-anchor="middle" font-size="10" letter-spacing="0.12em">SUB-ADVISER</text><text class="ns" x="790" y="313" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">PORTFOLIO MGMT · TRADING</text><text class="ns" x="790" y="331" text-anchor="middle" font-size="9.5" letter-spacing="0.05em">RISK · RESEARCH · COMPLIANCE</text></g>
+
+          <g class="sa-node cust"><rect x="220" y="460" width="560" height="100" rx="8"/><text class="nt" x="500" y="495" text-anchor="middle" font-size="20">Custodian</text><text class="ns" x="500" y="517" text-anchor="middle" font-size="9.5" letter-spacing="0.06em">INDEPENDENT THIRD-PARTY · IBKR · PERSHING (BNY)</text><text class="ns" x="500" y="537" text-anchor="middle" font-size="9.5" letter-spacing="0.06em">HOLDS ASSETS IN THE CLIENT'S NAME · SEGREGATED · SIPC / EQUIVALENT</text></g>
+        </svg>
+
+        <div class="sa-legend">
+          <div class="sa-legend-row"><div class="ln">1</div><div><b>Client &rarr; Bank.</b> Investment-advisory agreement signed. KYC, suitability, fee schedule. The client is the bank's, structurally and contractually.</div></div>
+          <div class="sa-legend-row back"><div class="ln">2</div><div><b>Bank &rarr; Client.</b> Branded statements, ongoing relationship management, performance review meetings. <em>Everything client-facing carries the bank's name.</em></div></div>
+          <div class="sa-legend-row"><div class="ln">3</div><div><b>Bank &rarr; Oceanic.</b> Sub-advisory agreement signed. Discretionary investment mandate delegated under the bank's IPS and limits. Agreed fee share to Oceanic.</div></div>
+          <div class="sa-legend-row back"><div class="ln">4</div><div><b>Oceanic &rarr; Bank.</b> Performance, risk attribution, holdings, breaches, governance reporting back to the bank &mdash; daily data feed, monthly review, quarterly board pack.</div></div>
+          <div class="sa-legend-row"><div class="ln">5</div><div><b>Oceanic &rarr; Custodian.</b> Discretionary trade instructions executed directly at the custodian, per the IPS. Best-execution policy and audit trail on every order.</div></div>
+          <div class="sa-legend-row back"><div class="ln">6</div><div><b>Custodian &rarr; Bank &amp; Oceanic.</b> Position files, NAV, settlement and reconciliation flow back to both. <em>Bank sees the holdings; Oceanic sees the holdings; the assets stay with the custodian.</em></div></div>
         </div>
       </div>
-      <div class="ydw-bottom">The whole proposition in one line: <em>your brand on the front, our engine on the back, a fee split in the middle.</em> Nothing else about how you run the bank changes.</div>
+      <div class="sa-verify"><b>Verified —</b> this is the textbook institutional sub-advisory architecture used across asset management: <b>adviser of record</b> + <b>delegated sub-adviser</b> + <b>independent custodian holding assets in the client's name</b>. The structural separation is the same one every regulated jurisdiction relies on (US ’40-Act sub-advised mutual funds, UK FCA delegated portfolio management, ECCU bank+investment-arm structures). The components are textbook; <em>what differs from one partnership to another is the sub-adviser platform underneath</em>. Ours is below.</div>
 
       <div class="section-header">
-        <div class="section-title">The twelve questions a CEO asks &mdash; answered</div>
-        <div class="section-meta">Click any question · honest answers · bank-agnostic</div>
+        <div class="section-title">What we offer &mdash; the sub-adviser platform</div>
+        <div class="section-meta">Six components · delivered turnkey · operating under your brand</div>
       </div>
-      <div class="ceo-qa" id="ceo-qa">
-
-        <div class="qa-item open"><div class="qa-head"><span class="qa-q">Q1</span><span class="qa-q-text">"What is sub-advisory, exactly?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">You stay the firm of record &mdash; the <b>client is yours</b>, the licence is yours, the brand on the statement is yours. We manage the investments underneath, invisibly, for a share of the fee. <em>Think of it like having an institutional asset-management desk inside your bank, without having to build one or own one.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q2</span><span class="qa-q-text">"Will you ever talk to my clients without me?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner"><b>No.</b> The client relationship is yours, structurally. We never call your clients. We sit behind you. If the client wants to talk to the investment team, it's <em>by invitation, in a meeting you host</em>. Anything else is a breach of the agreement. The non-solicit is in the contract.</div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q3</span><span class="qa-q-text">"What do I make? What do you take?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">You set the all-in fee the client pays. We take an <b>agreed share</b> &mdash; typically <b>40&ndash;50% of the management fee</b> for the mass-affluent lane, <b>50&ndash;60%</b> for the HNW lane where Oceanic carries more of the work. <em>The bank gets the larger share where the bank brings the client.</em> Performance fees, where used, are split on the same basis. We earn nothing if no client signs.</div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q4</span><span class="qa-q-text">"What licences do we each need?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">You need a <b>broker-dealer or investment-services licence</b> in your jurisdiction &mdash; most regional banks already have one, or can obtain one in months. We hold the <b>ECSRC asset-management licence</b>. The combination covers both lanes inside the Eastern Caribbean regulatory perimeter, supervised by your home regulator.</div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q5</span><span class="qa-q-text">"Is my brand exposed if you mess up?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">That's exactly why the governance is stricter than the market norm. The partnership runs <b>under your name, under your tolerance</b>: IPS limits, board caps, daily risk reporting, hard pre-trade compliance. Investment-management negligence is <b>our liability</b>, covered by E&O insurance and an indemnity in the partnership agreement. <em>Suitability and KYC stay with you</em> &mdash; those are bank functions; we don't touch them.</div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q6</span><span class="qa-q-text">"How fast can we be live?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner"><b>Sixteen weeks</b> to a pilot with real clients. <b>Six months</b> to full launch. Path: NDA &amp; scope (week 0) &rarr; paid diagnostic (weeks 1&ndash;4) &rarr; partnership term sheet &amp; licensing (weeks 5&ndash;8) &rarr; soft launch with 3&ndash;5 HNW clients + branch model portfolios (weeks 9&ndash;16) &rarr; full launch month 6. <em>Nothing about day one commits you beyond the diagnostic.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q7</span><span class="qa-q-text">"What if I want out?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">Standard institutional terms: <b>90-day termination for convenience</b>, no early-termination penalty. <b>Client portfolios remain on the bank's books</b> &mdash; we lift the investment-management mandate; the client never moves. Continuity is built in. The exit is clean by design, because it has to be.</div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q8</span><span class="qa-q-text">"Why you, not Schroders or Goldman?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">Three reasons. <b>One:</b> we're <em>inside your regulatory perimeter</em> &mdash; ECSRC-supervised, on-island, same currency union. <b>Two:</b> we will <em>co-brand on a sixty-day clock</em>; Goldman won't co-brand at all and Schroders is offshore. <b>Three:</b> we built the platform around the institutional risk and reporting a bank board needs &mdash; not the consumer wrapper a global house offers. <em>For your scale, we're built-for-purpose; they're built-for-someone-else.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q9</span><span class="qa-q-text">"What infrastructure do I need to build?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">Almost none. We bring the <b>trading platform</b> (IBKR institutional), the <b>portfolio-management system</b>, the <b>risk engine</b>, the <b>research feed</b>, the <b>client reporting</b>, and the <b>compliance overlay</b>. You bring the client and the brand. The only "build" on your side is a short legal &amp; compliance review and signing the partnership. <em>Sixteen weeks to live, not eighteen months to build.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q10</span><span class="qa-q-text">"What does the governance look like?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner"><b>Quarterly board governance pack</b> &mdash; performance, risk, concentrations, scenarios, breaches, near-misses. <b>Monthly portfolio review</b> with your CIO or treasury head. <b>Annual fee &amp; performance review</b>. Daily reporting available on demand. The pack is yours to take straight to your audit committee. <em>Compliance overlay logs every trade and every breach &mdash; nothing is verbal.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q11</span><span class="qa-q-text">"What's the worst case for me?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">Two real risks. <b>Conduct risk</b> &mdash; mitigated by operating under your IPS, your limits, and a pre-trade compliance overlay (no rogue trades, hard caps enforced before execution, not after). <b>Performance risk</b> &mdash; real but bounded: diversified institutional portfolios under explicit risk budgets, with the scenario simulator pre-staging the worst plausible move on your actual book (see tab 08). <em>Reputational risk only converts into financial risk via one of these two; both are governed.</em></div></div></div>
-
-        <div class="qa-item"><div class="qa-head"><span class="qa-q">Q12</span><span class="qa-q-text">"What happens Monday morning if I say yes today?"</span><span class="qa-tog"><span class="chev">&#9656;</span>Answer</span></div><div class="qa-body"><div class="qa-body-inner">Tuesday we sign the NDA. Within a week the diagnostic scope is agreed. The <b>diagnostic is paid, fixed-scope, four weeks</b> &mdash; you have a board-ready document with the numbers inside a month. <em>You decide then whether to proceed to the partnership phase.</em> Nothing about the day-one decision commits you beyond the diagnostic. That is the entire ask today.</div></div></div>
-
-      </div>
-      <script>(function(){var w=document.getElementById('ceo-qa');if(!w)return;w.querySelectorAll('.qa-head').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});})();</script>
-
-      <div class="section-header">
-        <div class="section-title">What each side gets</div>
-        <div class="section-meta">The partnership is positive-sum across all three parties</div>
-      </div>
-      <div class="benefits3">
-        <div class="benefit-col b-bank">
-          <h5>The Bank gets</h5>
+      <div class="plat-grid">
+        <div class="plat-card">
+          <div class="pn">Component 1</div>
+          <h4>Trading &amp; Execution</h4>
           <ul>
-            <li>A wealth platform on day one &mdash; no build, no team to hire</li>
-            <li>The client relationship stays yours, structurally</li>
-            <li>Recurring fee income + reportable AUA growth</li>
-            <li>A reason for HNW depositors to stop leaving the franchise</li>
-            <li>Capabilities a consolidating competitor needs years to match</li>
+            <li><b>IBKR institutional</b> master account architecture</li>
+            <li>Multi-currency · <b>150 global markets</b></li>
+            <li>Best-execution policy + full audit trail</li>
+            <li>Block trading + automated client allocation</li>
+            <li>T+0 to T+2 settlement, automated</li>
           </ul>
         </div>
-        <div class="benefit-col b-oc">
-          <h5>Oceanic gets</h5>
+        <div class="plat-card">
+          <div class="pn">Component 2</div>
+          <h4>Portfolio Management</h4>
           <ul>
-            <li>Distribution at near-zero acquisition cost</li>
-            <li>A repeatable model across every regional bank</li>
-            <li>Scale on the platform already built</li>
-            <li>An anchor partner that proves the model</li>
-            <li>No brand conflict &mdash; we are invisible infrastructure</li>
+            <li><b>Model-portfolio engine</b> &mdash; 4 risk-graded mandates</li>
+            <li><b>Bespoke construction</b> for HNW accounts</li>
+            <li>Automated rebalancing to IPS bands</li>
+            <li>Tax-lot accounting where applicable</li>
+            <li>Multi-currency portfolio construction</li>
           </ul>
         </div>
-        <div class="benefit-col b-cl">
-          <h5>The Client gets</h5>
+        <div class="plat-card">
+          <div class="pn">Component 3</div>
+          <h4>Risk Engine</h4>
           <ul>
-            <li>Banking + wealth under one trusted roof</li>
-            <li>Lower fees than offshore wrappers</li>
-            <li>Local, in-region supervision &amp; relationship</li>
-            <li>Institutional platform &amp; global market access</li>
-            <li>Transparency a fund wrapper can't offer</li>
+            <li><b>Pre-trade compliance overlay</b> &mdash; hard limits enforced at trade, not after</li>
+            <li>Daily VaR &mdash; parametric, historical, Monte Carlo</li>
+            <li>Factor exposure &amp; concentration monitoring</li>
+            <li><b>Scenario simulator</b> on the live book</li>
+            <li>Continuous adversarial stress testing</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Component 4</div>
+          <h4>Research &amp; Intelligence</h4>
+          <ul>
+            <li><b>AI world-state monitoring</b> &mdash; 11 languages</li>
+            <li>Narrative correlation mapping</li>
+            <li>Market regime gauge</li>
+            <li>Counterfactual analytics</li>
+            <li>Material-finding alerts to portfolio managers</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Component 5</div>
+          <h4>Client Reporting</h4>
+          <ul>
+            <li><b>Daily NAV</b>, holdings, performance &amp; risk</li>
+            <li><b>Bank-branded</b> &mdash; your logo, your statements</li>
+            <li>API feed available for bank systems</li>
+            <li>Audit-grade trade &amp; reconciliation logs</li>
+            <li>On-demand client-level drill-down</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Component 6</div>
+          <h4>Compliance &amp; Governance</h4>
+          <ul>
+            <li><b>IPS-driven</b> mandate management</li>
+            <li>Hard caps enforced at trade time</li>
+            <li><b>Quarterly board governance pack</b></li>
+            <li>Monthly portfolio review with the bank's CIO/treasurer</li>
+            <li>Annual fee &amp; performance review</li>
           </ul>
         </div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">Every Caribbean bank that does this &mdash; and how</div>
-        <div class="section-meta">Real, named, regional precedent · the bank + investment-arm model is the regional standard</div>
+      <div class="plat-deliver">
+        <div class="lbl">What this means for the bank</div>
+        <p>You don't build any of this. <em>You don't hire a portfolio team. You don't license a risk system. You don't write a research process.</em> The platform is delivered turnkey, operating under your brand, governed under your IPS &mdash; ready inside sixteen weeks.</p>
+        <ul>
+          <li>Trading platform · delivered</li>
+          <li>Portfolio-management system · delivered</li>
+          <li>Risk engine · delivered</li>
+          <li>Research &amp; intelligence · delivered</li>
+          <li>Client reporting · delivered</li>
+          <li>Compliance overlay · delivered</li>
+        </ul>
       </div>
-      <div class="banks-grid">
-        <div class="bank-card">
-          <div class="bm">Consolidation · May 2026</div>
-          <h4>Butterfield Bank</h4>
-          <div class="ms">Bermuda · Cayman · Channel Islands &rarr; Caribbean</div>
-          <div class="struct">In-house <b>Butterfield Asset Management</b>. Announced acquisition of CIBC Caribbean for <b>US$1.794B</b> at <b>106% of tangible book</b> &mdash; creating a ~US$29B combined banking + wealth platform.</div>
-          <div class="talk">This is the acquirer of the moment. The price they paid tells you what a wealth platform is worth.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Acquired · 2026</div>
-          <h4>CIBC FirstCaribbean</h4>
-          <div class="ms">16 Caribbean markets</div>
-          <div class="struct">CIBC FirstCaribbean International Wealth Management &mdash; currently being absorbed into Butterfield.</div>
-          <div class="talk">This is what gets acquired when you don't have a wealth-platform path of your own.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Two-tier model</div>
-          <h4>RBC Royal Bank Caribbean</h4>
-          <div class="ms">Pan-Caribbean</div>
-          <div class="struct"><b>RBC Wealth Management Caribbean</b>. In Canada, RBC runs the proven two-tier model: <b>RBC Investments</b> (branch / mass-affluent) + <b>RBC Dominion Securities</b> (full HNW platform).</div>
-          <div class="talk">Two tiers — branch wealth + full HNW platform — works at every scale.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Bank-group subsidiary</div>
-          <h4>First Citizens (T&amp;T)</h4>
-          <div class="ms">Trinidad · Barbados · St. Vincent · St. Lucia</div>
-          <div class="struct"><b>First Citizens Investment Services</b> &mdash; the largest full-service investment house in the Caribbean. Bank-group subsidiary. Uses <b>Pershing LLC (BNY Mellon)</b> as the third-party platform for international trading.</div>
-          <div class="talk">A regional bank already does this &mdash; including using a third-party platform partner. Proves the model in your region.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Wholly-owned subsidiary</div>
-          <h4>Republic Bank (T&amp;T)</h4>
-          <div class="ms">Trinidad &amp; regional</div>
-          <div class="struct"><b>Republic Wealth Management Limited</b> &mdash; wholly-owned subsidiary of Republic Financial Holdings (rebranded 2020). Full-service stock broking, portfolio management, retirement planning.</div>
-          <div class="talk">Another regional bank with a wholly-owned investment arm. The bank-group structure is the regional standard playbook.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Bank-group subsidiary</div>
-          <h4>Scotiabank Caribbean</h4>
-          <div class="ms">Jamaica · Trinidad · regional</div>
-          <div class="struct"><b>Scotia Investments Jamaica</b> &mdash; group investment arm. Since 2025, clients view investments and bank balances together via the <b>Scotia Caribbean mobile and online banking</b> platform.</div>
-          <div class="talk">Investments and bank accounts in one app &mdash; the integrated experience your customers will expect.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Bank-group subsidiary</div>
-          <h4>NCB Jamaica</h4>
-          <div class="ms">Jamaica · Cayman · Trinidad</div>
-          <div class="struct"><b>NCB Capital Markets</b> &mdash; the <b>oldest operational brokerage house in the English-speaking Caribbean</b> (since 1968). Full equity, bonds, mutual funds. NCB bank accounts fund NCBCM offerings directly.</div>
-          <div class="talk">Bank account &rarr; investment account in one click. The standard for what "good" looks like.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Insurance-group subsidiary</div>
-          <h4>Sagicor</h4>
-          <div class="ms">Jamaica · Barbados · Trinidad</div>
-          <div class="struct"><b>Sagicor Investments Jamaica</b>. Clients buy and sell JSE-listed stocks directly through Sagicor Bank's <b>e-bank platform</b>.</div>
-          <div class="talk">An insurance group built an integrated banking + investment platform. You don't need to be a global giant to do this.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">Vertically-integrated group</div>
-          <h4>JMMB Group</h4>
-          <div class="ms">Jamaica · Trinidad · Dominican Republic</div>
-          <div class="struct">Full financial group: banking + investment + brokerage under one parent. Built outward from a securities firm into a multi-market platform.</div>
-          <div class="talk">A non-traditional group built into a multi-market platform &mdash; proof there are multiple paths to the same destination.</div>
-        </div>
-        <div class="bank-card">
-          <div class="bm">OECS &mdash; in your perimeter</div>
-          <h4>ECFH / Bank of Saint Lucia</h4>
-          <div class="ms">OECS · ECCU / ECCB / ECSRC</div>
-          <div class="struct"><b>East Caribbean Financial Holding</b> runs Bank of Saint Lucia + an investment arm in the same currency union and under the same regulator as banks in Anguilla.</div>
-          <div class="talk">Right next door. Same regulator, same currency union. The closest precedent for the partnership.</div>
-        </div>
-      </div>
-      <div style="font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); line-height:1.5; margin:0 0 28px; padding:10px 14px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0;"><b style="color:var(--gold)">Sources:</b> public group websites &amp; filings · Butterfield/CIBC May 2026 announcement (US$1.794B, 106% of tangible book, ~US$29B combined) · First Citizens / Pershing LLC partnership and regional offices · NCB Capital Markets (founded 1968, English-speaking Caribbean) · Scotia Investments Jamaica / Scotia Caribbean integration · Sagicor Investments Jamaica / Sagicor Bank e-bank.</div>
 
       <div class="opp-close-frame">
-        <div class="lbl">The ask today</div>
-        <div class="big">Sign the NDA. Agree the diagnostic scope. <em>Inside one month you have a board-ready document with the numbers</em> &mdash; and you decide whether to proceed. <em>That is the entire commitment today.</em></div>
+        <div class="lbl">What we are offering</div>
+        <div class="big">A complete, turnkey sub-adviser platform operating <em>underneath your brand</em>, inside the institutional sub-advisory model proven across the industry. <em>You stay the bank.</em> We become the engine.</div>
       </div>
     </div>
 
