@@ -1382,6 +1382,32 @@ footer.foot .right .gold { color: var(--gold); }
 
 @media (max-width:1100px){ .cobrand-grid{ grid-template-columns: 1fr 1fr; } .alt-grid{ grid-template-columns: 1fr 1fr; } .sa2-legend{ grid-template-columns: 1fr; } }
 
+
+/* ===== SIMPLE 4-box flow chart (replaces the busy SVG) ===== */
+.sa3-wrap { background: var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:34px 28px 26px; margin-bottom:18px; }
+.sa3-row { display:grid; grid-template-columns: 1fr 90px 1fr 90px 1fr 90px 1fr; gap:0; align-items:stretch; }
+.sa3-box { background:linear-gradient(180deg, #14171c 0%, #1a1d22 100%); border:1px solid var(--border); border-radius:8px; padding:24px 20px; text-align:center; display:flex; flex-direction:column; justify-content:center; min-height:170px; }
+.sa3-box.client { border-top:3px solid var(--gold); }
+.sa3-box.bank   { border:2px solid var(--signal); }
+.sa3-box.us     { border:2px solid var(--gold); background:linear-gradient(180deg, #1a1614 0%, #1a1d22 100%); }
+.sa3-box.cust   { border-top:3px solid var(--text-tertiary); border-style:dashed; border-width:1.5px; border-radius:8px; }
+.sa3-name { font-family:var(--serif); font-size:23px; font-weight:400; color:var(--text); line-height:1.1; }
+.sa3-role { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; margin-top:8px; }
+.sa3-box.client .sa3-role { color:var(--gold); }
+.sa3-box.bank   .sa3-role { color:var(--signal); }
+.sa3-box.us     .sa3-role { color:var(--gold); }
+.sa3-box.cust   .sa3-role { color:var(--text-tertiary); }
+.sa3-sub { font-family:var(--mono); font-size:10px; color:var(--text-tertiary); line-height:1.5; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
+.sa3-conn { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; gap:8px; }
+.sa3-num { font-family:var(--mono); font-size:14px; font-weight:700; color:#0a0b0d; background:var(--gold); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.sa3-label { font-family:var(--sans); font-size:11px; color:var(--text-secondary); text-align:center; line-height:1.35; max-width:90px; }
+.sa3-arrow-line { width:78px; height:0; border-top:2px solid var(--gold); position:relative; }
+.sa3-arrow-line::after { content:''; position:absolute; right:-2px; top:-6px; border-left:11px solid var(--gold); border-top:6px solid transparent; border-bottom:6px solid transparent; }
+.sa3-readable { font-family:var(--serif); font-size:15px; line-height:1.65; color:var(--text-secondary); background:var(--bg-elevated); border-left:3px solid var(--gold); border-radius:0 6px 6px 0; padding:16px 22px; margin-top:22px; }
+.sa3-readable b { color:var(--gold); font-weight:500; }
+.sa3-readable .num { font-family:var(--mono); font-size:11px; font-weight:700; color:#0a0b0d; background:var(--gold); border-radius:50%; padding:3px 7px; margin-right:6px; }
+@media (max-width:1100px){ .sa3-row{ grid-template-columns:1fr; gap:14px; } .sa3-conn{ padding:8px 0; } .sa3-arrow-line{ width:2px; height:40px; border-top:none; border-left:2px solid var(--gold); } .sa3-arrow-line::after{ right:auto; left:-6px; top:auto; bottom:-2px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:11px solid var(--gold); border-bottom:none; } }
+
 </style>
 </head>
 
@@ -1423,19 +1449,6 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
     </div>
 
-    <div class="sidebar-section" data-section="why">
-      <div class="sidebar-section-toggle">
-        <div class="sidebar-label" style="color:var(--signal);"><span class="sidebar-emoji">◉</span>Why Us</div>
-        <div class="caret">▾</div>
-      </div>
-      <div class="sidebar-children">
-        <div class="sidebar-item" data-view="theedge">
-          <span class="sidebar-num">02</span><span class="sidebar-item-label">The Edge</span>
-          <span class="sidebar-badge">vs ETF / mgr</span>
-        </div>
-      </div>
-    </div>
-
     <div class="sidebar-section" data-section="invest">
       <div class="sidebar-section-toggle">
         <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">◆</span>How We Invest</div>
@@ -1443,13 +1456,13 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="models" data-sub="models">
-          <span class="sidebar-num">03</span><span class="sidebar-item-label">Model Portfolios</span>
+          <span class="sidebar-num">02</span><span class="sidebar-item-label">Model Portfolios</span>
         </div>
         <div class="sidebar-item" data-view="models" data-sub="hnw">
-          <span class="sidebar-num">04</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
         </div>
         <div class="sidebar-item" data-view="models" data-sub="inst">
-          <span class="sidebar-num">05</span><span class="sidebar-item-label">Institutional</span>
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">Institutional</span>
         </div>
       </div>
     </div>
@@ -1461,22 +1474,22 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="structuring">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">Wealth Structuring</span>
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Wealth Structuring</span>
           <span class="sidebar-badge">tax · trust</span>
         </div>
         <div class="sidebar-item" data-view="governance">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">Risk Management</span>
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">Scenario Simulator</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Simulator</span>
           <span class="sidebar-badge">live</span>
         </div>
         <div class="sidebar-item" data-view="edge">
-          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Intelligence Edge</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Intelligence Edge</span>
           <span class="sidebar-badge">5 live</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">10</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -1488,7 +1501,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">11</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">10</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -1512,7 +1525,7 @@ footer.foot .right .gold { color: var(--gold); }
          04 · HOW WE INVEST — three sub-tabs: models / HNW / institutional
          ==================================================================== -->
     <div class="view" data-view="models">
-      <div class="page-eyebrow">03 · How We Invest</div>
+      <div class="page-eyebrow">02 · How We Invest</div>
       <h1 class="page-title">How we invest. <em>Three clients, one discipline.</em></h1>
       <p class="page-subtitle">Three distinct ways we put money to work &mdash; mass-affluent clients into model portfolios, high-net-worth clients into bespoke mandates, and NCBA's own balance sheet into an actively risk-managed institutional book. Click through. Everything is interactive: hover the charts, click the models, expand the differentiators.</p>
 
@@ -1940,83 +1953,51 @@ footer.foot .right .gold { color: var(--gold); }
 
       <div class="section-header" style="margin-top:0;">
         <div class="section-title">How sub-advisory actually works</div>
-        <div class="section-meta">Four parties · six numbered flows · click any number to isolate that flow</div>
+        <div class="section-meta">Four parties · read it left to right · one sentence per arrow</div>
       </div>
-      <div class="sa2-wrap">
-        <svg class="sa2-svg" viewBox="0 0 1100 700" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <marker id="mkG" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 0,10 z" class="sa2-marker"/></marker>
-            <marker id="mkT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 0,10 z" class="sa2-marker teal"/></marker>
-          </defs>
+      <div class="sa3-wrap">
+        <div class="sa3-row">
+          <div class="sa3-box client">
+            <div class="sa3-name">The Client</div>
+            <div class="sa3-role">Owner of the assets</div>
+          </div>
+          <div class="sa3-conn">
+            <div class="sa3-num">1</div>
+            <div class="sa3-label">signs the advisory agreement</div>
+            <div class="sa3-arrow-line"></div>
+          </div>
+          <div class="sa3-box bank">
+            <div class="sa3-name">The Bank</div>
+            <div class="sa3-role">Adviser of record</div>
+            <div class="sa3-sub">client &middot; brand &middot; licence<br>KYC &middot; suitability</div>
+          </div>
+          <div class="sa3-conn">
+            <div class="sa3-num">2</div>
+            <div class="sa3-label">delegates investment management to</div>
+            <div class="sa3-arrow-line"></div>
+          </div>
+          <div class="sa3-box us">
+            <div class="sa3-name">Oceanic</div>
+            <div class="sa3-role">Sub-adviser</div>
+            <div class="sa3-sub">portfolio mgmt &middot; trading<br>risk &middot; research</div>
+          </div>
+          <div class="sa3-conn">
+            <div class="sa3-num">3</div>
+            <div class="sa3-label">places trades at</div>
+            <div class="sa3-arrow-line"></div>
+          </div>
+          <div class="sa3-box cust">
+            <div class="sa3-name">The Custodian</div>
+            <div class="sa3-role">Independent third party</div>
+            <div class="sa3-sub">IBKR &middot; Pershing-BNY<br>holds assets in client's name</div>
+          </div>
+        </div>
 
-          <!-- partnership perimeter -->
-          <rect class="sa2-perim" x="40" y="220" width="1020" height="200" rx="12"/>
-          <text class="sa2-perim-label" x="540" y="244" text-anchor="middle">Sub-Advisory Partnership &mdash; one regulatory perimeter</text>
-
-          <!-- arrow paths -->
-          <path class="sa2-flow gold" data-n="1" d="M520 120 C 520 180, 280 195, 280 260" marker-end="url(#mkG)"/>
-          <path class="sa2-flow teal" data-n="2" d="M250 260 C 250 180, 590 180, 590 120" marker-end="url(#mkT)"/>
-          <path class="sa2-flow gold" data-n="3" d="M380 305 L 720 305" marker-end="url(#mkG)"/>
-          <path class="sa2-flow teal" data-n="4" d="M720 345 L 380 345" marker-end="url(#mkT)"/>
-          <path class="sa2-flow gold" data-n="5" d="M870 400 C 870 480, 560 490, 560 545" marker-end="url(#mkG)"/>
-          <path class="sa2-flow teal" data-n="6" d="M340 545 C 260 500, 180 460, 180 400" marker-end="url(#mkT)"/>
-          <path class="sa2-flow teal" data-n="6" d="M760 545 C 840 500, 920 460, 920 400" marker-end="url(#mkT)"/>
-
-          <!-- inline labels along arrows -->
-          <text class="sa2-flow-label" data-n="1" x="378" y="184" text-anchor="middle">Advisory agreement &middot; KYC &middot; fee</text>
-          <text class="sa2-flow-label" data-n="2" x="430" y="162" text-anchor="middle">Branded statements</text>
-          <text class="sa2-flow-label" data-n="3" x="550" y="296" text-anchor="middle">Sub-advisory mandate &middot; IPS</text>
-          <text class="sa2-flow-label" data-n="4" x="550" y="360" text-anchor="middle">Performance &middot; risk &middot; reports</text>
-          <text class="sa2-flow-label" data-n="5" x="722" y="476" text-anchor="end">Discretionary trades</text>
-          <text class="sa2-flow-label" data-n="6" x="100" y="478" text-anchor="start">Position files &middot; NAV</text>
-
-          <!-- CLIENT -->
-          <g><rect class="sa2-node-rect client" x="430" y="38" width="220" height="84" rx="10"/>
-            <text class="sa2-title" x="540" y="75" text-anchor="middle" font-size="22">Client</text>
-            <text class="sa2-role" x="540" y="98" text-anchor="middle" font-size="10.5" fill="var(--gold)">OWNER OF THE ASSETS</text></g>
-
-          <!-- BANK -->
-          <g><rect class="sa2-node-rect bank" x="80" y="260" width="300" height="140" rx="10"/>
-            <text class="sa2-title" x="230" y="302" text-anchor="middle" font-size="26">The Bank</text>
-            <text class="sa2-role" x="230" y="326" text-anchor="middle" font-size="11" fill="var(--signal)">ADVISER OF RECORD</text>
-            <text class="sa2-sub" x="230" y="350" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">CLIENT &middot; LICENCE &middot; BRAND</text>
-            <text class="sa2-sub" x="230" y="368" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">KYC &middot; SUITABILITY &middot; BALANCE SHEET</text>
-            <text class="sa2-sub" x="230" y="386" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">GOVERNANCE &middot; FEE TO CLIENT</text></g>
-
-          <!-- OCEANIC -->
-          <g><rect class="sa2-node-rect us" x="720" y="260" width="300" height="140" rx="10"/>
-            <text class="sa2-title" x="870" y="302" text-anchor="middle" font-size="26">Oceanic</text>
-            <text class="sa2-role" x="870" y="326" text-anchor="middle" font-size="11" fill="var(--gold)">SUB-ADVISER</text>
-            <text class="sa2-sub" x="870" y="350" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">PORTFOLIO MGMT &middot; TRADING</text>
-            <text class="sa2-sub" x="870" y="368" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">RISK ENGINE &middot; RESEARCH</text>
-            <text class="sa2-sub" x="870" y="386" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">INVESTMENT COMPLIANCE</text></g>
-
-          <!-- CUSTODIAN -->
-          <g><rect class="sa2-node-rect cust" x="240" y="545" width="620" height="125" rx="10"/>
-            <text class="sa2-title" x="550" y="585" text-anchor="middle" font-size="22">Custodian</text>
-            <text class="sa2-role" x="550" y="608" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">INDEPENDENT THIRD-PARTY</text>
-            <text class="sa2-sub" x="550" y="630" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">IBKR &middot; PERSHING (BNY) &middot; OR BANK-OF-RECORD</text>
-            <text class="sa2-sub" x="550" y="650" text-anchor="middle" font-size="10.5" fill="var(--text-tertiary)">HOLDS ASSETS IN THE CLIENT'S NAME &middot; SEGREGATED &middot; SIPC / EQUIVALENT</text></g>
-
-          <!-- numbered tags -->
-          <g class="sa2-num gold" data-n="1"><circle cx="290" cy="200" r="15"/><text x="290" y="205" text-anchor="middle">1</text></g>
-          <g class="sa2-num teal" data-n="2"><circle cx="440" cy="180" r="15"/><text x="440" y="185" text-anchor="middle">2</text></g>
-          <g class="sa2-num gold" data-n="3"><circle cx="550" cy="312" r="15"/><text x="550" y="317" text-anchor="middle">3</text></g>
-          <g class="sa2-num teal" data-n="4"><circle cx="550" cy="338" r="15"/><text x="550" y="343" text-anchor="middle">4</text></g>
-          <g class="sa2-num gold" data-n="5"><circle cx="710" cy="480" r="15"/><text x="710" y="485" text-anchor="middle">5</text></g>
-          <g class="sa2-num teal" data-n="6"><circle cx="180" cy="480" r="15"/><text x="180" y="485" text-anchor="middle">6</text></g>
-        </svg>
-
-        <div class="sa2-legend" id="sa2-legend">
-          <div class="sa2-leg-row" data-n="1"><div class="ln">1</div><div><b>Client &rarr; Bank.</b> Investment-advisory agreement signed. KYC, suitability, fee schedule. <em>The client is the bank's, structurally and contractually.</em></div></div>
-          <div class="sa2-leg-row teal" data-n="2"><div class="ln">2</div><div><b>Bank &rarr; Client.</b> Branded statements, ongoing relationship, performance reviews. Everything client-facing carries the bank's name.</div></div>
-          <div class="sa2-leg-row" data-n="3"><div class="ln">3</div><div><b>Bank &rarr; Oceanic.</b> Sub-advisory agreement signed. Discretionary investment mandate delegated under the bank's IPS and limits. Agreed fee share.</div></div>
-          <div class="sa2-leg-row teal" data-n="4"><div class="ln">4</div><div><b>Oceanic &rarr; Bank.</b> Performance, risk, attribution, holdings, breaches, governance reporting &mdash; daily feed, monthly review, quarterly board pack.</div></div>
-          <div class="sa2-leg-row" data-n="5"><div class="ln">5</div><div><b>Oceanic &rarr; Custodian.</b> Discretionary trade instructions executed directly at the custodian, per IPS. Best-execution policy + full audit trail.</div></div>
-          <div class="sa2-leg-row teal" data-n="6"><div class="ln">6</div><div><b>Custodian &rarr; Bank &amp; Oceanic.</b> Position files, NAV, settlement &amp; reconciliation flow back to both parties. The assets stay with the custodian.</div></div>
+        <div class="sa3-readable">
+          <span class="num">1</span>The client signs with the bank.&nbsp;&nbsp;<span class="num">2</span>The bank delegates investment management to us.&nbsp;&nbsp;<span class="num">3</span>We place trades at an independent custodian, which <b>holds the assets in the client's name</b>. Reports flow back at every step &mdash; from the custodian to both parties, and from us to the bank.
         </div>
       </div>
-      <div class="sa2-verify"><b>Verified &mdash;</b> this is the standard institutional sub-advisory architecture used across asset management: <b>adviser of record + delegated sub-adviser + independent custodian holding assets in the client's name</b>. The same structure underpins US '40-Act sub-advised mutual funds, UK FCA delegated portfolio management, and regional ECCU bank + investment-arm arrangements. <em>The architecture is settled; what differs partnership-to-partnership is the platform underneath and the quality of the co-branding.</em></div>
+      <div class="sa2-verify"><b>Verified &mdash;</b> the standard institutional sub-advisory architecture used across asset management: <b>adviser of record + delegated sub-adviser + independent custodian holding assets in the client's name</b>. Same structure under US '40-Act sub-advised mutual funds, UK FCA delegated portfolio management, and regional ECCU bank + investment-arm arrangements.</div>
 
       <!-- CO-BRANDING -->
       <div class="cobrand-wrap">
@@ -2171,87 +2152,6 @@ footer.foot .right .gold { color: var(--gold); }
       }
       nums.forEach(function(g){ g.addEventListener('mouseenter',function(){ highlight(g.dataset.n); }); g.addEventListener('mouseleave',clear); g.addEventListener('click',function(){ highlight(g.dataset.n); }); });
       rows.forEach(function(r){ r.addEventListener('mouseenter',function(){ highlight(r.dataset.n); }); r.addEventListener('mouseleave',clear); });
-    })();
-    </script>
-
-
-    <!-- ====================================================================
-         03 · THE EDGE — why us vs passive ETF vs traditional manager
-         ==================================================================== -->
-    <div class="view" data-view="theedge">
-      <div class="page-eyebrow">02 · Why Us</div>
-      <h1 class="page-title">The Edge. <em>Why not just buy an ETF? Why not a traditional manager?</em></h1>
-      <p class="page-subtitle">Two fair questions a sharp board will ask. Here's the honest, side-by-side answer across the dimensions that actually decide outcomes. Click a row to see why it matters. Illustrative.</p>
-
-      <div class="open-this">
-        <div class="label">When you open this tab in the meeting</div>
-        <p>Disarm the obvious objection first. Say: <strong>"Before we go further &mdash; why not just put clients in a low-cost ETF? Or use a traditional manager? Fair questions. Here's the comparison across the things that decide a client's actual outcome: active risk management, continuous research, downside protection, customization, transparency. A passive ETF is cheap but blind. A traditional manager checks risk quarterly. We do it continuously. Click any row."</strong></p>
-        <p><em>Don't bash ETFs &mdash; concede their cost advantage, then win on everything that matters when markets break.</em></p>
-      </div>
-
-      <div class="edge-grid">
-        <div class="edge-head edge-dim">Dimension</div>
-        <div class="edge-head">Passive ETF</div>
-        <div class="edge-head">Traditional Manager</div>
-        <div class="edge-head oc">Oceanic</div>
-
-        <div class="edge-row" data-d="0">
-          <div class="edge-dim">Active risk management<span class="why">A passive ETF holds the index through any crash &mdash; no one is managing the downside. We manage risk continuously and de-risk into stress.</span></div>
-          <div class="edge-cell no"><span class="mk">—</span>None</div>
-          <div class="edge-cell mid"><span class="mk">◷</span>Quarterly review</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>Continuous, adversarial</div>
-        </div>
-        <div class="edge-row" data-d="1">
-          <div class="edge-dim">Continuous research<span class="why">Indexes don't research; most managers can't read the world in real time. Our engine reads global sources continuously and surfaces only what's material.</span></div>
-          <div class="edge-cell no"><span class="mk">—</span>None</div>
-          <div class="edge-cell mid"><span class="mk">◷</span>Analyst team, periodic</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>AI, 11 languages, live</div>
-        </div>
-        <div class="edge-row" data-d="2">
-          <div class="edge-dim">Downside protection<span class="why">In a drawdown the ETF falls with the market. We pre-stage hedges and shift positioning by regime &mdash; the model draws down less (see Model Portfolios).</span></div>
-          <div class="edge-cell no"><span class="mk">—</span>Full market drawdown</div>
-          <div class="edge-cell mid"><span class="mk">◷</span>Some, reactive</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>Pre-staged, regime-aware</div>
-        </div>
-        <div class="edge-row" data-d="3">
-          <div class="edge-dim">Customization<span class="why">An ETF is one-size-fits-all. We build per-client: exclusions, tax lots, currency, concentrated-position management.</span></div>
-          <div class="edge-cell no"><span class="mk">—</span>One-size-fits-all</div>
-          <div class="edge-cell mid"><span class="mk">◷</span>Model buckets</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>Bespoke per client</div>
-        </div>
-        <div class="edge-row" data-d="4">
-          <div class="edge-dim">Transparency<span class="why">Fund wrappers disclose holdings quarterly if at all. Our clients see every line, daily, in their own name.</span></div>
-          <div class="edge-cell mid"><span class="mk">◷</span>Holdings, daily NAV</div>
-          <div class="edge-cell no"><span class="mk">—</span>Quarterly, fund-level</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>Line-by-line, daily</div>
-        </div>
-        <div class="edge-row" data-d="5">
-          <div class="edge-dim">Cost (honest)<span class="why">We concede this: a raw ETF is the cheapest. But cheapest isn't the same as best outcome when markets break. We're far below offshore wrappers.</span></div>
-          <div class="edge-cell oc2"><span class="mk">✓</span>Lowest (raw beta)</div>
-          <div class="edge-cell no"><span class="mk">—</span>140–200 bps offshore</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>100 bps, transparent</div>
-        </div>
-        <div class="edge-row" data-d="6">
-          <div class="edge-dim">Regional fit<span class="why">Neither an ETF nor a foreign manager is supervised in your region or speaks to your clients on-island. We are.</span></div>
-          <div class="edge-cell no"><span class="mk">—</span>None</div>
-          <div class="edge-cell no"><span class="mk">—</span>Offshore</div>
-          <div class="edge-cell oc"><span class="mk">✓</span>ECSRC, on-island</div>
-        </div>
-      </div>
-
-      <div class="edge-verdict">
-        <div class="lbl">The verdict</div>
-        <p>A passive ETF wins on cost and nothing else. A traditional manager checks risk on a calendar. <em>Oceanic is the only option that manages risk continuously, researches the world live, protects the downside, and does it inside your region.</em> Cheap is not the same as well-managed &mdash; especially when the market breaks.</p>
-      </div>
-    </div>
-
-
-    <script>
-    (function(){
-      var v=document.querySelector('.view[data-view="theedge"]'); if(!v) return;
-      v.querySelectorAll('.edge-row').forEach(function(r){
-        r.addEventListener('click', function(){ r.classList.toggle('open'); });
-      });
     })();
     </script>
 
@@ -2413,7 +2313,7 @@ footer.foot .right .gold { color: var(--gold); }
          05 · WEALTH STRUCTURING — tax, trust, multi-jurisdiction
          ==================================================================== -->
     <div class="view" data-view="structuring">
-      <div class="page-eyebrow">06 · How We Manage Money</div>
+      <div class="page-eyebrow">05 · How We Manage Money</div>
       <h1 class="page-title">Wealth Structuring. <em>Beyond the portfolio.</em></h1>
       <p class="page-subtitle">The HNW client arriving through Anguilla's residency-by-investment program doesn't just need a portfolio &mdash; they need a structure: a trust, a tax-efficient wrapper, and coordination across the jurisdictions they touch. Most are intimidated by the complexity. It isn't complex &mdash; once someone sets it up properly. That someone is the partnership. Click a jurisdiction below.</p>
 
@@ -2511,7 +2411,7 @@ footer.foot .right .gold { color: var(--gold); }
          RISK MANAGEMENT — institutional, always-on (distinct from Scenarios)
          ==================================================================== -->
     <div class="view" data-view="governance">
-      <div class="page-eyebrow">07 · The Toolkit</div>
+      <div class="page-eyebrow">06 · The Toolkit</div>
       <h1 class="page-title">Risk Management. <em>Continuous, layered, adversarial.</em></h1>
       <p class="page-subtitle">Not scenario analysis &mdash; that's a separate tab. This is the always-on discipline: six layers of control, a live concentration grid, a liquidity ladder that holds under stress, and an engine that hunts the worst attack on the book every minute. Most managers check risk quarterly. Ours never stops. Illustrative.</p>
 
@@ -2852,7 +2752,7 @@ footer.foot .right .gold { color: var(--gold); }
          07 · SCENARIO SIMULATOR — two-layer real NCBA balance-sheet impact
          ==================================================================== -->
     <div class="view" data-view="scenarios">
-      <div class="page-eyebrow">08 · How We Invest</div>
+      <div class="page-eyebrow">07 · How We Invest</div>
       <h1 class="page-title">Scenario Simulator. <em>Your real book, stressed in real time.</em></h1>
       <p class="page-subtitle">Click a shock. We model the EC$ impact on NCBA's <em>actual</em> FY25 balance sheet &mdash; the amortised-cost bond book, the fair-valued sleeve, the loan book, liquidity, and reported ROE &mdash; then the action plan, targeting the real concentrations NCBA discloses. A separate layer shows client portfolios. Illustrative Analysis — based on FY25 audited figures (Notes 4.1.5 &amp; 8).</p>
 
@@ -3159,7 +3059,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE INTELLIGENCE EDGE — five capabilities no Caribbean bank has
          ==================================================================== -->
     <div class="view" data-view="edge">
-      <div class="page-eyebrow">09 · The Edge</div>
+      <div class="page-eyebrow">08 · The Edge</div>
       <h1 class="page-title">The Intelligence Edge. <em>What no one else in the region has.</em></h1>
       <p class="page-subtitle">Five live capabilities that separate an institutional asset manager from a bank treasury desk. Each is interactive or alive. All illustrative &mdash; built to show the machinery, not to forecast.</p>
 
@@ -3444,7 +3344,7 @@ footer.foot .right .gold { color: var(--gold); }
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">10 · How We Manage Money</div>
+      <div class="page-eyebrow">09 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -3595,7 +3495,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">11 · The Ask</div>
+      <div class="page-eyebrow">10 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
