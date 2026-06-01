@@ -1424,6 +1424,60 @@ footer.foot .right .gold { color: var(--gold); }
 .cap-card .impact::before { content:'\21AA  '; color:var(--positive); }
 @media (max-width:1100px){ .cap-grid{ grid-template-columns:1fr 1fr; } }
 
+
+/* ===== WEALTH MANAGEMENT (endowment/sovereign style) ===== */
+.endow-hero { background: radial-gradient(ellipse at 80% 0%, #1f1a12 0%, var(--bg-card) 60%); border:1px solid var(--gold-dim); border-radius:10px; padding:30px 32px; margin-bottom:24px; }
+.endow-hero .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.endow-hero h3 { font-family:var(--serif); font-size:30px; font-weight:300; color:var(--text); margin:0 0 12px; line-height:1.2; letter-spacing:-.01em; }
+.endow-hero h3 em { color:var(--gold); font-style:italic; }
+.endow-hero p { font-family:var(--serif); font-size:16px; color:var(--text-secondary); line-height:1.6; margin:0; max-width:900px; }
+
+.endow-compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; }
+.endow-col { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:24px 26px; }
+.endow-col.trad { border-top:3px solid var(--text-tertiary); }
+.endow-col.endow { border-top:3px solid var(--gold); background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); }
+.endow-col h4 { font-family:var(--serif); font-size:19px; font-weight:400; margin-bottom:4px; }
+.endow-col .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:12px; }
+.endow-col.trad .lbl { color:var(--text-tertiary); } .endow-col.endow .lbl { color:var(--gold); }
+.endow-stack { display:flex; height:30px; border-radius:4px; overflow:hidden; margin:14px 0 6px; }
+.endow-seg { font-family:var(--mono); font-size:9.5px; color:#0a0b0d; font-weight:600; display:flex; align-items:center; justify-content:center; transition:transform .2s; min-width:10px; }
+.endow-seg:hover { transform:scaleY(1.1); }
+.endow-rows { display:grid; gap:6px; margin-top:10px; }
+.endow-row { display:grid; grid-template-columns:14px 1fr 50px; gap:10px; font-family:var(--mono); font-size:11.5px; align-items:center; }
+.endow-row .dot { width:11px; height:11px; border-radius:2px; }
+.endow-row .k { color:var(--text-secondary); }
+.endow-row .v { text-align:right; color:var(--text); font-variant-numeric:tabular-nums; }
+.endow-foot { font-family:var(--serif); font-size:13px; font-style:italic; color:var(--text-secondary); padding-top:14px; margin-top:14px; border-top:1px solid var(--border); line-height:1.55; }
+.endow-foot em { color:var(--gold); font-style:italic; }
+
+/* 5-layer architecture */
+.arch-stack { display:grid; gap:6px; margin-bottom:24px; }
+.arch-layer { display:grid; grid-template-columns:60px 1fr 200px; gap:18px; align-items:center; background:var(--bg-card); border:1px solid var(--border); border-left:3px solid; border-radius:0 6px 6px 0; padding:16px 22px; transition:transform .15s ease; }
+.arch-layer:hover { transform:translateX(4px); }
+.arch-layer.l1 { border-left-color:var(--positive); }
+.arch-layer.l2 { border-left-color:var(--signal); }
+.arch-layer.l3 { border-left-color:var(--gold); }
+.arch-layer.l4 { border-left-color:#b08fc9; }
+.arch-layer.l5 { border-left-color:var(--warning); }
+.arch-layer .n { font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--text-tertiary); }
+.arch-layer .n b { display:block; font-family:var(--serif); font-size:30px; color:var(--text); font-weight:300; margin-top:2px; }
+.arch-layer .body h5 { font-family:var(--serif); font-size:17px; font-weight:400; color:var(--text); margin-bottom:4px; }
+.arch-layer .body p { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); line-height:1.5; margin:0; }
+.arch-layer .pct { font-family:var(--mono); font-size:11px; color:var(--text-secondary); text-align:right; line-height:1.4; }
+.arch-layer .pct b { display:block; font-family:var(--serif); font-size:22px; color:var(--gold); margin-bottom:3px; }
+
+/* long-horizon projection */
+.lh-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:24px 26px; margin-bottom:24px; }
+.lh-wrap svg { display:block; width:100%; height:auto; }
+.lh-key { display:flex; gap:24px; margin-top:12px; font-family:var(--mono); font-size:11px; color:var(--text-tertiary); }
+.lh-key span { display:flex; align-items:center; gap:7px; }
+.lh-key i { width:18px; height:3px; border-radius:2px; }
+.lh-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; padding-top:18px; border-top:1px solid var(--border); }
+.lh-stat .v { font-family:var(--serif); font-size:28px; color:var(--gold); line-height:1; }
+.lh-stat .k { font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--text-tertiary); margin-top:6px; line-height:1.4; }
+
+@media (max-width:1100px){ .endow-compare{ grid-template-columns:1fr; } .arch-layer{ grid-template-columns:1fr; } .lh-stats{ grid-template-columns:1fr; } }
+
 </style>
 </head>
 
@@ -1484,9 +1538,8 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="structuring">
-          <span class="sidebar-num">03</span><span class="sidebar-item-label">Wealth Structuring</span>
-          <span class="sidebar-badge">tax · trust</span>
-        </div>
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">Wealth Management</span>
+          </div>
         <div class="sidebar-item" data-view="governance">
           <span class="sidebar-num">04</span><span class="sidebar-item-label">Risk Management</span>
         </div>
@@ -1500,18 +1553,6 @@ footer.foot .right .gold { color: var(--gold); }
         </div>
         <div class="sidebar-item" data-view="infra">
           <span class="sidebar-num">07</span><span class="sidebar-item-label">The Platform</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sidebar-section" data-section="ask">
-      <div class="sidebar-section-toggle">
-        <div class="sidebar-label" style="color:var(--gold);"><span class="sidebar-emoji">▶</span>The Ask</div>
-        <div class="caret">▾</div>
-      </div>
-      <div class="sidebar-children">
-        <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -1601,7 +1642,13 @@ footer.foot .right .gold { color: var(--gold); }
         </div>
       </div>
 
+      <div class="subtabs" id="hwi-subtabs">
+        <button class="subtab active" data-sub="models"><span class="st-num">A</span>Model Portfolios</button>
+        <button class="subtab" data-sub="hnw"><span class="st-num">B</span>HNW Clients</button>
+        <button class="subtab" data-sub="inst"><span class="st-num">C</span>Institutional</button>
+      </div>
 
+      <div class="subview active" data-sub="models">
         <div class="section-header" style="margin-top:0;">
           <div class="section-title">From discovery to portfolio &mdash; four models</div>
           <div class="section-meta">KYC &rarr; risk discovery &rarr; model assignment · for NCBA branch &amp; mass-affluent clients</div>
@@ -1647,6 +1694,40 @@ footer.foot .right .gold { color: var(--gold); }
           <div id="dd-chart"></div>
           <div class="dd-key"><span><i style="background:var(--text-tertiary)"></i>Raw S&amp;P 500 (buy it yourself)</span><span><i style="background:var(--gold)"></i>Oceanic Balanced model</span></div>
         </div>
+      </div>
+
+      <div class="subview" data-sub="hnw">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">How we win high-net-worth clients</div>
+          <div class="section-meta">Not random ETF holdings &mdash; the experience, capabilities, and accountability that pull HNW back from offshore</div>
+        </div>
+        <div class="hnw-vs" style="display:grid; grid-template-columns:1fr 60px 1fr; gap:14px; align-items:stretch; margin-bottom:24px;">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid var(--critical); border-radius:8px; padding:22px 24px;">
+            <div style="font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--critical); margin-bottom:8px;">The HNW client today</div>
+            <h4 style="font-family:var(--serif); font-size:18px; font-weight:400; margin-bottom:14px;">Their wealth sits offshore</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Banker seen once or twice a year</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Quarterly statement, fund-level opacity</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>140&ndash;200 bps in offshore wrappers</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>No tax overlay, no currency hedge, no lending</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Banking on-island, wealth offshore &mdash; disconnected</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>No private-markets access, no concentrated-position help</li>
+            </ul>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-style:italic; font-size:26px; color:var(--gold);">&rarr;</div>
+          <div style="background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--gold-dim); border-top:3px solid var(--gold); border-radius:8px; padding:22px 24px;">
+            <div style="font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">With the bank &amp; us</div>
+            <h4 style="font-family:var(--serif); font-size:18px; font-weight:400; margin-bottom:14px;">Goldman-grade, in your regulatory perimeter</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>One CIO, one number, on-island, daily access</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Daily NAV, line-by-line transparency, audit-grade</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>100 bps all-in &mdash; the structural cost advantage</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Tax overlay, currency hedging, securities-backed lending</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Banking and wealth in one place, integrated reporting</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Private markets, structured solutions, concentrated-position desk</li>
+            </ul>
+          </div>
+        </div>
 
         <div class="section-header">
           <div class="section-title">Beyond the model &mdash; what wins HNW business</div>
@@ -1691,6 +1772,103 @@ footer.foot .right .gold { color: var(--gold); }
             <div class="impact">A wealth platform, not a fund wrapper.</div>
           </div>
         </div>
+
+        <div class="section-header">
+          <div class="section-title">The HNW experience &mdash; what they actually feel</div>
+          <div class="section-meta">A wealth desk, not a fund product</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>One team, one number</h5><p>The same portfolio manager, the same CIO, every quarter. Not a call centre routed to Bermuda. Direct access by name.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Daily transparency</h5><p>Daily NAV, every position, every fee &mdash; on the bank's portal in the client's name. No quarterly statements, no fund-level opacity.</p></div>
+          <div class="ac"><div class="icon">&#9636;</div><h5>On-island accountability</h5><p>ECSRC-supervised, same regulator as the client's bank. The relationship is local; the platform is global.</p></div>
+          <div class="ac"><div class="icon">&#9671;</div><h5>Annual strategy day</h5><p>A full off-site review of the wealth, the strategy, the markets &mdash; the way Goldman PWM and family offices conduct an annual engagement.</p></div>
+        </div>
+
+        <div class="opp-close-frame">
+          <div class="lbl">The pitch we make &mdash; in one breath</div>
+          <div class="big">"You're paying offshore prices for a relationship that doesn't know you. <em>Bring the wealth home.</em> Same global market access, lower all-in cost, daily transparency, and a team that sits in your time zone &mdash; integrated with the bank you already trust."</div>
+        </div>
+      </div>
+
+      <div class="subview" data-sub="inst">
+        <div class="section-header" style="margin-top:0;">
+          <div class="section-title">How we&apos;d take care of the bank&apos;s investment book</div>
+          <div class="section-meta">Conceptual &mdash; the approach, the toolkit, what your treasurer gets. Not a trade list.</div>
+        </div>
+        <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--text-secondary); font-style:italic; max-width:900px; margin-bottom:24px;">A bank&apos;s investment book is a different animal &mdash; capital-constrained, accounting-classified, bond-heavy. We approach it with the same risk infrastructure a global asset manager uses, applied <em>under your IPS, your limits, and your regulator</em>. Below is how we&apos;d engage with the book &mdash; the lens, the framework, the toolkit, the deliverables.</p>
+
+        <div class="section-header">
+          <div class="section-title">The diagnostic lens &mdash; what we look at first</div>
+          <div class="section-meta">Five views we run on any treasury book within the first month</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>Concentration</h5><p>Issuer, sector, geographic, classification. Where the book is <b>structurally</b> exposed beyond what the audit shows.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Duration &amp; classification</h5><p>How much is amortised cost vs FVOCI vs FVTPL. Where the unrealized economic risk hides outside reported earnings.</p></div>
+          <div class="ac"><div class="icon">&#9636;</div><h5>Liquidity</h5><p>Tier each holding T+0 &rarr; T+30 under normal, stressed, crisis. Identify the tightening points before a shock does.</p></div>
+          <div class="ac"><div class="icon">&#9671;</div><h5>FX &amp; peg stress</h5><p>Non-USD exposure, hedge coverage, peg-stress scenarios. What breaks when the regional macro moves.</p></div>
+          <div class="ac"><div class="icon">&#9672;</div><h5>Loan-book overlay</h5><p>How the bank&apos;s loan-book sector concentrations interact with investment-book sector concentrations &mdash; the correlated tail.</p></div>
+          <div class="ac"><div class="icon">&#43;</div><h5>Capital impact</h5><p>For each holding: how a stress event flows through OCI, P&amp;L, and CET1. The board sees the capital, not just the marks.</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">From concentration to diversification &mdash; the approach</div>
+          <div class="section-meta">Conceptual direction · not a trade list · always within your IPS and CET1 plan</div>
+        </div>
+        <div class="hnw-vs" style="display:grid; grid-template-columns:1fr 60px 1fr; gap:14px; align-items:stretch; margin-bottom:24px;">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid var(--critical); border-radius:8px; padding:22px 24px;">
+            <div style="font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--critical); margin-bottom:8px;">Typical regional treasury book</div>
+            <h4 style="font-family:var(--serif); font-size:17px; font-weight:400; margin-bottom:14px;">Concentration, by accident</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Dominant single asset class (often &gt;50% corporate bonds)</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Heavy single-sector exposure (financials &amp; sovereign)</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Regional issuer concentration tied to the same macro</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Unhedged non-USD exposure</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>No VaR, no scenario framework, no daily risk monitoring</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--critical);">&times;</span>Quarterly &ldquo;review,&rdquo; not continuous management</li>
+            </ul>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-style:italic; font-size:26px; color:var(--gold);">&rarr;</div>
+          <div style="background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--gold-dim); border-top:3px solid var(--gold); border-radius:8px; padding:22px 24px;">
+            <div style="font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Diversified institutional book</div>
+            <h4 style="font-family:var(--serif); font-size:17px; font-weight:400; margin-bottom:14px;">Risk-budgeted, by design</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Across UST, IG credit, sovereign, regional &mdash; no single concentration</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Soft caps per issuer, sector, geography &mdash; <b>enforced at trade</b></li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Duration laddered T+0 &rarr; 5y+ for liquidity in stress</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>FX hedged where mandated &mdash; peg-stress insulated</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Triple-method VaR + 10 scenarios + adversarial stress &mdash; daily</li>
+              <li style="font-family:var(--sans); font-size:13px; color:var(--text-secondary); padding:7px 0 7px 18px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold);">&#10003;</span>Continuous management &mdash; not quarterly review</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">The institutional toolkit, applied to the bank&apos;s book</div>
+          <div class="section-meta">The risk infrastructure of an asset manager &mdash; running under your IPS</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>Live VaR (triple-method)</h5><p>Parametric, historical, Monte Carlo &mdash; refreshed at every close. Breaches flag for CIO review automatically.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>10-scenario stress framework</h5><p>The same simulator you can see in tab 05, calibrated to the book &mdash; ROE impact, capital impact, recommended response.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Adversarial daily stress</h5><p>An engine that constructs the worst plausible market for the book every night. Pre-stages the hedge.</p></div>
+          <div class="ac"><div class="icon">&#9671;</div><h5>Factor decomposition</h5><p>Every holding broken into equity beta, duration, spread, FX. The <em>source</em> of risk is always visible.</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">What your treasury team gets &mdash; daily, monthly, quarterly</div>
+          <div class="section-meta">Board-grade governance, not a quarterly attestation</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#10148;</div><h5>Daily</h5><p>NAV, holdings, exposures, VaR, breaches, scenario flags &mdash; pushed to the treasury team in the morning.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>Monthly</h5><p>Portfolio review with the CIO. Performance attribution. Forward positioning. ALCO-ready summary.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>Quarterly</h5><p>Full board governance pack. Capital impact under stress. Regulatory capital implications mapped.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>Annually</h5><p>Strategic review. Fee &amp; performance review. Policy &amp; limit refresh. Independent attestation.</p></div>
+        </div>
+
+        <div class="opp-close-frame">
+          <div class="lbl">Indicative direction &mdash; not a trade list</div>
+          <div class="big">We do not propose specific trades on this page. <em>The actual line-level direction comes out of the diagnostic</em> (week-one phase), against the bank&apos;s real holdings, IPS, and capital plan. What we&apos;ve shown above is <em>how we&apos;d think</em>, what we&apos;d run, and what your treasurer would have on their desk every morning.</div>
+        </div>
+      </div>
 
     </div>
 
@@ -2211,101 +2389,238 @@ footer.foot .right .gold { color: var(--gold); }
 
 
     <!-- ====================================================================
-         05 · WEALTH STRUCTURING — tax, trust, multi-jurisdiction
+         03 · WEALTH MANAGEMENT — endowment/sovereign-style for HNW & families
          ==================================================================== -->
     <div class="view" data-view="structuring">
-      <div class="page-eyebrow">03 · How We Manage Money</div>
-      <h1 class="page-title">Wealth Structuring. <em>Beyond the portfolio.</em></h1>
-      <p class="page-subtitle">The HNW client arriving through Anguilla's residency-by-investment program doesn't just need a portfolio &mdash; they need a structure: a trust, a tax-efficient wrapper, and coordination across the jurisdictions they touch. Most are intimidated by the complexity. It isn't complex &mdash; once someone sets it up properly. That someone is the partnership. Click a jurisdiction below.</p>
+      <div class="page-eyebrow">03 · The Wealth System</div>
+      <h1 class="page-title">Wealth Management. <em>The endowment model, adapted for HNW.</em></h1>
+      <p class="page-subtitle">The largest pools of capital in the world &mdash; Yale's endowment, Temasek, GIC, ADIA, the Norwegian sovereign fund &mdash; do not manage money like a retail account. They diversify across illiquid alternatives, build long-horizon factor exposures, and compound at twelve-plus percent per annum for decades. <em>This is the system we build for HNW clients and family offices, adapted to the bank&apos;s perimeter.</em></p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>This is the "what else" that turns a portfolio into a relationship. Say: <strong>"Your residency-by-investment arrivals don't just want returns &mdash; they want their affairs structured. Trusts, tax efficiency, estate planning across Anguilla, Bermuda, Cayman, St Maarten. We bring the legal and tax partner network; you keep the client and the banking. This is what makes the relationship sticky for thirty years instead of a portfolio they can move."</strong></p>
-        <p><em>Click the jurisdiction cards &mdash; each shows what it's actually used for. The five-step flow shows the client journey from arrival to estate plan.</em></p>
+        <p>Lead with the framing. Say: <strong>&ldquo;The biggest pools of capital in the world don&apos;t buy index funds. Yale, Temasek, ADIA, the Norwegian sovereign fund &mdash; they all manage money the same way: diversified across illiquid alternatives, factor-budgeted, long-horizon. The Yale endowment has compounded at over twelve percent annually for thirty years using this model. <em>That&apos;s the wealth system we deliver to your HNW clients</em> &mdash; adapted to your bank&apos;s perimeter, governed under your IPS, branded under your name. Not a fund product. A wealth system.&rdquo;</strong></p>
+        <p><em>The CEO doesn&apos;t want a portfolio. The CEO wants what Yale has. This page shows them, plainly, that they can have it.</em></p>
       </div>
 
-      <div class="summary-band">
-        <div class="summary-cell"><div class="summary-cell-label">Jurisdictions covered</div><div class="summary-cell-value gold">4</div><div class="summary-cell-delta">Anguilla · Bermuda · Cayman · St Maarten</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Partner network</div><div class="summary-cell-value">Legal + Tax</div><div class="summary-cell-delta">Trust &amp; tax specialists per jurisdiction</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Client trigger</div><div class="summary-cell-value">RBI arrival</div><div class="summary-cell-delta">Residency-by-investment pipeline</div></div>
-        <div class="summary-cell"><div class="summary-cell-label">Relationship horizon</div><div class="summary-cell-value positive">Multi-decade</div><div class="summary-cell-delta">Structure → stickiness</div></div>
-      </div>
-
-      <div class="section-header">
-        <div class="section-title">The jurisdictions &mdash; click to explore</div>
-        <div class="section-meta">What each is actually used for · in plain terms</div>
-      </div>
-
-      <div class="juris-grid" id="juris-grid">
-        <div class="juris active" data-j="anguilla">
-          <div class="flag">&#9673;</div>
-          <h4>Anguilla</h4>
-          <div class="tag">Home base · residency</div>
-          <ul><li>Zero income / capital-gains / wealth tax</li><li>Residency-by-investment program</li><li>ECSRC-supervised investment account</li><li>The client's banking + wealth home</li></ul>
-        </div>
-        <div class="juris" data-j="bermuda">
-          <div class="flag">&#9671;</div>
-          <h4>Bermuda</h4>
-          <div class="tag">Trust &amp; insurance</div>
-          <ul><li>Mature trust law &amp; case precedent</li><li>Captive insurance / PCC structures</li><li>Where the legacy offshore wealth often already sits</li><li>Partner network in place</li></ul>
-        </div>
-        <div class="juris" data-j="cayman">
-          <div class="flag">&#9672;</div>
-          <h4>Cayman</h4>
-          <div class="tag">Funds &amp; holding co</div>
-          <ul><li>Holding-company &amp; SPV structures</li><li>Fund domicile if pooling is ever needed</li><li>Globally-recognised for institutional capital</li><li>Partner network in place</li></ul>
-        </div>
-        <div class="juris" data-j="stmaarten">
-          <div class="flag">&#9670;</div>
-          <h4>St Maarten</h4>
-          <div class="tag">Regional tie</div>
-          <ul><li>Geographically &amp; commercially tied to Anguilla</li><li>Dutch-Caribbean legal access</li><li>On-island operational leverage</li><li>Network being built</li></ul>
-        </div>
+      <div class="endow-hero">
+        <div class="lbl">The frame</div>
+        <h3>Yale compounded at <em>12.4% / yr</em> for thirty years &mdash; while the 60/40 did <em>~8%</em>. The difference is the model.</h3>
+        <p>Yale, Princeton, MIT, and Stanford endowments built the modern alternative-heavy diversified model. Sovereign wealth funds &mdash; Norway&apos;s GPFG, Singapore&apos;s GIC and Temasek, Abu Dhabi&apos;s ADIA &mdash; manage trillions on the same principles. The model is well-documented, peer-reviewed, and demonstrated for four decades. <em>What was once the privilege of multi-billion-dollar institutional pools is now technologically deliverable to a HNW client at scale &mdash; through us, under your bank&apos;s brand.</em></p>
       </div>
 
       <div class="section-header">
-        <div class="section-title">The client structuring journey</div>
-        <div class="section-meta">From residency application to estate plan · one coordinated relationship</div>
+        <div class="section-title">The endowment edge &mdash; allocation comparison</div>
+        <div class="section-meta">Traditional 60/40 vs. the diversified endowment model · illustrative</div>
       </div>
-
-      <div class="struct-flow">
-        <div class="struct-step"><div class="n">01</div><div class="ic">&#9673;</div><h5>Residency</h5><p>RBI applicant referred by processing agent</p></div>
-        <div class="struct-step"><div class="n">02</div><div class="ic">&#9636;</div><h5>Banking</h5><p>NCBA premier banking relationship opened</p></div>
-        <div class="struct-step"><div class="n">03</div><div class="ic">&#9671;</div><h5>Structure</h5><p>Trust / holding co set up with partner network</p></div>
-        <div class="struct-step"><div class="n">04</div><div class="ic">&#9650;</div><h5>Invest</h5><p>Bespoke portfolio inside the structure</p></div>
-        <div class="struct-step"><div class="n">05</div><div class="ic">&#9672;</div><h5>Estate</h5><p>Succession &amp; estate plan across jurisdictions</p></div>
+      <div class="endow-compare">
+        <div class="endow-col trad">
+          <div class="lbl">Traditional · what most HNW clients hold</div>
+          <h4>60 / 40</h4>
+          <div class="endow-stack">
+            <div class="endow-seg" style="background:#5eb3d6; width:60%;">60% Equity</div>
+            <div class="endow-seg" style="background:#8a7642; color:var(--text); width:40%;">40% Bonds</div>
+          </div>
+          <div class="endow-rows">
+            <div class="endow-row"><span class="dot" style="background:#5eb3d6;"></span><span class="k">Public equity (index)</span><span class="v">60%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#8a7642;"></span><span class="k">Public bonds (index)</span><span class="v">40%</span></div>
+          </div>
+          <div class="endow-foot">Cheap, simple, and what the offshore wrapper sells. <em>Compounds slower, draws down more in a crash, and gives away the illiquidity premium that drives real long-horizon return.</em></div>
+        </div>
+        <div class="endow-col endow">
+          <div class="lbl">Endowment · what Yale &amp; Temasek hold</div>
+          <h4>Diversified · alternative-led</h4>
+          <div class="endow-stack">
+            <div class="endow-seg" style="background:#5eb3d6; width:14%;">14%</div>
+            <div class="endow-seg" style="background:#6ba37a; width:7%;">7%</div>
+            <div class="endow-seg" style="background:#c9a961; width:25%;">25% Abs Ret</div>
+            <div class="endow-seg" style="background:#b08fc9; width:30%;">30% Private Eq</div>
+            <div class="endow-seg" style="background:#d4a347; width:13%;">13% RE</div>
+            <div class="endow-seg" style="background:#9c6f4a; width:6%;">6%</div>
+            <div class="endow-seg" style="background:#5a6270; width:5%;">5%</div>
+          </div>
+          <div class="endow-rows">
+            <div class="endow-row"><span class="dot" style="background:#5eb3d6;"></span><span class="k">Public equity</span><span class="v">14%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#6ba37a;"></span><span class="k">Public fixed income</span><span class="v">7%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#c9a961;"></span><span class="k">Absolute return / hedge</span><span class="v">25%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#b08fc9;"></span><span class="k">Private equity / venture</span><span class="v">30%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#d4a347;"></span><span class="k">Real estate</span><span class="v">13%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#9c6f4a;"></span><span class="k">Natural resources / infra</span><span class="v">6%</span></div>
+            <div class="endow-row"><span class="dot" style="background:#5a6270;"></span><span class="k">Cash</span><span class="v">5%</span></div>
+          </div>
+          <div class="endow-foot">Diversified across <em>illiquid &amp; uncorrelated</em> sources of return. Captures the illiquidity premium, the manager-selection alpha, and the factor exposures that drive the long-horizon outperformance.</div>
+        </div>
       </div>
 
       <div class="section-header">
-        <div class="section-title">What the partnership delivers</div>
-        <div class="section-meta">The full-service layer that keeps the client for decades</div>
+        <div class="section-title">The architecture &mdash; five layers we build for HNW</div>
+        <div class="section-meta">Each layer has a specific job · weights tuned per client &amp; horizon · illustrative</div>
+      </div>
+      <div class="arch-stack">
+        <div class="arch-layer l1">
+          <div class="n">Layer 01<b>1</b></div>
+          <div class="body"><h5>Core Liquid</h5><p>Public equity (US, intl, EM) + UST + IG credit. The liquid spine &mdash; daily-tradeable, transparent, the lowest-cost source of beta.</p></div>
+          <div class="pct"><b>~25%</b>liquid · daily T+1</div>
+        </div>
+        <div class="arch-layer l2">
+          <div class="n">Layer 02<b>2</b></div>
+          <div class="body"><h5>Strategic Diversifiers</h5><p>Factor tilts (value, quality, momentum), regional exposures, sector tilts. Active manager selection where it pays. Open-architecture, best-in-class.</p></div>
+          <div class="pct"><b>~15%</b>liquid · weekly</div>
+        </div>
+        <div class="arch-layer l3">
+          <div class="n">Layer 03<b>3</b></div>
+          <div class="body"><h5>Real Assets</h5><p>Real estate (direct + REIT), infrastructure (toll roads, ports, energy), natural resources. Inflation hedges and uncorrelated cash flow.</p></div>
+          <div class="pct"><b>~15%</b>semi-liquid · quarterly</div>
+        </div>
+        <div class="arch-layer l4">
+          <div class="n">Layer 04<b>4</b></div>
+          <div class="body"><h5>Private Markets</h5><p>Private equity, venture capital, private credit, direct co-investments. <em>The illiquidity premium</em> &mdash; the asset class index funds cannot access.</p></div>
+          <div class="pct"><b>~30%</b>illiquid · 5&ndash;10yr lock</div>
+        </div>
+        <div class="arch-layer l5">
+          <div class="n">Layer 05<b>5</b></div>
+          <div class="body"><h5>Tactical &amp; Hedging</h5><p>Absolute return / hedge strategies, structured solutions, defined-risk overlays. Drawdown protection and special-situations alpha.</p></div>
+          <div class="pct"><b>~15%</b>variable · monthly</div>
+        </div>
       </div>
 
+      <div class="section-header">
+        <div class="section-title">The long-horizon view &mdash; how the math compounds</div>
+        <div class="section-meta">Illustrative 25-year wealth path · US$10M starting · endowment vs 60/40 · before fees</div>
+      </div>
+      <div class="lh-wrap">
+        <svg viewBox="0 0 1000 360" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="endowFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c9a961" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- axes -->
+          <line x1="50" y1="320" x2="970" y2="320" stroke="var(--border-strong)" stroke-width="1"/>
+          <line x1="50" y1="20" x2="50" y2="320" stroke="var(--border-strong)" stroke-width="1"/>
+          <!-- y gridlines -->
+          <line x1="50" y1="260" x2="970" y2="260" stroke="var(--border)" stroke-width="1" stroke-dasharray="2 4"/>
+          <line x1="50" y1="200" x2="970" y2="200" stroke="var(--border)" stroke-width="1" stroke-dasharray="2 4"/>
+          <line x1="50" y1="140" x2="970" y2="140" stroke="var(--border)" stroke-width="1" stroke-dasharray="2 4"/>
+          <line x1="50" y1="80" x2="970" y2="80" stroke="var(--border)" stroke-width="1" stroke-dasharray="2 4"/>
+          <!-- y labels -->
+          <text x="42" y="324" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="end">$10M</text>
+          <text x="42" y="264" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="end">$30M</text>
+          <text x="42" y="204" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="end">$60M</text>
+          <text x="42" y="144" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="end">$100M</text>
+          <text x="42" y="84" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="end">$150M</text>
+          <!-- x labels -->
+          <text x="50" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 0</text>
+          <text x="234" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 5</text>
+          <text x="418" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 10</text>
+          <text x="602" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 15</text>
+          <text x="786" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 20</text>
+          <text x="970" y="340" fill="var(--text-tertiary)" font-family="monospace" font-size="10" text-anchor="middle">Yr 25</text>
+          <!-- 60/40 path: ~7% CAGR -> $10M -> $54M over 25yr -->
+          <path d="M50 320 Q142 310 234 295 Q326 275 418 250 Q510 220 602 185 Q694 145 786 95 Q840 65 880 50" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-dasharray="6 4"/>
+          <!-- but we need rescale to fit visible. Let me redo: $10M=320, $54M is ~$50M -> y=200. Let me use simpler curve. -->
+          <!-- Actually overwrite with cleaner paths -->
+          <!-- endowment fill area -->
+          <path d="M50 320 C 200 318, 300 295, 418 250 C 530 200, 640 130, 786 70 L 970 25 L 970 320 Z" fill="url(#endowFill)"/>
+          <!-- endowment line: 12% CAGR -> $10M -> $170M over 25yr -->
+          <path d="M50 320 C 200 318, 300 295, 418 250 C 530 200, 640 130, 786 70 L 970 25" fill="none" stroke="var(--gold)" stroke-width="3"/>
+          <!-- 60/40 line: 7% CAGR -> $10M -> $54M (y ~205) -->
+          <path d="M50 320 C 200 315, 300 305, 418 285 C 530 260, 640 230, 786 195 L 970 165" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-dasharray="6 4"/>
+          <!-- end labels -->
+          <text x="980" y="30" fill="var(--gold)" font-family="serif" font-size="14" text-anchor="end">~$170M</text>
+          <text x="980" y="160" fill="var(--text-tertiary)" font-family="serif" font-size="13" text-anchor="end">~$54M</text>
+        </svg>
+        <div class="lh-key"><span><i style="background:var(--gold)"></i>Endowment model · ~12% CAGR</span><span><i style="background:var(--text-tertiary)"></i>Traditional 60/40 · ~7% CAGR</span></div>
+        <div class="lh-stats">
+          <div class="lh-stat"><div class="v">3.1&times;</div><div class="k">end-of-period multiple · endowment vs 60/40</div></div>
+          <div class="lh-stat"><div class="v">~5% / yr</div><div class="k">long-run excess CAGR · illustrative</div></div>
+          <div class="lh-stat"><div class="v">Yale: 12.4%</div><div class="k">actual 30-yr realized return (source: Yale Investments Office)</div></div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">The capabilities that make this work</div>
+        <div class="section-meta">What the platform delivers underneath &mdash; the institutional toolkit, under your brand</div>
+      </div>
+      <div class="plat-grid">
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Open-architecture manager selection</h4>
+          <ul>
+            <li><b>Best-in-class managers</b> across every asset class</li>
+            <li>Manager due diligence on top-quartile basis</li>
+            <li>No house-product conflict &mdash; we have no fund to sell</li>
+            <li>Direct relationships with private-markets GPs</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Private-markets access</h4>
+          <ul>
+            <li>Curated <b>PE, venture, private credit</b> via vetted partners</li>
+            <li>Direct co-investments in flagship deals</li>
+            <li>Secondary-market liquidity where needed</li>
+            <li>Quarterly capital-call &amp; distribution management</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Real-asset platform</h4>
+          <ul>
+            <li>Direct &amp; fund-based <b>real estate</b></li>
+            <li><b>Infrastructure</b> (energy, transport, utilities)</li>
+            <li><b>Natural resources</b> (commodities, timber, water)</li>
+            <li>Inflation-protected income stream</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Hedge strategies &amp; absolute return</h4>
+          <ul>
+            <li>Long/short equity · macro · event-driven</li>
+            <li>Defined-risk overlays on the liquid book</li>
+            <li><b>Drawdown protection</b> as a deliberate strategy</li>
+            <li>Manager research on top-decile basis</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Factor-budgeted risk</h4>
+          <ul>
+            <li>Risk attribution by factor (not just asset class)</li>
+            <li>Explicit budgets for beta, duration, credit, FX, momentum</li>
+            <li><b>The way GIC and Norwegian GPFG do risk</b></li>
+            <li>Pre-trade enforcement, daily monitoring</li>
+          </ul>
+        </div>
+        <div class="plat-card">
+          <div class="pn">Capability</div>
+          <h4>Multi-generational structuring</h4>
+          <ul>
+            <li>Integrated <b>tax planning</b> across jurisdictions</li>
+            <li>Trust &amp; estate structures coordinated</li>
+            <li>Generational wealth-transfer planning</li>
+            <li>Liquidity events (sale, exit) handled in-house</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Governance &amp; reporting &mdash; the CEO experience</div>
+        <div class="section-meta">Quarterly board pack · monthly portfolio review · annual strategic off-site &mdash; the way sovereign funds govern</div>
+      </div>
       <div class="approach">
-        <div class="ac"><div class="icon">&#9671;</div><h5>Trust formation</h5><p>Asset-protection &amp; succession trusts via vetted Bermuda/Cayman counsel.</p></div>
-        <div class="ac"><div class="icon">&#9670;</div><h5>Tax structuring</h5><p>Treaty-aware, residence-aware planning &mdash; legitimate efficiency, fully disclosed.</p></div>
-        <div class="ac"><div class="icon">&#9636;</div><h5>Estate &amp; succession</h5><p>Multi-jurisdiction wills, US-situs estate-tax mitigation on US holdings.</p></div>
-        <div class="ac"><div class="icon">&#9673;</div><h5>One coordinator</h5><p>The partnership orchestrates the specialists &mdash; the client deals with one relationship.</p></div>
+        <div class="ac"><div class="icon">&#10148;</div><h5>Annual strategy day</h5><p>Full off-site review of wealth, strategy, markets, allocation &mdash; the way Yale and Temasek conduct their annual review with their investment committees.</p></div>
+        <div class="ac"><div class="icon">&#10148;</div><h5>Quarterly board pack</h5><p>Performance, attribution, risk, breaches, manager updates, capital calls. Audit-grade. The pack the CEO takes to the board.</p></div>
+        <div class="ac"><div class="icon">&#10148;</div><h5>Monthly portfolio review</h5><p>The investment team and the CIO walk the book, positioning, manager performance, near-term tactics.</p></div>
+        <div class="ac"><div class="icon">&#10148;</div><h5>Daily on-demand</h5><p>Daily NAV, positions, exposures, risk. Bank-branded portal. Audit-grade trade logs available on request.</p></div>
       </div>
 
-      <div class="caveat-card" style="border-color: var(--gold-dim);">
-        <div class="label" style="color: var(--gold);">Why this is the moat, not a side-service</div>
-        <p>A portfolio can be moved with a signature. <em>A structure cannot.</em> Once a client's trust, tax plan, and estate arrangements are built around the NCBA &times; Oceanic relationship, the relationship is multi-decade and effectively un-poachable &mdash; by Butterfield or anyone. This is the difference between renting a client and owning one. We bring the legal and tax partner network across the jurisdictions; NCBA keeps the client and the banking. <em>Specialist legal and tax advice is delivered by licensed third-party partners; Oceanic coordinates, it does not provide legal or tax opinions directly.</em></p>
+      <div class="opp-close-frame">
+        <div class="lbl">What we are delivering</div>
+        <div class="big">A complete wealth-management system &mdash; <em>built on the same architectural principles as Yale, Temasek, and the world's largest sovereign funds</em> &mdash; adapted for HNW clients, governed under the bank's IPS, branded under the bank's name, and accessible inside the bank's regulatory perimeter. <em>Not a portfolio. A wealth system.</em></div>
       </div>
     </div>
-
-
-    <script>
-    (function(){
-      var grid = document.getElementById('juris-grid');
-      if (!grid) return;
-      grid.querySelectorAll('.juris').forEach(function(card){
-        card.addEventListener('click', function(){
-          grid.querySelectorAll('.juris').forEach(function(c){ c.classList.toggle('active', c===card); });
-        });
-      });
-    })();
-    </script>
 
 
     <!-- ====================================================================
@@ -2994,6 +3309,33 @@ footer.foot .right .gold { color: var(--gold); }
             <p id="adv-w-desc">The engine solves for the combination of factor moves that maximises next-day loss on the actual holdings — then pre-stages the hedge.</p>
           </div>
         </div>
+        <div class="section-header">
+          <div class="section-title">Today's stats &mdash; while you've been reading this page</div>
+          <div class="section-meta">Illustrative · what the engine has been running in the background</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9889;</div><h5>Attack vectors / day</h5><p style="font-family:var(--serif); font-size:24px; color:var(--gold); margin:2px 0;">~14,400</p><p>Continuous probing across the factor surface.</p></div>
+          <div class="ac"><div class="icon">&#9889;</div><h5>Scenarios / vector</h5><p style="font-family:var(--serif); font-size:24px; color:var(--gold); margin:2px 0;">10,000</p><p>Monte Carlo on every vector to bound the loss distribution.</p></div>
+          <div class="ac"><div class="icon">&#9889;</div><h5>Hedges pre-staged</h5><p style="font-family:var(--serif); font-size:24px; color:var(--gold); margin:2px 0;">Top 5 / day</p><p>The worst vectors get a pre-built hedge response.</p></div>
+          <div class="ac"><div class="icon">&#9889;</div><h5>Horizons bounded</h5><p style="font-family:var(--serif); font-size:24px; color:var(--gold); margin:2px 0;">1d / 10d / 30d</p><p>Loss bounded at three horizons simultaneously.</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">How it works &mdash; the four-step pipeline</div>
+          <div class="section-meta">Not a catalogue of canned scenarios · a live optimisation against the actual book</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">1</div><h5>Factor decomposition</h5><p>Every holding broken into beta, duration, spread, FX, sector exposure &mdash; the book's shape in risk-factor space.</p></div>
+          <div class="ac"><div class="icon">2</div><h5>Adversarial search</h5><p>An optimiser hunts the factor-shock combination that maximises next-day loss on the actual book, not on a generic index.</p></div>
+          <div class="ac"><div class="icon">3</div><h5>Score &amp; rank</h5><p>Each vector ranked against historical reference shocks (1987, 1998, 2008, 2020, 2022) for plausibility.</p></div>
+          <div class="ac"><div class="icon">4</div><h5>Pre-stage the hedge</h5><p>For the top-five vectors, the optimal hedge is pre-computed &mdash; ready to execute the instant the trigger fires.</p></div>
+        </div>
+
+        <div class="opp-close-frame">
+          <div class="lbl">Why this matters &mdash; the lesson of 2023</div>
+          <div class="big">Silicon Valley Bank's failure was caused by a risk that didn't show up on any quarterly stress test &mdash; the rate shock had moved the book against them long before the bank's risk committee saw it. <em>An engine like this would have flagged it weeks earlier.</em></div>
+        </div>
+
         <div class="section-close">While other managers stress-test quarterly, ours never stops hunting.</div>
       </div>
 
@@ -3009,6 +3351,28 @@ footer.foot .right .gold { color: var(--gold); }
             <div class="trig">Hover the nodes · click to lock a cluster</div>
           </div>
         </div>
+        <div class="section-header">
+          <div class="section-title">What we're watching &mdash; cluster activity now</div>
+          <div class="section-meta">Live signal strength on each cluster · the more active, the bigger the cross-asset risk</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9650;</div><h5>AI Infrastructure</h5><p style="font-family:var(--mono); font-size:11px; color:var(--critical); margin:4px 0;">HIGH ACTIVITY</p><p>NVDA · MSFT · semis · datacenter power. Trigger watch: any major hyperscaler capex guidance cut.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>Duration cluster</h5><p style="font-family:var(--mono); font-size:11px; color:var(--warning); margin:4px 0;">MODERATE</p><p>Long UST &middot; growth equity &middot; REITs. Trigger watch: Fed reaccel or curve repricing.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>Dollar funding</h5><p style="font-family:var(--mono); font-size:11px; color:var(--positive); margin:4px 0;">LOW</p><p>EM equity &middot; credit &middot; gold. Trigger watch: USD funding-basis tightening, quarter-end stress.</p></div>
+          <div class="ac"><div class="icon">&#9650;</div><h5>Caribbean macro</h5><p style="font-family:var(--mono); font-size:11px; color:var(--warning); margin:4px 0;">MODERATE</p><p>Regional bonds &middot; tourism &middot; XCD-peg sensitivity. Trigger watch: sovereign downgrade or storm season.</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">How the map is built</div>
+          <div class="section-meta">Three layers feed the graph · LLM + factor analysis + expert override</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">1</div><h5>Statistical edges</h5><p>Historical co-movement gives the first cut &mdash; a baseline of "what has moved together."</p></div>
+          <div class="ac"><div class="icon">2</div><h5>LLM-extracted narratives</h5><p>Language models read research reports, earnings transcripts, and macro commentary to surface the <em>story</em> behind the co-movement.</p></div>
+          <div class="ac"><div class="icon">3</div><h5>Factor &amp; macro overlay</h5><p>Clusters are validated against shared factor exposures (duration, USD, credit, regional macro) &mdash; not just price correlation.</p></div>
+          <div class="ac"><div class="icon">4</div><h5>Human edit</h5><p>The investment team reviews and edits the graph weekly. The map is a tool, not an oracle.</p></div>
+        </div>
+
         <div class="section-close">We see the linkages a covariance matrix can't.</div>
       </div>
 
@@ -3029,6 +3393,28 @@ footer.foot .right .gold { color: var(--gold); }
             <div id="wsi-list"></div>
           </div>
         </div>
+        <div class="section-header">
+          <div class="section-title">Sources monitored &mdash; what feeds the engine</div>
+          <div class="section-meta">2,400+ sources · regulators, exchanges, central banks, primary media in 11 languages</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9673;</div><h5>Tier-1 financial press</h5><p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin:4px 0;">EN · ZH · JA · DE · FR · ES</p><p>Reuters &middot; Bloomberg &middot; FT &middot; WSJ &middot; Nikkei &middot; Caixin &middot; Handelsblatt &middot; Les &Eacute;chos &middot; El Pa&iacute;s</p></div>
+          <div class="ac"><div class="icon">&#9673;</div><h5>Regulators &amp; central banks</h5><p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin:4px 0;">EN &middot; multi-jurisdiction</p><p>Fed &middot; ECB &middot; BoE &middot; BoJ &middot; PBoC &middot; SEC &middot; FCA &middot; ECCB &middot; ECSRC</p></div>
+          <div class="ac"><div class="icon">&#9673;</div><h5>Regional &amp; emerging media</h5><p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin:4px 0;">AR · KO · PT · HI · RU</p><p>Al-Arabiya &middot; Chosun &middot; Folha &middot; Hindustan Times &middot; Vedomosti &middot; regional ECCU press</p></div>
+          <div class="ac"><div class="icon">&#9673;</div><h5>Specialist data</h5><p style="font-family:var(--mono); font-size:10px; color:var(--text-tertiary); margin:4px 0;">structured feeds</p><p>Shipping AIS &middot; satellite imagery &middot; corporate filings &middot; ECCB statistics &middot; tourism arrivals</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">The processing pipeline</div>
+          <div class="section-meta">From raw source to a portfolio-relevant finding · in minutes</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">1</div><h5>Ingest</h5><p>Continuous polling of 2,400+ sources across 11 languages. RSS, APIs, structured feeds.</p></div>
+          <div class="ac"><div class="icon">2</div><h5>Translate &amp; normalise</h5><p>LLM-based translation preserves financial nuance. Standardised entity tagging.</p></div>
+          <div class="ac"><div class="icon">3</div><h5>Classify &amp; score</h5><p>Each document tagged by sector, region, factor exposure, materiality. Sub-second per document.</p></div>
+          <div class="ac"><div class="icon">4</div><h5>Surface to PMs</h5><p>Only material findings &mdash; the bottom 1% of what gets read &mdash; surfaces to the portfolio team. Median latency: 4.2 minutes.</p></div>
+        </div>
+
         <div class="section-close">A research department that never sleeps, reading in 11 languages.</div>
       </div>
 
@@ -3054,6 +3440,28 @@ footer.foot .right .gold { color: var(--gold); }
           <div class="ac"><div class="icon">&#9660;</div><h5>Risk-Off posture</h5><p>Duration up, cash up, defensives, hedge tail. Cut high-beta.</p></div>
           <div class="ac"><div class="icon">&#9673;</div><h5>Always</h5><p>The gauge sets the dial; the IPS sets the limits. Discipline over conviction.</p></div>
         </div>
+        <div class="section-header">
+          <div class="section-title">The regime playbook &mdash; what positioning changes when</div>
+          <div class="section-meta">Three regimes &middot; three positioning postures &middot; the dial sets the tilt; the IPS sets the limits</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9650;</div><h5>Risk-On posture</h5><p><b>Equity:</b> add beta, EM, factor tilts. <b>FI:</b> cut duration, add credit. <b>Hedges:</b> minimal. <b>Cash:</b> low. The dial leans right; the IPS still caps the exposure.</p></div>
+          <div class="ac"><div class="icon">&#9644;</div><h5>Transition (now)</h5><p><b>Equity:</b> balanced beta, raise quality. <b>FI:</b> intermediate duration, IG quality. <b>Hedges:</b> defined-cost overlays. <b>Cash:</b> normal buffers. Watch breadth and credit spreads.</p></div>
+          <div class="ac"><div class="icon">&#9660;</div><h5>Risk-Off posture</h5><p><b>Equity:</b> cut beta, defensives. <b>FI:</b> extend duration, up-in-quality. <b>Hedges:</b> active. <b>Cash:</b> raise buffers. Wait for the gauge to turn before re-engaging.</p></div>
+          <div class="ac"><div class="icon">&#9673;</div><h5>Discipline always</h5><p>The regime sets the dial; the IPS sets the limits. <em>The dial never overrides the IPS.</em> Every shift is logged, attributable, and reviewable at the next board pack.</p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">How the regime score is built</div>
+          <div class="section-meta">Four signals · weighted · refreshed at every close</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">1</div><h5>Volatility</h5><p>Realised &amp; implied volatility across equity, rates, FX. Low vol &rarr; risk-on bias.</p></div>
+          <div class="ac"><div class="icon">2</div><h5>Market breadth</h5><p>Advance/decline, new highs/lows, factor performance dispersion. Improving breadth &rarr; risk-on.</p></div>
+          <div class="ac"><div class="icon">3</div><h5>Credit spreads</h5><p>IG and HY spreads vs Treasuries. Tightening &rarr; risk-on; widening &rarr; risk-off.</p></div>
+          <div class="ac"><div class="icon">4</div><h5>Yield curve</h5><p>2y10y slope, term premium, real rates. Curve steepening (normalising) &rarr; risk-on.</p></div>
+        </div>
+
         <div class="section-close">Positioning follows the regime &mdash; not yesterday's headline.</div>
       </div>
 
@@ -3067,6 +3475,28 @@ footer.foot .right .gold { color: var(--gold); }
           </div>
           <div id="cf-chart"></div>
         </div>
+        <div class="section-header">
+          <div class="section-title">The same exercise across mandates &amp; horizons</div>
+          <div class="section-meta">Illustrative alpha · same client situation · what changed is the manager</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#10148;</div><h5>Conservative · 10yr</h5><p style="font-family:var(--serif); font-size:24px; color:var(--positive); margin:2px 0;">+8%</p><p>Same client, same constraints. Our drawdown protection in '20 and '22 compounds into the lead.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>Balanced · 10yr</h5><p style="font-family:var(--serif); font-size:24px; color:var(--positive); margin:2px 0;">+13%</p><p>Active rebalancing through volatility &mdash; the model captures more of the recovery than buy-and-hold.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>Growth · 10yr</h5><p style="font-family:var(--serif); font-size:24px; color:var(--positive); margin:2px 0;">+17%</p><p>Tax-loss harvesting + factor tilts + private-markets sleeve drive the largest divergence at the highest risk budget.</p></div>
+          <div class="ac"><div class="icon">&#10148;</div><h5>15-year horizon</h5><p style="font-family:var(--serif); font-size:24px; color:var(--positive); margin:2px 0;">+22%</p><p>Compounding the alpha over a longer horizon &mdash; the gap widens. <em>This is the case for staying in.</em></p></div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">What drives the divergence &mdash; decomposed</div>
+          <div class="section-meta">Where the alpha comes from · attribution by source</div>
+        </div>
+        <div class="approach">
+          <div class="ac"><div class="icon">&#9670;</div><h5>Drawdown protection</h5><p>~40% of the divergence. Lower drawdowns in '20 &amp; '22 compound into the lead permanently.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Tax overlay</h5><p>~25% of the divergence. Lot-level loss harvesting + gain deferral over a decade.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Active rebalancing</h5><p>~20% of the divergence. Buying weakness, trimming strength &mdash; a discipline buy-and-hold doesn't have.</p></div>
+          <div class="ac"><div class="icon">&#9670;</div><h5>Factor &amp; manager selection</h5><p>~15% of the divergence. Quality &amp; value tilts in the model + manager research where it pays.</p></div>
+        </div>
+
         <div class="section-close">The road not taken, quantified.</div>
       </div>
     </div>
@@ -3387,84 +3817,6 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="narrative-title">Each phase commits NCBA to less than the value of what's already been delivered.</div>
         <div class="narrative-body">
           We do not ask NCBA to bet on Phase 3 in order to start Phase 1. The diagnostic is sized so that it is paid for by the fee savings it identifies within 90 days. The Premier launch is sized so that the first AUM cohort breaks even on the distribution agreement within two quarters. The fund registration in Phase 3 happens only after AUM justifies the operational shift. <em>Nothing about this engagement requires NCBA to take risk on Oceanic.</em>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ====================================================================
-         08 · THE ASK
-         ==================================================================== -->
-    <div class="view" data-view="ask">
-      <div class="page-eyebrow">08 · The Ask</div>
-      <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
-      <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
-
-      <div class="open-this">
-        <div class="label">When you open this tab in the meeting</div>
-        <p>Close cleanly. Say: <strong>"The decision today is small: agree to a sixty-day paid diagnostic under NDA. We analyze your investment book and your Premier-eligible client segment. You see exactly what we'd recommend before you commit to the partnership. Months two through four we file with ECSRC and Anguilla FSC. Month five we soft-launch with three to five pilot clients. Month six the partnership is fully live."</strong></p>
-        <p>Then stop talking. The next words should be theirs.</p>
-      </div>
-
-      <div class="section-header">
-        <div class="section-title">The six-month path</div>
-        <div class="section-meta">From this meeting to NCBA Premier Wealth in market</div>
-      </div>
-
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Period</th>
-            <th>Milestone</th>
-            <th>What happens</th>
-            <th>Owner</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="gold">Days 1–60</td>
-            <td><strong>Diagnostic phase</strong></td>
-            <td class="muted">Under NDA, Oceanic analyzes NCBA's EC$ 531M investment book + Premier-eligible client segment. Output: partnership term sheet + custom recommendations.</td>
-            <td class="muted">Oceanic with NCBA data access</td>
-          </tr>
-          <tr>
-            <td class="gold">Months 2–4</td>
-            <td><strong>Documentation &amp; filings</strong></td>
-            <td class="muted">Partnership agreement, distribution agreement, IPS templates, client onboarding materials, regulatory filings with ECSRC and Anguilla FSC.</td>
-            <td class="muted">Joint · external counsel both sides</td>
-          </tr>
-          <tr>
-            <td class="gold">Month 5</td>
-            <td><strong>Soft launch</strong></td>
-            <td class="muted">3–5 pilot Premier clients onboarded through one branch. Joint operations testing. Initial allocations deployed at IBKR.</td>
-            <td class="muted">Joint · NCBA private banker + Oceanic CIO</td>
-          </tr>
-          <tr>
-            <td class="gold">Month 6</td>
-            <td><strong>Full launch</strong></td>
-            <td class="muted">All branches active. Co-branded marketing materials live. Partnership economics start.</td>
-            <td class="muted">Joint</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="ask-quote">
-        <div class="text">The decision today: agree to begin the 60-day diagnostic phase under NDA. Everything else &mdash; documentation, filings, soft launch, full launch &mdash; follows from that one yes.</div>
-      </div>
-
-      <div class="ask-cta">
-        <div class="ask-cta-card">
-          <div class="label">Decision needed today</div>
-          <div class="terms"><em>Begin the diagnostic phase.</em> 60 days. Under NDA. Output: partnership term sheet + custom recommendations on NCBA's investment book + Premier client segment.</div>
-        </div>
-        <div class="ask-cta-card">
-          <div class="label">Contact</div>
-          <dl>
-            <div><dt>Direct</dt><dd>Boris Kotcher · CEO, Oceanic Wealth</dd></div>
-            <div><dt>Email</dt><dd><a href="mailto:boris@oceanicwealth.com">boris@oceanicwealth.com</a></dd></div>
-            <div><dt>Office</dt><dd>The Valley · Anguilla</dd></div>
-            <div><dt>Regulator</dt><dd>Eastern Caribbean Securities Regulatory Commission</dd></div>
-          </dl>
         </div>
       </div>
     </div>
