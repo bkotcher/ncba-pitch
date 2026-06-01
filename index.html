@@ -1408,6 +1408,22 @@ footer.foot .right .gold { color: var(--gold); }
 .sa3-readable .num { font-family:var(--mono); font-size:11px; font-weight:700; color:#0a0b0d; background:var(--gold); border-radius:50%; padding:3px 7px; margin-right:6px; }
 @media (max-width:1100px){ .sa3-row{ grid-template-columns:1fr; gap:14px; } .sa3-conn{ padding:8px 0; } .sa3-arrow-line{ width:2px; height:40px; border-top:none; border-left:2px solid var(--gold); } .sa3-arrow-line::after{ right:auto; left:-6px; top:auto; bottom:-2px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:11px solid var(--gold); border-bottom:none; } }
 
+
+/* ===== HNW capability cards (goldman-grade) ===== */
+.cap-section { margin: 24px 0 18px; }
+.cap-intro { font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--text-secondary); font-style:italic; max-width:880px; margin-bottom:18px; }
+.cap-intro em { color:var(--gold); }
+.cap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin-bottom:24px; }
+.cap-card { background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--gold-dim); border-radius:8px; padding:22px 24px; transition:transform .2s, border-color .2s; }
+.cap-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+.cap-card .cn { font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+.cap-card h4 { font-family:var(--serif); font-size:18px; font-weight:400; color:var(--text); margin:7px 0 8px; line-height:1.2; }
+.cap-card .summary { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.55; margin-bottom:12px; }
+.cap-card .summary b { color:var(--text); }
+.cap-card .impact { font-family:var(--mono); font-size:11px; color:var(--positive); padding-top:10px; border-top:1px solid var(--border); line-height:1.5; }
+.cap-card .impact::before { content:'\21AA  '; color:var(--positive); }
+@media (max-width:1100px){ .cap-grid{ grid-template-columns:1fr 1fr; } }
+
 </style>
 </head>
 
@@ -1455,14 +1471,8 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="caret">▾</div>
       </div>
       <div class="sidebar-children">
-        <div class="sidebar-item" data-view="models" data-sub="models">
-          <span class="sidebar-num">02</span><span class="sidebar-item-label">Model Portfolios</span>
-        </div>
-        <div class="sidebar-item" data-view="models" data-sub="hnw">
-          <span class="sidebar-num">03</span><span class="sidebar-item-label">Private Wealth (HNW)</span>
-        </div>
-        <div class="sidebar-item" data-view="models" data-sub="inst">
-          <span class="sidebar-num">04</span><span class="sidebar-item-label">Institutional</span>
+        <div class="sidebar-item" data-view="models">
+          <span class="sidebar-num">02</span><span class="sidebar-item-label">How We Invest</span>
         </div>
       </div>
     </div>
@@ -1474,22 +1484,22 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="structuring">
-          <span class="sidebar-num">05</span><span class="sidebar-item-label">Wealth Structuring</span>
+          <span class="sidebar-num">03</span><span class="sidebar-item-label">Wealth Structuring</span>
           <span class="sidebar-badge">tax · trust</span>
         </div>
         <div class="sidebar-item" data-view="governance">
-          <span class="sidebar-num">06</span><span class="sidebar-item-label">Risk Management</span>
+          <span class="sidebar-num">04</span><span class="sidebar-item-label">Risk Management</span>
         </div>
         <div class="sidebar-item" data-view="scenarios">
-          <span class="sidebar-num">07</span><span class="sidebar-item-label">Scenario Simulator</span>
+          <span class="sidebar-num">05</span><span class="sidebar-item-label">Scenario Simulator</span>
           <span class="sidebar-badge">live</span>
         </div>
         <div class="sidebar-item" data-view="edge">
-          <span class="sidebar-num">08</span><span class="sidebar-item-label">The Intelligence Edge</span>
+          <span class="sidebar-num">06</span><span class="sidebar-item-label">The Intelligence Edge</span>
           <span class="sidebar-badge">5 live</span>
         </div>
         <div class="sidebar-item" data-view="infra">
-          <span class="sidebar-num">09</span><span class="sidebar-item-label">The Platform</span>
+          <span class="sidebar-num">07</span><span class="sidebar-item-label">The Platform</span>
         </div>
       </div>
     </div>
@@ -1501,7 +1511,7 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
       <div class="sidebar-children">
         <div class="sidebar-item" data-view="ask">
-          <span class="sidebar-num">10</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
+          <span class="sidebar-num">08</span><span class="sidebar-item-label">June 8 — Whiteboard</span>
         </div>
       </div>
     </div>
@@ -1527,12 +1537,12 @@ footer.foot .right .gold { color: var(--gold); }
     <div class="view" data-view="models">
       <div class="page-eyebrow">02 · How We Invest</div>
       <h1 class="page-title">How we invest. <em>Three clients, one discipline.</em></h1>
-      <p class="page-subtitle">Three distinct ways we put money to work &mdash; mass-affluent clients into model portfolios, high-net-worth clients into bespoke mandates, and NCBA's own balance sheet into an actively risk-managed institutional book. Click through. Everything is interactive: hover the charts, click the models, expand the differentiators.</p>
+      <p class="page-subtitle">Four model portfolios &mdash; the same disciplined architecture serves the bank's mass-affluent depositor and the high-net-worth client. What changes at scale is the customisation around the core: tax overlays, currency hedging, securities-backed lending, private-market access. The capabilities that win HNW business are below.</p>
 
       <div class="open-this">
         <div class="label">When you open this tab in the meeting</div>
-        <p>Click all three sub-tabs as you talk. Say: <strong>"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get a bespoke mandate &mdash; and I'll show you exactly why they'd leave their offshore bank for it. And your own balance sheet gets managed like a hedge-fund risk desk, not a buy-and-hold bond book. Same risk engine underneath all three."</strong></p>
-        <p><em>The risk/return chart, the model donuts, the HNW comparison, the institutional risk engine &mdash; all live. Hover and click.</em></p>
+        <p>Anchor it. Say: <strong>"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get the same disciplined core &mdash; with the institutional-grade capabilities a Goldman or a Schroders client would expect built around it. And the same risk engine runs under both."</strong></p>
+        <p><em>Show the lanes, then walk the four models, then the capabilities that wow HNW &mdash; tax overlay, multi-currency, lending against the book, private-markets access.</em></p>
       </div>
 
       <div class="lanes-quote">"Three lanes of money management. Your branch clients go through KYC and discovery, then into one of four model portfolios. Your high-net-worth clients get a bespoke mandate &mdash; and I'll show you exactly why they'd leave their offshore bank for it. And your own balance sheet gets managed like a hedge-fund risk desk, not a buy-and-hold bond book. <em>Same risk engine underneath all three.</em>"<span class="who">The structure, in one breath</span></div>
@@ -1591,14 +1601,7 @@ footer.foot .right .gold { color: var(--gold); }
         </div>
       </div>
 
-      <div class="subtabs">
-        <button class="subtab active" data-sub="models"><span class="st-num">A</span>Model Portfolios</button>
-        <button class="subtab" data-sub="hnw"><span class="st-num">B</span>HNW Clients</button>
-        <button class="subtab" data-sub="inst"><span class="st-num">C</span>Institutional</button>
-      </div>
 
-      <!-- ===== SUB-VIEW A: MODEL PORTFOLIOS (mass-affluent) ===== -->
-      <div class="subview active" data-sub="models">
         <div class="section-header" style="margin-top:0;">
           <div class="section-title">From discovery to portfolio &mdash; four models</div>
           <div class="section-meta">KYC &rarr; risk discovery &rarr; model assignment · for NCBA branch &amp; mass-affluent clients</div>
@@ -1644,153 +1647,51 @@ footer.foot .right .gold { color: var(--gold); }
           <div id="dd-chart"></div>
           <div class="dd-key"><span><i style="background:var(--text-tertiary)"></i>Raw S&amp;P 500 (buy it yourself)</span><span><i style="background:var(--gold)"></i>Oceanic Balanced model</span></div>
         </div>
-        <div class="approach">
-          <div class="ac"><div class="icon">&#9660;</div><h5>Drawdown protection</h5><p>The model is risk-budgeted &mdash; it falls materially less when the index crashes. The index has no one managing the downside.</p></div>
-          <div class="ac"><div class="icon">&#8635;</div><h5>Active rebalancing</h5><p>We rebalance into weakness and trim into strength. Buying the index, you do neither.</p></div>
-          <div class="ac"><div class="icon">&#9670;</div><h5>Tax-aware</h5><p>Lot-level harvesting and gain deferral &mdash; impossible holding a single index fund.</p></div>
-          <div class="ac"><div class="icon">&#36;</div><h5>Currency-aware</h5><p>Multi-currency construction for Caribbean clients, not just USD beta.</p></div>
-        </div>
-        <div class="caveat-card" style="border-color:var(--gold-dim);">
-          <div class="label" style="color:var(--gold);">Communicating this to a Caribbean client</div>
-          <p>"You could buy the US index yourself &mdash; and in a good year you'd do fine. But the year it falls thirty percent, no one's there to protect you. We manage the downside, rebalance for you, and handle the tax and the currency. You sleep; we watch the book." <em>Illustrative.</em></p>
-        </div>
-      </div>
-
-      <!-- ===== SUB-VIEW B: HNW CLIENTS ===== -->
-      <div class="subview" data-sub="hnw">
-        <div class="section-header" style="margin-top:0;">
-          <div class="section-title">Why would a HNW client leave their offshore bank for us?</div>
-          <div class="section-meta">The honest, line-by-line comparison</div>
-        </div>
-
-        <div class="field-tbl-wrap">
-          <table class="field-tbl">
-            <thead><tr><th>&nbsp;</th><th>Offshore private bank (today)</th><th class="us">Oceanic × NCBA</th></tr></thead>
-            <tbody>
-              <tr><td>What they own</td><td class="no">Units in a fund — opaque</td><td class="us">Individual securities in their own name</td></tr>
-              <tr><td>Transparency</td><td class="no">Quarterly statement, fund-level</td><td class="us">Daily, line-by-line, on the portal</td></tr>
-              <tr><td>All-in fee</td><td class="no">140–200 bps</td><td class="us">100 bps — transparent</td></tr>
-              <tr><td>Tax management</td><td class="no">None — pooled fund</td><td class="us">Lot-level tax-loss harvesting</td></tr>
-              <tr><td>Supervision</td><td class="no">Bermuda / Cayman — offshore</td><td class="us">ECSRC — in-region, same as their bank</td></tr>
-              <tr><td>Relationship</td><td class="no">Banker seen twice a year</td><td class="us">On-island, same time zone, direct CIO access</td></tr>
-              <tr><td>Lending</td><td class="no">Separate facility, separate bank</td><td class="us">Securities-backed lending against the book</td></tr>
-              <tr><td>Structuring</td><td class="no">Referred out, uncoordinated</td><td class="us">Trust + tax coordinated (tab 05)</td></tr>
-            </tbody>
-          </table>
-        </div>
 
         <div class="section-header">
-          <div class="section-title">A representative US$2.5M bespoke mandate</div>
-          <div class="section-meta">Hover the chart · these are real, liquid, US-listed holdings</div>
+          <div class="section-title">Beyond the model &mdash; what wins HNW business</div>
+          <div class="section-meta">The capabilities a Goldman PWM client expects · what an ETF cannot do · what the bank can now deliver</div>
         </div>
-        <div class="pf-layout">
-          <div class="pf-donut-card">
-            <div class="pf-donut" id="donut-hnw"></div>
-            <div class="pf-legend" id="legend-hnw"></div>
+        <div class="cap-intro">The model gives the discipline; <em>these are the capabilities built around it</em> at HNW scale. Each one is what a HNW client would expect from Goldman PWM or a Swiss private bank &mdash; delivered through the bank's brand.</div>
+        <div class="cap-grid">
+          <div class="cap-card">
+            <div class="cn">Capability 1</div>
+            <h4>Direct indexing with tax overlay</h4>
+            <p class="summary">Own the underlying stocks <b>directly</b>, not via a fund. Harvest losses at the individual-lot level; offset realized gains across the portfolio.</p>
+            <div class="impact">Estimated <b>30&ndash;50 bps</b> of after-tax alpha vs. holding the index fund.</div>
           </div>
-          <div>
-            <table class="tbl">
-              <thead><tr><th>Holding</th><th class="num">Weight</th><th class="num">US$</th></tr></thead>
-              <tbody>
-                <tr><td class="gold">AAPL · MSFT · NVDA · GOOGL (direct)</td><td class="num">18%</td><td class="num">450,000</td></tr>
-                <tr><td class="gold">VOO — S&amp;P 500 core</td><td class="num">10%</td><td class="num">250,000</td></tr>
-                <tr><td class="gold">IJH · IJR — US mid/small</td><td class="num">7%</td><td class="num">175,000</td></tr>
-                <tr><td class="gold">VEA · VGK — developed intl</td><td class="num">10%</td><td class="num">250,000</td></tr>
-                <tr><td class="gold">VWO — emerging markets</td><td class="num">5%</td><td class="num">125,000</td></tr>
-                <tr><td class="gold">US Treasuries 5y/10y (direct ladder)</td><td class="num">22%</td><td class="num">550,000</td></tr>
-                <tr><td class="gold">IEF — intermediate UST</td><td class="num">8%</td><td class="num">200,000</td></tr>
-                <tr><td class="gold">LQD — IG corporate</td><td class="num">12%</td><td class="num">300,000</td></tr>
-                <tr><td class="gold">SHV — cash / liquidity</td><td class="num">8%</td><td class="num">200,000</td></tr>
-                <tr class="total"><td>Total</td><td class="num">100%</td><td class="num">2,500,000</td></tr>
-              </tbody>
-            </table>
+          <div class="cap-card">
+            <div class="cn">Capability 2</div>
+            <h4>Concentrated position management</h4>
+            <p class="summary">Executive shares, founder stock, RSU calendars, single-issue concentrations. Diversified unwinds, exchange funds, hedging overlays &mdash; <b>without forced sales</b>.</p>
+            <div class="impact">The wealth-event capability ETF clients <b>never</b> see.</div>
+          </div>
+          <div class="cap-card">
+            <div class="cn">Capability 3</div>
+            <h4>Multi-currency construction</h4>
+            <p class="summary">USD / EUR / GBP / CHF sleeves with <b>explicit currency overlay</b>, not just incidental FX. Hedging tailored to where the client lives, spends, and inherits.</p>
+            <div class="impact">Wealth managed in the currency of the client's life.</div>
+          </div>
+          <div class="cap-card">
+            <div class="cn">Capability 4</div>
+            <h4>Securities-backed lending</h4>
+            <p class="summary">Borrow against the portfolio at <b>institutional rates</b>. Liquidity for a property, a business, a tax bill &mdash; without selling and without triggering a taxable event.</p>
+            <div class="impact">Use the wealth without breaking the compounding.</div>
+          </div>
+          <div class="cap-card">
+            <div class="cn">Capability 5</div>
+            <h4>Private-markets &amp; alternatives access</h4>
+            <p class="summary">Curated access to private equity, private credit, real assets, and hedge-fund strategies through <b>vetted institutional partners</b>. Where the index can't go.</p>
+            <div class="impact">The asset classes that drive long-horizon outperformance.</div>
+          </div>
+          <div class="cap-card">
+            <div class="cn">Capability 6</div>
+            <h4>Structured &amp; custom solutions</h4>
+            <p class="summary">Principal-protected notes, custom ESG &amp; sector exclusions, family-office structuring, multi-generational planning &mdash; <b>integrated with the trust &amp; tax tab</b>.</p>
+            <div class="impact">A wealth platform, not a fund wrapper.</div>
           </div>
         </div>
 
-        <div class="section-header">
-          <div class="section-title">The five differentiators &mdash; click to expand</div>
-          <div class="section-meta">What a HNW client cannot get from a fund or an offshore wrapper</div>
-        </div>
-        <div class="accordion" id="hnw-acc">
-          <div class="acc-item active" data-a="0"><div class="acc-head"><span class="acc-ic">&#9673;</span>Individual securities, owned directly<span class="acc-tog">&minus;</span></div><div class="acc-body">The client owns AAPL, the actual Treasury, the actual ETF &mdash; in their own name at IBKR, SIPC-insured to US$30M. Not units in a fund whose holdings they can't see. If Oceanic disappeared tomorrow, the client keeps every position.</div></div>
-          <div class="acc-item" data-a="1"><div class="acc-head"><span class="acc-ic">&#9670;</span>Lot-level tax-loss harvesting<span class="acc-tog">+</span></div><div class="acc-body">Because positions are held as individual lots, we harvest losses to offset gains and defer tax &mdash; worth an estimated 15&ndash;40 bps/yr of after-tax return. A pooled fund cannot do this for an individual.</div></div>
-          <div class="acc-item" data-a="2"><div class="acc-head"><span class="acc-ic">&#9636;</span>Securities-backed lending<span class="acc-tog">+</span></div><div class="acc-body">The client can borrow against the portfolio at institutional rates without selling &mdash; liquidity for a property purchase or business without triggering a taxable event or breaking the compounding.</div></div>
-          <div class="acc-item" data-a="3"><div class="acc-head"><span class="acc-ic">&#9671;</span>Multi-currency &amp; global reach<span class="acc-tog">+</span></div><div class="acc-body">USD / EUR / GBP sleeves across 150 global markets via IBKR &mdash; the global reach of a large private bank, delivered by a firm in the client's own time zone and regulatory perimeter.</div></div>
-          <div class="acc-item" data-a="4"><div class="acc-head"><span class="acc-ic">&#9672;</span>Direct access &amp; local supervision<span class="acc-tog">+</span></div><div class="acc-body">The client talks to the people managing the money, on-island, under ECSRC &mdash; the same regulator as their bank. Not a call centre routed to Bermuda. This is the trust that wins the relationship.</div></div>
-        </div>
-      </div>
-
-      <!-- ===== SUB-VIEW C: INSTITUTIONAL ===== -->
-      <div class="subview" data-sub="inst">
-        <div class="section-header" style="margin-top:0;">
-          <div class="section-title">NCBA's own book &mdash; managed like a risk desk, not a bond drawer</div>
-          <div class="section-meta">Diversify the EC$531M · then run it actively with the risk engine</div>
-        </div>
-
-        <div class="pf-dual">
-          <div class="pf-donut-card"><h5 class="bad">Today — as audited</h5><div class="pf-donut" id="donut-ncba-now"></div><div class="pf-legend" id="legend-ncba-now"></div></div>
-          <div class="vs">&rarr;</div>
-          <div class="pf-donut-card"><h5 class="good">Proposed — diversified</h5><div class="pf-donut" id="donut-ncba-new"></div><div class="pf-legend" id="legend-ncba-new"></div></div>
-        </div>
-
-        <div class="section-header">
-          <div class="section-title">The twist &mdash; what separates us from a bank treasury desk</div>
-          <div class="section-meta">Most banks hold a static book reviewed quarterly. We run it daily, like a hedge-fund risk desk.</div>
-        </div>
-
-        <div class="field-tbl-wrap">
-          <table class="field-tbl">
-            <thead><tr><th>Risk capability</th><th>Typical bank treasury</th><th class="us">Oceanic institutional mandate</th></tr></thead>
-            <tbody>
-              <tr><td>Position monitoring</td><td class="no">Monthly / quarterly</td><td class="us">Live, daily NAV &amp; exposure</td></tr>
-              <tr><td>Factor risk model</td><td class="no">None</td><td class="us">60-day OLS · beta + sector-residual per name</td></tr>
-              <tr><td>Stress testing</td><td class="no">Annual, canned scenarios</td><td class="us">12 scenarios + adversarial daily worst-case</td></tr>
-              <tr><td>Concentration limits</td><td class="no">Informal</td><td class="us">Hard caps, enforced at trade</td></tr>
-              <tr><td>VaR</td><td class="no">Rarely computed</td><td class="us">Triple-method, refreshed at close</td></tr>
-              <tr><td>Reporting</td><td class="no">Board pack, lagging</td><td class="us">Live dashboard + audit hash chain</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="approach">
-          <div class="ac"><div class="icon">&#9673;</div><h5>Adversarial stress</h5><p>An engine that constructs the worst plausible market for the book every night &mdash; before the market does.</p></div>
-          <div class="ac"><div class="icon">&#9650;</div><h5>Factor decomposition</h5><p>Every holding decomposed into equity beta, duration, spread, FX &mdash; the source of risk is always visible.</p></div>
-          <div class="ac"><div class="icon">&#8644;</div><h5>FX tail hedge</h5><p>Forward-hedge the non-USD exposure the audit leaves open &mdash; tab 03 sized the gap.</p></div>
-          <div class="ac"><div class="icon">&#43;</div><h5>+15&ndash;35 bps</h5><p>Indicative risk-adjusted yield uplift &mdash; diversification at equal-or-better risk.</p></div>
-        </div>
-
-        <div class="section-header">
-          <div class="section-title">Institutional risk terminal</div>
-          <div class="section-meta">Illustrative Analysis — based on FY25 audited figures (investment book EC$531M)</div>
-        </div>
-        <div class="term-grid">
-          <div class="term-card">
-            <div class="tt"><span>Concentration heatmap</span><span class="live">● LIVE</span></div>
-            <div class="heat" id="risk-heat"></div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:10px;">red = soft-cap breach · hover-equivalent flags rebalance</div>
-          </div>
-          <div class="term-card">
-            <div class="tt"><span>Duration ladder</span><span class="live">● LIVE</span></div>
-            <div class="ladder" id="risk-ladder">
-              <div class="lr"><span class="lt">0–1y</span><div class="lbar"><div class="lfill" data-w="18"></div></div><span class="lv">18%</span></div>
-              <div class="lr"><span class="lt">1–3y</span><div class="lbar"><div class="lfill" data-w="26"></div></div><span class="lv">26%</span></div>
-              <div class="lr"><span class="lt">3–5y</span><div class="lbar"><div class="lfill" data-w="31"></div></div><span class="lv">31%</span></div>
-              <div class="lr"><span class="lt">5–7y</span><div class="lbar"><div class="lfill" data-w="15"></div></div><span class="lv">15%</span></div>
-              <div class="lr"><span class="lt">7y+</span><div class="lbar"><div class="lfill" data-w="10"></div></div><span class="lv">10%</span></div>
-            </div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--text-tertiary);margin-top:10px;">target ~3.0y · live re-laddering on rate signal</div>
-          </div>
-        </div>
-        <div class="term-card term-scatter">
-          <div class="tt"><span>Yield vs. risk — current holdings</span><span class="live">● LIVE</span></div>
-          <div id="term-scatter-svg"></div>
-        </div>
-
-        <div class="caveat-card" style="border-color: var(--gold-dim); margin-top:16px;">
-          <div class="label" style="color: var(--gold);">Why this beats what they have</div>
-          <p>NCBA's EC$531M book is 70% in one asset class, with no VaR, no scenario framework, and no daily monitoring (tab 03). We don't just diversify it &mdash; we run it with the same risk infrastructure a global asset manager uses, inside the Eastern Caribbean perimeter. <em>This is the institutional capability Butterfield will spend two years trying to build. NCBA gets it on day one. Illustrative Analysis — based on FY25 audited figures; to be validated with NCBA ALCO.</em></p>
-        </div>
-      </div>
     </div>
 
 
@@ -1906,11 +1807,11 @@ footer.foot .right .gold { color: var(--gold); }
           segs:[{n:'US large-cap',c:PAL[0],v:42},{n:'US mid/small',c:PAL[1],v:11},{n:'Developed intl',c:PAL[2],v:16},{n:'Emerging mkts',c:PAL[3],v:6},{n:'UST intermediate',c:PAL[4],v:12},{n:'UST short',c:PAL[5],v:3},{n:'IG corporate',c:PAL[6],v:5},{n:'Cash',c:PAL[7],v:5}],
           metrics:[['Target return','9–12% net'],['Volatility','14–17%'],['Max drawdown','−25% to −32%'],['Sharpe (sim)','0.33'],['Client','Next-gen · 20yr+']] }
       };
-      function vehicleFor(n){ var m={'US large-cap':'VOO + S&P names','US mid/small':'IJR, IJH','Developed intl':'VEA, VGK','Emerging mkts':'VWO','UST intermediate':'IEF + UST 5y/10y','UST short':'SHV, BIL','IG corporate':'LQD','Cash':'SHV / institutional'}; return m[n]||''; }
+      function vehicleFor(n){ var m={'US large-cap':'core equity beta','US mid/small':'domestic growth tilt','Developed intl':'regional diversification','Emerging mkts':'long-horizon growth','UST intermediate':'duration & safety','UST short':'liquidity & ballast','IG corporate':'spread carry','Cash':'T+0 liquidity'}; return m[n]||''; }
       function drawModel(k){
         var m=MODELS[k]; render('donut-model','legend-model',m.segs,m.big,m.lbl);
         var h=document.getElementById('model-holdings');
-        if(h) h.innerHTML='<thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Vehicle</th></tr></thead><tbody>'+m.segs.map(function(s){return '<tr><td class="gold">'+s.n+'</td><td class="num">'+s.v+'%</td><td class="muted">'+vehicleFor(s.n)+'</td></tr>';}).join('')+'</tbody>';
+        if(h) h.innerHTML='<thead><tr><th>Sleeve</th><th class="num">Weight</th><th>Role</th></tr></thead><tbody>'+m.segs.map(function(s){return '<tr><td class="gold">'+s.n+'</td><td class="num">'+s.v+'%</td><td class="muted">'+vehicleFor(s.n)+'</td></tr>';}).join('')+'</tbody>';
         var mt=document.getElementById('model-metrics');
         if(mt) mt.innerHTML='<thead><tr><th>Risk &amp; return</th><th>Indicative</th></tr></thead><tbody>'+m.metrics.map(function(r){return '<tr><td class="gold">'+r[0]+'</td><td class="muted">'+r[1]+'</td></tr>';}).join('')+'</tbody>';
       }
@@ -2313,7 +2214,7 @@ footer.foot .right .gold { color: var(--gold); }
          05 · WEALTH STRUCTURING — tax, trust, multi-jurisdiction
          ==================================================================== -->
     <div class="view" data-view="structuring">
-      <div class="page-eyebrow">05 · How We Manage Money</div>
+      <div class="page-eyebrow">03 · How We Manage Money</div>
       <h1 class="page-title">Wealth Structuring. <em>Beyond the portfolio.</em></h1>
       <p class="page-subtitle">The HNW client arriving through Anguilla's residency-by-investment program doesn't just need a portfolio &mdash; they need a structure: a trust, a tax-efficient wrapper, and coordination across the jurisdictions they touch. Most are intimidated by the complexity. It isn't complex &mdash; once someone sets it up properly. That someone is the partnership. Click a jurisdiction below.</p>
 
@@ -2411,7 +2312,7 @@ footer.foot .right .gold { color: var(--gold); }
          RISK MANAGEMENT — institutional, always-on (distinct from Scenarios)
          ==================================================================== -->
     <div class="view" data-view="governance">
-      <div class="page-eyebrow">06 · The Toolkit</div>
+      <div class="page-eyebrow">04 · The Toolkit</div>
       <h1 class="page-title">Risk Management. <em>Continuous, layered, adversarial.</em></h1>
       <p class="page-subtitle">Not scenario analysis &mdash; that's a separate tab. This is the always-on discipline: six layers of control, a live concentration grid, a liquidity ladder that holds under stress, and an engine that hunts the worst attack on the book every minute. Most managers check risk quarterly. Ours never stops. Illustrative.</p>
 
@@ -2752,7 +2653,7 @@ footer.foot .right .gold { color: var(--gold); }
          07 · SCENARIO SIMULATOR — two-layer real NCBA balance-sheet impact
          ==================================================================== -->
     <div class="view" data-view="scenarios">
-      <div class="page-eyebrow">07 · How We Invest</div>
+      <div class="page-eyebrow">05 · How We Invest</div>
       <h1 class="page-title">Scenario Simulator. <em>Your real book, stressed in real time.</em></h1>
       <p class="page-subtitle">Click a shock. We model the EC$ impact on NCBA's <em>actual</em> FY25 balance sheet &mdash; the amortised-cost bond book, the fair-valued sleeve, the loan book, liquidity, and reported ROE &mdash; then the action plan, targeting the real concentrations NCBA discloses. A separate layer shows client portfolios. Illustrative Analysis — based on FY25 audited figures (Notes 4.1.5 &amp; 8).</p>
 
@@ -3059,7 +2960,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE INTELLIGENCE EDGE — five capabilities no Caribbean bank has
          ==================================================================== -->
     <div class="view" data-view="edge">
-      <div class="page-eyebrow">08 · The Edge</div>
+      <div class="page-eyebrow">06 · The Edge</div>
       <h1 class="page-title">The Intelligence Edge. <em>What no one else in the region has.</em></h1>
       <p class="page-subtitle">Five live capabilities that separate an institutional asset manager from a bank treasury desk. Each is interactive or alive. All illustrative &mdash; built to show the machinery, not to forecast.</p>
 
@@ -3344,7 +3245,7 @@ footer.foot .right .gold { color: var(--gold); }
          12 · LIVE INFRASTRUCTURE
          ==================================================================== -->
     <div class="view" data-view="infra">
-      <div class="page-eyebrow">09 · How We Manage Money</div>
+      <div class="page-eyebrow">07 · How We Manage Money</div>
       <h1 class="page-title">The Platform. <em>The two-year moat, demonstrated.</em></h1>
       <p class="page-subtitle">A read-only co-branded dashboard available to NCBA every day. Three views for three audiences, each backed by the same operating book.</p>
 
@@ -3495,7 +3396,7 @@ footer.foot .right .gold { color: var(--gold); }
          08 · THE ASK
          ==================================================================== -->
     <div class="view" data-view="ask">
-      <div class="page-eyebrow">10 · The Ask</div>
+      <div class="page-eyebrow">08 · The Ask</div>
       <h1 class="page-title">June 8 &mdash; <em>let's whiteboard the structure.</em></h1>
       <p class="page-subtitle">One decision today. Six months to launch. A clear path from this conversation to NCBA Premier Wealth in market.</p>
 
