@@ -1567,6 +1567,86 @@ footer.foot .right .gold { color: var(--gold); }
   .ai-cap-row { grid-template-columns: 1fr; gap: 2px; }
 }
 
+
+/* ===== AI EDGE — live illustration boxes ===== */
+.ai-demo { position:relative; background: linear-gradient(180deg, #0c0f13 0%, #0d1018 100%); border:1px solid #2a3340; border-radius:6px; padding:14px 16px; margin-bottom:6px; min-height:84px; overflow:hidden; }
+.ai-demo::before { content:'\25CF LIVE'; position:absolute; top:9px; right:12px; font-family:var(--mono); font-size:8px; font-weight:700; letter-spacing:.16em; color:var(--positive); animation:blink 1.6s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.55;} }
+.ai-demo-grid { display:grid; gap:14px; align-items:center; }
+
+/* card 1: research */
+.demo-research { grid-template-columns: 200px 1fr; }
+.demo-counter { text-align:center; }
+.demo-counter .big { font-family:var(--serif); font-size:34px; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-.02em; }
+.demo-counter .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--text-tertiary); text-transform:uppercase; margin-top:5px; }
+.demo-langs { display:flex; flex-wrap:wrap; gap:5px; }
+.demo-langs span { font-family:var(--mono); font-size:9px; color:var(--gold); border:1px solid var(--gold-dim); padding:3px 6px 3px 6px; border-radius:2px; position:relative; padding-right:13px; }
+.demo-langs span::after { content:''; position:absolute; top:50%; right:5px; transform:translateY(-50%); width:4px; height:4px; border-radius:50%; background:var(--positive); animation:pulse 1.6s infinite; }
+.demo-feed-line { font-family:var(--mono); font-size:9.5px; color:var(--text-secondary); margin-top:8px; padding-top:6px; border-top:1px solid var(--border); animation:fadein .4s ease; }
+@keyframes fadein { from{opacity:0; transform:translateY(-4px);} to{opacity:1;transform:none;} }
+.demo-feed-line .src { color:var(--gold); }
+
+/* card 2: risk */
+.demo-risk { grid-template-columns: 180px 1fr; }
+.demo-var { text-align:center; }
+.demo-var .big { font-family:var(--serif); font-size:30px; color:var(--critical); font-variant-numeric:tabular-nums; line-height:1; transition:color .3s; }
+.demo-var .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--text-tertiary); text-transform:uppercase; margin-top:5px; }
+.demo-var .refresh { font-family:var(--mono); font-size:9px; color:var(--positive); margin-top:6px; }
+.demo-factors { display:grid; gap:5px; }
+.demo-fac { display:grid; grid-template-columns: 70px 1fr 38px; gap:10px; align-items:center; font-family:var(--mono); font-size:10px; }
+.demo-fac .k { color:var(--text-tertiary); }
+.demo-fac-bar { height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden; }
+.demo-fac-fill { height:100%; background:linear-gradient(90deg, var(--positive) 0%, var(--gold) 70%, var(--warning) 100%); transition:width 1.5s cubic-bezier(.4,0,.2,1); border-radius:2px; }
+.demo-fac .v { text-align:right; color:var(--text); }
+
+/* card 3: correlation */
+.demo-corr { text-align:center; }
+.demo-corr svg { display:block; margin:0 auto; max-width:100%; }
+.nc-node-mini { fill:var(--gold); }
+.nc-node-mini.b { fill:var(--signal); }
+.nc-node-mini.c { fill:#b08fc9; }
+.nc-link-mini { stroke:var(--gold-dim); stroke-width:1.2; opacity:.5; animation:linkPulse 2.5s ease-in-out infinite; }
+.nc-link-mini.delay1 { animation-delay:.4s; } .nc-link-mini.delay2 { animation-delay:.8s; } .nc-link-mini.delay3 { animation-delay:1.2s; }
+@keyframes linkPulse { 0%,100%{opacity:.25;stroke-width:1;} 50%{opacity:1;stroke-width:2;} }
+.demo-corr-stat { font-family:var(--mono); font-size:10px; color:var(--gold); margin-top:6px; letter-spacing:.06em; }
+
+/* card 4: adversarial */
+.demo-adv { grid-template-columns: 1fr 1fr; }
+.demo-adv-cnt { text-align:center; padding-right:14px; border-right:1px solid var(--border); }
+.demo-adv-cnt .big { font-family:var(--serif); font-size:32px; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; }
+.demo-adv-cnt .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--text-tertiary); text-transform:uppercase; margin-top:5px; }
+.demo-adv-worst { text-align:center; }
+.demo-adv-worst .vec { font-family:var(--mono); font-size:10.5px; color:var(--text-secondary); margin-bottom:6px; line-height:1.4; }
+.demo-adv-worst .big { font-family:var(--serif); font-size:26px; color:var(--critical); font-variant-numeric:tabular-nums; line-height:1; animation:pulse 1.5s infinite; }
+.demo-adv-worst .lbl { font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--text-tertiary); text-transform:uppercase; margin-top:4px; }
+
+/* card 5: regime gauge mini */
+.demo-regime { grid-template-columns: 220px 1fr; }
+.demo-regime svg { display:block; }
+.gauge-mini-needle { transform-origin:120px 90px; transition: transform 1.5s cubic-bezier(.34,1.4,.5,1); }
+.demo-regime-sig { display:grid; gap:5px; }
+.demo-regime-row { display:grid; grid-template-columns:90px 1fr 50px; gap:10px; align-items:center; font-family:var(--mono); font-size:10px; }
+.demo-regime-row .k { color:var(--text-tertiary); }
+.demo-regime-bar { height:6px; background:var(--bg-elevated); border-radius:2px; overflow:hidden; }
+.demo-regime-fill { height:100%; transition:width 1.2s ease; }
+.demo-regime-row .v { text-align:right; color:var(--text); }
+
+/* card 6: jurisdictional */
+.demo-juris { grid-template-columns: 1fr 1fr; }
+.demo-juris-list { display:grid; gap:5px; }
+.demo-juris-row { display:grid; grid-template-columns: 12px 1fr auto; gap:10px; align-items:center; font-family:var(--mono); font-size:11px; }
+.demo-juris-dot { width:8px; height:8px; border-radius:50%; animation:pulse 1.6s infinite; }
+.demo-juris-row .nm { color:var(--text); }
+.demo-juris-row .st { font-size:9px; color:var(--text-tertiary); letter-spacing:.08em; }
+.demo-fx { display:grid; gap:5px; }
+.demo-fx-row { display:grid; grid-template-columns: 70px 1fr 70px; gap:10px; align-items:center; font-family:var(--mono); font-size:11px; }
+.demo-fx-row .pair { color:var(--text-secondary); }
+.demo-fx-row .arrow { color:var(--text-tertiary); font-size:9px; text-align:center; }
+.demo-fx-row .px { text-align:right; color:var(--text); font-variant-numeric:tabular-nums; transition:color .3s; }
+.demo-fx-row .px.up { color:var(--positive); } .demo-fx-row .px.down { color:var(--critical); }
+
+@media (max-width:1100px){ .demo-research,.demo-risk,.demo-regime,.demo-adv,.demo-juris { grid-template-columns:1fr; } }
+
 </style>
 </head>
 
