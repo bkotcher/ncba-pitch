@@ -1685,6 +1685,74 @@ footer.foot .right .gold { color: var(--gold); }
 .arch-layer.open .arch-chev { transform:rotate(90deg); }
 @media (max-width:1100px){ .cadence-grid,.ips-grid,.arch-detail-grid { grid-template-columns:1fr; } .cadence-card.cadence-big{ grid-column:1; } }
 
+
+/* ===== HOUSE VIEW outlook cards ===== */
+.hv-wrap { background: linear-gradient(180deg, #16130d 0%, var(--bg-card) 60%); border:1px solid var(--gold-dim); border-radius:10px; padding:26px 28px; margin-bottom:26px; }
+.hv-hero { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:end; padding-bottom:20px; margin-bottom:18px; border-bottom:1px solid var(--gold-dim); }
+.hv-hero h3 { font-family:var(--serif); font-size:24px; font-weight:400; color:var(--gold); margin:0 0 6px; line-height:1.2; }
+.hv-hero h3 em { color:var(--text); font-style:italic; }
+.hv-hero p { font-family:var(--serif); font-size:14px; color:var(--text-secondary); margin:0; font-style:italic; }
+.hv-meta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); text-align:right; white-space:nowrap; }
+.hv-meta .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--positive); margin-right:6px; animation:pulse 1.6s infinite; vertical-align:middle; }
+.hv-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.hv-card { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid; border-radius:0 6px 6px 0; overflow:hidden; transition:border-color .15s; }
+.hv-card:hover { border-left-color:var(--gold); }
+.hv-card.open { border-left-color:var(--gold); }
+.hv-card.eq { border-left-color:var(--gold); } .hv-card.fi { border-left-color:var(--signal); } .hv-card.fx { border-left-color:#b08fc9; } .hv-card.ra { border-left-color:var(--positive); } .hv-card.pm { border-left-color:var(--warning); } .hv-card.rk { border-left-color:var(--critical); }
+.hv-head { display:grid; grid-template-columns:1fr auto; gap:14px; padding:14px 18px; cursor:pointer; user-select:none; align-items:center; }
+.hv-head:hover { background:var(--bg-hover); }
+.hv-head h4 { font-family:var(--serif); font-size:15px; font-weight:400; color:var(--text); margin:0; }
+.hv-pos { font-family:var(--mono); font-size:9.5px; padding:4px 10px; border-radius:3px; letter-spacing:.08em; white-space:nowrap; }
+.hv-pos.ow { color:var(--positive); border:1px solid var(--positive); }
+.hv-pos.uw { color:var(--critical); border:1px solid var(--critical); }
+.hv-pos.nu { color:var(--text-secondary); border:1px solid var(--text-tertiary); }
+.hv-pos.up { color:var(--gold); border:1px solid var(--gold); }
+.hv-body { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.hv-card.open .hv-body { max-height:320px; }
+.hv-body-inner { padding:0 18px 16px; display:grid; gap:9px; }
+.hv-row { display:grid; grid-template-columns:90px 1fr; gap:12px; }
+.hv-row .rk { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); padding-top:2px; }
+.hv-row .rv { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); line-height:1.5; }
+.hv-row .rv b { color:var(--text); }
+
+/* ===== HNW tier cards ===== */
+.tier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin:8px 0 24px; }
+.tier-card { background:var(--bg-card); border:1px solid var(--border); border-top:3px solid; border-radius:8px; padding:24px 26px; transition:transform .18s, border-color .18s; cursor:pointer; }
+.tier-card:hover { transform:translateY(-2px); }
+.tier-card.t1 { border-top-color:var(--signal); }
+.tier-card.t2 { border-top-color:var(--gold); background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); }
+.tier-card.t3 { border-top-color:#b08fc9; }
+.tier-card .tlvl { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; }
+.tier-card.t1 .tlvl { color:var(--signal); } .tier-card.t2 .tlvl { color:var(--gold); } .tier-card.t3 .tlvl { color:#b08fc9; }
+.tier-card .ttreshold { font-family:var(--serif); font-size:34px; font-weight:300; color:var(--text); line-height:1; margin:6px 0 4px; }
+.tier-card .tsub { font-family:var(--serif); font-style:italic; font-size:14px; color:var(--text-secondary); margin-bottom:14px; }
+.tier-card ul { list-style:none; padding:0; margin:0; }
+.tier-card li { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); padding:5px 0 5px 16px; position:relative; line-height:1.5; }
+.tier-card li::before { content:'\2713'; color:var(--gold); position:absolute; left:0; top:5px; font-size:11px; line-height:1; }
+.tier-card.t1 li::before { color:var(--signal); } .tier-card.t3 li::before { color:#b08fc9; }
+.tier-card li b { color:var(--text); }
+.tier-card li.add { padding-left:16px; }
+.tier-card li.add::before { content:'\002B'; font-weight:700; }
+
+/* ===== FAMILY OFFICE services ===== */
+.fo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:8px 0 24px; }
+.fo-card { background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--gold-dim); border-radius:8px; padding:22px 24px; }
+.fo-card .fo-icon { font-family:var(--serif); font-size:24px; color:var(--gold); font-style:italic; margin-bottom:8px; }
+.fo-card h5 { font-family:var(--serif); font-size:17px; font-weight:400; color:var(--text); margin-bottom:10px; line-height:1.2; }
+.fo-card p { font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); line-height:1.55; margin:0 0 10px; }
+.fo-card .fo-mode { font-family:var(--mono); font-size:9px; letter-spacing:.12em; color:var(--gold); border-top:1px solid var(--border); padding-top:8px; }
+
+/* ===== STRONG HERO statement ===== */
+.hnw-hero { background: linear-gradient(135deg, #1a1614 0%, var(--bg-card) 65%); border:1px solid var(--gold); border-radius:10px; padding:36px 40px; margin-bottom:26px; position:relative; overflow:hidden; }
+.hnw-hero::before { content:''; position:absolute; top:-50%; right:-20%; width:60%; height:200%; background:radial-gradient(circle, rgba(201,169,97,.08), transparent 60%); pointer-events:none; }
+.hnw-hero .ribbon { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; position:relative; }
+.hnw-hero h2 { font-family:var(--serif); font-size:34px; font-weight:300; color:var(--text); line-height:1.2; margin:0 0 16px; letter-spacing:-.01em; position:relative; max-width:900px; }
+.hnw-hero h2 em { color:var(--gold); font-style:italic; }
+.hnw-hero p { font-family:var(--serif); font-size:17px; color:var(--text-secondary); line-height:1.55; margin:0; max-width:840px; font-style:italic; position:relative; }
+.hnw-hero p em { color:var(--gold); font-style:italic; }
+
+@media (max-width:1100px){ .hv-grid,.tier-grid,.fo-grid { grid-template-columns:1fr; } .hnw-hero h2{font-size:26px;} }
+
 </style>
 </head>
 
@@ -1904,6 +1972,12 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
 
       <div class="subview" data-sub="hnw">
+        <div class="hnw-hero">
+          <div class="ribbon">How we win HNW clients &middot; the structural case</div>
+          <h2>The Caribbean HNW client has been managed by people who don&apos;t live here, in currencies they don&apos;t spend, by platforms built before AI existed. <em>That ends with this partnership.</em></h2>
+          <p>We don&apos;t out-Goldman Goldman. We don&apos;t out-Butterfield Butterfield. <em>We offer the one thing none of them can: an AI-native, ECSRC-perimeter wealth platform that operates under the bank&apos;s brand, in the client&apos;s time zone, on the client&apos;s actual life.</em> Below: the proof, the offer by tier, our current market view, and the structural reasons the bank wins this trade.</p>
+        </div>
+
         <div class="section-header" style="margin-top:0;">
           <div class="section-title">How we win high-net-worth clients</div>
           <div class="section-meta">Not random ETF holdings &mdash; the experience, capabilities, and accountability that pull HNW back from offshore</div>
@@ -2229,6 +2303,118 @@ footer.foot .right .gold { color: var(--gold); }
   }
   setInterval(tickFx, 1800);
 })();</script>
+
+        <div class="section-header">
+          <div class="section-title">What you receive &mdash; by HNW tier</div>
+          <div class="section-meta">Three tiers &middot; each builds on the prior &middot; the higher the wealth, the more bespoke and the more dedicated &middot; illustrative thresholds</div>
+        </div>
+        <div class="tier-grid">
+          <div class="tier-card t1">
+            <div class="tlvl">Affluent HNW</div>
+            <div class="ttreshold">US$ 5M+</div>
+            <div class="tsub">The platform foundation, in your name.</div>
+            <ul>
+              <li><b>Bespoke mandate</b> built around the client's goals, currency, and constraints</li>
+              <li><b>Direct security ownership</b> at Oceanic, segregated, in client&apos;s name</li>
+              <li><b>Multi-currency portfolio</b> &mdash; USD/EUR/GBP/CHF/JPY natively</li>
+              <li><b>Securities-backed lending</b> at institutional rates</li>
+              <li><b>Daily NAV portal</b>, bank-branded, line-by-line transparency</li>
+              <li><b>Monthly CIO review</b> with the bank&apos;s investment team</li>
+              <li><b>AI risk &amp; research surveillance</b> continuous</li>
+            </ul>
+          </div>
+          <div class="tier-card t2">
+            <div class="tlvl">High Net-Worth</div>
+            <div class="ttreshold">US$ 25M+</div>
+            <div class="tsub">Bespoke, dedicated PM, full capabilities.</div>
+            <ul>
+              <li class="add"><b>Dedicated portfolio manager</b> &mdash; same name, every quarter</li>
+              <li class="add"><b>Private-markets advisory access</b> via vetted institutional partners</li>
+              <li class="add"><b>Concentrated-position desk</b> for executive shares, founder stock, RSU schedules</li>
+              <li class="add"><b>Structured solutions</b> &mdash; defined-risk options, principal-protected notes</li>
+              <li class="add"><b>Trust &amp; tax coordination</b> across jurisdictions</li>
+              <li class="add"><b>Quarterly strategy review</b> with CIO and bank CEO</li>
+              <li class="add"><b>Custom CIO outlook</b> tailored to the family&apos;s exposures</li>
+              <li>Everything in the Affluent HNW tier</li>
+            </ul>
+          </div>
+          <div class="tier-card t3">
+            <div class="tlvl">Ultra HNW &middot; Family</div>
+            <div class="ttreshold">US$ 100M+</div>
+            <div class="tsub">Family office tier &mdash; dedicated everything.</div>
+            <ul>
+              <li class="add"><b>Dedicated investment committee</b> for the family</li>
+              <li class="add"><b>Direct deal co-investment access</b> in flagship private-markets opportunities</li>
+              <li class="add"><b>Multi-generational planning</b> across jurisdictions &amp; vehicles</li>
+              <li class="add"><b>Philanthropic structuring</b> coordinated with legal &amp; tax partners</li>
+              <li class="add"><b>Business succession &amp; concentrated-stock</b> programs for founders</li>
+              <li class="add"><b>Annual off-site strategy day</b> with full investment-committee review</li>
+              <li class="add"><b>Concierge investment access</b> &mdash; same-day execution by name</li>
+              <li>Everything in the HNW tier</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hv-wrap">
+          <div class="hv-hero">
+            <div>
+              <h3>Our house view &mdash; <em>what we&apos;re telling HNW clients this quarter</em></h3>
+              <p>The proprietary outlook the bank&apos;s clients receive every month. Updated continuously. Below: this quarter&apos;s positioning across six asset classes plus the risks we&apos;re watching. Click any card to drill in.</p>
+            </div>
+            <div class="hv-meta"><span class="dot"></span>Refreshed monthly<br>Q2 2026 &middot; illustrative</div>
+          </div>
+          <div class="hv-grid" id="hv-grid">
+            <div class="hv-card eq" data-h="eq">
+              <div class="hv-head"><h4>Equities &mdash; Quality + Value over Growth</h4><span class="hv-pos up">TILT</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Position</div><div class="rv">Reduce US large-cap growth overweight; tilt to <b>Quality</b> and <b>Value</b> factors. Maintain core S&amp;P 500 exposure. EM equity at neutral; intl developed slight overweight on valuation.</div></div>
+                <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Factor breadth has narrowed; market is concentrated in a handful of names; quality factor outperforming since Q1. The growth premium is at multi-year highs; reversal risk is asymmetric.</div></div>
+                <div class="hv-row"><div class="rk">Watching</div><div class="rv">Fed pause confirmation &middot; earnings revisions &middot; AI capex guidance from hyperscalers &middot; breadth indicators.</div></div>
+              </div></div>
+            </div>
+            <div class="hv-card fi" data-h="fi">
+              <div class="hv-head"><h4>Fixed Income &mdash; Intermediate duration, up-in-quality</h4><span class="hv-pos nu">NEUTRAL</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Position</div><div class="rv"><b>2&ndash;5y intermediate duration</b> overweight. <b>Cut HY credit</b> exposure. Add IG quality. Selective EM sovereign on a country basis only.</div></div>
+                <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Curve normalisation playing out; HY spreads compressed and asymmetric to the downside; IG quality offers the best risk-adjusted carry.</div></div>
+                <div class="hv-row"><div class="rk">Watching</div><div class="rv">Curve shape &middot; credit-spread direction &middot; Fed terminal-rate signaling &middot; HY default cycle.</div></div>
+              </div></div>
+            </div>
+            <div class="hv-card fx" data-h="fx">
+              <div class="hv-head"><h4>FX &mdash; Defensive USD, hedge non-USD client assets</h4><span class="hv-pos ow">LONG USD</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Position</div><div class="rv"><b>Long USD</b> vs EM cyclicals. <b>Hedge non-USD client assets</b> at 80%+ where mandated. EUR &amp; GBP at neutral; CHF a defensive complement on tail risk.</div></div>
+                <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Dollar regime in place; EM funding-basis tightening visible; political tail risks across G7 favour USD as the safe-haven.</div></div>
+                <div class="hv-row"><div class="rk">Watching</div><div class="rv">USD funding basis &middot; Fed dovish surprise &middot; EM capital-flow data &middot; XCD peg pressure.</div></div>
+              </div></div>
+            </div>
+            <div class="hv-card ra" data-h="ra">
+              <div class="hv-head"><h4>Real Assets &mdash; Selectively positive</h4><span class="hv-pos ow">OW INFRA</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Position</div><div class="rv"><b>Energy infrastructure overweight</b> &mdash; secular capex story. <b>REITs underweight</b> &mdash; real yields constrain. <b>Gold neutral</b>. Commodities mostly hedge use.</div></div>
+                <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Energy capex requires multi-decade build-out; infrastructure cash flows are uncorrelated to public markets and inflation-linked.</div></div>
+                <div class="hv-row"><div class="rk">Watching</div><div class="rv">Real-yield direction &middot; energy capex revisions &middot; commodity stockpiles &middot; cap-rate movement on regional RE.</div></div>
+              </div></div>
+            </div>
+            <div class="hv-card pm" data-h="pm">
+              <div class="hv-head"><h4>Private Markets &mdash; Vintage timing favourable</h4><span class="hv-pos up">FAVOURABLE</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Position</div><div class="rv">Late-2024 / 2025 PE &amp; private-credit vintages favoured. <b>Entry multiples have compressed</b>; secondary discounts widening. Allocate via vetted partners (advisory).</div></div>
+                <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Vintage timing is the single largest driver of private-markets returns. The current entry valuation cycle is the best in five years; secondaries offer 20&ndash;30% discounts to NAV.</div></div>
+                <div class="hv-row"><div class="rk">Watching</div><div class="rv">Manager fundraising velocity &middot; deal-flow quality &middot; secondary-market discounts &middot; co-investment terms.</div></div>
+              </div></div>
+            </div>
+            <div class="hv-card rk" data-h="rk">
+              <div class="hv-head"><h4>Risks we&apos;re watching &mdash; the tails</h4><span class="hv-pos uw">HEDGED</span></div>
+              <div class="hv-body"><div class="hv-body-inner">
+                <div class="hv-row"><div class="rk">Regional</div><div class="rv"><b>Caribbean sovereign downgrade</b> trigger &middot; <b>hurricane season</b> tail &middot; XCD-peg stress on regional macro events &middot; tourism-collapse scenario for the loan-book overlay.</div></div>
+                <div class="hv-row"><div class="rk">Global</div><div class="rv"><b>US earnings recession</b> &middot; USD funding-basis tightening into quarter-ends &middot; <b>China policy surprise</b> &middot; geopolitical escalation (Taiwan, Mid-East) &middot; Fed re-acceleration risk.</div></div>
+                <div class="hv-row"><div class="rk">Pre-staged</div><div class="rv">Index put overlays on growth models &middot; gold &amp; USD overlay on the global cluster &middot; UST ballast added on regional credit &middot; concentration caps tightened in tourism/construction sectors.</div></div>
+              </div></div>
+            </div>
+          </div>
+          <script>(function(){var g=document.getElementById('hv-grid');if(!g)return;g.querySelectorAll('.hv-head').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});})();</script>
+        </div>
 
         <div class="opp-close-frame">
           <div class="lbl">The pitch we make &mdash; in one breath</div>
@@ -2869,8 +3055,130 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
 
       <div class="section-header">
-        <div class="section-title">Governance &amp; reporting &mdash; the CEO experience</div>
-        <div class="section-meta">Quarterly board pack · monthly portfolio review · annual strategic off-site &mdash; the way sovereign funds govern</div>
+        <div class="section-title">Family office services &mdash; coordinated, not delegated</div>
+        <div class="section-meta">What we deliver beyond the investment portfolio &middot; the family-office service catalogue HNW clients expect at this scale</div>
+      </div>
+      <div class="fo-grid">
+        <div class="fo-card">
+          <div class="fo-icon">&#9673;</div>
+          <h5>Investment management</h5>
+          <p>Discretionary management of the public-market book across the five architectural layers. Mass-affluent &amp; HNW &amp; ultra-HNW mandates. <b>Direct execution via Oceanic.</b></p>
+          <div class="fo-mode">Direct &middot; ECSRC supervised</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9670;</div>
+          <h5>Wealth planning &amp; structuring</h5>
+          <p>Coordinated wealth-architecture design &mdash; trusts, foundations, holding companies, insurance wrappers, jurisdiction-specific vehicles. <b>Advisory + legal/tax partner network.</b></p>
+          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9636;</div>
+          <h5>Private deal flow</h5>
+          <p>Curated access to private equity, private credit, venture, direct co-investments &mdash; sourced from a vetted institutional partner network with full due-diligence support.</p>
+          <div class="fo-mode">Advisory &middot; vetted partners</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9671;</div>
+          <h5>Tax &amp; jurisdiction coordination</h5>
+          <p>Multi-jurisdiction tax planning, residency optimisation, cross-border structuring. <b>Coordinated with vetted tax counsel across the client&apos;s footprint.</b></p>
+          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9672;</div>
+          <h5>Multi-generational planning</h5>
+          <p>Wealth transfer strategies, family governance frameworks, next-gen investment education, succession planning. The decades-long view families need.</p>
+          <div class="fo-mode">Advisory &middot; multi-disciplinary</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9650;</div>
+          <h5>Concentrated-stock &amp; business succession</h5>
+          <p>For founders, executives, business owners &mdash; structured unwinds of concentrated holdings, exchange-fund arrangements, defined-risk hedging, liquidity-event planning.</p>
+          <div class="fo-mode">Mixed &middot; direct hedging + advisory</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9660;</div>
+          <h5>Philanthropic strategy</h5>
+          <p>Foundation structuring, donor-advised funds, impact-investment allocation, philanthropic governance. <b>Coordinated with the client&apos;s legal and tax counsel.</b></p>
+          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9711;</div>
+          <h5>Securities-backed lending</h5>
+          <p>Liquidity against the portfolio at institutional rates &mdash; for property purchases, business transactions, tax events &mdash; without selling assets or breaking the compounding.</p>
+          <div class="fo-mode">Direct &middot; via Oceanic</div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-icon">&#9651;</div>
+          <h5>Concierge investment access</h5>
+          <p>Same-day execution by name. Direct CIO access by phone. Dedicated portfolio team. No call centre, no offshore routing. <b>For Ultra HNW &amp; family-office clients.</b></p>
+          <div class="fo-mode">Direct &middot; named team</div>
+        </div>
+      </div>
+
+      <div class="hv-wrap">
+        <div class="hv-hero">
+          <div>
+            <h3>The CIO house view &mdash; <em>what the family receives every month</em></h3>
+            <p>The proprietary investment outlook delivered to every HNW &amp; family-office client. Updated continuously by the investment team; integrated with the AI intelligence layer. <em>This is the institutional thinking your family receives &mdash; not generic research from a parent in another country.</em></p>
+          </div>
+          <div class="hv-meta"><span class="dot"></span>Refreshed monthly<br>Q2 2026 &middot; illustrative</div>
+        </div>
+        <div class="hv-grid" id="hv-grid-wm">
+          <div class="hv-card eq" data-h="eq">
+            <div class="hv-head"><h4>Equities &mdash; Quality + Value tilt, breadth narrowed</h4><span class="hv-pos up">TILT</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Position</div><div class="rv">Reduce US large-cap growth overweight; tilt to <b>Quality</b> + <b>Value</b>. Core S&amp;P maintained. International developed slight overweight (relative valuation). EM equity neutral; selective by country.</div></div>
+              <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Factor breadth has narrowed to ~7 names; quality factor outperforming since Q1. Growth-vs-Value premium near multi-year highs &mdash; mean-reversion risk asymmetric.</div></div>
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv">Fed pause confirmation; earnings revisions; AI capex guidance; breadth indicators (NYSE A/D, % above 200-day).</div></div>
+            </div></div>
+          </div>
+          <div class="hv-card fi" data-h="fi">
+            <div class="hv-head"><h4>Fixed Income &mdash; Intermediate duration, up-in-quality</h4><span class="hv-pos nu">NEUTRAL</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Position</div><div class="rv">2&ndash;5y intermediate UST overweight. <b>Cut HY credit</b>; add IG quality. Selective EM sovereign on a country-by-country basis. Floating-rate sleeve for inflation hedge.</div></div>
+              <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Curve normalisation playing out; HY spreads compressed &amp; asymmetric to the downside; IG quality offers the best risk-adjusted carry in the cycle.</div></div>
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv">Curve shape; credit-spread direction; Fed terminal-rate signal; HY default cycle; regional sovereign spreads.</div></div>
+            </div></div>
+          </div>
+          <div class="hv-card pm" data-h="pm">
+            <div class="hv-head"><h4>Private Markets &mdash; Vintage timing favourable</h4><span class="hv-pos up">FAVOURABLE</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Position</div><div class="rv">Late-2024 / 2025 vintage favoured for PE buyout &amp; private credit. <b>Entry multiples compressed; secondaries at 20&ndash;30% discount to NAV.</b> Selective venture; cautious on growth-stage.</div></div>
+              <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Vintage timing is the largest determinant of private-markets returns. Current entry valuations are the most attractive in five years; secondary discounts the widest since 2020.</div></div>
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv">Manager fundraising velocity; deal-flow quality; co-investment terms; secondary-market depth.</div></div>
+            </div></div>
+          </div>
+          <div class="hv-card ra" data-h="ra">
+            <div class="hv-head"><h4>Real Assets &mdash; Energy infra overweight, REITs underweight</h4><span class="hv-pos ow">OW INFRA</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Position</div><div class="rv"><b>Energy infrastructure overweight</b> &mdash; multi-decade capex story. <b>REITs underweight</b> &mdash; real yields constrain. Gold neutral. Commodities mostly hedging use.</div></div>
+              <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Energy capex required for the global build-out cycle (data centres, electrification, security). Infrastructure cash flows are uncorrelated to public markets and inflation-linked.</div></div>
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv">Real-yield direction; energy capex revisions; cap-rate movement; commodity stockpiles.</div></div>
+            </div></div>
+          </div>
+          <div class="hv-card fx" data-h="fx">
+            <div class="hv-head"><h4>FX &mdash; Defensive USD, hedge non-USD</h4><span class="hv-pos ow">LONG USD</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Position</div><div class="rv">Long USD vs EM cyclicals; <b>hedge non-USD client assets at 80%+</b> where mandated. CHF as defensive complement on tail risk. EUR/GBP at neutral.</div></div>
+              <div class="hv-row"><div class="rk">Thesis</div><div class="rv">Dollar regime in place; EM funding-basis tightening visible; G7 political tail risks favour USD as safe-haven.</div></div>
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv">USD funding basis; Fed dovish surprise; EM capital-flow data; XCD peg pressure.</div></div>
+            </div></div>
+          </div>
+          <div class="hv-card rk" data-h="rk">
+            <div class="hv-head"><h4>Tail risks &mdash; pre-staged hedges in place</h4><span class="hv-pos uw">HEDGED</span></div>
+            <div class="hv-body"><div class="hv-body-inner">
+              <div class="hv-row"><div class="rk">Watching</div><div class="rv"><b>Regional:</b> Caribbean sovereign downgrade trigger; hurricane season tail; XCD peg stress; tourism collapse. <b>Global:</b> US earnings recession; USD funding-basis tightening; China policy surprise; geopolitical escalation.</div></div>
+              <div class="hv-row"><div class="rk">Pre-staged</div><div class="rv">Index put overlays on growth-model equity; gold &amp; USD overlay on global cluster; UST ballast on regional credit; tightened concentration caps in tourism/construction sectors.</div></div>
+              <div class="hv-row"><div class="rk">Process</div><div class="rv">The adversarial engine (Tab 06) tests these scenarios continuously; the regime overlay flags state-changes; the protective trades are pre-computed and ready to execute.</div></div>
+            </div></div>
+          </div>
+        </div>
+        <script>(function(){var g=document.getElementById('hv-grid-wm');if(!g)return;g.querySelectorAll('.hv-head').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});})();</script>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Governance &amp; reporting &mdash; the family-office board pack</div>
+        <div class="section-meta">Quarterly board pack &middot; monthly portfolio review &middot; annual strategic off-site &middot; the way the largest family offices run</div>
       </div>
       <div class="cadence-grid">
         <div class="cadence-card">
