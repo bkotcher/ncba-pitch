@@ -1803,6 +1803,48 @@ footer.foot .right .gold { color: var(--gold); }
 .cockpit-foot b { color:var(--gold); }
 @media (max-width:1100px){ .cockpit-grid{ grid-template-columns:1fr 1fr; } .liq-headline{ grid-template-columns:1fr; } .liq-ncba-row{ grid-template-columns:50px 1fr 80px; } .liq-ncba-row .components{ grid-column:1/-1; } }
 
+
+/* ===== ELEGANT MODEL PORTFOLIO CARDS ===== */
+.model-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; margin:8px 0 26px; }
+.model-card-v2 { background:linear-gradient(180deg, var(--bg-card) 0%, #14161a 100%); border:1px solid var(--border); border-top:3px solid; border-radius:8px; padding:22px 24px; cursor:pointer; transition:transform .22s ease, border-color .22s, box-shadow .22s; position:relative; }
+.model-card-v2:hover { transform:translateY(-3px); }
+.model-card-v2.active { background:linear-gradient(180deg, #1a1614 0%, var(--bg-card) 100%); box-shadow:0 0 28px rgba(201,169,97,.16), inset 0 1px 0 rgba(201,169,97,.08); border-color:var(--gold-dim); }
+.model-card-v2.cons { border-top-color:var(--signal); }
+.model-card-v2.income { border-top-color:var(--positive); }
+.model-card-v2.bal { border-top-color:var(--gold); }
+.model-card-v2.grow { border-top-color:#b08fc9; }
+.model-card-v2 .ml { font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:5px; }
+.model-card-v2.cons .ml { color:var(--signal); }
+.model-card-v2.income .ml { color:var(--positive); }
+.model-card-v2.bal .ml { color:var(--gold); }
+.model-card-v2.grow .ml { color:#b08fc9; }
+.model-card-v2 h4 { font-family:var(--serif); font-size:22px; font-weight:400; color:var(--text); line-height:1.15; margin-bottom:14px; letter-spacing:-.01em; }
+.model-card-v2 .split-bar { display:flex; height:8px; border-radius:4px; overflow:hidden; margin-bottom:12px; }
+.model-card-v2 .split-bar .eq { background:var(--gold); }
+.model-card-v2 .split-bar .fi { background:var(--signal); }
+.model-card-v2 .split-bar .ca { background:var(--text-tertiary); }
+.model-card-v2 .split-label { display:flex; justify-content:space-between; font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); margin-bottom:14px; letter-spacing:.06em; }
+.model-card-v2 .split-label span:first-child { color:var(--text); font-size:11px; font-weight:600; letter-spacing:.04em; }
+.model-card-v2 .stat-row { display:grid; grid-template-columns:auto 1fr; gap:8px; font-family:var(--mono); font-size:10.5px; padding:4px 0; align-items:center; }
+.model-card-v2 .stat-row .k { color:var(--text-tertiary); letter-spacing:.04em; }
+.model-card-v2 .stat-row .v { text-align:right; color:var(--text); font-variant-numeric:tabular-nums; font-weight:600; }
+.model-card-v2 .when { font-family:var(--serif); font-style:italic; font-size:12px; color:var(--text-secondary); margin-top:14px; padding-top:12px; border-top:1px solid var(--border); line-height:1.4; }
+.model-card-v2 .active-tag { position:absolute; top:-1px; right:18px; font-family:var(--mono); font-size:9px; letter-spacing:.16em; background:var(--gold); color:#0a0b0d; padding:3px 9px 4px; border-radius:0 0 3px 3px; font-weight:700; opacity:0; transition:opacity .2s; }
+.model-card-v2.active .active-tag { opacity:1; }
+
+/* refined model-detail layout under cards */
+.model-detail-v2 { background:linear-gradient(135deg, #16130d 0%, var(--bg-card) 70%); border:1px solid var(--gold-dim); border-radius:8px; padding:28px 32px; margin-bottom:24px; }
+.model-detail-v2 .md-grid { display:grid; grid-template-columns:340px 1fr; gap:32px; align-items:center; }
+.model-detail-v2 .md-head { font-family:var(--mono); font-size:10px; letter-spacing:.18em; color:var(--gold); margin-bottom:10px; }
+.model-detail-v2 h3 { font-family:var(--serif); font-size:24px; font-weight:300; color:var(--text); margin-bottom:6px; letter-spacing:-.01em; }
+.model-detail-v2 .md-sub { font-family:var(--serif); font-size:14px; color:var(--text-secondary); font-style:italic; margin-bottom:18px; line-height:1.5; }
+.tbl#model-holdings, .tbl#model-metrics { background:transparent; border:none; }
+.tbl#model-holdings th, .tbl#model-metrics th { font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--text-tertiary); text-transform:uppercase; padding:8px 0; border-bottom:1px solid var(--border); }
+.tbl#model-holdings td, .tbl#model-metrics td { font-family:var(--mono); font-size:11.5px; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.04); }
+.tbl#model-holdings td:first-child, .tbl#model-metrics td:first-child { color:var(--text); }
+.tbl#model-holdings td.muted, .tbl#model-metrics td.muted { color:var(--text-tertiary); }
+@media (max-width:1100px){ .model-cards{ grid-template-columns:1fr 1fr; } .model-detail-v2 .md-grid{ grid-template-columns:1fr; } }
+
 </style>
 </head>
 
@@ -1964,69 +2006,6 @@ footer.foot .right .gold { color: var(--gold); }
         </div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">The architecture &mdash; five layers we build for HNW</div>
-        <div class="section-meta">Each layer has a specific job &middot; click any layer to drill into what we hold, how we access it, and what we charge for it &middot; illustrative</div>
-      </div>
-      <div class="arch-stack" id="arch-stack">
-        <div class="arch-layer l1" data-l="1">
-          <div class="n">Layer 01<b>1</b></div>
-          <div class="body"><h5>Core Liquid <span class="arch-chev">&#9656;</span></h5><p>Public equity (US, international, EM) + US Treasuries + IG credit. The liquid spine &mdash; daily-tradeable, transparent, the lowest-cost source of beta.</p></div>
-          <div class="pct"><b>~25%</b>liquid &middot; daily T+1</div>
-          <div class="arch-detail"><div class="arch-detail-grid">
-            <div class="arch-detail-cell"><div class="lbl">What sits here</div><p><b>US large-cap, intl developed, EM equity</b> (ETF + direct names) &middot; <b>US Treasuries</b> across the curve &middot; <b>IG corporate bonds</b> &middot; cash &amp; short-duration paper.</p></div>
-            <div class="arch-detail-cell"><div class="lbl us">Direct via Oceanic</div><p>All of it. <b>Public-market instruments, 150 markets, 24+ currencies.</b> Best-execution policy, full audit trail.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">Why we hold it</div><p>The compounding base. Daily liquid in a stress, transparent on the statement, the cheapest source of long-run beta. Every client portfolio anchors here.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">What ETF investing misses here</div><p>Active rebalancing, factor tilts, currency overlay, and the continuous risk surveillance described in Tab 06. Same instruments &mdash; different management.</p></div>
-          </div></div>
-        </div>
-        <div class="arch-layer l2" data-l="2">
-          <div class="n">Layer 02<b>2</b></div>
-          <div class="body"><h5>Strategic Diversifiers <span class="arch-chev">&#9656;</span></h5><p>Factor tilts (value, quality, momentum), regional &amp; sector tilts, active manager selection where it pays. Open-architecture, best-in-class.</p></div>
-          <div class="pct"><b>~15%</b>liquid &middot; weekly</div>
-          <div class="arch-detail"><div class="arch-detail-grid">
-            <div class="arch-detail-cell"><div class="lbl">What sits here</div><p><b>Factor ETFs</b> (value, quality, momentum, low-vol) &middot; <b>regional &amp; sector tilts</b> (Europe, Japan, EM, tech, energy) &middot; <b>actively managed funds</b> we&apos;ve selected through manager due diligence.</p></div>
-            <div class="arch-detail-cell"><div class="lbl us">Direct via Oceanic</div><p>All of it. Manager selection is <b>open-architecture</b> &mdash; we are not a fund company, we have no house product to sell, we pick what works.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">Why we hold it</div><p>This is where active alpha lives. The factor premia documented over decades, the regional &amp; sector divergences, and the small set of managers who genuinely outperform.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">How we choose managers</div><p>Top-quartile track record, defensible process, alignment of fees, capacity discipline. We rotate managers when the case changes &mdash; not loyalty, just performance.</p></div>
-          </div></div>
-        </div>
-        <div class="arch-layer l3" data-l="3">
-          <div class="n">Layer 03<b>3</b></div>
-          <div class="body"><h5>Real Assets <span class="arch-chev">&#9656;</span></h5><p>Inflation hedges and uncorrelated cash flows &mdash; real estate, infrastructure, natural resources. Mix of direct &amp; advisory.</p></div>
-          <div class="pct"><b>~15%</b>semi-liquid &middot; quarterly</div>
-          <div class="arch-detail"><div class="arch-detail-grid">
-            <div class="arch-detail-cell"><div class="lbl us">Direct via Oceanic</div><p><b>Listed REITs, infrastructure ETFs, commodity ETFs.</b> Liquid daily, transparent, executed via the trading platform.</p></div>
-            <div class="arch-detail-cell"><div class="lbl ad">Advisory access only</div><p><b>Direct real estate, private infrastructure, natural-resource funds.</b> We do not own or operate these &mdash; we coordinate access via vetted partners and oversee due diligence.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">Why we hold it</div><p>Inflation protection. Income that is uncorrelated to public markets. The cash-flow stability sovereign wealth funds prize.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">For Caribbean HNW</div><p>Regional &amp; offshore real estate is often the client&apos;s existing wealth concentration. We help integrate it into the broader portfolio rather than ignoring it.</p></div>
-          </div></div>
-        </div>
-        <div class="arch-layer l4" data-l="4">
-          <div class="n">Layer 04<b>4</b></div>
-          <div class="body"><h5>Private Markets <span class="arch-chev">&#9656;</span></h5><p><b>Advisory access only.</b> Private equity, venture, private credit, direct co-investments &mdash; via vetted institutional partners. We coordinate; we do not run a PE fund.</p></div>
-          <div class="pct"><b>~30%</b>illiquid &middot; 5&ndash;10yr</div>
-          <div class="arch-detail"><div class="arch-detail-grid">
-            <div class="arch-detail-cell"><div class="lbl ad">Advisory access via partners</div><p><b>Private equity</b> (buyout, growth) &middot; <b>venture capital</b> &middot; <b>private credit</b> (direct lending, distressed) &middot; <b>direct co-investments</b> in flagship deals.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">What we actually do</div><p>Manager &amp; partner due diligence, capital-call &amp; distribution oversight, secondary-market liquidity where needed, integration into the broader portfolio. <em>Operates within ECSRC advisory permissions, not as direct fund management.</em></p></div>
-            <div class="arch-detail-cell"><div class="lbl">Why we hold it</div><p>The <b>illiquidity premium</b> &mdash; the asset class that drives the long-horizon outperformance documented across decades. Public markets cannot deliver it.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">For HNW clients</div><p>Often a meaningful share of a HNW client&apos;s long-horizon capital. We bring the access, the diligence, and the integration most clients lack a path to.</p></div>
-          </div></div>
-        </div>
-        <div class="arch-layer l5" data-l="5">
-          <div class="n">Layer 05<b>5</b></div>
-          <div class="body"><h5>Tactical &amp; Hedging <span class="arch-chev">&#9656;</span></h5><p>Drawdown protection and special-situations alpha. Direct via options/futures; advisory on hedge-fund manager selection.</p></div>
-          <div class="pct"><b>~15%</b>variable &middot; monthly</div>
-          <div class="arch-detail"><div class="arch-detail-grid">
-            <div class="arch-detail-cell"><div class="lbl us">Direct via Oceanic</div><p><b>Options, futures, defined-risk overlays</b> &mdash; index puts, collar structures, tail-hedge spreads. Executed at the trading platform under the bank&apos;s mandate.</p></div>
-            <div class="arch-detail-cell"><div class="lbl ad">Advisory access</div><p><b>Hedge-fund manager selection</b> (long/short equity, macro, event-driven) &middot; <b>structured products</b> (principal-protected notes, cap-protected structures) via partners.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">Why we hold it</div><p><b>Drawdown protection is a strategy</b>, not a hope. This layer pays for itself in the bad year &mdash; the year that decides whether the client compounds or has to start over.</p></div>
-            <div class="arch-detail-cell"><div class="lbl">When it activates</div><p>When the adversarial engine (Tab 06) flags a worst-vector approaching execution, this layer&apos;s pre-staged hedges are the response. The work is done before the trigger fires.</p></div>
-          </div></div>
-        </div>
-      </div>
-      <script>(function(){var s=document.getElementById('arch-stack');if(!s)return;s.querySelectorAll('.arch-layer').forEach(function(l){l.addEventListener('click',function(){l.classList.toggle('open');});});})();</script>
-
       <div class="subtabs" id="hwi-subtabs">
         <button class="subtab active" data-sub="models"><span class="st-num">A</span>Model Portfolios</button>
         <button class="subtab" data-sub="hnw"><span class="st-num">B</span>HNW Clients</button>
@@ -2048,11 +2027,51 @@ footer.foot .right .gold { color: var(--gold); }
 
         <div class="pf-layout" style="grid-template-columns: 1fr 360px;">
           <div>
-            <div class="model-chips">
-              <button class="model-chip active" data-model="cons">Conservative<span class="mc-sub">75/20/5</span></button>
-              <button class="model-chip" data-model="income">Income<span class="mc-sub">60/35/5</span></button>
-              <button class="model-chip" data-model="bal">Balanced<span class="mc-sub">45/50/5</span></button>
-              <button class="model-chip" data-model="grow">Growth<span class="mc-sub">20/75/5</span></button>
+            <div class="model-cards" id="model-cards">
+              <div class="model-card-v2 cons active" data-model="cons">
+                <div class="active-tag">SELECTED</div>
+                <div class="ml">Conservative</div>
+                <h4>Capital Preservation</h4>
+                <div class="split-bar"><div class="eq" style="width:20%;"></div><div class="fi" style="width:75%;"></div><div class="ca" style="width:5%;"></div></div>
+                <div class="split-label"><span>75 / 20 / 5</span><span>FI / EQ / Cash</span></div>
+                <div class="stat-row"><span class="k">Target return</span><span class="v">4&ndash;6% net</span></div>
+                <div class="stat-row"><span class="k">Volatility</span><span class="v">5&ndash;7%</span></div>
+                <div class="stat-row"><span class="k">Max drawdown</span><span class="v">&minus;6% to &minus;10%</span></div>
+                <div class="when">For preservation &middot; near or in retirement.</div>
+              </div>
+              <div class="model-card-v2 income" data-model="income">
+                <div class="active-tag">SELECTED</div>
+                <div class="ml">Income</div>
+                <h4>Steady Income</h4>
+                <div class="split-bar"><div class="eq" style="width:35%;"></div><div class="fi" style="width:60%;"></div><div class="ca" style="width:5%;"></div></div>
+                <div class="split-label"><span>60 / 35 / 5</span><span>FI / EQ / Cash</span></div>
+                <div class="stat-row"><span class="k">Target return</span><span class="v">5&ndash;7% net</span></div>
+                <div class="stat-row"><span class="k">Volatility</span><span class="v">7&ndash;9%</span></div>
+                <div class="stat-row"><span class="k">Max drawdown</span><span class="v">&minus;10% to &minus;14%</span></div>
+                <div class="when">For income-focused &middot; pre-retiree.</div>
+              </div>
+              <div class="model-card-v2 bal" data-model="bal">
+                <div class="active-tag">SELECTED</div>
+                <div class="ml">Balanced</div>
+                <h4>Balanced Growth</h4>
+                <div class="split-bar"><div class="eq" style="width:50%;"></div><div class="fi" style="width:45%;"></div><div class="ca" style="width:5%;"></div></div>
+                <div class="split-label"><span>45 / 50 / 5</span><span>FI / EQ / Cash</span></div>
+                <div class="stat-row"><span class="k">Target return</span><span class="v">7&ndash;9% net</span></div>
+                <div class="stat-row"><span class="k">Volatility</span><span class="v">10&ndash;12%</span></div>
+                <div class="stat-row"><span class="k">Max drawdown</span><span class="v">&minus;15% to &minus;20%</span></div>
+                <div class="when">For mid-career &middot; 10&ndash;15-year horizon.</div>
+              </div>
+              <div class="model-card-v2 grow" data-model="grow">
+                <div class="active-tag">SELECTED</div>
+                <div class="ml">Growth</div>
+                <h4>Long-Horizon Growth</h4>
+                <div class="split-bar"><div class="eq" style="width:75%;"></div><div class="fi" style="width:20%;"></div><div class="ca" style="width:5%;"></div></div>
+                <div class="split-label"><span>20 / 75 / 5</span><span>FI / EQ / Cash</span></div>
+                <div class="stat-row"><span class="k">Target return</span><span class="v">9&ndash;12% net</span></div>
+                <div class="stat-row"><span class="k">Volatility</span><span class="v">14&ndash;17%</span></div>
+                <div class="stat-row"><span class="k">Max drawdown</span><span class="v">&minus;25% to &minus;32%</span></div>
+                <div class="when">For next-gen &middot; 20-year+ horizon.</div>
+              </div>
             </div>
             <table class="tbl" id="model-holdings" style="margin-bottom:16px;"></table>
             <table class="tbl" id="model-metrics"></table>
@@ -2935,7 +2954,7 @@ footer.foot .right .gold { color: var(--gold); }
       var view=document.querySelector('.view[data-view="models"]');
       if(view){
         view.querySelectorAll('.subtab').forEach(function(b){ b.addEventListener('click',function(){ var k=b.dataset.sub; view.querySelectorAll('.subtab').forEach(function(x){x.classList.toggle('active',x===b);}); view.querySelectorAll('.subview').forEach(function(v){v.classList.toggle('active',v.dataset.sub===k);}); }); });
-        view.querySelectorAll('.model-chip').forEach(function(ch){ ch.addEventListener('click',function(){ view.querySelectorAll('.model-chip').forEach(function(x){x.classList.toggle('active',x===ch);}); drawModel(ch.dataset.model); }); });
+        view.querySelectorAll('.model-card-v2').forEach(function(ch){ ch.addEventListener('click',function(){ view.querySelectorAll('.model-card-v2').forEach(function(x){x.classList.toggle('active',x===ch);}); drawModel(ch.dataset.model); }); });
         var acc=document.getElementById('hnw-acc');
         if(acc) acc.querySelectorAll('.acc-item').forEach(function(it){ it.querySelector('.acc-head').addEventListener('click',function(){ var open=it.classList.contains('active'); acc.querySelectorAll('.acc-item').forEach(function(x){x.classList.remove('active'); x.querySelector('.acc-tog').textContent='+';}); if(!open){ it.classList.add('active'); it.querySelector('.acc-tog').textContent='−'; } }); });
       }
