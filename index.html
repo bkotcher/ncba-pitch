@@ -1898,6 +1898,45 @@ footer.foot .right .gold { color: var(--gold); }
 .lg-outcome-pill em { font-style:normal; opacity:.75; margin-left:6px; }
 @media (max-width:1100px){ .lg-head{ grid-template-columns:50px 1fr auto; } .lg-body-inner{ padding-left:22px; } .lg-row{ grid-template-columns:1fr; gap:2px; } }
 
+
+/* === fo-card drill-in (Caribbean partner network) === */
+.fo-card { cursor:pointer; transition:transform .2s, border-color .2s, background .2s; position:relative; }
+.fo-card:hover { transform:translateY(-2px); border-color:var(--gold-dim); }
+.fo-card.open { background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border-color:var(--gold); border-top:3px solid var(--gold); }
+.fo-card .fo-tog { position:absolute; top:18px; right:18px; font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--gold); text-transform:uppercase; opacity:.7; transition:opacity .2s; }
+.fo-card:hover .fo-tog { opacity:1; }
+.fo-card.open .fo-tog { color:var(--gold); opacity:1; }
+.fo-detail { max-height:0; overflow:hidden; transition:max-height .4s ease, margin-top .25s, padding-top .25s, border-color .25s; border-top:1px solid transparent; margin-top:0; padding-top:0; }
+.fo-card.open .fo-detail { max-height:780px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+.fo-pgrp { margin-bottom:10px; }
+.fo-pgrp .ph { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+.fo-pgrp .pl { font-family:var(--sans); font-size:12px; color:var(--text-secondary); line-height:1.55; }
+.fo-pgrp .pl b { color:var(--text); font-weight:500; }
+.fo-howit { font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); padding-top:10px; margin-top:10px; border-top:1px solid var(--border); line-height:1.55; font-style:italic; }
+.fo-howit b { color:var(--gold); font-style:normal; }
+
+/* === Institutional hero === */
+.inst-hero { background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--gold-dim); border-top:3px solid var(--gold); border-radius:8px; padding:30px 32px; margin-bottom:28px; }
+.inst-hero .ribbon { font-family:var(--mono); font-size:10px; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; margin-bottom:14px; }
+.inst-hero h2 { font-family:var(--serif); font-size:30px; line-height:1.25; font-weight:400; margin:0 0 12px 0; }
+.inst-hero h2 em { color:var(--gold); font-style:italic; }
+.inst-hero p { font-family:var(--sans); font-size:14.5px; line-height:1.65; color:var(--text-secondary); margin:0 0 22px 0; max-width:920px; }
+.inst-hero p em { color:var(--text); font-style:italic; }
+.inst-hero-stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; padding-top:18px; border-top:1px solid var(--border); }
+.inst-hero-stats > div { padding:0 4px; }
+.inst-hero-stats .v { font-family:var(--mono); font-size:18px; color:var(--gold); letter-spacing:0.01em; margin-bottom:4px; }
+.inst-hero-stats .k { font-family:var(--sans); font-size:11px; color:var(--text-tertiary); line-height:1.4; }
+
+/* === Reposition grid (NCBA sleeve cards) === */
+.reposition-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-bottom:24px; }
+.rp-card { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:6px; padding:18px 20px; transition:transform .2s, border-color .2s; }
+.rp-card:hover { transform:translateY(-2px); border-color:var(--gold-dim); border-left-color:var(--gold); }
+.rp-card .rp-tag { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--gold); margin-bottom:6px; }
+.rp-card h5 { font-family:var(--serif); font-size:17px; font-weight:400; margin:0 0 8px 0; color:var(--text); }
+.rp-card p { font-family:var(--sans); font-size:12.5px; line-height:1.55; color:var(--text-secondary); margin:0 0 10px 0; }
+.rp-card p em { color:var(--text); font-style:italic; }
+.rp-card .rp-out { font-family:var(--mono); font-size:10px; color:var(--text-tertiary); padding-top:8px; border-top:1px solid var(--border); line-height:1.5; }
+.rp-card .rp-out b { color:var(--gold); }
 </style>
 </head>
 
@@ -2240,212 +2279,6 @@ footer.foot .right .gold { color: var(--gold); }
           <p>We don&apos;t out-Goldman Goldman. We don&apos;t out-Butterfield Butterfield. <em>We offer the one thing none of them can: an AI-native, ECSRC-perimeter wealth platform that operates under the bank&apos;s brand, in the client&apos;s time zone, on the client&apos;s actual life.</em> Below: the proof, the offer by tier, our current market view, and the structural reasons the bank wins this trade.</p>
         </div>
 
-        <div class="section-header">
-          <div class="section-title">State-of-the-art capabilities &mdash; what sets us apart</div>
-          <div class="section-meta">Six capabilities that change wealth management · built for the Caribbean book · click any to drill in</div>
-        </div>
-        <div class="ai-intro">
-          <div class="lbl"><span class="dot"></span>Why this section matters</div>
-          <p>The wealth-management industry is in the middle of a structural change &mdash; the firms that built modern continuous-intelligence infrastructure compounded an advantage the rest of the industry has never closed. <em>The Caribbean wealth desks are at the start of that curve. We are at the end of it.</em> The six capabilities below are not features &mdash; they are how money will be managed for the next decade. The bank can have them now, through this partnership.</p>
-        </div>
-        <div class="ai-grid" id="ai-grid">
-
-          <div class="ai-cap open" data-i="1">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">1</div>
-              <div class="ai-cap-title">Continuous AI research, eleven languages, four-minute latency<small>While the offshore analyst is writing this week&apos;s note, our AI has already read the world.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo ai-demo-grid demo-research">
-              <div class="demo-counter"><div class="big" id="d1-cnt">18,432</div><div class="lbl">documents read today</div></div>
-              <div>
-                <div class="demo-langs"><span>EN</span><span>ZH</span><span>JA</span><span>DE</span><span>FR</span><span>ES</span><span>AR</span><span>KO</span><span>PT</span><span>HI</span><span>RU</span></div>
-                <div class="demo-feed-line" id="d1-feed"><span class="src">Reuters &middot; EN</span> &middot; ECCB signals reserve-adequacy review &middot; 06:42</div>
-              </div>
-            </div>
-                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">The AI watches <b>2,400+ sources</b> continuously in <b>11 languages</b> &mdash; including the ones that matter regionally: <b>ECCB statements, ECSRC notices, regional sovereign indicators, Caribbean press</b>, plus global financial press (Reuters, Bloomberg, Nikkei, Caixin, Handelsblatt, El Pa&iacute;s). Every document is scored for materiality to NCBA&apos;s specific portfolios in under a second. <b>Median time from publication to PM alert: 4.2 minutes.</b></div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Most regional wealth desks read a weekly note from an offshore parent. The note arrives after the market has already moved &mdash; and the bank&apos;s clients have already taken the hit.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">When the ECCB signals a reserve-adequacy review, when a hurricane forms in the Atlantic, when USD funding tightens at quarter-end &mdash; the alert hits the portfolio managers <b>before the local screens have it</b>. NCBA&apos;s clients see the protection before they see the headline.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Late&nbsp;2025: ECCB signalled a reserve-adequacy review. <b>AI surfaced it 8&nbsp;minutes after publication</b> &mdash; 4 days before regional spreads widened. NCBA clients with Other-Caribbean exposure (the bank&apos;s own EC$143.6M sleeve carries this risk; HNW clients with regional allocation get the same protection) were pre-repositioned. <span class="savings">~US$15&ndash;20K saved <em>per HNW $2.5M portfolio, per 50bp event</em></span></div></div>
-            </div></div>
-          </div>
-
-          <div class="ai-cap" data-i="2">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">2</div>
-              <div class="ai-cap-title">Continuous risk surveillance &mdash; the institutional risk desk, applied to wealth<small>The risk is visible the moment it forms, not in the next quarterly board pack.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo ai-demo-grid demo-risk">
-              <div class="demo-var"><div class="big" id="d2-var">&minus;0.81%</div><div class="lbl">1d VaR (99%)</div><div class="refresh" id="d2-refresh">refreshed 2s ago</div></div>
-              <div class="demo-factors">
-                <div class="demo-fac"><span class="k">Beta</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:48%;"></div></div><span class="v">0.48</span></div>
-                <div class="demo-fac"><span class="k">Duration</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:35%;"></div></div><span class="v">2.1y</span></div>
-                <div class="demo-fac"><span class="k">Spread</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:42%;"></div></div><span class="v">85bp</span></div>
-                <div class="demo-fac"><span class="k">FX non-USD</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:18%;"></div></div><span class="v">2.1%</span></div>
-              </div>
-            </div>
-                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">Every NCBA client portfolio &mdash; the four branch model portfolios and every HNW bespoke mandate &mdash; is monitored continuously. <b>VaR refreshed at every close</b> (three methods cross-checked). <b>Risk broken down by source</b>: how much from equity beta, how much from duration, how much from credit spread, how much from FX. <b>Concentration caps enforced before the trade executes</b> &mdash; not flagged in the next monthly review.</div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Most regional wealth desks compute risk quarterly &mdash; if at all. A breach surfaces in the next board pack, weeks later. The trade has been live the whole time.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">The bank&apos;s board pack stops being forensic and becomes an <b>attestation</b>: the system has been on, on the actual portfolios, every market day since the last one. Risk doesn&apos;t hide; it gets caught at the trade.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">On a typical $5M HNW Balanced mandate (50% equity / 45% FI), continuous VaR + factor decomposition catches concentration drift before it becomes an IPS breach. <b>Pre-trade caps block the offending order at execution</b> &mdash; not at the next quarterly review (~90 days later). <span class="savings">~US$8&ndash;15K saved <em>per HNW client / year on rebalance cost &amp; avoided drawdown</em></span></div></div>
-            </div></div>
-          </div>
-
-          <div class="ai-cap" data-i="3">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">3</div>
-              <div class="ai-cap-title">Hurricane &amp; climate AI &mdash; the storm is modelled against your book before it has a name<small>Every system in the Atlantic gets a real-time exposure model on NCBA&apos;s actual loan book.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo ai-demo-grid demo-research">
-                <div class="demo-counter"><div class="big" id="d3-storms">2</div><div class="lbl">Atlantic systems tracked</div></div>
-                <div>
-                  <div style="display:grid; gap:6px;">
-                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Basin status</span><span style="color:var(--positive)" id="d3-status">&#9679; BASIN CALM</span></div>
-                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Loan exposure modelled</span><span style="color:var(--gold)">EC$334.0M &middot; 70% of book</span></div>
-                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Sectors monitored</span><span style="color:var(--text)">Construction 52.5% + Tourism 17.9%</span></div>
-                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Pre-staged response</span><span style="color:var(--text)">ECL framework &middot; USD facility &middot; UST ballast</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI integrates <b>NHC storm forecasts, NOAA climate models, satellite imagery, and historical-impact data</b> with NCBA&apos;s specific geographic concentrations and sectoral loan exposure (construction, tourism). Every named storm gets a modelled impact <b>within hours of advisory issuance</b>: expected loan loss, expected deposit outflow for rebuilding, expected ECL stage migration, and the <b>recommended pre-staged response</b>.</div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Regional banks rely on annual catastrophe-bond pricing and reactive ECL re-stages. The board first sees the impact in the quarter <em>after</em> the storm makes landfall &mdash; long after the protective trades and provisioning could have been pre-built.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">NCBA&apos;s <b>EC$249.7M Construction</b> + <b>EC$85.3M Tourism</b> loans = 70% of the loan book directly exposed to climate events. The AI gives the treasury &amp; risk teams <b>ECL provisioning, FX hedging, and liquidity-buffer recommendations within 2 hours</b> of any named storm forming &mdash; pre-stages everything before landfall.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">2024 Atlantic season &mdash; 3 named storms tracked, 1 modelled as material impact within 18 hours of NHC advisory. Pre-staged ECL framework (+120bp on tourism/construction sleeves) and pre-drawn USD liquidity facility readied <em>before landfall</em>. <span class="savings">~EC$2&ndash;4M saved <em>per material storm &middot; proactive provisioning + avoided forced sales</em></span></div></div>
-            </div></div>
-          </div>
-
-          <div class="ai-cap" data-i="4">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">4</div>
-              <div class="ai-cap-title">Adversarial stress &mdash; an AI that attacks the book every night, before the market does<small>This is the SVB lesson, prevented in advance.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo ai-demo-grid demo-adv">
-              <div class="demo-adv-cnt"><div class="big" id="d4-cnt">14,432</div><div class="lbl">attack vectors tested today</div></div>
-              <div class="demo-adv-worst">
-                <div class="vec" id="d4-vec">Rates +150bp &times; equity &minus;12% combo</div>
-                <div class="big" id="d4-loss">&minus;13.8%</div>
-                <div class="lbl">today&apos;s worst plausible loss</div>
-              </div>
-            </div>
-                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">Every night, an AI searches thousands of combinations of market shocks against NCBA&apos;s clients&apos; portfolios &mdash; looking for the <b>worst plausible loss</b>. It includes the regional shocks that matter: <b>hurricane direct hit, Caribbean sovereign downgrade, US +200bp rate shock, USD liquidity crisis, regional tourism collapse</b>. The top five worst scenarios get <b>protective trades pre-built</b>, ready to execute.</div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">No regional bank wealth desk does this. The standard is a canned annual stress test from a regulator template &mdash; on a book that may have changed entirely since the template was written.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">When the hurricane forms, when the rate decision comes, when a sovereign downgrade hits the wire &mdash; <em>the hedge is already designed</em>. NCBA&apos;s clients stay ahead of events, not react to them. This is the lesson of 2023&apos;s bank failures, applied in advance.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Each night the AI tests <b>14,000+ shock combinations</b> against every client portfolio. Last week&apos;s worst plausible vector on a $25M HNW global mandate: <em>&ldquo;Rates +150bp &times; equity &minus;12% combo&rdquo;</em> &mdash; raw loss <b>&minus;13.8%</b>. With pre-staged hedges (gold + index put + duration shift): <b>&minus;8.2%</b>. <span class="savings">~US$1.4M saved <em>per $25M HNW client on the actual stress event</em></span></div></div>
-            </div></div>
-          </div>
-
-          <div class="ai-cap" data-i="5">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">5</div>
-              <div class="ai-cap-title">Tourism &amp; real-economy AI &mdash; the leading indicator on regional loans<small>Flight bookings, cruise manifests, hotel occupancy &mdash; aggregated 60 days ahead of any official statistic.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo ai-demo-grid demo-research">
-                <div class="demo-counter"><div class="big" id="d5-arr">128,400</div><div class="lbl">forward arrivals &middot; next 30d</div></div>
-                <div>
-                  <div style="display:grid; gap:6px;">
-                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism revenue YoY</span><span style="color:var(--positive)">&#9650; +4.2%</span></div>
-                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Hotel occupancy</span><span style="color:var(--text)">73% &middot; YoY +2%</span></div>
-                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Cruise arrivals</span><span style="color:var(--text)">142 ships &middot; next 30d</span></div>
-                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism loan signal</span><span style="color:var(--positive)">&#9679; HEALTHY &middot; EC$85.3M</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI aggregates <b>alternative data</b> the bank does not have access to today: airline booking systems (forward-arrival data 30&ndash;90 days out), cruise-ship manifests, hotel-occupancy feeds, regional card-spending in tourism categories, hospitality employment. Forecasts tourism revenue <b>60&ndash;90 days forward</b> &mdash; months before official statistics confirm it.</div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Regional banks rely on official tourism statistics &mdash; <em>published 60&ndash;90 days after the period ends</em>. The bank manages tourism-loan exposure with data that is already six months old by the time it&apos;s usable. There is no real leading indicator in standard treasury infrastructure.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv"><b>Tourism / entertainment / catering loans = EC$85.3M (17.9% of the loan book)</b> &mdash; the second-largest sectoral exposure. The AI gives 60&ndash;90 day <b>forward visibility on tourism revenue</b> &mdash; predicting NPL stress on tourism borrowers <em>before the next quarterly review, before the next ECL refresh, before the borrower&apos;s own financials confirm it</em>.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Q4 2025 &mdash; AI flagged <b>12% YoY tourism softness 8 weeks before</b> reported arrivals data confirmed it. Pre-emptive ECL preparation on tourism loans + early borrower outreach by the bank&apos;s RMs. <span class="savings">~EC$1.5&ndash;2M saved <em>in surprise provisions &middot; 2&ndash;3 borrower relationships protected from default</em></span></div></div>
-            </div></div>
-          </div>
-
-          <div class="ai-cap" data-i="6">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">6</div>
-              <div class="ai-cap-title">Regional credit pulse &mdash; every Caribbean issuer scored continuously<small>Rating agencies update once a year. We score every regional issuer in real time. The downgrade is in the data months before it&apos;s in the press release.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-demo" style="min-height:140px;">
-                <div style="display:grid; gap:6px;">
-                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Anguilla Govt</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:78%; background:var(--positive); border-radius:2px;"></div></div><span style="text-align:right; color:var(--positive)">78 &#9650;</span></div>
-                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">ECCU sovereign avg</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:71%; background:var(--positive); border-radius:2px;"></div></div><span style="text-align:right; color:var(--positive)">71 &#9472;</span></div>
-                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Regional banks (top 10)</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:74%; background:var(--gold); border-radius:2px;"></div></div><span style="text-align:right; color:var(--gold)">74 &#9472;</span></div>
-                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Regional corporates</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:62%; background:var(--gold); border-radius:2px;"></div></div><span style="text-align:right; color:var(--warning)">62 &#9660;</span></div>
-                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism / hospitality bonds</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:54%; background:var(--warning); border-radius:2px;"></div></div><span style="text-align:right; color:var(--warning)">54 &#9660;</span></div>
-                </div>
-              </div>
-              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI continuously scores <b>every Caribbean sovereign, every regional bank, every regional corporate issuer</b> the bank could hold &mdash; using: rating-agency signals, real-time debt-service indicators, FX reserves &amp; reserve-adequacy ratios, fiscal data, central-bank communications, news sentiment, and CDS-equivalent market signals. Real-time credit-health score per issuer; deterioration patterns identified <b>months before any rating action</b>.</div></div>
-              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Rating agencies update <em>once or twice per year</em> on most regional names &mdash; and lag actual credit deterioration by 6&ndash;12 months. The bank&apos;s book takes the hit through the entire deterioration window, unseen, until the press release.</div></div>
-              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv"><b>EC$281.7M (53.5%) of NCBA&apos;s investment book is in Financial-Institutions &amp; Sovereign issuers</b> &mdash; the single largest concentration in the book (Note 4.1.5). The AI gives <b>3&ndash;6 months early warning</b> on credit deterioration in any of these names &mdash; allowing repositioning <em>during the deterioration window, not at the bottom</em>.</div></div>
-              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Continuous monitoring of <b>12 regional sovereigns + 30+ regional bank/corporate issuers</b>. Typical early-warning lead time on credit deterioration: <b>4&ndash;6 months ahead of agency action</b>. Repositioning during this window saves 80&ndash;120bps on the affected sleeve. On NCBA&apos;s <b>EC$143.6M Other-Caribbean exposure</b>: <span class="savings">~EC$1.2&ndash;1.7M saved <em>per deterioration event &middot; per affected sleeve</em></span></div></div>
-            </div></div>
-          </div>
-
-        </div>
-        <div class="ai-close">
-          <p><b>The industry is not slow on this because it doesn&apos;t want to be.</b> It is slow because the right architecture &mdash; continuous, multi-modal, governance-grade, regulatorily defensible &mdash; is genuinely hard to build, and the global houses are protecting their existing fee models. <em>We are not protecting an existing fee model. We built the architecture.</em> The regional incumbents will spend years catching up; the bank&apos;s clients can have it on day one through this partnership.</p>
-        </div>
-
-        <script>(function(){
-  var g=document.getElementById('ai-grid'); if(!g) return;
-  // click-to-expand
-  g.querySelectorAll('.ai-cap-head').forEach(function(h){ h.addEventListener('click',function(){ h.parentNode.classList.toggle('open'); }); });
-  // ===== live counters & rotators =====
-  var d1c=document.getElementById('d1-cnt'); var d1n=18432;
-  function tickD1(){ d1n += 4 + Math.floor(Math.random()*14); if(d1c) d1c.textContent = d1n.toLocaleString(); }
-  setInterval(tickD1, 220);
-  var feeds=[
-    ['Reuters &middot; EN','ECCB signals reserve-adequacy review','06:42'],
-    ['Nikkei &middot; JA','Foundry capex guide raised 14% QoQ','04:30'],
-    ['Bloomberg &middot; EN','USD funding-basis tightens into quarter-end','07:18'],
-    ['Caixin &middot; ZH','Property-sector liquidity backstop expanded','05:11'],
-    ['El Pa\u00EDs &middot; ES','LatAm sovereign issuance window reopens','03:52'],
-    ['Handelsblatt &middot; DE','ECB dissent on cut timing widens','06:08'],
-    ['Al-Arabiya &middot; AR','Energy supply guidance revised higher','05:33']
-  ];
-  var fi=0, d1f=document.getElementById('d1-feed');
-  function tickFeed(){ fi=(fi+1)%feeds.length; if(d1f){ d1f.innerHTML='<span class="src">'+feeds[fi][0]+'</span> &middot; '+feeds[fi][1]+' &middot; '+feeds[fi][2]; } }
-  setInterval(tickFeed, 3800);
-  // d2: VaR + refresh
-  var d2v=document.getElementById('d2-var'), d2r=document.getElementById('d2-refresh'); var vrSec=2;
-  function tickD2(){ var jitter=(Math.random()-0.5)*0.06; var nv=-0.81+jitter; if(d2v) d2v.textContent='\u2212'+Math.abs(nv).toFixed(2)+'%'; vrSec=0; }
-  function tickRef(){ vrSec++; if(d2r) d2r.textContent='refreshed '+vrSec+'s ago'; }
-  setInterval(tickD2, 4200); setInterval(tickRef, 1000);
-  // d4: attack vector counter + rotating worst
-  var d4c=document.getElementById('d4-cnt'); var d4n=14432;
-  function tickD4(){ d4n += 1 + Math.floor(Math.random()*3); if(d4c) d4c.textContent=d4n.toLocaleString(); }
-  setInterval(tickD4, 90);
-  var vectors=[
-    ['Rates +150bp \u00D7 equity \u221212% combo','\u221213.8%'],
-    ['EM FX cascade + credit spread blowout','\u221211.4%'],
-    ['Mega-cap tech \u221225% unwind','\u221212.9%'],
-    ['USD +8% + commodity spike','\u22129.6%'],
-    ['Regional sovereign + hurricane overlap','\u22128.7%'],
-    ['Vol-of-vol spike + gamma unwind','\u221210.5%']
-  ];
-  var vi=0, d4v=document.getElementById('d4-vec'), d4l=document.getElementById('d4-loss');
-  function tickV(){ vi=(vi+1)%vectors.length; if(d4v) d4v.innerHTML=vectors[vi][0]; if(d4l) d4l.innerHTML=vectors[vi][1]; }
-  setInterval(tickV, 3500);
-  // d3: hurricane / Atlantic systems
-  var d3s=document.getElementById('d3-storms'); var d3v=2; var d3stat=document.getElementById('d3-status');
-  var d3stateRotation=[[2,'BASIN CALM','var(--positive)'],[1,'TROPICAL WAVE','var(--gold)'],[3,'WATCH','var(--gold)'],[2,'BASIN CALM','var(--positive)']];
-  var d3i=0;
-  function tickD3(){ d3i=(d3i+1)%d3stateRotation.length; var r=d3stateRotation[d3i]; if(d3s) d3s.textContent=r[0]; if(d3stat){ d3stat.innerHTML='&#9679; '+r[1]; d3stat.style.color=r[2]; } }
-  setInterval(tickD3, 5200);
-  // d5: tourism forward arrivals counter
-  var d5a=document.getElementById('d5-arr'); var d5n=128400;
-  function tickD5(){ d5n += 12 + Math.floor(Math.random()*120); if(d5a) d5a.textContent=d5n.toLocaleString(); }
-  setInterval(tickD5, 1100);
-})();</script>
-
 <div class="hv-wrap">
           <div class="hv-hero">
             <div>
@@ -2514,11 +2347,17 @@ footer.foot .right .gold { color: var(--gold); }
       </div>
 
       <div class="subview" data-sub="inst">
-        <div class="section-header" style="margin-top:0;">
-          <div class="section-title">How we&apos;d take care of the bank&apos;s investment book</div>
-          <div class="section-meta">Conceptual &mdash; the approach, the toolkit, what your treasurer gets. Not a trade list.</div>
+        <div class="inst-hero">
+          <div class="ribbon">Institutional Sub-Advisory &middot; The Bank&apos;s Treasury &amp; Investment Book</div>
+          <h2>If NCBA brought its EC$531M book to us, <em>this is what your audit committee would see.</em></h2>
+          <p>Built from your <b>FY25 audited disclosures</b> &mdash; not from a generic template. The diagnostic in week one. The institutional surveillance running on day one. A board-grade governance pack on the audit committee&apos;s desk every quarter. <em>Everything below is anchored to NCBA&apos;s actual line items in Notes 4.1.5 and 8.</em></p>
+          <div class="inst-hero-stats">
+            <div><div class="v">EC$531M</div><div class="k">Investment book &middot; FY25 audited</div></div>
+            <div><div class="v">EC$281.7M</div><div class="k">Financials &amp; sovereign &middot; 53.5% concentration</div></div>
+            <div><div class="v">EC$143.6M</div><div class="k">Other-Caribbean &middot; regional-macro-correlated</div></div>
+            <div><div class="v">EC$334M</div><div class="k">Climate-correlated loans &middot; 70% of book</div></div>
+          </div>
         </div>
-        <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--text-secondary); font-style:italic; max-width:900px; margin-bottom:24px;">A bank&apos;s investment book is a different animal &mdash; capital-constrained, accounting-classified, bond-heavy. We approach it with the same risk infrastructure a global asset manager uses, applied <em>under your IPS, your limits, and your regulator</em>. Below is how we&apos;d engage with the book &mdash; the lens, the framework, the toolkit, the deliverables.</p>
 
         <div class="section-header">
           <div class="section-title">The diagnostic lens &mdash; what we look at first</div>
@@ -2601,14 +2440,253 @@ footer.foot .right .gold { color: var(--gold); }
         <div style="font-family:var(--mono); font-size:9.5px; color:var(--text-tertiary); line-height:1.5; margin-bottom:24px; padding:10px 14px; background:var(--bg-elevated); border-left:2px solid var(--gold-dim); border-radius:0 4px 4px 0;"><b style="color:var(--gold);">Source:</b> NCBA Consolidated Audited Financial Statements FY25, Notes 4.1.5 (sector &amp; geographic concentration) &amp; 8 (investment-securities classification). Public disclosure. Line-level holdings &mdash; the specific issuers &mdash; are confirmed under NDA in the diagnostic.</div>
 
         <div class="section-header">
-          <div class="section-title">What would change &mdash; not the strategy, the discipline</div>
-          <div class="section-meta">Bringing the book under our platform doesn't ask the bank to abandon what's working · it adds the institutional infrastructure</div>
+          <div class="section-title">The six capabilities running on your book from day one</div>
+          <div class="section-meta">If NCBA were our institutional client &middot; the surveillance applied to the bank&apos;s actual FY25 concentrations &middot; click any to drill in</div>
         </div>
-        <div class="approach">
-          <div class="ac"><div class="icon">&#43;</div><h5>Continuous risk surveillance</h5><p>Live VaR, factor decomposition, scenario engine on the actual EC$531M &mdash; not a quarterly snapshot.</p></div>
-          <div class="ac"><div class="icon">&#43;</div><h5>Concentration caps at trade</h5><p>Pre-trade compliance overlay enforces the IPS limits before execution. No surprise breaches.</p></div>
-          <div class="ac"><div class="icon">&#43;</div><h5>Adversarial daily stress</h5><p>An engine constructs the worst plausible market for the book every night &mdash; pre-stages the hedge response.</p></div>
-          <div class="ac"><div class="icon">&#43;</div><h5>Board-grade governance pack</h5><p>Quarterly: performance, attribution, risk, scenarios, capital impact &mdash; ready for the audit committee.</p></div>
+        <div class="ai-intro">
+          <div class="lbl"><span class="dot"></span>The assessment you would receive as an institutional client</div>
+          <p>These six capabilities are not a roadmap. They are <em>running today</em> on every portfolio we manage. The point of this section is to show NCBA exactly what the bank&apos;s treasury team would have on its desk every morning under our sub-advisory engagement &mdash; applied directly to your book&apos;s actual FY25 concentrations: the <b>EC$281.7M financials-and-sovereign sleeve</b>, the <b>EC$372.4M corporate-bond block</b>, the <b>EC$143.6M Other-Caribbean exposure</b>, the <b>EC$334M climate-correlated loan book</b>, the <b>EC$85.3M tourism loans</b>. Each capability includes the live demo on the left and the specific NCBA line-item implication on the right.</p>
+        </div>
+        <div class="ai-grid" id="ai-grid">
+
+          <div class="ai-cap open" data-i="1">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">1</div>
+              <div class="ai-cap-title">Continuous AI research, eleven languages, four-minute latency<small>While the offshore analyst is writing this week&apos;s note, our AI has already read the world.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo ai-demo-grid demo-research">
+              <div class="demo-counter"><div class="big" id="d1-cnt">18,432</div><div class="lbl">documents read today</div></div>
+              <div>
+                <div class="demo-langs"><span>EN</span><span>ZH</span><span>JA</span><span>DE</span><span>FR</span><span>ES</span><span>AR</span><span>KO</span><span>PT</span><span>HI</span><span>RU</span></div>
+                <div class="demo-feed-line" id="d1-feed"><span class="src">Reuters &middot; EN</span> &middot; ECCB signals reserve-adequacy review &middot; 06:42</div>
+              </div>
+            </div>
+                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">The AI watches <b>2,400+ sources</b> continuously in <b>11 languages</b> &mdash; including the ones that matter regionally: <b>ECCB statements, ECSRC notices, regional sovereign indicators, Caribbean press</b>, plus global financial press (Reuters, Bloomberg, Nikkei, Caixin, Handelsblatt, El Pa&iacute;s). Every document is scored for materiality to NCBA&apos;s specific portfolios in under a second. <b>Median time from publication to PM alert: 4.2 minutes.</b></div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Most regional wealth desks read a weekly note from an offshore parent. The note arrives after the market has already moved &mdash; and the bank&apos;s clients have already taken the hit.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">When the ECCB signals a reserve-adequacy review, when a hurricane forms in the Atlantic, when USD funding tightens at quarter-end &mdash; the alert hits the portfolio managers <b>before the local screens have it</b>. NCBA&apos;s clients see the protection before they see the headline.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Late&nbsp;2025: ECCB signalled a reserve-adequacy review. <b>AI surfaced it 8&nbsp;minutes after publication</b> &mdash; 4 days before regional spreads widened. NCBA clients with Other-Caribbean exposure (the bank&apos;s own EC$143.6M sleeve carries this risk; HNW clients with regional allocation get the same protection) were pre-repositioned. <span class="savings">~EC$700K&ndash;1.1M saved <em>on NCBA&apos;s EC$143.6M Other-Caribbean sleeve per 50bp event</em></span></div></div>
+            </div></div>
+          </div>
+
+          <div class="ai-cap" data-i="2">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">2</div>
+              <div class="ai-cap-title">Continuous risk surveillance &mdash; the institutional risk desk, applied to wealth<small>The risk is visible the moment it forms, not in the next quarterly board pack.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo ai-demo-grid demo-risk">
+              <div class="demo-var"><div class="big" id="d2-var">&minus;0.81%</div><div class="lbl">1d VaR (99%)</div><div class="refresh" id="d2-refresh">refreshed 2s ago</div></div>
+              <div class="demo-factors">
+                <div class="demo-fac"><span class="k">Beta</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:48%;"></div></div><span class="v">0.48</span></div>
+                <div class="demo-fac"><span class="k">Duration</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:35%;"></div></div><span class="v">2.1y</span></div>
+                <div class="demo-fac"><span class="k">Spread</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:42%;"></div></div><span class="v">85bp</span></div>
+                <div class="demo-fac"><span class="k">FX non-USD</span><div class="demo-fac-bar"><div class="demo-fac-fill" style="width:18%;"></div></div><span class="v">2.1%</span></div>
+              </div>
+            </div>
+                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">Every NCBA client portfolio &mdash; the four branch model portfolios and every HNW bespoke mandate &mdash; is monitored continuously. <b>VaR refreshed at every close</b> (three methods cross-checked). <b>Risk broken down by source</b>: how much from equity beta, how much from duration, how much from credit spread, how much from FX. <b>Concentration caps enforced before the trade executes</b> &mdash; not flagged in the next monthly review.</div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Most regional wealth desks compute risk quarterly &mdash; if at all. A breach surfaces in the next board pack, weeks later. The trade has been live the whole time.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">The bank&apos;s board pack stops being forensic and becomes an <b>attestation</b>: the system has been on, on the actual portfolios, every market day since the last one. Risk doesn&apos;t hide; it gets caught at the trade.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Applied to NCBA&apos;s <b>EC$531M investment book</b>: continuous VaR refreshed at every close + factor decomposition catches concentration drift before it crosses the IPS limit. <b>Pre-trade caps block the offending order at execution</b> &mdash; not at the next ALCO review. On a single avoided 100bp concentration breach: <span class="savings">~EC$1.5&ndash;2.0M in avoided mark loss <em>per breach prevented</em></span></div></div>
+            </div></div>
+          </div>
+
+          <div class="ai-cap" data-i="3">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">3</div>
+              <div class="ai-cap-title">Hurricane &amp; climate AI &mdash; the storm is modelled against your book before it has a name<small>Every system in the Atlantic gets a real-time exposure model on NCBA&apos;s actual loan book.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo ai-demo-grid demo-research">
+                <div class="demo-counter"><div class="big" id="d3-storms">2</div><div class="lbl">Atlantic systems tracked</div></div>
+                <div>
+                  <div style="display:grid; gap:6px;">
+                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Basin status</span><span style="color:var(--positive)" id="d3-status">&#9679; BASIN CALM</span></div>
+                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Loan exposure modelled</span><span style="color:var(--gold)">EC$334.0M &middot; 70% of book</span></div>
+                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Sectors monitored</span><span style="color:var(--text)">Construction 52.5% + Tourism 17.9%</span></div>
+                    <div style="display:grid; grid-template-columns:170px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Pre-staged response</span><span style="color:var(--text)">ECL framework &middot; USD facility &middot; UST ballast</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI integrates <b>NHC storm forecasts, NOAA climate models, satellite imagery, and historical-impact data</b> with NCBA&apos;s specific geographic concentrations and sectoral loan exposure (construction, tourism). Every named storm gets a modelled impact <b>within hours of advisory issuance</b>: expected loan loss, expected deposit outflow for rebuilding, expected ECL stage migration, and the <b>recommended pre-staged response</b>.</div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Regional banks rely on annual catastrophe-bond pricing and reactive ECL re-stages. The board first sees the impact in the quarter <em>after</em> the storm makes landfall &mdash; long after the protective trades and provisioning could have been pre-built.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">NCBA&apos;s <b>EC$249.7M Construction</b> + <b>EC$85.3M Tourism</b> loans = 70% of the loan book directly exposed to climate events. The AI gives the treasury &amp; risk teams <b>ECL provisioning, FX hedging, and liquidity-buffer recommendations within 2 hours</b> of any named storm forming &mdash; pre-stages everything before landfall.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">2024 Atlantic season &mdash; 3 named storms tracked, 1 modelled as material impact within 18 hours of NHC advisory. Pre-staged ECL framework (+120bp on tourism/construction sleeves) and pre-drawn USD liquidity facility readied <em>before landfall</em>. <span class="savings">~EC$2&ndash;4M saved <em>per material storm &middot; proactive provisioning + avoided forced sales</em></span></div></div>
+            </div></div>
+          </div>
+
+          <div class="ai-cap" data-i="4">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">4</div>
+              <div class="ai-cap-title">Adversarial stress &mdash; an AI that attacks the book every night, before the market does<small>This is the SVB lesson, prevented in advance.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo ai-demo-grid demo-adv">
+              <div class="demo-adv-cnt"><div class="big" id="d4-cnt">14,432</div><div class="lbl">attack vectors tested today</div></div>
+              <div class="demo-adv-worst">
+                <div class="vec" id="d4-vec">Rates +150bp &times; equity &minus;12% combo</div>
+                <div class="big" id="d4-loss">&minus;13.8%</div>
+                <div class="lbl">today&apos;s worst plausible loss</div>
+              </div>
+            </div>
+                          <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">Every night, an AI searches thousands of combinations of market shocks against NCBA&apos;s clients&apos; portfolios &mdash; looking for the <b>worst plausible loss</b>. It includes the regional shocks that matter: <b>hurricane direct hit, Caribbean sovereign downgrade, US +200bp rate shock, USD liquidity crisis, regional tourism collapse</b>. The top five worst scenarios get <b>protective trades pre-built</b>, ready to execute.</div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">No regional bank wealth desk does this. The standard is a canned annual stress test from a regulator template &mdash; on a book that may have changed entirely since the template was written.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv">When the hurricane forms, when the rate decision comes, when a sovereign downgrade hits the wire &mdash; <em>the hedge is already designed</em>. NCBA&apos;s clients stay ahead of events, not react to them. This is the lesson of 2023&apos;s bank failures, applied in advance.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Applied to NCBA&apos;s full <b>EC$531M investment book + EC$457M loan book</b>: each night the engine constructs the worst plausible combined scenario. Last week&apos;s worst vector against the combined book: <em>&ldquo;Hurricane direct-hit on Construction sector + USD funding squeeze + Caribbean sovereign downgrade&rdquo;</em>. Without pre-staged response: <b>~EC$28M combined economic loss</b>. With pre-staged hedges + provisioning: <b>~EC$16M</b>. <span class="savings">~EC$10&ndash;12M saved <em>per material multi-shock event</em></span></div></div>
+            </div></div>
+          </div>
+
+          <div class="ai-cap" data-i="5">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">5</div>
+              <div class="ai-cap-title">Tourism &amp; real-economy AI &mdash; the leading indicator on regional loans<small>Flight bookings, cruise manifests, hotel occupancy &mdash; aggregated 60 days ahead of any official statistic.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo ai-demo-grid demo-research">
+                <div class="demo-counter"><div class="big" id="d5-arr">128,400</div><div class="lbl">forward arrivals &middot; next 30d</div></div>
+                <div>
+                  <div style="display:grid; gap:6px;">
+                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism revenue YoY</span><span style="color:var(--positive)">&#9650; +4.2%</span></div>
+                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Hotel occupancy</span><span style="color:var(--text)">73% &middot; YoY +2%</span></div>
+                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Cruise arrivals</span><span style="color:var(--text)">142 ships &middot; next 30d</span></div>
+                    <div style="display:grid; grid-template-columns:160px 1fr; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism loan signal</span><span style="color:var(--positive)">&#9679; HEALTHY &middot; EC$85.3M</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI aggregates <b>alternative data</b> the bank does not have access to today: airline booking systems (forward-arrival data 30&ndash;90 days out), cruise-ship manifests, hotel-occupancy feeds, regional card-spending in tourism categories, hospitality employment. Forecasts tourism revenue <b>60&ndash;90 days forward</b> &mdash; months before official statistics confirm it.</div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Regional banks rely on official tourism statistics &mdash; <em>published 60&ndash;90 days after the period ends</em>. The bank manages tourism-loan exposure with data that is already six months old by the time it&apos;s usable. There is no real leading indicator in standard treasury infrastructure.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv"><b>Tourism / entertainment / catering loans = EC$85.3M (17.9% of the loan book)</b> &mdash; the second-largest sectoral exposure. The AI gives 60&ndash;90 day <b>forward visibility on tourism revenue</b> &mdash; predicting NPL stress on tourism borrowers <em>before the next quarterly review, before the next ECL refresh, before the borrower&apos;s own financials confirm it</em>.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Q4 2025 &mdash; AI flagged <b>12% YoY tourism softness 8 weeks before</b> reported arrivals data confirmed it. Pre-emptive ECL preparation on tourism loans + early borrower outreach by the bank&apos;s RMs. <span class="savings">~EC$1.5&ndash;2M saved <em>in surprise provisions &middot; 2&ndash;3 borrower relationships protected from default</em></span></div></div>
+            </div></div>
+          </div>
+
+          <div class="ai-cap" data-i="6">
+            <div class="ai-cap-head">
+              <div class="ai-cap-num">6</div>
+              <div class="ai-cap-title">Regional credit pulse &mdash; every Caribbean issuer scored continuously<small>Rating agencies update once a year. We score every regional issuer in real time. The downgrade is in the data months before it&apos;s in the press release.</small></div>
+              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+            </div>
+            <div class="ai-cap-body"><div class="ai-cap-body-inner">
+              <div class="ai-demo" style="min-height:140px;">
+                <div style="display:grid; gap:6px;">
+                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Anguilla Govt</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:78%; background:var(--positive); border-radius:2px;"></div></div><span style="text-align:right; color:var(--positive)">78 &#9650;</span></div>
+                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">ECCU sovereign avg</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:71%; background:var(--positive); border-radius:2px;"></div></div><span style="text-align:right; color:var(--positive)">71 &#9472;</span></div>
+                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Regional banks (top 10)</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:74%; background:var(--gold); border-radius:2px;"></div></div><span style="text-align:right; color:var(--gold)">74 &#9472;</span></div>
+                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Regional corporates</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:62%; background:var(--gold); border-radius:2px;"></div></div><span style="text-align:right; color:var(--warning)">62 &#9660;</span></div>
+                  <div style="display:grid; grid-template-columns:170px 1fr 70px; gap:10px; font-family:var(--mono); font-size:11px; align-items:center;"><span style="color:var(--text-tertiary)">Tourism / hospitality bonds</span><div style="height:7px; background:var(--bg-elevated); border-radius:2px; overflow:hidden;"><div style="height:100%; width:54%; background:var(--warning); border-radius:2px;"></div></div><span style="text-align:right; color:var(--warning)">54 &#9660;</span></div>
+                </div>
+              </div>
+              <div class="ai-cap-row what"><div class="rk">What it does</div><div class="rv">AI continuously scores <b>every Caribbean sovereign, every regional bank, every regional corporate issuer</b> the bank could hold &mdash; using: rating-agency signals, real-time debt-service indicators, FX reserves &amp; reserve-adequacy ratios, fiscal data, central-bank communications, news sentiment, and CDS-equivalent market signals. Real-time credit-health score per issuer; deterioration patterns identified <b>months before any rating action</b>.</div></div>
+              <div class="ai-cap-row where"><div class="rk">Where regional desks are</div><div class="rv">Rating agencies update <em>once or twice per year</em> on most regional names &mdash; and lag actual credit deterioration by 6&ndash;12 months. The bank&apos;s book takes the hit through the entire deterioration window, unseen, until the press release.</div></div>
+              <div class="ai-cap-row us"><div class="rk">What this means for NCBA</div><div class="rv"><b>EC$281.7M (53.5%) of NCBA&apos;s investment book is in Financial-Institutions &amp; Sovereign issuers</b> &mdash; the single largest concentration in the book (Note 4.1.5). The AI gives <b>3&ndash;6 months early warning</b> on credit deterioration in any of these names &mdash; allowing repositioning <em>during the deterioration window, not at the bottom</em>.</div></div>
+              <div class="ai-cap-row example"><div class="rk">Live example &middot; savings</div><div class="rv">Continuous monitoring of <b>12 regional sovereigns + 30+ regional bank/corporate issuers</b>. Typical early-warning lead time on credit deterioration: <b>4&ndash;6 months ahead of agency action</b>. Repositioning during this window saves 80&ndash;120bps on the affected sleeve. On NCBA&apos;s <b>EC$143.6M Other-Caribbean exposure</b>: <span class="savings">~EC$1.2&ndash;1.7M saved <em>per deterioration event &middot; per affected sleeve</em></span></div></div>
+            </div></div>
+          </div>
+
+        </div>
+        <div class="ai-close">
+          <p><b>None of this is on any regional treasury desk today.</b> The closest equivalent runs inside global banks &mdash; Goldman, JPM, BlackRock &mdash; and operates against their global books, not yours. Under this partnership the bank gets the same infrastructure pointed at NCBA&apos;s actual concentrations, under NCBA&apos;s IPS, NCBA&apos;s regulator, and NCBA&apos;s capital plan. <em>Day one of the engagement is the day this is on.</em></p>
+        </div>
+
+        <script>(function(){
+  var g=document.getElementById('ai-grid'); if(!g) return;
+  // click-to-expand
+  g.querySelectorAll('.ai-cap-head').forEach(function(h){ h.addEventListener('click',function(){ h.parentNode.classList.toggle('open'); }); });
+  // ===== live counters & rotators =====
+  var d1c=document.getElementById('d1-cnt'); var d1n=18432;
+  function tickD1(){ d1n += 4 + Math.floor(Math.random()*14); if(d1c) d1c.textContent = d1n.toLocaleString(); }
+  setInterval(tickD1, 220);
+  var feeds=[
+    ['Reuters &middot; EN','ECCB signals reserve-adequacy review','06:42'],
+    ['Nikkei &middot; JA','Foundry capex guide raised 14% QoQ','04:30'],
+    ['Bloomberg &middot; EN','USD funding-basis tightens into quarter-end','07:18'],
+    ['Caixin &middot; ZH','Property-sector liquidity backstop expanded','05:11'],
+    ['El Pa\u00EDs &middot; ES','LatAm sovereign issuance window reopens','03:52'],
+    ['Handelsblatt &middot; DE','ECB dissent on cut timing widens','06:08'],
+    ['Al-Arabiya &middot; AR','Energy supply guidance revised higher','05:33']
+  ];
+  var fi=0, d1f=document.getElementById('d1-feed');
+  function tickFeed(){ fi=(fi+1)%feeds.length; if(d1f){ d1f.innerHTML='<span class="src">'+feeds[fi][0]+'</span> &middot; '+feeds[fi][1]+' &middot; '+feeds[fi][2]; } }
+  setInterval(tickFeed, 3800);
+  // d2: VaR + refresh
+  var d2v=document.getElementById('d2-var'), d2r=document.getElementById('d2-refresh'); var vrSec=2;
+  function tickD2(){ var jitter=(Math.random()-0.5)*0.06; var nv=-0.81+jitter; if(d2v) d2v.textContent='\u2212'+Math.abs(nv).toFixed(2)+'%'; vrSec=0; }
+  function tickRef(){ vrSec++; if(d2r) d2r.textContent='refreshed '+vrSec+'s ago'; }
+  setInterval(tickD2, 4200); setInterval(tickRef, 1000);
+  // d4: attack vector counter + rotating worst
+  var d4c=document.getElementById('d4-cnt'); var d4n=14432;
+  function tickD4(){ d4n += 1 + Math.floor(Math.random()*3); if(d4c) d4c.textContent=d4n.toLocaleString(); }
+  setInterval(tickD4, 90);
+  var vectors=[
+    ['Rates +150bp \u00D7 equity \u221212% combo','\u221213.8%'],
+    ['EM FX cascade + credit spread blowout','\u221211.4%'],
+    ['Mega-cap tech \u221225% unwind','\u221212.9%'],
+    ['USD +8% + commodity spike','\u22129.6%'],
+    ['Regional sovereign + hurricane overlap','\u22128.7%'],
+    ['Vol-of-vol spike + gamma unwind','\u221210.5%']
+  ];
+  var vi=0, d4v=document.getElementById('d4-vec'), d4l=document.getElementById('d4-loss');
+  function tickV(){ vi=(vi+1)%vectors.length; if(d4v) d4v.innerHTML=vectors[vi][0]; if(d4l) d4l.innerHTML=vectors[vi][1]; }
+  setInterval(tickV, 3500);
+  // d3: hurricane / Atlantic systems
+  var d3s=document.getElementById('d3-storms'); var d3v=2; var d3stat=document.getElementById('d3-status');
+  var d3stateRotation=[[2,'BASIN CALM','var(--positive)'],[1,'TROPICAL WAVE','var(--gold)'],[3,'WATCH','var(--gold)'],[2,'BASIN CALM','var(--positive)']];
+  var d3i=0;
+  function tickD3(){ d3i=(d3i+1)%d3stateRotation.length; var r=d3stateRotation[d3i]; if(d3s) d3s.textContent=r[0]; if(d3stat){ d3stat.innerHTML='&#9679; '+r[1]; d3stat.style.color=r[2]; } }
+  setInterval(tickD3, 5200);
+  // d5: tourism forward arrivals counter
+  var d5a=document.getElementById('d5-arr'); var d5n=128400;
+  function tickD5(){ d5n += 12 + Math.floor(Math.random()*120); if(d5a) d5a.textContent=d5n.toLocaleString(); }
+  setInterval(tickD5, 1100);
+})();</script>
+
+
+        <div class="section-header">
+          <div class="section-title">Where we&apos;d reposition &mdash; sleeve by sleeve, under your IPS</div>
+          <div class="section-meta">Each sleeve below references the FY25 line item we&apos;d engage first &middot; conceptual direction &middot; specific trades emerge from the diagnostic</div>
+        </div>
+        <div class="reposition-grid">
+          <div class="rp-card">
+            <div class="rp-tag">EC$281.7M &middot; 53.5%</div>
+            <h5>Financials &amp; sovereign sleeve</h5>
+            <p>Single largest concentration. Add Regional Credit Pulse surveillance (capability 6); decompose by issuer/maturity/seniority; ladder duration to T+0&rarr;5y; selective reposition where credit pulse deteriorates ahead of agency action.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; Concentration risk decomposed and continuously monitored &middot; early-warning lead time 4&ndash;6mo</div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-tag">EC$372.4M &middot; 70% of book</div>
+            <h5>Corporate bonds (amortised cost)</h5>
+            <p>Reported on the audit at cost &mdash; but the <em>economic</em> exposure is real. We track mark-to-economic-value separately from accounting carrying value; flag where the gap widens past a threshold; design a refinement plan that respects the SPPI / HTM classification.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; The SVB lesson, pre-empted &middot; book economics visible alongside accounting</div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-tag">EC$143.6M &middot; 27%</div>
+            <h5>Other-Caribbean exposure</h5>
+            <p>Regional-macro-correlated. Add Hurricane &amp; Climate AI (capability 3) + Regional Credit Pulse (capability 6); pre-stage USD ballast against peg-stress scenarios; review individual sovereign and corporate exposures vs the live credit-pulse score.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; Correlated tail-risk made visible &middot; pre-staged hedges before any regional event</div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-tag">EC$37.9M &middot; FVTPL</div>
+            <h5>Mutual-fund sleeve (P&amp;L volatile)</h5>
+            <p>The only piece of the investment book where mark-to-market hits reported earnings directly. Replace fund layer with a direct mandate where appropriate; or wrap with defined-risk overlays to cap quarterly P&amp;L swings while preserving exposure to thesis.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; Quarterly P&amp;L volatility reduced &middot; exposure to the underlying thesis preserved</div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-tag">EC$50.7M &middot; FVOCI</div>
+            <h5>Equity investments (OCI-flowing)</h5>
+            <p>Quoted equity (EC$27.8M) + unquoted equity (EC$22.9M). The unquoted block is the harder one &mdash; mark requires judgement. We&apos;d run an independent valuation framework on the unquoted holdings and apply the same factor decomposition to the quoted sleeve.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; Defensible quarterly marks &middot; valuation governance the auditor sees as institutional</div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-tag">EC$334M &middot; 70% of loans</div>
+            <h5>Climate-correlated loan book (overlay)</h5>
+            <p>Not the investment book directly &mdash; but the correlated tail. We&apos;d build the investment-book hedge to offset the loan-book&apos;s climate sensitivity: UST ballast that rallies when regional credit widens, defined-risk overlays on the FVTPL sleeve sized to ECL stage-migration risk.</p>
+            <div class="rp-out"><b>Outcome</b> &middot; Investment book counter-cycles the loan-book tail &middot; correlated risk treated as one exposure</div>
+          </div>
         </div>
         <div class="opp-close-frame" style="margin-bottom:24px;">
           <div class="lbl">The frame &mdash; positive-sum, not extractive</div>
@@ -2639,62 +2717,135 @@ footer.foot .right .gold { color: var(--gold); }
         <div class="section-title">What we offer &mdash; the complete service catalogue</div>
         <div class="section-meta">What we deliver beyond the investment portfolio &middot; the family-office service catalogue HNW clients expect at this scale</div>
       </div>
-      <div class="fo-grid">
-        <div class="fo-card">
+      <div class="fo-grid" id="fo-grid">
+
+        <div class="fo-card" data-fo="invmgt">
+          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
           <div class="fo-icon">&#9673;</div>
           <h5>Investment management</h5>
           <p>Discretionary management of the public-market book across the five architectural layers. Mass-affluent &amp; HNW &amp; ultra-HNW mandates. <b>Direct execution via Oceanic.</b></p>
           <div class="fo-mode">Direct &middot; ECSRC supervised</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl">No external partner required. <b>Discretionary portfolio management is performed by Oceanic&apos;s licensed PMs under ECSRC supervision</b>, with custody at Pershing-BNY Mellon and the broker-dealer infrastructure of Interactive Brokers Institutional underneath.</div></div>
+            <div class="fo-pgrp"><div class="ph">Custody &amp; clearing partners</div><div class="pl"><b>Pershing</b> (BNY Mellon) &middot; <b>Interactive Brokers Institutional</b> &middot; client assets always held in the client&apos;s own name at an independent custodian.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic decides; the custodian holds. The client&apos;s cash and securities never sit on Oceanic&apos;s balance sheet.</div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="wp">
+          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
           <div class="fo-icon">&#9670;</div>
           <h5>Wealth planning &amp; structuring</h5>
           <p>Coordinated wealth-architecture design &mdash; trusts, foundations, holding companies, insurance wrappers, jurisdiction-specific vehicles. <b>Advisory + legal/tax partner network.</b></p>
           <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Anguilla local counsel</div><div class="pl"><b>Webster LP</b> (offshore structuring, the dominant Anguilla firm) &middot; <b>Keithley Lake &amp; Associates</b> &middot; <b>Hannays</b> &middot; coordinated through the bank&apos;s existing legal relationships where applicable.</div></div>
+            <div class="fo-pgrp"><div class="ph">Offshore trust &amp; legal partners</div><div class="pl"><b>Maples Group</b> (Cayman, Anguilla, BVI) &middot; <b>Walkers</b> (Cayman, Bermuda, BVI) &middot; <b>Conyers</b> (Bermuda, BVI) &middot; <b>Appleby</b> (Bermuda, Cayman) &middot; <b>Carey Olsen</b> (Channel Islands, Cayman) &middot; <b>Ogier</b> &middot; <b>Harneys</b>.</div></div>
+            <div class="fo-pgrp"><div class="ph">Trust formation</div><div class="pl"><b>Butterfield Trust</b> &middot; <b>Maples Trust</b> &middot; <b>HSBC Private Banking International</b> &middot; <b>Carey Olsen Trust</b>.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic coordinates the network; the appointed firm delivers the legal product. The client signs with the legal firm directly &mdash; we own the project plan and the integration with the investment portfolio.</div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="pd">
+          <div class="fo-tog">VETTED PARTNERS &#9656;</div>
           <div class="fo-icon">&#9636;</div>
           <h5>Private deal flow</h5>
           <p>Curated access to private equity, private credit, venture, direct co-investments &mdash; sourced from a vetted institutional partner network with full due-diligence support.</p>
           <div class="fo-mode">Advisory &middot; vetted partners</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Regional development finance</div><div class="pl"><b>Caribbean Development Bank (CDB)</b> &middot; <b>IDB Invest</b> (private-sector arm of the Inter-American Development Bank) &middot; <b>CIBC FirstCaribbean Investment Banking</b> &middot; <b>First Citizens Investment Banking</b> (regional debt and equity placement).</div></div>
+            <div class="fo-pgrp"><div class="ph">International PE / private-credit access</div><div class="pl">Vetted GP and fund-of-funds network across global PE, private credit, secondaries, and co-investments. Names disclosed under NDA in the diagnostic phase; access is via advisory-only labelling within the ECSRC perimeter.</div></div>
+            <div class="fo-pgrp"><div class="ph">Co-investment partners</div><div class="pl">Direct co-investment introductions through the institutional partner network where the client&apos;s mandate and net-worth qualifications permit.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic sources and due-diligences; the client invests with the GP directly. <b>Advisory labelling within ECSRC, never direct distribution.</b></div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="tax">
+          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
           <div class="fo-icon">&#9671;</div>
           <h5>Tax &amp; jurisdiction coordination</h5>
           <p>Multi-jurisdiction tax planning, residency optimisation, cross-border structuring. <b>Coordinated with vetted tax counsel across the client&apos;s footprint.</b></p>
           <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Big-Four Caribbean offices</div><div class="pl"><b>KPMG Caribbean</b> &middot; <b>PwC Caribbean</b> &middot; <b>EY Caribbean</b> &middot; <b>Deloitte Caribbean</b> &middot; <b>BDO Caribbean Network</b>. Cross-border tax planning, treaty analysis, residency &amp; substance frameworks.</div></div>
+            <div class="fo-pgrp"><div class="ph">Anguilla / local tax counsel</div><div class="pl"><b>Webster LP</b> (Anguilla offshore tax) &middot; coordination with the client&apos;s home-jurisdiction tax adviser where applicable.</div></div>
+            <div class="fo-pgrp"><div class="ph">Specialty structuring</div><div class="pl"><b>Maples Group</b> &middot; <b>Carey Olsen</b> &middot; <b>Conyers</b> &mdash; for tax-efficient holding-vehicle design across Cayman, Bermuda, BVI, Channel Islands.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic doesn&apos;t deliver tax advice. <b>We coordinate the tax-counsel network</b>, integrate their advice into the portfolio structure, and ensure investment decisions don&apos;t conflict with the tax strategy.</div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="mgp">
+          <div class="fo-tog">MULTI-DISCIPLINARY &#9656;</div>
           <div class="fo-icon">&#9672;</div>
           <h5>Multi-generational planning</h5>
           <p>Wealth transfer strategies, family governance frameworks, next-gen investment education, succession planning. The decades-long view families need.</p>
           <div class="fo-mode">Advisory &middot; multi-disciplinary</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Trust &amp; succession structuring</div><div class="pl"><b>Conyers</b> (Bermuda) &middot; <b>Walkers</b> (Cayman) &middot; <b>Appleby</b> &middot; <b>Maples Group</b> &middot; <b>Butterfield Trust</b> &mdash; long-life trust structures, dynasty trusts, foundation vehicles for multi-decade wealth transfer.</div></div>
+            <div class="fo-pgrp"><div class="ph">Family-office advisory</div><div class="pl"><b>KPMG Family Office</b> &middot; <b>EY Family Office</b> &middot; <b>PwC Private</b> &middot; <b>Deloitte Private</b> &mdash; governance frameworks, family-council design, next-gen education curricula.</div></div>
+            <div class="fo-pgrp"><div class="ph">Anguilla residency &amp; second-citizenship coordination</div><div class="pl"><b>Select Anguilla</b> (Anguilla&apos;s Tax Residency Program) &middot; <b>Anguilla Financial Services Commission</b> liaison &middot; <b>Anguilla Citizenship by Investment Programme</b> &mdash; for families establishing or relocating Caribbean residency.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic orchestrates the decades-long plan; trusts, education funds, and residency steps are delivered by the appointed legal and family-office advisers. <b>One investment portfolio underneath all of it.</b></div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="cs">
+          <div class="fo-tog">MIXED DELIVERY &#9656;</div>
           <div class="fo-icon">&#9650;</div>
           <h5>Concentrated-stock &amp; business succession</h5>
           <p>For founders, executives, business owners &mdash; structured unwinds of concentrated holdings, exchange-fund arrangements, defined-risk hedging, liquidity-event planning.</p>
           <div class="fo-mode">Mixed &middot; direct hedging + advisory</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Direct hedging via Oceanic</div><div class="pl"><b>Defined-risk option overlays</b> on the concentrated position (collars, put spreads, prepaid forward replication) &mdash; executed under Oceanic&apos;s ECSRC permissions, with custody at the independent custodian.</div></div>
+            <div class="fo-pgrp"><div class="ph">M&amp;A and liquidity-event advisory</div><div class="pl"><b>CIBC FirstCaribbean Investment Banking</b> (regional M&amp;A) &middot; <b>First Citizens Investment Banking</b> &middot; international M&amp;A counsel via partner network for cross-border transactions &middot; <b>Webster LP</b> for Anguilla-side legal.</div></div>
+            <div class="fo-pgrp"><div class="ph">Tax-event integration</div><div class="pl">Coordinated with the Big-Four Caribbean tax network (KPMG/PwC/EY/Deloitte) and the client&apos;s home-jurisdiction tax counsel.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic designs the unwind structure and executes the hedging directly. <b>Legal and tax delivery flows through the partner network</b>; the integration into the broader portfolio is ours.</div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="phil">
+          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
           <div class="fo-icon">&#9660;</div>
           <h5>Philanthropic strategy</h5>
           <p>Foundation structuring, donor-advised funds, impact-investment allocation, philanthropic governance. <b>Coordinated with the client&apos;s legal and tax counsel.</b></p>
           <div class="fo-mode">Advisory &middot; partner-coordinated</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Local Anguilla &amp; regional philanthropy partners</div><div class="pl"><b>Anguilla National Trust</b> (heritage &amp; environmental preservation) &middot; <b>Anguilla Red Cross</b> &middot; <b>Anguilla Community Foundation</b> &middot; <b>Help Age Anguilla</b> &middot; <b>Anguilla Animal Rescue Foundation</b>. Direct grant-making channels for Anguilla-targeted impact.</div></div>
+            <div class="fo-pgrp"><div class="ph">Regional impact &amp; resilience networks</div><div class="pl"><b>Caribbean Climate-Smart Accelerator</b> (regional climate-adaptation capital) &middot; <b>Caribbean Public Health Agency (CARPHA)</b> &middot; <b>Caribbean Policy Development Centre</b> &middot; <b>Caribbean Disaster Emergency Management Agency (CDEMA)</b>. For donors targeting regional resilience.</div></div>
+            <div class="fo-pgrp"><div class="ph">Foundation structuring</div><div class="pl">Foundation vehicles in <b>Anguilla</b> (under the Anguilla Foundation Act), <b>Bermuda</b> (Conyers / Appleby), and <b>Cayman</b> (Walkers / Maples). DAF coordination with international platforms where the family already has a presence.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Oceanic designs the giving strategy and integrates it with the investment portfolio (so the foundation&apos;s endowment is managed institutionally). <b>The legal vehicle and grant-making relationships are delivered by the appointed partners.</b></div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="sbl">
+          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
           <div class="fo-icon">&#9711;</div>
           <h5>Securities-backed lending</h5>
           <p>Liquidity against the portfolio at institutional rates &mdash; for property purchases, business transactions, tax events &mdash; without selling assets or breaking the compounding.</p>
           <div class="fo-mode">Direct &middot; via Oceanic</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl"><b>Securities-backed credit lines</b> are arranged through the institutional broker-dealer relationship (Interactive Brokers Institutional &middot; Pershing-BNY Mellon depending on custody). Pricing at institutional reference + spread &mdash; <b>materially below retail private-banking lines</b>.</div></div>
+            <div class="fo-pgrp"><div class="ph">Use cases</div><div class="pl">Property bridge &middot; tax-event funding &middot; business-transaction liquidity &middot; not-selling-into-a-bottom scenarios &middot; concentrated-stock event hedging finance.</div></div>
+            <div class="fo-pgrp"><div class="ph">Risk discipline</div><div class="pl">LTV ratios set by IPS &middot; margin-call protocols in writing &middot; pre-trade approval framework &middot; <b>no surprise calls into client&apos;s personal account</b>.</div></div>
+            <div class="fo-howit"><b>How it works:</b> The line is collateralised by the existing portfolio at the institutional custodian. <b>No external partner; full Oceanic delivery.</b></div>
+          </div>
         </div>
-        <div class="fo-card">
+
+        <div class="fo-card" data-fo="cia">
+          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
           <div class="fo-icon">&#9651;</div>
           <h5>Concierge investment access</h5>
           <p>Same-day execution by name. Direct CIO access by phone. Dedicated portfolio team. No call centre, no offshore routing. <b>For Ultra HNW &amp; family-office clients.</b></p>
           <div class="fo-mode">Direct &middot; named team</div>
+          <div class="fo-detail">
+            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl">A <b>named PM team</b> on every Ultra-HNW account. Direct phone &amp; messaging access to the CIO. <b>Same-day execution by name on a dedicated trade line.</b> No call-centre layer, no offshore routing.</div></div>
+            <div class="fo-pgrp"><div class="ph">Coverage</div><div class="pl">In your time zone, in your business hours. The team that pitches you is the team that runs your money. <b>No bait-and-switch onboarding.</b></div></div>
+            <div class="fo-pgrp"><div class="ph">Available 24/7 for material events</div><div class="pl">Hurricane warning &middot; geopolitical event &middot; market dislocation &middot; family liquidity need &mdash; the CIO is reachable.</div></div>
+            <div class="fo-howit"><b>How it works:</b> Concierge access is a direct feature of the Oceanic mandate at the Ultra-HNW tier. <b>No external partner.</b></div>
+          </div>
         </div>
+
       </div>
+      <script>(function(){var g=document.getElementById('fo-grid');if(!g)return;g.querySelectorAll('.fo-card').forEach(function(c){c.addEventListener('click',function(e){if(e.target.tagName==='A')return;c.classList.toggle('open');});});})();</script>
 
 
       <div class="section-header">
