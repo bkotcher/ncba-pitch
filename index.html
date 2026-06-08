@@ -63,9 +63,21 @@ body::after {
     "sidebar main"
     "footer footer";
   height: 100vh; position: relative; z-index: 1;
+  transition: grid-template-columns 0.28s ease;
 }
+.app.sb-collapsed { grid-template-columns: 0 1fr; }
+.app.sb-collapsed .sidebar { transform: translateX(-100%); opacity: 0; pointer-events: none; }
+.sidebar { transition: transform 0.28s ease, opacity 0.2s ease; }
 /* right-rail removed globally for full-width content */
 .facts { display: none !important; }
+
+/* Sidebar collapse toggle (top-left, sits inside header bar) */
+.sb-toggle { position: fixed; top: 14px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--gold-dim); border-radius: 4px; width: 28px; height: 28px; cursor: pointer; color: var(--gold); font-family: var(--mono); font-size: 14px; line-height: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; user-select: none; }
+.sb-toggle:hover { border-color: var(--gold); background: var(--bg-hover); box-shadow: 0 0 10px rgba(201,169,97,0.25); }
+.sb-toggle .sb-icon { display: inline-block; transition: transform 0.28s ease; }
+.app.sb-collapsed .sb-toggle .sb-icon { transform: rotate(180deg); }
+.app.sb-collapsed .brand { padding-left: 48px; transition: padding-left 0.28s ease; }
+.brand { transition: padding-left 0.28s ease; }
 
 /* ============= HEADER ============= */
 .header {
@@ -2123,7 +2135,10 @@ footer.foot .right .gold { color: var(--gold); }
 
 <body>
 
-<div class="app">
+<div class="app" id="app-root">
+
+  <!-- Sidebar collapse toggle -->
+  <div class="sb-toggle" id="sb-toggle" title="Toggle sidebar (S)"><span class="sb-icon">&#9664;</span></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -5552,6 +5567,27 @@ footer.foot .right .gold { color: var(--gold); }
         const prev = allItems[(activeIdx - 1 + allItems.length) % allItems.length];
         if (prev) prev.click();
       }
+    });
+  })();
+</script>
+
+<script>
+  // Sidebar collapse toggle — click or press "s"
+  (function(){
+    var app = document.getElementById('app-root');
+    var btn = document.getElementById('sb-toggle');
+    if (!app || !btn) return;
+    var KEY = 'ncba-sidebar-collapsed';
+    try { if (localStorage.getItem(KEY) === '1') app.classList.add('sb-collapsed'); } catch(e){}
+    function toggle(){
+      app.classList.toggle('sb-collapsed');
+      try { localStorage.setItem(KEY, app.classList.contains('sb-collapsed') ? '1' : '0'); } catch(e){}
+    }
+    btn.addEventListener('click', toggle);
+    document.addEventListener('keydown', function(e){
+      if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 's' || e.key === 'S' || e.key === '[') toggle();
     });
   })();
 </script>
