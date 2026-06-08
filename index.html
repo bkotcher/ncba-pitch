@@ -2020,6 +2020,104 @@ footer.foot .right .gold { color: var(--gold); }
   .endw-srow { grid-template-columns:14px 1fr 1.2fr 50px 50px; gap:8px; }
   .endw-srow .val, .endw-srow .pl, .endw-srow .contrib { display:none; }
 }
+
+/* ===== BALANCE SHEET UNDER PRESSURE ===== */
+.bsp-wrap { background:radial-gradient(ellipse at top right, #100a06 0%, #0a0608 60%, #060406 100%); border:1px solid #2a1f1a; border-top:3px solid var(--critical); border-radius:10px; padding:30px 30px 26px; margin:32px 0 16px; position:relative; overflow:hidden; }
+.bsp-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 80% 0%, rgba(217,114,98,.08), transparent 55%), radial-gradient(circle at 20% 100%, rgba(212,163,71,.05), transparent 55%); pointer-events:none; z-index:0; }
+.bsp-wrap > * { position:relative; z-index:1; }
+.bsp-eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:.26em; color:var(--critical); text-transform:uppercase; margin-bottom:10px; opacity:.9; }
+.bsp-h { font-family:var(--serif); font-size:36px; line-height:1.12; font-weight:400; margin:0 0 10px; letter-spacing:-0.015em; color:#e8e8e8; }
+.bsp-h em { color:var(--critical); font-style:italic; }
+.bsp-sub { font-family:var(--sans); font-size:14px; line-height:1.65; color:#a3adc2; max-width:960px; margin:0 0 24px; }
+.bsp-sub em { color:#e8e8e8; font-style:italic; }
+.bsp-sub b { color:#e8e8e8; font-weight:500; }
+
+.bsp-kpi { display:grid; grid-template-columns:repeat(6, 1fr); gap:8px; margin-bottom:18px; }
+.bsp-kpi-cell { background:linear-gradient(180deg, #0a0608 0%, #070406 100%); border:1px solid #2a1f1a; border-radius:5px; padding:12px 14px; position:relative; overflow:hidden; transition:border-color .25s; }
+.bsp-kpi-cell::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, currentColor, transparent); opacity:.5; }
+.bsp-kpi-cell.amber { color:var(--gold); }
+.bsp-kpi-cell.red { color:var(--critical); }
+.bsp-kpi-cell.green { color:var(--positive); }
+.bsp-kpi-cell .lbl { font-family:var(--mono); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:#6c7689; margin-bottom:5px; }
+.bsp-kpi-cell .v { font-family:var(--mono); font-size:19px; color:#e8e8e8; letter-spacing:-0.005em; line-height:1.05; transition:color .25s; }
+.bsp-kpi-cell.amber .v { color:var(--gold); text-shadow:0 0 10px rgba(212,163,71,.4); }
+.bsp-kpi-cell.red .v { color:var(--critical); text-shadow:0 0 12px rgba(217,114,98,.45); }
+.bsp-kpi-cell.green .v { color:var(--positive); }
+.bsp-kpi-cell .delta { font-family:var(--mono); font-size:9.5px; color:#6c7689; margin-top:3px; letter-spacing:0.03em; }
+
+.bsp-main { display:grid; grid-template-columns:1fr 320px; gap:14px; margin-bottom:14px; }
+.bsp-panel { background:linear-gradient(180deg, #08050a 0%, #06030a 100%); border:1px solid #2a1f1a; border-radius:6px; padding:18px; position:relative; overflow:hidden; }
+.bsp-panel .pt { font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:#6c7689; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; }
+.bsp-panel .pt .legend { font-size:9px; color:#6c7689; opacity:.8; }
+
+.bsp-bs-wrap { position:relative; width:100%; height:520px; }
+.bsp-bs-wrap svg { width:100%; height:100%; display:block; }
+.bsp-bs-wrap.insolvent::after { content:'INSOLVENT — EQUITY DEPLETED'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:var(--mono); font-size:14px; letter-spacing:.3em; color:var(--critical); background:rgba(0,0,0,.85); padding:14px 28px; border:1px solid var(--critical); border-radius:4px; animation:bspFlash 1s ease infinite; pointer-events:none; }
+@keyframes bspFlash { 0%,100% { opacity:1; } 50% { opacity:.6; } }
+
+.bsp-dur-meter { margin-top:18px; padding:14px; background:#06030a; border:1px solid #2a1f1a; border-radius:5px; }
+.bsp-dur-meter .pt { font-family:var(--mono); font-size:9px; letter-spacing:.18em; color:#6c7689; text-transform:uppercase; margin-bottom:10px; display:flex; justify-content:space-between; }
+.bsp-dur-bar { position:relative; height:24px; background:#040208; border-radius:3px; overflow:hidden; }
+.bsp-dur-bar .alab, .bsp-dur-bar .llab { position:absolute; top:50%; transform:translateY(-50%); font-family:var(--mono); font-size:10px; padding:0 8px; color:#e8e8e8; letter-spacing:0.06em; }
+.bsp-dur-bar .alab { left:0; background:linear-gradient(90deg, rgba(94,179,214,.5), rgba(94,179,214,.15)); height:100%; display:flex; align-items:center; box-shadow:inset 0 0 8px rgba(94,179,214,.3); transition:width .35s ease; }
+.bsp-dur-bar .llab { right:0; background:linear-gradient(270deg, rgba(212,163,71,.5), rgba(212,163,71,.15)); height:100%; display:flex; align-items:center; justify-content:flex-end; box-shadow:inset 0 0 8px rgba(212,163,71,.3); transition:width .35s ease; }
+.bsp-dur-gap { position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--critical); box-shadow:0 0 8px var(--critical); transition:left .35s ease; }
+.bsp-dur-foot { display:flex; justify-content:space-between; margin-top:8px; font-family:var(--mono); font-size:9.5px; color:#6c7689; letter-spacing:0.06em; }
+.bsp-dur-foot b { color:var(--critical); }
+
+.bsp-ctrl { display:flex; flex-direction:column; gap:12px; }
+.bsp-ctrl .pt { font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:#6c7689; margin-bottom:10px; }
+.bsp-dial { background:#06030a; border:1px solid #2a1f1a; border-radius:5px; padding:14px 16px; }
+.bsp-dial .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+.bsp-dial .head .nm { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:#a3adc2; text-transform:uppercase; }
+.bsp-dial .head .vv { font-family:var(--mono); font-size:18px; color:var(--gold); text-shadow:0 0 8px rgba(212,163,71,.4); letter-spacing:-0.01em; }
+.bsp-dial.alert .head .vv { color:var(--critical); text-shadow:0 0 10px rgba(217,114,98,.5); }
+.bsp-dial input[type=range] { width:100%; -webkit-appearance:none; appearance:none; height:5px; background:linear-gradient(90deg, #1a3a4a, #4a3a1a); border-radius:3px; outline:none; cursor:pointer; }
+.bsp-dial input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background:var(--gold); border:2px solid #fff; box-shadow:0 0 8px rgba(212,163,71,.6); cursor:pointer; }
+.bsp-dial input[type=range]::-moz-range-thumb { width:16px; height:16px; border-radius:50%; background:var(--gold); border:2px solid #fff; box-shadow:0 0 8px rgba(212,163,71,.6); cursor:pointer; border:none; }
+.bsp-dial .tick { font-family:var(--mono); font-size:8.5px; color:#6c7689; margin-top:6px; display:flex; justify-content:space-between; letter-spacing:0.05em; }
+
+.bsp-run-btn { background:linear-gradient(180deg, #2a1414 0%, #1a0a0a 100%); border:1px solid var(--critical); border-radius:5px; padding:14px 16px; color:#ffb8a8; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+.bsp-run-btn:hover { background:linear-gradient(180deg, #3a1a1a 0%, #2a0a0a 100%); box-shadow:0 0 16px rgba(217,114,98,.4); }
+.bsp-run-btn.firing { animation:bspFire 0.8s ease-in-out infinite; }
+@keyframes bspFire { 0%,100% { box-shadow:0 0 0 0 rgba(217,114,98,.4); } 50% { box-shadow:0 0 22px 4px rgba(217,114,98,.55); } }
+
+.bsp-presets { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
+.bsp-preset { background:#06030a; border:1px solid #2a1f1a; border-radius:4px; padding:8px 13px; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:#a3adc2; cursor:pointer; transition:all .2s; white-space:nowrap; }
+.bsp-preset:hover { border-color:var(--critical); color:#e8e8e8; }
+.bsp-preset.active { background:linear-gradient(180deg, #1a0a0a 0%, #06030a 100%); border-color:var(--critical); color:#ffb8a8; box-shadow:0 0 12px rgba(217,114,98,.25); }
+
+.bsp-doom { background:linear-gradient(90deg, #06030a, #1a0a0a 50%, #06030a); border:1px solid #2a1f1a; border-radius:5px; padding:12px 18px; margin-bottom:14px; display:flex; align-items:center; gap:18px; }
+.bsp-doom .ttl { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:#6c7689; text-transform:uppercase; min-width:140px; }
+.bsp-doom .chain { flex:1; display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10px; color:#6c7689; letter-spacing:0.05em; flex-wrap:wrap; }
+.bsp-doom .chain .stp { padding:4px 8px; background:#040208; border:1px solid #2a1f1a; border-radius:3px; transition:all .25s; }
+.bsp-doom .chain .stp.act { background:#2a0a0a; border-color:var(--critical); color:#ffb8a8; box-shadow:0 0 8px rgba(217,114,98,.3); }
+.bsp-doom .chain .arr { color:#3d4555; }
+.bsp-doom .stat { font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--positive); }
+.bsp-doom .stat.crit { color:var(--critical); }
+
+.bsp-load { background:linear-gradient(180deg, #08050a 0%, #06030a 100%); border:1px solid #2a1f1a; border-radius:6px; padding:18px 20px; }
+.bsp-load .head { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.bsp-load .head h4 { font-family:var(--serif); font-size:15px; font-weight:400; color:#e8e8e8; margin:0; }
+.bsp-load .head .sub { font-family:var(--mono); font-size:9.5px; color:#6c7689; letter-spacing:0.1em; }
+.bsp-load-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; }
+.bsp-load-cell { background:#040208; border:1px solid #2a1f1a; border-radius:4px; padding:9px 12px; }
+.bsp-load-cell .nm { font-family:var(--mono); font-size:8.5px; letter-spacing:.14em; color:#6c7689; text-transform:uppercase; margin-bottom:4px; }
+.bsp-load-cell input { background:transparent; border:none; color:var(--gold); font-family:var(--mono); font-size:14px; width:100%; outline:none; letter-spacing:-0.005em; }
+.bsp-load-cell input:focus { color:#fff; }
+.bsp-load-foot { font-family:var(--mono); font-size:9px; color:#6c7689; letter-spacing:0.05em; margin-top:12px; line-height:1.55; }
+.bsp-load-foot b { color:var(--critical); }
+.bsp-apply-btn { background:linear-gradient(180deg, #1a0a0a 0%, #06030a 100%); border:1px solid var(--critical); border-radius:4px; padding:8px 14px; color:#ffb8a8; font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+.bsp-apply-btn:hover { background:linear-gradient(180deg, #2a1414 0%, #1a0a0a 100%); box-shadow:0 0 10px rgba(217,114,98,.3); }
+
+.bsp-foot { font-family:var(--mono); font-size:9px; color:#6c7689; line-height:1.55; margin:14px 0 0 0; letter-spacing:.06em; opacity:.85; }
+.bsp-foot b { color:var(--critical); font-weight:400; }
+
+@media (max-width:1100px) {
+  .bsp-main { grid-template-columns:1fr; }
+  .bsp-kpi { grid-template-columns:repeat(3, 1fr); }
+  .bsp-load-grid { grid-template-columns:repeat(2, 1fr); }
+}
 </style>
 </head>
 
@@ -3121,162 +3219,544 @@ footer.foot .right .gold { color: var(--gold); }
           <div class="big">We're not asking the bank to <em>hand over</em> the investment book. We're offering to <em>run it</em> with the institutional risk infrastructure of a global asset manager &mdash; under the bank's IPS, the bank's regulator, and the bank's capital plan. <em>The bank keeps full oversight; we add the engine.</em></div>
         </div>
 
-        <div class="section-header">
-          <div class="section-title">Across the region &mdash; what most treasuries are missing</div>
-          <div class="section-meta">What a typical Caribbean / regional bank treasury operates without · this is the gap we close</div>
-        </div>
-        <div class="approach">
-          <div class="ac"><div class="icon">&times;</div><h5>No live VaR</h5><p>Most regional treasuries compute Value-at-Risk quarterly or annually, if at all. Daily VaR (triple-method, refreshed at close) is institutional standard but regionally rare.</p></div>
-          <div class="ac"><div class="icon">&times;</div><h5>No factor model</h5><p>The book is held by name, not decomposed into risk factors (beta, duration, spread, FX). The actual source of risk is invisible to the treasurer.</p></div>
-          <div class="ac"><div class="icon">&times;</div><h5>No adversarial stress</h5><p>Stress tests are canned scenarios from a regulator template &mdash; rerun annually. The book has never been tested against its own worst plausible day.</p></div>
-          <div class="ac"><div class="icon">&times;</div><h5>No continuous management</h5><p>Quarterly investment-committee review is the cadence. Markets do not wait for the calendar.</p></div>
-          <div class="ac"><div class="icon">&times;</div><h5>No AI surveillance</h5><p>Material events surface through analyst notes from offshore parents, days after the market has moved.</p></div>
-          <div class="ac"><div class="icon">&times;</div><h5>No regime overlay</h5><p>Positioning is set annually in the IPS; the live state of the market is not an input. Risk-on and risk-off look identical to the book.</p></div>
-        </div>
-        <div style="font-family:var(--serif); font-size:15.5px; line-height:1.6; color:var(--text-secondary); font-style:italic; margin-bottom:24px; max-width:920px;">This isn't a knock on regional banks &mdash; it's a description of where the industry is. The infrastructure described above is standard at Goldman, JPM, BlackRock; <em>it is not standard at any regional bank treasury, including the largest</em>. The bank that wires it in first gets a structural risk advantage that compounds.</div>
-
-        <div class="opp-close-frame">
+<div class="opp-close-frame">
           <div class="lbl">Indicative direction &mdash; not a trade list</div>
           <div class="big">We do not propose specific trades on this page. <em>The actual line-level direction comes out of the diagnostic</em> (week-one phase), against the bank&apos;s real holdings, IPS, and capital plan. What we&apos;ve shown above is <em>how we&apos;d think</em>, what we&apos;d run, and what your treasurer would have on their desk every morning.</div>
         </div>
+
+<div class="bsp-wrap" id="bsp">
+  <div class="bsp-eyebrow">Section II &middot; The Balance Sheet Under Pressure</div>
+  <h2 class="bsp-h">A bank is a confidence machine. <em>Watch what breaks it.</em></h2>
+  <p class="bsp-sub">A bank funds short and invests long &mdash; the spread is the business, the duration gap is the risk. When rates rise, long bonds quietly lose market value while deposits get restless; a <em>thin sliver of equity</em> is all that stands between solvency and a run. This is the lesson of 2023&apos;s regional-bank failures, made visceral. <b>Apply a shock with the dials below and watch the balance sheet absorb it &mdash; until it can&apos;t.</b></p>
+
+  <div class="bsp-kpi">
+    <div class="bsp-kpi-cell" id="bk-ta-cell"><div class="lbl">Total Assets</div><div class="v" id="bk-ta">$30.00B</div><div class="delta" id="bk-ta-d">assets = L + E</div></div>
+    <div class="bsp-kpi-cell" id="bk-cet1-cell"><div class="lbl">CET1 Ratio</div><div class="v" id="bk-cet1">11.4%</div><div class="delta" id="bk-cet1-d">well-capitalized &gt;10.5%</div></div>
+    <div class="bsp-kpi-cell" id="bk-nim-cell"><div class="lbl">Net Interest Margin</div><div class="v" id="bk-nim">3.10%</div><div class="delta" id="bk-nim-d">asset&nbsp;yield &minus; funding&nbsp;cost</div></div>
+    <div class="bsp-kpi-cell" id="bk-aoci-cell"><div class="lbl">Unrealized AOCI Loss</div><div class="v" id="bk-aoci">$0M</div><div class="delta" id="bk-aoci-d">the SVB number</div></div>
+    <div class="bsp-kpi-cell" id="bk-lcr-cell"><div class="lbl">LCR</div><div class="v" id="bk-lcr">142%</div><div class="delta" id="bk-lcr-d">HQLA / 30d stressed outflow</div></div>
+    <div class="bsp-kpi-cell" id="bk-runway-cell"><div class="lbl">Liquidity Runway</div><div class="v" id="bk-runway">∞</div><div class="delta" id="bk-runway-d">days to depletion</div></div>
+  </div>
+
+  <div class="bsp-main">
+    <div class="bsp-panel">
+      <div class="pt"><span>The balance sheet &middot; A = L + E (enforced)</span><span class="legend">hover any block for duration / yield / MTM</span></div>
+      <div class="bsp-bs-wrap" id="bsp-bs-wrap">
+        <svg id="bsp-bs-svg" viewBox="0 0 700 520" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div class="bsp-dur-meter">
+        <div class="pt"><span>Duration Gap</span><span><span id="bk-adur">4.1y</span> assets &middot; <span id="bk-ldur">0.8y</span> liabilities</span></div>
+        <div class="bsp-dur-bar">
+          <div class="alab" id="bk-adur-bar" style="width:50%;">A&nbsp;<span id="bk-adur2">4.1y</span></div>
+          <div class="llab" id="bk-ldur-bar" style="width:20%;">L&nbsp;<span id="bk-ldur2">0.8y</span></div>
+          <div class="bsp-dur-gap" id="bk-gap-marker" style="left:50%;"></div>
+        </div>
+        <div class="bsp-dur-foot"><span>Wider gap &rarr; more violent rate-shock response</span><span>Gap: <b id="bk-gap">3.4y</b></span></div>
+      </div>
+    </div>
+
+    <div class="bsp-panel bsp-ctrl">
+      <div class="pt">Shock Controls</div>
+
+      <div class="bsp-dial" id="dial-rate">
+        <div class="head"><span class="nm">Rate Shift</span><span class="vv" id="dv-rate">+0 bps</span></div>
+        <input type="range" id="sl-rate" min="-200" max="500" step="25" value="0">
+        <div class="tick"><span>-200</span><span>0</span><span>+500 bps</span></div>
       </div>
 
-      <div class="section-header">
-        <div class="section-title">What we offer &mdash; the complete service catalogue</div>
-        <div class="section-meta">What we deliver beyond the investment portfolio &middot; the family-office service catalogue HNW clients expect at this scale</div>
+      <div class="bsp-dial" id="dial-deposit">
+        <div class="head"><span class="nm">Deposit Flight (Uninsured)</span><span class="vv" id="dv-dep">0%</span></div>
+        <input type="range" id="sl-dep" min="0" max="60" step="2" value="0">
+        <div class="tick"><span>0%</span><span>30%</span><span>60% drained</span></div>
       </div>
-      <div class="fo-grid" id="fo-grid">
 
-        <div class="fo-card" data-fo="invmgt">
-          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
-          <div class="fo-icon">&#9673;</div>
-          <h5>Investment management</h5>
-          <p>Discretionary management of the public-market book across the five architectural layers. Mass-affluent &amp; HNW &amp; ultra-HNW mandates. <b>Direct execution via Oceanic.</b></p>
-          <div class="fo-mode">Direct &middot; ECSRC supervised</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl">No external partner required. <b>Discretionary portfolio management is performed by Oceanic&apos;s licensed PMs under ECSRC supervision</b>, with custody at Pershing-BNY Mellon and the broker-dealer infrastructure of Interactive Brokers Institutional underneath.</div></div>
-            <div class="fo-pgrp"><div class="ph">Custody &amp; clearing partners</div><div class="pl"><b>Pershing</b> (BNY Mellon) &middot; <b>Interactive Brokers Institutional</b> &middot; client assets always held in the client&apos;s own name at an independent custodian.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic decides; the custodian holds. The client&apos;s cash and securities never sit on Oceanic&apos;s balance sheet.</div>
-          </div>
-        </div>
+      <div class="bsp-dial" id="dial-credit">
+        <div class="head"><span class="nm">Credit Stress (loan&nbsp;losses)</span><span class="vv" id="dv-cr">0%</span></div>
+        <input type="range" id="sl-cr" min="0" max="12" step="0.5" value="0">
+        <div class="tick"><span>0%</span><span>6%</span><span>12% peak losses</span></div>
+      </div>
 
-        <div class="fo-card" data-fo="wp">
-          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
-          <div class="fo-icon">&#9670;</div>
-          <h5>Wealth planning &amp; structuring</h5>
-          <p>Coordinated wealth-architecture design &mdash; trusts, foundations, holding companies, insurance wrappers, jurisdiction-specific vehicles. <b>Advisory + legal/tax partner network.</b></p>
-          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Anguilla local counsel</div><div class="pl"><b>Webster LP</b> (offshore structuring, the dominant Anguilla firm) &middot; <b>Keithley Lake &amp; Associates</b> &middot; <b>Hannays</b> &middot; coordinated through the bank&apos;s existing legal relationships where applicable.</div></div>
-            <div class="fo-pgrp"><div class="ph">Offshore trust &amp; legal partners</div><div class="pl"><b>Maples Group</b> (Cayman, Anguilla, BVI) &middot; <b>Walkers</b> (Cayman, Bermuda, BVI) &middot; <b>Conyers</b> (Bermuda, BVI) &middot; <b>Appleby</b> (Bermuda, Cayman) &middot; <b>Carey Olsen</b> (Channel Islands, Cayman) &middot; <b>Ogier</b> &middot; <b>Harneys</b>.</div></div>
-            <div class="fo-pgrp"><div class="ph">Trust formation</div><div class="pl"><b>Butterfield Trust</b> &middot; <b>Maples Trust</b> &middot; <b>HSBC Private Banking International</b> &middot; <b>Carey Olsen Trust</b>.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic coordinates the network; the appointed firm delivers the legal product. The client signs with the legal firm directly &mdash; we own the project plan and the integration with the investment portfolio.</div>
-          </div>
-        </div>
+      <button class="bsp-run-btn" id="bsp-run">&#9889;&nbsp;&nbsp;Trigger Deposit Run</button>
 
-        <div class="fo-card" data-fo="pd">
-          <div class="fo-tog">VETTED PARTNERS &#9656;</div>
-          <div class="fo-icon">&#9636;</div>
-          <h5>Private deal flow</h5>
-          <p>Curated access to private equity, private credit, venture, direct co-investments &mdash; sourced from a vetted institutional partner network with full due-diligence support.</p>
-          <div class="fo-mode">Advisory &middot; vetted partners</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Regional development finance</div><div class="pl"><b>Caribbean Development Bank (CDB)</b> &middot; <b>IDB Invest</b> (private-sector arm of the Inter-American Development Bank) &middot; <b>CIBC FirstCaribbean Investment Banking</b> &middot; <b>First Citizens Investment Banking</b> (regional debt and equity placement).</div></div>
-            <div class="fo-pgrp"><div class="ph">International PE / private-credit access</div><div class="pl">Vetted GP and fund-of-funds network across global PE, private credit, secondaries, and co-investments. Names disclosed under NDA in the diagnostic phase; access is via advisory-only labelling within the ECSRC perimeter.</div></div>
-            <div class="fo-pgrp"><div class="ph">Co-investment partners</div><div class="pl">Direct co-investment introductions through the institutional partner network where the client&apos;s mandate and net-worth qualifications permit.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic sources and due-diligences; the client invests with the GP directly. <b>Advisory labelling within ECSRC, never direct distribution.</b></div>
-          </div>
-        </div>
+      <div class="pt" style="margin-top:6px;">Preset Scenarios</div>
+      <div class="bsp-presets" style="margin-bottom:0;">
+        <button class="bsp-preset active" data-bspp="calm">Calm / Normal</button>
+        <button class="bsp-preset" data-bspp="rateshock">Rate Shock 2022&ndash;23</button>
+        <button class="bsp-preset" data-bspp="svb">Deposit Run (SVB-style)</button>
+        <button class="bsp-preset" data-bspp="cre">CRE Credit Cycle</button>
+        <button class="bsp-preset" data-bspp="freeze">2008 Liquidity Freeze</button>
+      </div>
+    </div>
+  </div>
 
-        <div class="fo-card" data-fo="tax">
-          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
-          <div class="fo-icon">&#9671;</div>
-          <h5>Tax &amp; jurisdiction coordination</h5>
-          <p>Multi-jurisdiction tax planning, residency optimisation, cross-border structuring. <b>Coordinated with vetted tax counsel across the client&apos;s footprint.</b></p>
-          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Big-Four Caribbean offices</div><div class="pl"><b>KPMG Caribbean</b> &middot; <b>PwC Caribbean</b> &middot; <b>EY Caribbean</b> &middot; <b>Deloitte Caribbean</b> &middot; <b>BDO Caribbean Network</b>. Cross-border tax planning, treaty analysis, residency &amp; substance frameworks.</div></div>
-            <div class="fo-pgrp"><div class="ph">Anguilla / local tax counsel</div><div class="pl"><b>Webster LP</b> (Anguilla offshore tax) &middot; coordination with the client&apos;s home-jurisdiction tax adviser where applicable.</div></div>
-            <div class="fo-pgrp"><div class="ph">Specialty structuring</div><div class="pl"><b>Maples Group</b> &middot; <b>Carey Olsen</b> &middot; <b>Conyers</b> &mdash; for tax-efficient holding-vehicle design across Cayman, Bermuda, BVI, Channel Islands.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic doesn&apos;t deliver tax advice. <b>We coordinate the tax-counsel network</b>, integrate their advice into the portfolio structure, and ensure investment decisions don&apos;t conflict with the tax strategy.</div>
-          </div>
-        </div>
+  <div class="bsp-doom">
+    <div class="ttl">The Doom Loop</div>
+    <div class="chain" id="bsp-chain">
+      <span class="stp" data-stp="0">Shock arrives</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="1">Asset MTM down</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="2">Deposits notice</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="3">Cash drained</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="4">Forced sale &middot; loss realized</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="5">Equity erodes</span><span class="arr">&rarr;</span>
+      <span class="stp" data-stp="6">Confidence collapses</span>
+    </div>
+    <div class="stat" id="bsp-status">SOLVENT</div>
+  </div>
 
-        <div class="fo-card" data-fo="mgp">
-          <div class="fo-tog">MULTI-DISCIPLINARY &#9656;</div>
-          <div class="fo-icon">&#9672;</div>
-          <h5>Multi-generational planning</h5>
-          <p>Wealth transfer strategies, family governance frameworks, next-gen investment education, succession planning. The decades-long view families need.</p>
-          <div class="fo-mode">Advisory &middot; multi-disciplinary</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Trust &amp; succession structuring</div><div class="pl"><b>Conyers</b> (Bermuda) &middot; <b>Walkers</b> (Cayman) &middot; <b>Appleby</b> &middot; <b>Maples Group</b> &middot; <b>Butterfield Trust</b> &mdash; long-life trust structures, dynasty trusts, foundation vehicles for multi-decade wealth transfer.</div></div>
-            <div class="fo-pgrp"><div class="ph">Family-office advisory</div><div class="pl"><b>KPMG Family Office</b> &middot; <b>EY Family Office</b> &middot; <b>PwC Private</b> &middot; <b>Deloitte Private</b> &mdash; governance frameworks, family-council design, next-gen education curricula.</div></div>
-            <div class="fo-pgrp"><div class="ph">Anguilla residency &amp; second-citizenship coordination</div><div class="pl"><b>Select Anguilla</b> (Anguilla&apos;s Tax Residency Program) &middot; <b>Anguilla Financial Services Commission</b> liaison &middot; <b>Anguilla Citizenship by Investment Programme</b> &mdash; for families establishing or relocating Caribbean residency.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic orchestrates the decades-long plan; trusts, education funds, and residency steps are delivered by the appointed legal and family-office advisers. <b>One investment portfolio underneath all of it.</b></div>
-          </div>
-        </div>
+  <div class="bsp-load">
+    <div class="head">
+      <h4>Load your own bank &mdash; <em style="color:#a3adc2; font-style:italic;">paste any institution&apos;s call-report-style figures and model it</em></h4>
+      <span class="sub">All values $M &middot; durations in years</span>
+    </div>
+    <div class="bsp-load-grid">
+      <div class="bsp-load-cell"><div class="nm">Cash &amp; Reserves</div><input type="number" id="bi-cash" value="1500"></div>
+      <div class="bsp-load-cell"><div class="nm">AFS Securities</div><input type="number" id="bi-afs" value="4500"></div>
+      <div class="bsp-load-cell"><div class="nm">HTM Securities</div><input type="number" id="bi-htm" value="5500"></div>
+      <div class="bsp-load-cell"><div class="nm">C&amp;I Loans</div><input type="number" id="bi-cni" value="7500"></div>
+      <div class="bsp-load-cell"><div class="nm">CRE Loans</div><input type="number" id="bi-cre" value="6500"></div>
+      <div class="bsp-load-cell"><div class="nm">Mortgage / Consumer</div><input type="number" id="bi-mtg" value="4500"></div>
+      <div class="bsp-load-cell"><div class="nm">AFS Duration (y)</div><input type="number" id="bi-afsd" value="4.0" step="0.5"></div>
+      <div class="bsp-load-cell"><div class="nm">HTM Duration (y)</div><input type="number" id="bi-htmd" value="6.0" step="0.5"></div>
+      <div class="bsp-load-cell"><div class="nm">Insured Deposits</div><input type="number" id="bi-idep" value="14500"></div>
+      <div class="bsp-load-cell"><div class="nm">Uninsured Deposits</div><input type="number" id="bi-udep" value="10500"></div>
+      <div class="bsp-load-cell"><div class="nm">Wholesale / Borrowings</div><input type="number" id="bi-whl" value="2500"></div>
+      <div class="bsp-load-cell"><div class="nm">Equity (book)</div><input type="number" id="bi-eq" value="2500"></div>
+    </div>
+    <div class="bsp-load-foot" style="display:flex; justify-content:space-between; align-items:center; gap:14px;">
+      <span><b>ILLUSTRATIVE.</b> Default values represent a synthetic ~$30B regional bank. Edit any field, click <em>Apply</em>, then re-run the shocks above. No live data; client-side deterministic stress math.</span>
+      <button class="bsp-apply-btn" id="bsp-apply">Apply &amp; Reset Shocks</button>
+    </div>
+  </div>
 
-        <div class="fo-card" data-fo="cs">
-          <div class="fo-tog">MIXED DELIVERY &#9656;</div>
-          <div class="fo-icon">&#9650;</div>
-          <h5>Concentrated-stock &amp; business succession</h5>
-          <p>For founders, executives, business owners &mdash; structured unwinds of concentrated holdings, exchange-fund arrangements, defined-risk hedging, liquidity-event planning.</p>
-          <div class="fo-mode">Mixed &middot; direct hedging + advisory</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Direct hedging via Oceanic</div><div class="pl"><b>Defined-risk option overlays</b> on the concentrated position (collars, put spreads, prepaid forward replication) &mdash; executed under Oceanic&apos;s ECSRC permissions, with custody at the independent custodian.</div></div>
-            <div class="fo-pgrp"><div class="ph">M&amp;A and liquidity-event advisory</div><div class="pl"><b>CIBC FirstCaribbean Investment Banking</b> (regional M&amp;A) &middot; <b>First Citizens Investment Banking</b> &middot; international M&amp;A counsel via partner network for cross-border transactions &middot; <b>Webster LP</b> for Anguilla-side legal.</div></div>
-            <div class="fo-pgrp"><div class="ph">Tax-event integration</div><div class="pl">Coordinated with the Big-Four Caribbean tax network (KPMG/PwC/EY/Deloitte) and the client&apos;s home-jurisdiction tax counsel.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic designs the unwind structure and executes the hedging directly. <b>Legal and tax delivery flows through the partner network</b>; the integration into the broader portfolio is ours.</div>
-          </div>
-        </div>
+  <p class="bsp-foot"><b>ILLUSTRATIVE.</b> Synthetic representative bank; not modelling any specific real institution. Shock math: rate sensitivity via modified duration &middot; deposit flight drains cash first then forces AFS/HTM sales realising MTM losses to equity &middot; credit stress writes down loans (CRE-weighted). The doom-loop chain is what actually broke regional banks in 2023.</p>
+</div>
 
-        <div class="fo-card" data-fo="phil">
-          <div class="fo-tog">PARTNER-COORDINATED &#9656;</div>
-          <div class="fo-icon">&#9660;</div>
-          <h5>Philanthropic strategy</h5>
-          <p>Foundation structuring, donor-advised funds, impact-investment allocation, philanthropic governance. <b>Coordinated with the client&apos;s legal and tax counsel.</b></p>
-          <div class="fo-mode">Advisory &middot; partner-coordinated</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Local Anguilla &amp; regional philanthropy partners</div><div class="pl"><b>Anguilla National Trust</b> (heritage &amp; environmental preservation) &middot; <b>Anguilla Red Cross</b> &middot; <b>Anguilla Community Foundation</b> &middot; <b>Help Age Anguilla</b> &middot; <b>Anguilla Animal Rescue Foundation</b>. Direct grant-making channels for Anguilla-targeted impact.</div></div>
-            <div class="fo-pgrp"><div class="ph">Regional impact &amp; resilience networks</div><div class="pl"><b>Caribbean Climate-Smart Accelerator</b> (regional climate-adaptation capital) &middot; <b>Caribbean Public Health Agency (CARPHA)</b> &middot; <b>Caribbean Policy Development Centre</b> &middot; <b>Caribbean Disaster Emergency Management Agency (CDEMA)</b>. For donors targeting regional resilience.</div></div>
-            <div class="fo-pgrp"><div class="ph">Foundation structuring</div><div class="pl">Foundation vehicles in <b>Anguilla</b> (under the Anguilla Foundation Act), <b>Bermuda</b> (Conyers / Appleby), and <b>Cayman</b> (Walkers / Maples). DAF coordination with international platforms where the family already has a presence.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Oceanic designs the giving strategy and integrates it with the investment portfolio (so the foundation&apos;s endowment is managed institutionally). <b>The legal vehicle and grant-making relationships are delivered by the appointed partners.</b></div>
-          </div>
-        </div>
+<script>
+(function(){
+  // Default representative bank ($M)
+  var DEFAULT = {
+    cash:1500, afs:4500, htm:5500, cni:7500, cre:6500, mtg:4500,
+    idep:14500, udep:10500, whl:2500, eq:2500,
+    afsd:4.0, htmd:6.0, cnid:2.0, cred:4.0, mtgd:7.0, // asset durations
+    idepd:1.0, udepd:0.5, whld:1.0,                    // liability durations
+    afsy:0.025, htmy:0.018, cniy:0.065, crey:0.060, mtgy:0.055, cashy:0.045, // yields
+    idepc:0.020, udepc:0.035, whlc:0.050,              // costs
+    rwa:22000  // risk-weighted assets
+  };
 
-        <div class="fo-card" data-fo="sbl">
-          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
-          <div class="fo-icon">&#9711;</div>
-          <h5>Securities-backed lending</h5>
-          <p>Liquidity against the portfolio at institutional rates &mdash; for property purchases, business transactions, tax events &mdash; without selling assets or breaking the compounding.</p>
-          <div class="fo-mode">Direct &middot; via Oceanic</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl"><b>Securities-backed credit lines</b> are arranged through the institutional broker-dealer relationship (Interactive Brokers Institutional &middot; Pershing-BNY Mellon depending on custody). Pricing at institutional reference + spread &mdash; <b>materially below retail private-banking lines</b>.</div></div>
-            <div class="fo-pgrp"><div class="ph">Use cases</div><div class="pl">Property bridge &middot; tax-event funding &middot; business-transaction liquidity &middot; not-selling-into-a-bottom scenarios &middot; concentrated-stock event hedging finance.</div></div>
-            <div class="fo-pgrp"><div class="ph">Risk discipline</div><div class="pl">LTV ratios set by IPS &middot; margin-call protocols in writing &middot; pre-trade approval framework &middot; <b>no surprise calls into client&apos;s personal account</b>.</div></div>
-            <div class="fo-howit"><b>How it works:</b> The line is collateralised by the existing portfolio at the institutional custodian. <b>No external partner; full Oceanic delivery.</b></div>
-          </div>
-        </div>
+  // Archetype presets — each sets bank baseline + applies a shock state
+  var PRESETS = {
+    calm:      { bank: DEFAULT, rate:0,   dep:0,   cr:0   },
+    rateshock: { bank: DEFAULT, rate:475, dep:0,   cr:0   },
+    svb:       {
+      bank: { cash:800, afs:3000, htm:9500, cni:2000, cre:1500, mtg:0,
+              idep:3000, udep:13000, whl:500, eq:1000,
+              afsd:3.5, htmd:9.0, cnid:1.5, cred:4.0, mtgd:7.0,
+              idepd:0.8, udepd:0.3, whld:1.0,
+              afsy:0.022, htmy:0.018, cniy:0.060, crey:0.058, mtgy:0.040, cashy:0.045,
+              idepc:0.015, udepc:0.020, whlc:0.045,
+              rwa:9500 },
+      rate:475, dep:0, cr:0
+    },
+    cre:       {
+      bank: { cash:1500, afs:4000, htm:4500, cni:5500, cre:11000, mtg:3500,
+              idep:14000, udep:11000, whl:2500, eq:2500,
+              afsd:4.0, htmd:6.0, cnid:2.0, cred:4.5, mtgd:7.0,
+              idepd:1.0, udepd:0.5, whld:1.0,
+              afsy:0.025, htmy:0.018, cniy:0.065, crey:0.062, mtgy:0.055, cashy:0.045,
+              idepc:0.020, udepc:0.035, whlc:0.050,
+              rwa:24000 },
+      rate:100, dep:0, cr:7
+    },
+    freeze:    { bank: DEFAULT, rate:200, dep:25, cr:4 }
+  };
 
-        <div class="fo-card" data-fo="cia">
-          <div class="fo-tog">DELIVERED DIRECTLY &#9656;</div>
-          <div class="fo-icon">&#9651;</div>
-          <h5>Concierge investment access</h5>
-          <p>Same-day execution by name. Direct CIO access by phone. Dedicated portfolio team. No call centre, no offshore routing. <b>For Ultra HNW &amp; family-office clients.</b></p>
-          <div class="fo-mode">Direct &middot; named team</div>
-          <div class="fo-detail">
-            <div class="fo-pgrp"><div class="ph">Direct via Oceanic</div><div class="pl">A <b>named PM team</b> on every Ultra-HNW account. Direct phone &amp; messaging access to the CIO. <b>Same-day execution by name on a dedicated trade line.</b> No call-centre layer, no offshore routing.</div></div>
-            <div class="fo-pgrp"><div class="ph">Coverage</div><div class="pl">In your time zone, in your business hours. The team that pitches you is the team that runs your money. <b>No bait-and-switch onboarding.</b></div></div>
-            <div class="fo-pgrp"><div class="ph">Available 24/7 for material events</div><div class="pl">Hurricane warning &middot; geopolitical event &middot; market dislocation &middot; family liquidity need &mdash; the CIO is reachable.</div></div>
-            <div class="fo-howit"><b>How it works:</b> Concierge access is a direct feature of the Oceanic mandate at the Ultra-HNW tier. <b>No external partner.</b></div>
-          </div>
-        </div>
+  // State
+  var bank = Object.assign({}, DEFAULT);
+  var shock = { rate:0, dep:0, cr:0 };
+  var realizedLoss = 0;   // cumulative realized loss from forced sales (hits equity)
+  var doomStage = -1;
+  var running = false;
+  var runTicks = 0;
+
+  function clone(o){ var r={}; for(var k in o) r[k]=o[k]; return r; }
+
+  // Compute derived bank state under current shocks
+  function compute() {
+    var b = bank;
+    // Pre-shock asset values
+    var afs = b.afs, htm = b.htm, cni = b.cni, cre = b.cre, mtg = b.mtg, cash = b.cash;
+    // Rate-shock MTM on bond books (modified duration model)
+    var dr = shock.rate/10000;
+    var afsMtm  = -b.afsd * dr * afs;       // dollars
+    var htmMtm  = -b.htmd * dr * htm;       // hidden until sale
+    var cniMtm  = -b.cnid * dr * cni * 0.4; // floating-rate loans only partially affected
+    var creMtm  = -b.cred * dr * cre * 0.4;
+    var mtgMtm  = -b.mtgd * dr * mtg * 0.7;
+    // Credit stress (CRE-weighted)
+    var cs = shock.cr/100;
+    var credLoss = (b.cni * cs * 0.5) + (b.cre * cs * 1.4) + (b.mtg * cs * 0.4);
+    // Deposit flight drains uninsured first
+    var udepDrain = b.udep * (shock.dep/100);
+    // Replenish by draining cash, then forcing AFS sale (realizes loss), then HTM sale
+    var need = udepDrain;
+    var cashUsed = Math.min(cash, need); cash -= cashUsed; need -= cashUsed;
+    var afsSold = 0, htmSold = 0;
+    var afsLossRealized = 0, htmLossRealized = 0;
+    if (need > 0) {
+      // sell AFS at marked value
+      var afsAvail = afs + afsMtm; if (afsAvail < 0) afsAvail = 0;
+      var sellPct = Math.min(1, need/Math.max(1,afsAvail));
+      afsSold = afs * sellPct;
+      afsLossRealized = -afsMtm * sellPct; // positive number = loss
+      afs -= afsSold; afsMtm += -afsMtm*sellPct; // remaining AFS continues to carry MTM
+      need -= (afsSold + afsMtm*sellPct); // cash raised ~ afs sold at market
+    }
+    if (need > 0) {
+      // HTM sale forces recognition
+      var htmAvail = htm + htmMtm; if (htmAvail < 0) htmAvail = 0;
+      var sellPct2 = Math.min(1, need/Math.max(1,htmAvail));
+      htmSold = htm * sellPct2;
+      htmLossRealized = -htmMtm * sellPct2;
+      htm -= htmSold; htmMtm += -htmMtm*sellPct2;
+      need -= (htmSold + htmMtm*sellPct2);
+    }
+    // Apply credit loss (write down loans)
+    var cniLossAlloc = (b.cni * cs * 0.5);
+    var creLossAlloc = (b.cre * cs * 1.4);
+    var mtgLossAlloc = (b.mtg * cs * 0.4);
+    cni = Math.max(0, cni - cniLossAlloc);
+    cre = Math.max(0, cre - creLossAlloc);
+    mtg = Math.max(0, mtg - mtgLossAlloc);
+    // Funding side: uninsured deposits drained
+    var udep = b.udep - udepDrain;
+    var idep = b.idep;
+    var whl = b.whl;
+    // Total liabilities & equity
+    // Total assets at marked value:
+    var assetsCarrying = cash + (afs + afsMtm) + htm + cni + cre + mtg; // HTM carried at amortised cost
+    var assetsEconomic  = cash + (afs + afsMtm) + (htm + htmMtm) + cni + cre + mtg;
+    var liabilities = idep + udep + whl;
+    // Equity (book) = baseline - AOCI on AFS (recognized) - realized loss from sales - credit loss
+    var equity = b.eq + afsMtm + (-afsLossRealized) + (-htmLossRealized) + (-(cniLossAlloc+creLossAlloc+mtgLossAlloc));
+    // Actually simpler: equity = economic assets - liabilities, with HTM not marked
+    equity = assetsCarrying - liabilities;
+    // But economic equity = economic assets - liabilities
+    var equityEcon = assetsEconomic - liabilities;
+
+    var assets = liabilities + equity; // enforce identity for display
+
+    // Ratios
+    var cet1 = equity / Math.max(1, b.rwa) * 100;
+    var grossAssetYield = (cash*b.cashy + (afs+afsMtm)*b.afsy + htm*b.htmy + cni*b.cniy + cre*b.crey + mtg*b.mtgy) / Math.max(1, assets);
+    // Deposit beta — costs rise with rate move
+    var idepBeta = 0.35, udepBeta = 0.70, whlBeta = 0.95;
+    var idepCost = b.idepc + (shock.rate/10000) * idepBeta;
+    var udepCost = b.udepc + (shock.rate/10000) * udepBeta;
+    var whlCost  = b.whlc + (shock.rate/10000) * whlBeta;
+    var fundingCost = (idep*idepCost + udep*udepCost + whl*whlCost) / Math.max(1, idep+udep+whl);
+    var nim = grossAssetYield - fundingCost;
+    // AOCI = AFS marks (recognized into capital under most accounting); plus remaining HTM marks for the disclosure
+    var aociLoss = -(afsMtm) - (htmMtm); // positive number = loss to disclose
+    // LCR — HQLA = cash + AFS at market; stressed outflows = ~ 40% uninsured + 5% insured + wholesale
+    var hqla = cash + (afs + afsMtm);
+    var stressedOutflow30d = 0.40 * udep + 0.05 * idep + 0.80 * whl;
+    var lcr = hqla / Math.max(1, stressedOutflow30d) * 100;
+    var runway = (hqla - (0.10 * udep)) / Math.max(0.1, (0.05 * udep / 30));  // approximate, in days
+    if (runway > 365) runway = 365;
+
+    // Duration gap
+    var assetSum = cash + (afs + afsMtm) + htm + cni + cre + mtg;
+    var assetDur = (cash*0 + (afs+afsMtm)*b.afsd + htm*b.htmd + cni*b.cnid + cre*b.cred + mtg*b.mtgd) / Math.max(1,assetSum);
+    var libSum = idep + udep + whl;
+    var libDur = (idep*b.idepd + udep*b.udepd + whl*b.whld) / Math.max(1,libSum);
+    var dgap = assetDur - libDur*(libSum/Math.max(1,assetSum));
+
+    return {
+      cash:cash, afs:afs+afsMtm, htm:htm, cni:cni, cre:cre, mtg:mtg,
+      idep:idep, udep:udep, whl:whl, equity:equity,
+      assets:assets, libs:liabilities, equityEcon:equityEcon,
+      cet1:cet1, nim:nim, aoci:aociLoss, lcr:lcr, runway:runway,
+      afsMtm:afsMtm, htmMtm:htmMtm,
+      afsLoss:afsLossRealized, htmLoss:htmLossRealized,
+      credLoss:credLoss,
+      assetDur:assetDur, libDur:libDur, dgap:dgap,
+      assetSum:assetSum
+    };
+  }
+
+  // ----- Drawing the balance sheet (stacked blocks) -----
+  function drawBS(st) {
+    var svg = document.getElementById('bsp-bs-svg'); if (!svg) return;
+    var W=700, H=520;
+    var pad = 30;
+    var colW = 220;
+    var aX = 60, lX = W - 60 - colW;
+    var top = 50, bot = H - 30;
+    var hAvail = bot - top;
+
+    // Asset blocks (top to bottom):
+    var aBlocks = [
+      { k:'cash',v:st.cash, c:'#5eb3d6', n:'Cash & Reserves',  d:0,   y:bank.cashy, mtm:0,        info:'most liquid · zero MTM risk' },
+      { k:'afs', v:st.afs,  c:'#7c9ec9', n:'AFS Securities',    d:bank.afsd, y:bank.afsy, mtm:st.afsMtm, info:'marked to market · hits AOCI' },
+      { k:'htm', v:st.htm,  c:'#5a6db0', n:'HTM Securities',    d:bank.htmd, y:bank.htmy, mtm:st.htmMtm, info:'amortised cost · hidden until sale' },
+      { k:'cni', v:st.cni,  c:'#6ba37a', n:'C&I Loans',         d:bank.cnid, y:bank.cniy, mtm:0, info:'mostly floating-rate' },
+      { k:'cre', v:st.cre,  c:'#d4a347', n:'CRE Loans',         d:bank.cred, y:bank.crey, mtm:0, info:'credit-cycle sensitive' },
+      { k:'mtg', v:st.mtg,  c:'#a67c5a', n:'Mortgage / Consumer',d:bank.mtgd, y:bank.mtgy, mtm:0, info:'long duration · convexity' }
+    ];
+    var lBlocks = [
+      { k:'eq',  v:st.equity, c:'#c9a961', n:'Equity', d:0,           y:0,         info:'the shock absorber', isEq:true },
+      { k:'whl', v:st.whl,    c:'#e07a5f', n:'Wholesale / Borrowings', d:bank.whld, y:bank.whlc, info:'expensive · flighty' },
+      { k:'udep',v:st.udep,   c:'#d57565', n:'Uninsured Deposits',     d:bank.udepd, y:bank.udepc, info:'first to flee' },
+      { k:'idep',v:st.idep,   c:'#6ba37a', n:'Insured Deposits',       d:bank.idepd, y:bank.idepc, info:'sticky · FDIC-backed' }
+    ];
+
+    var aSum = 0; aBlocks.forEach(function(b){ aSum += Math.max(0, b.v); });
+    var lSum = 0; lBlocks.forEach(function(b){ lSum += Math.max(0, b.v); });
+    // Scale to fit
+    var scale = hAvail / Math.max(aSum, lSum);
+
+    var s = '';
+    // Headers
+    s += '<text x="'+(aX+colW/2)+'" y="32" fill="#a3adc2" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.2em" text-anchor="middle">ASSETS</text>';
+    s += '<text x="'+(aX+colW/2)+'" y="46" fill="#5eb3d6" font-family="JetBrains Mono,monospace" font-size="13" text-anchor="middle">$'+(st.assets/1000).toFixed(2)+'B</text>';
+    s += '<text x="'+(lX+colW/2)+'" y="32" fill="#a3adc2" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="0.2em" text-anchor="middle">LIABILITIES + EQUITY</text>';
+    s += '<text x="'+(lX+colW/2)+'" y="46" fill="#d4a347" font-family="JetBrains Mono,monospace" font-size="13" text-anchor="middle">$'+((st.libs+st.equity)/1000).toFixed(2)+'B</text>';
+
+    // = sign in middle
+    s += '<text x="'+(W/2)+'" y="'+((top+bot)/2)+'" fill="#c9a961" font-family="serif" font-size="40" text-anchor="middle" alignment-baseline="middle" opacity="0.5">=</text>';
+
+    // Asset stack (top→down)
+    var y = top;
+    aBlocks.forEach(function(b){
+      var h = Math.max(0, b.v) * scale;
+      if (h < 0.5) return;
+      var glow = b.mtm < -50 ? 'rgba(217,114,98,0.5)' : 'rgba(255,255,255,0.1)';
+      s += '<rect x="'+aX+'" y="'+y.toFixed(1)+'" width="'+colW+'" height="'+h.toFixed(1)+'" fill="'+b.c+'" fill-opacity="0.92" rx="2"><title>'+b.n+' · $'+(b.v).toFixed(0)+'M · dur '+b.d.toFixed(1)+'y · yield '+(b.y*100).toFixed(1)+'% · MTM '+(b.mtm>=0?'+':'')+b.mtm.toFixed(0)+'M · '+b.info+'</title></rect>';
+      // shimmer top edge
+      s += '<rect x="'+aX+'" y="'+y.toFixed(1)+'" width="'+colW+'" height="1.5" fill="#fff" fill-opacity="0.25"/>';
+      // label inline if block large enough
+      if (h >= 26) {
+        s += '<text x="'+(aX+10)+'" y="'+(y+15).toFixed(1)+'" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.04em">'+b.n+'</text>';
+        s += '<text x="'+(aX+colW-10)+'" y="'+(y+15).toFixed(1)+'" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="end">$'+b.v.toFixed(0)+'M</text>';
+        if (h >= 44 && b.d > 0) {
+          s += '<text x="'+(aX+10)+'" y="'+(y+31).toFixed(1)+'" fill="rgba(255,255,255,0.65)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">dur '+b.d.toFixed(1)+'y · yield '+(b.y*100).toFixed(1)+'%</text>';
+        }
+        if (h >= 44 && b.mtm < -1) {
+          s += '<text x="'+(aX+colW-10)+'" y="'+(y+31).toFixed(1)+'" fill="#ffb8a8" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="end">MTM '+b.mtm.toFixed(0)+'M</text>';
+        }
+      }
+      y += h;
+    });
+
+    // Liability stack (top=equity → bottom=insured deposits)
+    y = top;
+    lBlocks.forEach(function(b){
+      var h = Math.max(0, b.v) * scale;
+      if (h < 0.5 && !b.isEq) return;
+      var col = b.c;
+      var op = 0.92;
+      if (b.isEq) {
+        if (b.v <= 0) { col = '#5a0a0a'; op = 1; }
+        else if (b.v < bank.eq * 0.4) col = '#d57565';
+        else if (b.v < bank.eq * 0.7) col = '#d4a347';
+      }
+      s += '<rect x="'+lX+'" y="'+y.toFixed(1)+'" width="'+colW+'" height="'+Math.max(2,h).toFixed(1)+'" fill="'+col+'" fill-opacity="'+op+'" rx="2"><title>'+b.n+' · $'+(b.v).toFixed(0)+'M · dur '+b.d.toFixed(1)+'y · cost '+(b.y*100).toFixed(2)+'% · '+b.info+'</title></rect>';
+      s += '<rect x="'+lX+'" y="'+y.toFixed(1)+'" width="'+colW+'" height="1.5" fill="#fff" fill-opacity="0.25"/>';
+      if (h >= 22 || b.isEq) {
+        var labelY = b.isEq ? Math.max(y+10, y+h*0.6) : y+15;
+        s += '<text x="'+(lX+10)+'" y="'+labelY.toFixed(1)+'" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.04em">'+b.n+'</text>';
+        s += '<text x="'+(lX+colW-10)+'" y="'+labelY.toFixed(1)+'" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="end">$'+b.v.toFixed(0)+'M</text>';
+        if (h >= 40) {
+          s += '<text x="'+(lX+10)+'" y="'+(labelY+15).toFixed(1)+'" fill="rgba(255,255,255,0.65)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.06em">dur '+b.d.toFixed(1)+'y · cost '+(b.y*100).toFixed(2)+'%</text>';
+        }
+      }
+      y += h;
+    });
+
+    // Equity highlight pulse when thin
+    if (st.equity < bank.eq * 0.5 && st.equity > 0) {
+      s += '<rect x="'+(lX-3)+'" y="'+(top-3)+'" width="'+(colW+6)+'" height="'+(Math.max(8, st.equity*scale)+6)+'" fill="none" stroke="#d57565" stroke-width="1.5" rx="3" opacity="0.6"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.2s" repeatCount="indefinite"/></rect>';
+    }
+
+    svg.innerHTML = s;
+    document.getElementById('bsp-bs-wrap').classList.toggle('insolvent', st.equity <= 0);
+  }
+
+  // ----- KPI updates -----
+  function $(id){return document.getElementById(id);}
+  function fmt$(n, suffix){ var s = (n<0?'-':''); var a = Math.abs(n); if (a>=1e9) return s+'$'+(a/1e9).toFixed(2)+'B'+(suffix||''); if (a>=1e6) return s+'$'+(a/1e6).toFixed(1)+'M'+(suffix||''); if (a>=1e3) return s+'$'+(a/1e3).toFixed(1)+'K'+(suffix||''); return s+'$'+Math.round(a)+(suffix||''); }
+  function fmtM(n){ if (Math.abs(n)>=1e3) return (n/1e3).toFixed(2)+'B'; return n.toFixed(0)+'M'; }
+
+  var displayed = { ta:30000, cet1:11.4, nim:3.10, aoci:0, lcr:142, runway:365, gap:3.4, adur:4.1, ldur:0.8 };
+
+  function tick(n, target, k) { return n + (target-n) * k; }
+
+  function update() {
+    var st = compute();
+    displayed.ta = tick(displayed.ta, st.assets, 0.18);
+    displayed.cet1 = tick(displayed.cet1, st.cet1, 0.18);
+    displayed.nim = tick(displayed.nim, st.nim*100, 0.18);
+    displayed.aoci = tick(displayed.aoci, st.aoci, 0.18);
+    displayed.lcr = tick(displayed.lcr, st.lcr, 0.18);
+    displayed.runway = tick(displayed.runway, Math.min(365, st.runway), 0.18);
+    displayed.gap = tick(displayed.gap, st.dgap, 0.18);
+    displayed.adur = tick(displayed.adur, st.assetDur, 0.18);
+    displayed.ldur = tick(displayed.ldur, st.libDur, 0.18);
+
+    var jit = (Math.random()-0.5)*0.4;
+    $('bk-ta').textContent = '$' + (displayed.ta/1000).toFixed(2) + 'B';
+    $('bk-cet1').textContent = displayed.cet1.toFixed(2) + '%';
+    $('bk-nim').textContent = (displayed.nim + jit*0.02).toFixed(2) + '%';
+    $('bk-aoci').textContent = '$' + Math.abs(displayed.aoci).toFixed(0) + 'M';
+    $('bk-lcr').textContent = Math.max(0, displayed.lcr).toFixed(0) + '%';
+    var rwTxt = displayed.runway >= 364 ? '∞' : Math.max(0, displayed.runway).toFixed(0)+'d';
+    $('bk-runway').textContent = rwTxt;
+
+    // Color thresholds
+    function setStatus(id, v, thresholds) {
+      var el = $(id); el.classList.remove('amber','red','green');
+      if (v <= thresholds[1]) el.classList.add('red');
+      else if (v <= thresholds[0]) el.classList.add('amber');
+      else el.classList.add('green');
+    }
+    setStatus('bk-cet1-cell', displayed.cet1, [10.5, 7.0]);
+    setStatus('bk-lcr-cell', displayed.lcr, [110, 90]);
+    setStatus('bk-nim-cell', displayed.nim, [2.5, 1.5]);
+    setStatus('bk-runway-cell', displayed.runway, [180, 60]);
+    $('bk-aoci-cell').classList.remove('amber','red','green');
+    if (Math.abs(displayed.aoci) > 600) $('bk-aoci-cell').classList.add('red');
+    else if (Math.abs(displayed.aoci) > 200) $('bk-aoci-cell').classList.add('amber');
+    $('bk-ta-cell').classList.add('green');
+
+    // Duration meter
+    $('bk-adur').textContent = displayed.adur.toFixed(1)+'y';
+    $('bk-ldur').textContent = displayed.ldur.toFixed(1)+'y';
+    $('bk-adur2').textContent = displayed.adur.toFixed(1)+'y';
+    $('bk-ldur2').textContent = displayed.ldur.toFixed(1)+'y';
+    $('bk-gap').textContent = displayed.gap.toFixed(1)+'y';
+    var aDurPct = Math.min(70, displayed.adur/10*70);
+    var lDurPct = Math.min(70, displayed.ldur/10*70);
+    $('bk-adur-bar').style.width = aDurPct+'%';
+    $('bk-ldur-bar').style.width = lDurPct+'%';
+    $('bk-gap-marker').style.left = (aDurPct)+'%';
+
+    // Doom-loop chain progression
+    var stage = -1;
+    if (Math.abs(shock.rate)>50 || shock.cr>1 || shock.dep>2) stage = 0;
+    if ((Math.abs(st.aoci) > 100) || st.credLoss > 50) stage = 1;
+    if (shock.dep > 5 || running) stage = 2;
+    if (st.cash < bank.cash*0.4) stage = 3;
+    if ((st.afsLoss+st.htmLoss) > 50) stage = 4;
+    if (st.equity < bank.eq*0.7) stage = 5;
+    if (st.equity < bank.eq*0.3) stage = 6;
+    var status = $('bsp-status');
+    if (st.equity <= 0) { status.textContent = 'INSOLVENT'; status.className = 'stat crit'; }
+    else if (stage >= 5) { status.textContent = 'CRITICAL'; status.className = 'stat crit'; }
+    else if (stage >= 3) { status.textContent = 'STRESSED'; status.className = 'stat crit'; }
+    else if (stage >= 1) { status.textContent = 'UNDER PRESSURE'; status.className = 'stat'; status.style.color='#d4a347'; }
+    else { status.textContent = 'SOLVENT'; status.className = 'stat'; status.style.color='var(--positive)'; }
+    document.querySelectorAll('#bsp-chain .stp').forEach(function(el){
+      var s2 = +el.dataset.stp;
+      el.classList.toggle('act', s2 <= stage);
+    });
+
+    drawBS(st);
+  }
+
+  // ----- Controls -----
+  function setRate(v){ shock.rate = +v; $('dv-rate').textContent = (v>=0?'+':'')+v+' bps'; document.getElementById('dial-rate').classList.toggle('alert', Math.abs(v)>=200); }
+  function setDep(v){ shock.dep = +v; $('dv-dep').textContent = v+'%'; document.getElementById('dial-deposit').classList.toggle('alert', v>=20); }
+  function setCr(v){ shock.cr = +v; $('dv-cr').textContent = v+'%'; document.getElementById('dial-credit').classList.toggle('alert', v>=5); }
+
+  $('sl-rate').addEventListener('input', function(e){ setRate(e.target.value); deactivatePresets(); });
+  $('sl-dep').addEventListener('input',  function(e){ setDep(e.target.value); deactivatePresets(); });
+  $('sl-cr').addEventListener('input',   function(e){ setCr(e.target.value); deactivatePresets(); });
+
+  function deactivatePresets(){ document.querySelectorAll('.bsp-preset').forEach(function(b){b.classList.remove('active');}); }
+
+  // ----- Run button — progressive deposit drain -----
+  $('bsp-run').addEventListener('click', function(){
+    var btn = this;
+    btn.classList.add('firing');
+    running = true;
+    var step = 0; var maxStep = 35;
+    var iv = setInterval(function(){
+      step++;
+      // ramp deposit flight up to 50%
+      var dep = Math.min(50, step*1.6);
+      $('sl-dep').value = dep;
+      setDep(dep);
+      if (step >= maxStep) { clearInterval(iv); btn.classList.remove('firing'); running = false; }
+    }, 180);
+  });
+
+  // ----- Presets -----
+  function applyPreset(name) {
+    var p = PRESETS[name]; if (!p) return;
+    bank = Object.assign({}, p.bank);
+    // Update load-your-own inputs
+    $('bi-cash').value = bank.cash; $('bi-afs').value = bank.afs; $('bi-htm').value = bank.htm;
+    $('bi-cni').value = bank.cni; $('bi-cre').value = bank.cre; $('bi-mtg').value = bank.mtg;
+    $('bi-afsd').value = bank.afsd; $('bi-htmd').value = bank.htmd;
+    $('bi-idep').value = bank.idep; $('bi-udep').value = bank.udep;
+    $('bi-whl').value = bank.whl; $('bi-eq').value = bank.eq;
+    // Apply shock values via sliders
+    $('sl-rate').value = p.rate; setRate(p.rate);
+    $('sl-dep').value = p.dep;   setDep(p.dep);
+    $('sl-cr').value = p.cr;     setCr(p.cr);
+    document.querySelectorAll('.bsp-preset').forEach(function(b){ b.classList.toggle('active', b.dataset.bspp===name); });
+  }
+  document.querySelectorAll('.bsp-preset').forEach(function(b){ b.addEventListener('click',function(){ applyPreset(b.dataset.bspp); }); });
+
+  // ----- Load-your-own apply -----
+  $('bsp-apply').addEventListener('click', function(){
+    bank.cash = +$('bi-cash').value || 0;
+    bank.afs  = +$('bi-afs').value  || 0;
+    bank.htm  = +$('bi-htm').value  || 0;
+    bank.cni  = +$('bi-cni').value  || 0;
+    bank.cre  = +$('bi-cre').value  || 0;
+    bank.mtg  = +$('bi-mtg').value  || 0;
+    bank.afsd = +$('bi-afsd').value || 4;
+    bank.htmd = +$('bi-htmd').value || 6;
+    bank.idep = +$('bi-idep').value || 0;
+    bank.udep = +$('bi-udep').value || 0;
+    bank.whl  = +$('bi-whl').value  || 0;
+    bank.eq   = +$('bi-eq').value   || 1;
+    var totalAssets = bank.cash+bank.afs+bank.htm+bank.cni+bank.cre+bank.mtg;
+    bank.rwa = bank.cni*1.0 + bank.cre*1.0 + bank.mtg*0.5 + (bank.afs+bank.htm)*0.2 + bank.cash*0.0;
+    // Reset shocks
+    $('sl-rate').value = 0; setRate(0);
+    $('sl-dep').value = 0;  setDep(0);
+    $('sl-cr').value = 0;   setCr(0);
+    deactivatePresets();
+    document.querySelector('.bsp-preset[data-bspp="calm"]').classList.add('active');
+  });
+
+  // ----- Loop -----
+  var rootEl = document.getElementById('bsp');
+  var inView = true;
+  if (rootEl && 'IntersectionObserver' in window){
+    inView = false;
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ inView = e.isIntersecting; }); }, {threshold:0.02});
+    io.observe(rootEl);
+  }
+  var lastT = 0;
+  function loop(ts){
+    if (!ts) ts = 0;
+    var visible = rootEl && rootEl.offsetParent !== null;
+    if (visible && inView && ts - lastT > 50) { lastT = ts; update(); }
+    requestAnimationFrame(loop);
+  }
+  // initial paint
+  update();
+  requestAnimationFrame(loop);
+})();
+</script>
 
       </div>
-      <script>(function(){var g=document.getElementById('fo-grid');if(!g)return;g.querySelectorAll('.fo-card').forEach(function(c){c.addEventListener('click',function(e){if(e.target.tagName==='A')return;c.classList.toggle('open');});});})();</script>
 
-
-      <div class="section-header">
+<div class="section-header">
         <div class="section-title">Governance &amp; reporting &mdash; the family-office board pack</div>
         <div class="section-meta">Quarterly board pack &middot; monthly portfolio review &middot; annual strategic off-site &middot; the way the largest family offices run</div>
       </div>
