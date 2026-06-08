@@ -1863,6 +1863,41 @@ footer.foot .right .gold { color: var(--gold); }
 .adv-close em { color:var(--gold); font-style:italic; }
 @media (max-width:1100px){ .adv-card{ grid-template-columns:80px 1fr; gap:14px; padding:18px 20px; } .adv-num{font-size:48px;} .adv-vs{grid-template-columns:1fr;} }
 
+
+/* ===== LIFE GOALS — Caribbean mass-affluent ===== */
+.lg-intro { background: linear-gradient(135deg, #16130d 0%, var(--bg-card) 60%); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:22px 28px; margin-bottom:20px; }
+.lg-intro h3 { font-family:var(--serif); font-size:22px; font-weight:400; color:var(--text); margin:0 0 10px; }
+.lg-intro h3 em { color:var(--gold); font-style:italic; }
+.lg-intro p { font-family:var(--serif); font-size:15px; color:var(--text-secondary); line-height:1.6; margin:0; max-width:880px; font-style:italic; }
+.lg-grid { display:grid; gap:10px; margin-bottom:28px; }
+.lg-card { background:linear-gradient(180deg, var(--bg-card) 0%, #181614 100%); border:1px solid var(--border); border-left:3px solid var(--gold-dim); border-radius:0 8px 8px 0; overflow:hidden; transition:border-color .2s; }
+.lg-card:hover { border-left-color:var(--gold); }
+.lg-card.open { border-left-color:var(--gold); }
+.lg-head { display:grid; grid-template-columns:60px 1fr auto; gap:16px; align-items:center; padding:18px 22px; cursor:pointer; user-select:none; }
+.lg-head:hover { background:var(--bg-hover); }
+.lg-icon { font-family:var(--serif); font-style:italic; font-size:32px; color:var(--gold); line-height:1; }
+.lg-title { font-family:var(--serif); font-size:19px; font-weight:400; color:var(--text); line-height:1.25; }
+.lg-title small { display:block; font-family:var(--sans); font-size:12.5px; color:var(--text-secondary); margin-top:5px; font-style:italic; }
+.lg-tog { font-family:var(--mono); font-size:9px; color:var(--gold); border:1px solid var(--gold-dim); border-radius:3px; padding:5px 10px; letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:5px; }
+.lg-tog .chev { transition:transform .2s; display:inline-block; }
+.lg-card.open .lg-tog .chev { transform:rotate(90deg); }
+.lg-body { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.lg-card.open .lg-body { max-height:520px; }
+.lg-body-inner { padding:0 22px 20px 96px; display:grid; gap:12px; }
+.lg-row { display:grid; grid-template-columns:130px 1fr; gap:14px; }
+.lg-row .lk { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; padding-top:3px; }
+.lg-row.scene .lk { color:var(--text-tertiary); } .lg-row.scene .rv { color:var(--text-secondary); }
+.lg-row.platform .lk { color:var(--signal); }
+.lg-row.auto .lk { color:var(--gold); }
+.lg-row.outcome .lk { color:var(--positive); }
+.lg-row.outcome .rv { color:var(--text); }
+.lg-row .rv { font-family:var(--sans); font-size:13px; color:var(--text-secondary); line-height:1.6; }
+.lg-row .rv b { color:var(--text); }
+.lg-row .rv em { color:var(--gold); font-style:italic; }
+.lg-outcome-pill { display:inline-block; font-family:var(--mono); font-size:11px; color:#0a0b0d; background:var(--positive); padding:3px 9px; border-radius:3px; margin-top:6px; font-weight:700; letter-spacing:.04em; }
+.lg-outcome-pill em { font-style:normal; opacity:.75; margin-left:6px; }
+@media (max-width:1100px){ .lg-head{ grid-template-columns:50px 1fr auto; } .lg-body-inner{ padding-left:22px; } .lg-row{ grid-template-columns:1fr; gap:2px; } }
+
 </style>
 </head>
 
