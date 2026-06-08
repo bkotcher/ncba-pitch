@@ -1845,6 +1845,24 @@ footer.foot .right .gold { color: var(--gold); }
 .tbl#model-holdings td.muted, .tbl#model-metrics td.muted { color:var(--text-tertiary); }
 @media (max-width:1100px){ .model-cards{ grid-template-columns:1fr 1fr; } .model-detail-v2 .md-grid{ grid-template-columns:1fr; } }
 
+
+/* ===== HNW Caribbean structural-advantage cards ===== */
+.adv-intro { font-family:var(--serif); font-size:16px; color:var(--text-secondary); line-height:1.6; margin:0 0 22px; max-width:900px; font-style:italic; }
+.adv-intro em { color:var(--gold); font-style:italic; }
+.adv-grid { display:grid; gap:14px; margin-bottom:28px; }
+.adv-card { display:grid; grid-template-columns:120px 1fr; gap:24px; background:linear-gradient(135deg, #16130d 0%, var(--bg-card) 60%); border:1px solid var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:24px 28px; transition:transform .18s ease, border-color .18s; }
+.adv-card:hover { transform:translateX(4px); border-color:var(--gold); }
+.adv-num { font-family:var(--serif); font-size:68px; font-weight:300; color:var(--gold); line-height:1; letter-spacing:-.04em; opacity:.7; }
+.adv-card h4 { font-family:var(--serif); font-size:22px; font-weight:400; color:var(--text); margin:0 0 10px; line-height:1.2; }
+.adv-card h4 em { color:var(--gold); font-style:italic; }
+.adv-card p { font-family:var(--sans); font-size:14px; color:var(--text-secondary); line-height:1.6; margin:0 0 12px; }
+.adv-card p b { color:var(--text); }
+.adv-vs { display:grid; grid-template-columns:140px 1fr; gap:14px; align-items:start; padding:10px 14px; background:rgba(201,112,98,.06); border-left:2px solid var(--critical); border-radius:0 3px 3px 0; font-family:var(--mono); font-size:11.5px; color:var(--text-secondary); line-height:1.5; }
+.adv-vs .vk { color:var(--critical); font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:9.5px; padding-top:2px; }
+.adv-close { font-family:var(--serif); font-size:17px; color:var(--text); line-height:1.55; margin-top:8px; padding:22px 28px; background:linear-gradient(135deg, #1a1614 0%, var(--bg-card) 80%); border:1px solid var(--gold); border-radius:8px; }
+.adv-close em { color:var(--gold); font-style:italic; }
+@media (max-width:1100px){ .adv-card{ grid-template-columns:80px 1fr; gap:14px; padding:18px 20px; } .adv-num{font-size:48px;} .adv-vs{grid-template-columns:1fr;} }
+
 </style>
 </head>
 
@@ -2314,93 +2332,55 @@ footer.foot .right .gold { color: var(--gold); }
 })();</script>
 
         <div class="section-header">
-          <div class="section-title">What we deliver to HNW clients &mdash; the deliverables we sign on</div>
-          <div class="section-meta">Six concrete commitments &middot; everything labelled <b>direct</b> (executed by Oceanic) or <b>advisory</b> (coordinated via partners under ECSRC permissions) &middot; click any to drill in</div>
+          <div class="section-title">Why we win HNW business in the Caribbean &mdash; five structural advantages</div>
+          <div class="section-meta">Not feature differentiators &mdash; <b>structural facts about how this partnership is configured</b>. None of these are available through Butterfield, RBC Wealth Caribbean, CIBC FirstCaribbean, or any offshore wrapper.</div>
         </div>
-        <div class="ai-grid" id="del-grid">
-
-          <div class="ai-cap" data-d="1">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">1</div>
-              <div class="ai-cap-title">Bespoke portfolio mandate &mdash; held in the client&apos;s name<small>Discretionary management against a signed IPS. The portfolio is the client&apos;s asset, not a fund unit.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+        <p class="adv-intro">The CEO and board need to see two things on this page: <em>what the bank actually offers HNW clients through this partnership, and why that offer is structurally impossible for any other regional alternative to match</em>. Below: five reasons, each grounded in how the partnership is built.</p>
+        <div class="adv-grid">
+          <div class="adv-card">
+            <div class="adv-num">01</div>
+            <div>
+              <h4>A wealth platform under <em>your</em> brand &mdash; not ours</h4>
+              <p>Co-branded as the bank&apos;s own wealth offering. The client experiences the bank end-to-end &mdash; the portal, the statements, the relationship, the meetings. <b>Oceanic is the invisible engine.</b></p>
+              <div class="adv-vs"><span class="vk">vs. offshore</span><span>Butterfield-branded, RBC-branded, CIBC-branded. The client builds loyalty to the offshore provider; the bank loses the relationship the day the AUM exceeds its size.</span></div>
             </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv">Bespoke portfolio construction across the five-layer architecture &mdash; public equity, fixed income, real-asset ETFs/REITs, hedging overlays. Mandate documented in a signed IPS that defines target return, risk budget, currency base, exclusions, and time horizon.</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">Daily discretionary execution at <b>Oceanic across 150 markets and 24+ currencies</b>. Every trade routes through the bank&apos;s compliance overlay; every position is held in the client&apos;s name &mdash; segregated, SIPC-equivalent, transparent.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>DIRECT</b> &mdash; executed by Oceanic under ECSRC permissions. No partner intermediation on the public-market book.</div></div>
-            </div></div>
           </div>
-
-          <div class="ai-cap" data-d="2">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">2</div>
-              <div class="ai-cap-title">Daily bank-branded portal &amp; line-by-line transparency<small>Every position, every fee, every day &mdash; on the bank&apos;s portal in the client&apos;s name. Not a quarterly fund statement.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+          <div class="adv-card">
+            <div class="adv-num">02</div>
+            <div>
+              <h4>Inside <em>your</em> regulatory perimeter &mdash; ECSRC, on-island</h4>
+              <p>Every wealth account opened through this partnership sits inside the same regulator that supervises the bank. <b>Reportable on-island. Auditable on-island. ECSRC-perimeter.</b> Nothing offshore.</p>
+              <div class="adv-vs"><span class="vk">vs. offshore</span><span>Bermuda. Cayman. Toronto. London. Different regulator, different jurisdiction, different supervisory regime. The client&apos;s wealth is structurally outside the bank&apos;s perimeter.</span></div>
             </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv">A <b>bank-branded client portal</b> with daily NAV, holdings, performance attribution, fee disclosure, transaction history, audit-grade trade logs. API integration available so the data flows into the bank&apos;s mobile app and CRM.</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">We provide the data feed and the UI; the bank brands and hosts. White-label single sign-on with the bank&apos;s authentication &mdash; clients see one experience, not two.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>DIRECT</b> &mdash; Oceanic platform delivered under bank&apos;s brand. Daily data, daily fees, daily everything.</div></div>
-            </div></div>
           </div>
-
-          <div class="ai-cap" data-d="3">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">3</div>
-              <div class="ai-cap-title">Multi-currency execution &amp; securities-backed lending<small>USD / EUR / GBP / CHF / JPY sleeves natively. Borrow against the portfolio at institutional rates without selling.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+          <div class="adv-card">
+            <div class="adv-num">03</div>
+            <div>
+              <h4>Caribbean-aware AI &mdash; built for the regional book</h4>
+              <p><b>Hurricane &amp; climate intelligence.</b> <b>Tourism revenue forecasting.</b> <b>Regional credit pulse</b> across every Caribbean issuer. <b>ECCB &amp; ECSRC monitoring</b> in real time. The platform <em>knows the Caribbean</em>.</p>
+              <div class="adv-vs"><span class="vk">vs. offshore</span><span>US and EU template platforms. They treat the Caribbean as a sales region, not a place where clients have complicated multi-jurisdiction lives. Their AI doesn&apos;t know the OECS regulator, the XCD peg, or the hurricane season.</span></div>
             </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv">Native multi-currency portfolio construction across <b>24+ currencies</b>. <b>Securities-backed lending</b> at institutional rates against the portfolio &mdash; typically 50&ndash;70% LTV on liquid securities. Liquidity for property/business/transaction without breaking the compounding.</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">Direct via the Oceanic platform. Currency overlay where mandated. The lending facility runs on the portfolio; loan-to-value enforced by the platform; rates and margin maintenance fully transparent.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>DIRECT</b> &mdash; fully via Oceanic. No third-party currency wrappers, no separate lending bank.</div></div>
-            </div></div>
           </div>
-
-          <div class="ai-cap" data-d="4">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">4</div>
-              <div class="ai-cap-title">AI risk &amp; research, region-aware<small>Continuous risk surveillance + AI market intelligence + Caribbean-specific signals &mdash; running 24/7 on every client portfolio.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+          <div class="adv-card">
+            <div class="adv-num">04</div>
+            <div>
+              <h4>Direct ownership &mdash; assets in the client&apos;s name, at Oceanic</h4>
+              <p>Every share, bond, ETF held in the client&apos;s name &mdash; <b>segregated, transparent, SIPC-equivalent</b>. Daily NAV, line-by-line, on the bank-branded portal. If the partnership ended tomorrow, the client keeps every position.</p>
+              <div class="adv-vs"><span class="vk">vs. offshore</span><span>Pooled fund units in a provider&apos;s proprietary wrapper. The client owns a slice of a fund, not the underlying securities. Holdings disclosed quarterly, fund-level, opaque.</span></div>
             </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv"><b>Triple-method daily VaR</b> on every client portfolio. <b>Pre-trade compliance overlay</b> (hard caps enforced at the trade). <b>Adversarial stress nightly</b>. <b>AI material-event monitoring</b> across 2,400+ sources in 11 languages. Caribbean-specific intelligence &mdash; hurricane &amp; climate AI, tourism real-economy data, regional credit pulse (see &ldquo;The AI edge&rdquo; above).</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">The AI runs continuously on the client&apos;s actual portfolio. Material findings surface to the bank&apos;s portfolio team in 4 minutes and, on opt-in, directly to the client via alerts. Every signal is logged for the next board pack.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>DIRECT</b> &mdash; Oceanic&apos;s AI platform under the bank&apos;s brand.</div></div>
-            </div></div>
           </div>
-
-          <div class="ai-cap" data-d="5">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">5</div>
-              <div class="ai-cap-title">Direct portfolio manager &amp; CIO access &mdash; by name<small>The same person, by name, every quarter. Not a call centre, not a regional service desk.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
+          <div class="adv-card">
+            <div class="adv-num">05</div>
+            <div>
+              <h4>On-island, by name, same-day &mdash; not a call centre</h4>
+              <p>A named portfolio manager and CIO, on-island, in the client&apos;s time zone, ECSRC-supervised. <b>Direct access by name.</b> Annual strategy off-site. Monthly portfolio review. <b>The relationship is local; the platform is global.</b></p>
+              <div class="adv-vs"><span class="vk">vs. offshore</span><span>HQ-routed call centre or quarterly site visit. Days of latency between question and answer. A relationship manager whose home isn&apos;t on the same island as the client&apos;s home.</span></div>
             </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv">A <b>named portfolio manager</b> for the HNW relationship (with bank-side coverage by the bank&apos;s RM team). <b>Monthly portfolio review</b> with the PM; on-demand calls and meetings; <b>direct CIO access</b> for clients above the family-office threshold; annual strategy off-site for HNW &amp; Ultra-HNW.</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">Coverage ratios sized to the relationship &mdash; the PM and CIO are <em>on-island, in the client&apos;s time zone, ECSRC-supervised</em>. Bank&apos;s RM team is the front line; our investment team is the second line.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>DIRECT</b> &mdash; named team, dedicated cadence, written into the partnership agreement.</div></div>
-            </div></div>
           </div>
-
-          <div class="ai-cap" data-d="6">
-            <div class="ai-cap-head">
-              <div class="ai-cap-num">6</div>
-              <div class="ai-cap-title">Private-markets &amp; wealth-structuring advisory access<small>Vetted partner network for PE / private credit / hedge funds / trust &amp; tax / multi-generational structuring.</small></div>
-              <div class="ai-cap-tog"><span class="chev">&#9656;</span>Drill in</div>
-            </div>
-            <div class="ai-cap-body"><div class="ai-cap-body-inner">
-              <div class="ai-cap-row what"><div class="rk">What we deliver</div><div class="rv"><b>Advisory access</b> to private equity, private credit, venture, hedge-fund strategies via a vetted institutional partner network. <b>Trust &amp; estate structuring</b> coordinated with vetted legal partners. <b>Tax &amp; jurisdiction planning</b> coordinated with vetted tax counsel. <b>Multi-generational wealth planning</b>.</div></div>
-              <div class="ai-cap-row where"><div class="rk">How we deliver it</div><div class="rv">We coordinate the diligence and access &mdash; <em>we do not run a PE fund and we do not deliver legal/tax advice ourselves</em>. Partners are vetted, contracted, and oversight is built into the relationship. Capital calls, distributions, and structuring outputs flow into the bank-branded reporting.</div></div>
-              <div class="ai-cap-row us"><div class="rk">Mode</div><div class="rv"><b>ADVISORY</b> &mdash; partner-coordinated, fully transparent on what is direct vs partner. <em>Operates within ECSRC advisory permissions.</em></div></div>
-            </div></div>
-          </div>
-
         </div>
-        <script>(function(){var g=document.getElementById('del-grid');if(!g)return;g.querySelectorAll('.ai-cap-head').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});})();</script>
+        <div class="adv-close">No regional Caribbean wealth alternative offers <em>any one</em> of the five. Through this partnership the bank offers <em>all five</em> from day one &mdash; with a sixteen-week build, not an eighteen-month one.</div>
 
-        <div class="hv-wrap">
+<div class="hv-wrap">
           <div class="hv-hero">
             <div>
               <h3>Our house view &mdash; <em>what we&apos;re telling HNW clients this quarter</em></h3>
